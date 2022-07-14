@@ -13,7 +13,7 @@ Public Class PaginaWeb
         Dim dtr As IDataReader
         Dim sSQL As String
         sSQL = "Select PaginaWebName, PaginaWebTitle, PaginaWebDescription, PaginaWebDescription2, FormularioWebNumber, PaginaWebGroupValidation, PaginaWebStereotype, PaginaWebUserControl, EntidadNombreTabla "
-        sSQL = sSQL & "FROM (PaginaWeb) "
+        sSQL = sSQL & "FROM PaginaWeb "
         sSQL = sSQL & "WHERE (PaginaWeb.PaginaWebId = " & PaginaWebId & ") "
         Try
             dtr = AccesoEA.ListarRegistros(sSQL)
@@ -84,7 +84,7 @@ Public Class PaginaWeb
         Dim dtr As IDataReader
         Dim sSQL As String
         sSQL = "Select PaginaWebTitle "
-        sSQL = sSQL & "FROM (PaginaWeb) "
+        sSQL = sSQL & "FROM PaginaWeb "
         sSQL = sSQL & "WHERE (PaginaWeb.PaginaWebName = '" & PaginaWebName & "') "
         LeerPaginaWebTitle = ""
         Try
@@ -102,7 +102,7 @@ Public Class PaginaWeb
         Dim dtr As IDataReader
         Dim sSQL As String
         sSQL = "Select EntidadNombreTabla "
-        sSQL = sSQL & "FROM (PaginaWeb) "
+        sSQL = sSQL & "FROM PaginaWeb "
         sSQL = sSQL & "WHERE (PaginaWeb.PaginaWebName = '" & PaginaWebName & "') "
         LeerPivotTable = ""
         Try
@@ -120,7 +120,7 @@ Public Class PaginaWeb
         Dim dtr As IDataReader
         Dim sSQL As String
         sSQL = "Select PaginaWebNovedades "
-        sSQL = sSQL & "FROM (PaginaWeb) "
+        sSQL = sSQL & "FROM PaginaWeb "
         sSQL = sSQL & "WHERE (PaginaWeb.PaginaWebName = '" & PaginaWebName & "') "
         MostrarListaNovedades = False
         Try

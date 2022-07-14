@@ -1691,7 +1691,7 @@ Public Class Lecturas
         Dim sSQL As String
 
         sSQL = "Select PaginaWeb.PaginaWebTitle, PaginaWeb.PaginaWebDescription, PaginaWeb.FormularioWebNumber, PaginaWeb.PaginaWebGroupValidation "
-        sSQL = sSQL & "FROM (PaginaWeb) "
+        sSQL = sSQL & "FROM PaginaWeb "
         sSQL = sSQL & "WHERE(((PaginaWeb.PaginaWebName) = '" & PaginaWebName & "')) "
 
         Try
@@ -1715,7 +1715,7 @@ Public Class Lecturas
         Dim sSQL As String
 
         sSQL = "Select PaginaWeb.PaginaWebUserControl "
-        sSQL = sSQL & "FROM (PaginaWeb) "
+        sSQL = sSQL & "FROM PaginaWeb "
         sSQL = sSQL & "WHERE(((PaginaWeb.PaginaWebName) = '" & PaginaWebName & "')) "
 
         Try
@@ -2076,7 +2076,7 @@ Public Class Lecturas
         MyTable.Rows.Add(Row)
 
 
-        'Linea de División
+        'Linea de Divisiï¿½n
         'Row = New TableRow
         'Cell = New TableCell
         'Cell.Style(HtmlTextWriterStyle.TextAlign) = "left"
@@ -2086,7 +2086,7 @@ Public Class Lecturas
         'Row.Cells.Add(Cell)
         'MyTable.Rows.Add(Row)
 
-        'Descripción
+        'Descripciï¿½n
         'Row = New TableRow
         'Cell = New TableCell
         'Cell.CssClass = "tab_contenido"
@@ -2111,7 +2111,7 @@ Public Class Lecturas
         Row.Cells.Add(Cell)
         MyTable.Rows.Add(Row)
 
-        'Linea de División
+        'Linea de Divisiï¿½n
         'Row = New TableRow
         'Cell = New TableCell
         'Cell.Style(HtmlTextWriterStyle.TextAlign) = "left"
@@ -2174,7 +2174,7 @@ Public Class Lecturas
                     AutoComp.CompletionListItemCssClass = CssClassControl
                     AutoComp.TargetControlID = arrControl(k)
                     AutoComp.ServicePath = "AutoComplete.asmx"
-                    AutoComp.ServiceMethod = Lecturas.LeerNombreMetodoAutocomplete("Form", NumeroPagina, k + 1)  ' Aqui hay que invocar un metodo para traer el nombre del método
+                    AutoComp.ServiceMethod = Lecturas.LeerNombreMetodoAutocomplete("Form", NumeroPagina, k + 1)  ' Aqui hay que invocar un metodo para traer el nombre del mï¿½todo
                     AutoComp.MinimumPrefixLength = "2"
                     AutoComp.CompletionInterval = "1000"
                     AutoComp.EnableCaching = "true"
@@ -2227,7 +2227,7 @@ Public Class Lecturas
                     txtCheckBox = New CheckBox
                     txtCheckBox.ID = "chk" & arrControl(k)
                     txtCheckBox.ClientIDMode = ClientIDMode.Static
-                    txtCheckBox.ToolTip = "Marque el check box para realizar la búsqueda usando el valor seleccionado para el campo " & arrLabel(k)
+                    txtCheckBox.ToolTip = "Marque el check box para realizar la bï¿½squeda usando el valor seleccionado para el campo " & arrLabel(k)
                     Cell.Controls.Add(txtCheckBox)
                     Cell.Controls.Add(New LiteralControl(" "))
                     txtDropDownList = New DropDownList
@@ -2250,7 +2250,7 @@ Public Class Lecturas
                     txtCheckBox = New CheckBox
                     txtCheckBox.ID = "chk" & arrControl(k)
                     txtCheckBox.ClientIDMode = ClientIDMode.Static
-                    txtCheckBox.ToolTip = "Marque el check box para realizar la búsqueda usando el valor seleccionado para el campo " & arrLabel(k)
+                    txtCheckBox.ToolTip = "Marque el check box para realizar la bï¿½squeda usando el valor seleccionado para el campo " & arrLabel(k)
                     Cell.Controls.Add(txtCheckBox)
                     Cell.Controls.Add(New LiteralControl(" "))
                     txtTextBox = New TextBox
@@ -2299,7 +2299,7 @@ Public Class Lecturas
                     REValidacion.ID = "RegularExpression" & arrControl(k)
                     REValidacion.ControlToValidate = arrControl(k)
                     REValidacion.Text = "*"
-                    REValidacion.ErrorMessage = "La dirección de correo no tiene un formato valido"
+                    REValidacion.ErrorMessage = "La direcciï¿½n de correo no tiene un formato valido"
                     REValidacion.CssClass = "tab_contenido"
                     REValidacion.ValidationGroup = GroupValidation
                     REValidacion.ValidationExpression = "\S+@\S+\.\S{2,3}"
@@ -2320,7 +2320,7 @@ Public Class Lecturas
                     CoValidacion.ID = "CompareValidator" & arrControl(k)
                     CoValidacion.ControlToValidate = arrControl(k)
                     CoValidacion.Text = "*"
-                    CoValidacion.ErrorMessage = arrLabel(k) & " debe ser un valor numérico"
+                    CoValidacion.ErrorMessage = arrLabel(k) & " debe ser un valor numï¿½rico"
                     CoValidacion.CssClass = "tab_contenido"
                     CoValidacion.ValidationGroup = GroupValidation
                     CoValidacion.Operator = ValidationCompareOperator.DataTypeCheck
@@ -2331,7 +2331,7 @@ Public Class Lecturas
                     CoValidacion.ID = "CompareValidator" & arrControl(k)
                     CoValidacion.ControlToValidate = arrControl(k)
                     CoValidacion.Text = "*"
-                    CoValidacion.ErrorMessage = arrLabel(k) & " debe ser un valor alfanumérico"
+                    CoValidacion.ErrorMessage = arrLabel(k) & " debe ser un valor alfanumï¿½rico"
                     CoValidacion.CssClass = "tab_contenido"
                     CoValidacion.ValidationGroup = GroupValidation
                     CoValidacion.Operator = ValidationCompareOperator.DataTypeCheck
@@ -2353,7 +2353,7 @@ Public Class Lecturas
             MyTable.Rows.Add(Row)
         Next
 
-        'Linea de División
+        'Linea de Divisiï¿½n
         'Row = New TableRow
         'Cell = New TableCell
         'Cell.Style(HtmlTextWriterStyle.TextAlign) = "left"
@@ -2478,7 +2478,7 @@ Public Class Lecturas
         Dim sSQL As String
 
         sSQL = "Select Logo, BarMenu, SideBarMenu, PaginaWebName "
-        sSQL = sSQL & "FROM (MenuOptions) "
+        sSQL = sSQL & "FROM MenuOptions "
         sSQL = sSQL & "WHERE (((MenuOptions.MenuOptionsId) = " & MenuOptionsId & ")) "
 
         Try
@@ -3069,8 +3069,8 @@ Public Class Lecturas
         Dim TC As TabContainer
         Dim TP As TabPanel
 
-        ' Primero pongo los textos de identificación de la página, que fueron pasados como
-        ' parámetros de invocación
+        ' Primero pongo los textos de identificaciï¿½n de la pï¿½gina, que fueron pasados como
+        ' parï¿½metros de invocaciï¿½n
 
         'Titulo
         Row = New TableRow
@@ -3082,7 +3082,7 @@ Public Class Lecturas
         Row.Cells.Add(Cell)
         MyTable.Rows.Add(Row)
 
-        'Linea de División
+        'Linea de Divisiï¿½n
         Row = New TableRow
         Cell = New TableCell
         Cell.Style(HtmlTextWriterStyle.TextAlign) = "left"
@@ -3092,7 +3092,7 @@ Public Class Lecturas
         Row.Cells.Add(Cell)
         MyTable.Rows.Add(Row)
 
-        'Descripción
+        'Descripciï¿½n
         Row = New TableRow
         Cell = New TableCell
         Cell.CssClass = "tab_contenido"
@@ -3117,7 +3117,7 @@ Public Class Lecturas
         Row.Cells.Add(Cell)
         MyTable.Rows.Add(Row)
 
-        'Linea de División
+        'Linea de Divisiï¿½n
         'Row = New TableRow
         'Cell = New TableCell
         'Cell.Style(HtmlTextWriterStyle.TextAlign) = "left"
@@ -3127,11 +3127,11 @@ Public Class Lecturas
         'Row.Cells.Add(Cell)
         'MyTable.Rows.Add(Row)
 
-        ' A continuación del título y de la descripción de objetivos de la página se despliegan
-        ' los campos que son de contexto y que no pueden ser alterados por ningún motivo, como
-        ' por ejemplo aquellos campos que son claves únicas y que no pueden ser modificados
+        ' A continuaciï¿½n del tï¿½tulo y de la descripciï¿½n de objetivos de la pï¿½gina se despliegan
+        ' los campos que son de contexto y que no pueden ser alterados por ningï¿½n motivo, como
+        ' por ejemplo aquellos campos que son claves ï¿½nicas y que no pueden ser modificados
         ' o aquellos campos que corresponden a la foreing key hacia la tabla padre, en el
-        ' caso de una aplicación del tipo master-detail.
+        ' caso de una aplicaciï¿½n del tipo master-detail.
 
         ' Estos campos se encuentran en la section FormKeys y pueden no existir para determinados
         ' tipos de formularios y se leen mediante el metodo 
@@ -3141,7 +3141,7 @@ Public Class Lecturas
 
         If i > 0 Then
 
-            'Linea de División
+            'Linea de Divisiï¿½n
             Row = New TableRow
             Cell = New TableCell
             Cell.Style(HtmlTextWriterStyle.TextAlign) = "left"
@@ -3185,29 +3185,29 @@ Public Class Lecturas
 
         i = 0
 
-        ' A continuación leo el registro de cabecera del formulario y desde el cual derivan el
+        ' A continuaciï¿½n leo el registro de cabecera del formulario y desde el cual derivan el
         ' resto de los registros que indican sus atributos y sus acciones
-        ' Este registro se identifica pues es el único del formulario que pertenece a la 
+        ' Este registro se identifica pues es el ï¿½nico del formulario que pertenece a la 
         ' section FormHeader y se lee con el metodo: LeerHeaderFormularioWeb, que devuelve
-        ' una única variable cuyo valor gobierna las siguientes decisiones de despliegue de los 
-        ' atributos del formulario web, para ello este metodo se implementa como una función que 
-        ' devuelve un único campo booleano que puede poseer los siguientes valores:
+        ' una ï¿½nica variable cuyo valor gobierna las siguientes decisiones de despliegue de los 
+        ' atributos del formulario web, para ello este metodo se implementa como una funciï¿½n que 
+        ' devuelve un ï¿½nico campo booleano que puede poseer los siguientes valores:
 
         '   False:  No se encontro registro de cabecera, en cuyo caso el formulario es plano y no
         '           requiere un recorrido recursivo para ir desplegando sus atributos.
         '   ------------------------------------------------------------------------------------
         '   True:  Se encontro registro de cabecera y ello indica que el formulario debe ser recorrido
-        '           en forma recursiva a continuación del despliegue de los campos clave, siempre y cuando
+        '           en forma recursiva a continuaciï¿½n del despliegue de los campos clave, siempre y cuando
         '           estos existan como atributos del formulario.
         t = Lecturas.LeerHeaderFormularioWeb(arrLabel, arrControl, NumeroPagina, i, FormularioWebPId)
 
         If i = 1 Then ' Se encontro un registro de cabecera para el formulario web
             ' Aqui se implementa la lectura recursiva del formulario web
             ' La lectura del Header del Formulario nos trae el Id del registro de Header, cuyo valor
-            ' actua como ParentId de los registros que deben ser leidos a continuación de la lectura 
+            ' actua como ParentId de los registros que deben ser leidos a continuaciï¿½n de la lectura 
             ' del Header.
 
-            ' Los registros que vienen a continuación son de dos grandes tipos:
+            ' Los registros que vienen a continuaciï¿½n son de dos grandes tipos:
             ' Registros que identifican un control del tipo Contenedor y
             ' Registros que identifican un control que corresponde a un atributo de una tabla.
 
@@ -3233,16 +3233,16 @@ Public Class Lecturas
             'Esta lectura me da los nodos de cabecera y que por ahora interpretaremos como los 
             'TabPanel del Tab Container.
 
-            ' Luego ya leyendo los registros tendremos dos tipos de contenedores adicionales, que serán 
+            ' Luego ya leyendo los registros tendremos dos tipos de contenedores adicionales, que serï¿½n 
             ' los hijos de los TabPanel.
 
             ' Estos dos contenedores son del tipo Table y Panel.
 
-            ' Siempre despues de un tipo Panel deberá venir un contenedor del tipo Table.
+            ' Siempre despues de un tipo Panel deberï¿½ venir un contenedor del tipo Table.
 
-            ' Siempre después de un tipo Table debera venir o un contenedor de tipo Panel o
+            ' Siempre despuï¿½s de un tipo Table debera venir o un contenedor de tipo Panel o
             ' directamente un control del tipo Hoja y que corresponde a un control de texto de
-            ' entrada o presentación de datos o bien un contenedor de controles del tipo button.
+            ' entrada o presentaciï¿½n de datos o bien un contenedor de controles del tipo button.
 
             ' Un contenedor de controles del tipo button se implementara siempre como una tabla con 
             ' una sola fila y dos columnas, en donde la columna de la derecha es la contenedora de
@@ -3252,7 +3252,7 @@ Public Class Lecturas
 
             ' He dicho, 24 de Julio de 2010 a las 12:14 horas.
 
-            ' Vamos a copiar la misma logica del menú accordion
+            ' Vamos a copiar la misma logica del menï¿½ accordion
 
             If i > 0 Then
 
@@ -3266,13 +3266,13 @@ Public Class Lecturas
                     'Agrega el contenedor
                     TP.Controls.Add(New LiteralControl("<contenttemplate>"))
 
-                    'Aqui voy, por ahora supondremos que sólo tenemos tabs que actuaran de contenedores
+                    'Aqui voy, por ahora supondremos que sï¿½lo tenemos tabs que actuaran de contenedores
                     'de atributos y que por ahora no dejamos usar otros agrupadores, luego programaremos
                     'el resto del comportamiento esperado
 
                     'Call AgregarControlesPorTab(ArrNodesId(k), Celda, NumeroPagina, GroupValidation, sumValidacion, valTextBox, REValidacion, CuValidacion, CoValidacion)
 
-                    'Aqui se agrego todo el código necesario para dibujar la tabla de controles bajo cada Tab
+                    'Aqui se agrego todo el cï¿½digo necesario para dibujar la tabla de controles bajo cada Tab
 
                     n = 0
                     t = Lecturas.LeerNodesFormularioWeb(arrNodesLabel, arrNodesControl, arrSubNodesId, n, ArrNodesId(k))
@@ -3383,7 +3383,7 @@ Public Class Lecturas
                                 txtCheckBox = New CheckBox
                                 txtCheckBox.ID = "chk" & arrNodesControl(m)
                                 txtCheckBox.ClientIDMode = ClientIDMode.Static
-                                txtCheckBox.ToolTip = "Marque el check box para realizar la búsqueda usando el valor seleccionado para el campo " & arrNodesLabel(m)
+                                txtCheckBox.ToolTip = "Marque el check box para realizar la bï¿½squeda usando el valor seleccionado para el campo " & arrNodesLabel(m)
                                 MiCellSubTab.Controls.Add(txtCheckBox)
                                 MiCellSubTab.Controls.Add(New LiteralControl(" "))
                                 txtDropDownList = New DropDownList
@@ -3422,7 +3422,7 @@ Public Class Lecturas
                                 REValidacion.ControlToValidate = arrNodesControl(m)
                                 REValidacion.ClientIDMode = ClientIDMode.Static
                                 REValidacion.Text = "*"
-                                REValidacion.ErrorMessage = "La dirección de correo no tiene un formato valido"
+                                REValidacion.ErrorMessage = "La direcciï¿½n de correo no tiene un formato valido"
                                 REValidacion.CssClass = "tab_contenido"
                                 REValidacion.ValidationGroup = GroupValidation
                                 REValidacion.ValidationExpression = "\S+@\S+\.\S{2,3}"
@@ -3445,7 +3445,7 @@ Public Class Lecturas
                                 CoValidacion.ControlToValidate = arrNodesControl(m)
                                 CoValidacion.ClientIDMode = ClientIDMode.Static
                                 CoValidacion.Text = "*"
-                                CoValidacion.ErrorMessage = arrNodesLabel(m) & " debe ser un valor numérico"
+                                CoValidacion.ErrorMessage = arrNodesLabel(m) & " debe ser un valor numï¿½rico"
                                 CoValidacion.CssClass = "tab_contenido"
                                 CoValidacion.ValidationGroup = GroupValidation
                                 CoValidacion.Operator = ValidationCompareOperator.DataTypeCheck
@@ -3457,7 +3457,7 @@ Public Class Lecturas
                                 CoValidacion.ControlToValidate = arrNodesControl(m)
                                 CoValidacion.ClientIDMode = ClientIDMode.Static
                                 CoValidacion.Text = "*"
-                                CoValidacion.ErrorMessage = arrNodesLabel(m) & " debe ser un valor alfanumérico"
+                                CoValidacion.ErrorMessage = arrNodesLabel(m) & " debe ser un valor alfanumï¿½rico"
                                 CoValidacion.CssClass = "tab_contenido"
                                 CoValidacion.ValidationGroup = GroupValidation
                                 CoValidacion.Operator = ValidationCompareOperator.DataTypeCheck
@@ -3490,8 +3490,8 @@ Public Class Lecturas
             Row.Cells.Add(Cell)
             MyTable.Rows.Add(Row)
 
-            ' Hasta aquí hemos agrupado los atributos en Tabs, pero nos faltan aún los botones,
-            ' por ahora simplemente copiaremos el código que agrega los botones,luego haremos las
+            ' Hasta aquï¿½ hemos agrupado los atributos en Tabs, pero nos faltan aï¿½n los botones,
+            ' por ahora simplemente copiaremos el cï¿½digo que agrega los botones,luego haremos las
             ' optimizaciones
 
             'Botones del Formulario
@@ -3610,7 +3610,7 @@ Public Class Lecturas
 
         Else
 
-            'Linea de División
+            'Linea de Divisiï¿½n
             Row = New TableRow
             Cell = New TableCell
             Cell.Style(HtmlTextWriterStyle.TextAlign) = "left"
@@ -3672,7 +3672,7 @@ Public Class Lecturas
                         AutoComp.CompletionListItemCssClass = CssClassControl
                         AutoComp.TargetControlID = arrControl(k)
                         AutoComp.ServicePath = "AutoComplete.asmx"
-                        AutoComp.ServiceMethod = Lecturas.LeerNombreMetodoAutocomplete("Form", NumeroPagina, k + 1)  ' Aqui hay que invocar un metodo para traer el nombre del método
+                        AutoComp.ServiceMethod = Lecturas.LeerNombreMetodoAutocomplete("Form", NumeroPagina, k + 1)  ' Aqui hay que invocar un metodo para traer el nombre del mï¿½todo
                         AutoComp.MinimumPrefixLength = "2"
                         AutoComp.CompletionInterval = "1000"
                         AutoComp.EnableCaching = "true"
@@ -3724,7 +3724,7 @@ Public Class Lecturas
                         txtCheckBox = New CheckBox
                         txtCheckBox.ID = "chk" & arrControl(k)
                         txtCheckBox.ClientIDMode = ClientIDMode.Static
-                        txtCheckBox.ToolTip = "Marque el check box para realizar la búsqueda usando el valor seleccionado para el campo " & arrLabel(k)
+                        txtCheckBox.ToolTip = "Marque el check box para realizar la bï¿½squeda usando el valor seleccionado para el campo " & arrLabel(k)
                         Cell.Controls.Add(txtCheckBox)
                         Cell.Controls.Add(New LiteralControl(" "))
                         txtDropDownList = New DropDownList
@@ -3763,7 +3763,7 @@ Public Class Lecturas
                         REValidacion.ID = "RegularExpression" & arrControl(k)
                         REValidacion.ControlToValidate = arrControl(k)
                         REValidacion.Text = "*"
-                        REValidacion.ErrorMessage = "La dirección de correo no tiene un formato valido"
+                        REValidacion.ErrorMessage = "La direcciï¿½n de correo no tiene un formato valido"
                         REValidacion.CssClass = "tab_contenido"
                         REValidacion.ValidationGroup = GroupValidation
                         REValidacion.ValidationExpression = "\S+@\S+\.\S{2,3}"
@@ -3784,7 +3784,7 @@ Public Class Lecturas
                         CoValidacion.ID = "CompareValidator" & arrControl(k)
                         CoValidacion.ControlToValidate = arrControl(k)
                         CoValidacion.Text = "*"
-                        CoValidacion.ErrorMessage = arrLabel(k) & " debe ser un valor numérico"
+                        CoValidacion.ErrorMessage = arrLabel(k) & " debe ser un valor numï¿½rico"
                         CoValidacion.CssClass = "tab_contenido"
                         CoValidacion.ValidationGroup = GroupValidation
                         CoValidacion.Operator = ValidationCompareOperator.DataTypeCheck
@@ -3795,7 +3795,7 @@ Public Class Lecturas
                         CoValidacion.ID = "CompareValidator" & arrControl(k)
                         CoValidacion.ControlToValidate = arrControl(k)
                         CoValidacion.Text = "*"
-                        CoValidacion.ErrorMessage = arrLabel(k) & " debe ser un valor alfanumérico"
+                        CoValidacion.ErrorMessage = arrLabel(k) & " debe ser un valor alfanumï¿½rico"
                         CoValidacion.CssClass = "tab_contenido"
                         CoValidacion.ValidationGroup = GroupValidation
                         CoValidacion.Operator = ValidationCompareOperator.DataTypeCheck
@@ -3817,7 +3817,7 @@ Public Class Lecturas
                 MyTable.Rows.Add(Row)
             Next
 
-            'Linea de División
+            'Linea de Divisiï¿½n
             Row = New TableRow
             Cell = New TableCell
             Cell.Style(HtmlTextWriterStyle.TextAlign) = "left"
@@ -4090,7 +4090,7 @@ Public Class Lecturas
                     txtCheckBox = New CheckBox
                     txtCheckBox.ID = "chk" & arrNodesControl(m)
                     txtCheckBox.ClientIDMode = ClientIDMode.Static
-                    txtCheckBox.ToolTip = "Marque el check box para realizar la búsqueda usando el valor seleccionado para el campo " & arrNodesLabel(m)
+                    txtCheckBox.ToolTip = "Marque el check box para realizar la bï¿½squeda usando el valor seleccionado para el campo " & arrNodesLabel(m)
                     MiCellSubTab.Controls.Add(txtCheckBox)
                     MiCellSubTab.Controls.Add(New LiteralControl(" "))
                     txtDropDownList = New DropDownList
@@ -4129,7 +4129,7 @@ Public Class Lecturas
                     REValidacion.ControlToValidate = arrNodesControl(m)
                     REValidacion.ClientIDMode = ClientIDMode.Static
                     REValidacion.Text = "*"
-                    REValidacion.ErrorMessage = "La dirección de correo no tiene un formato valido"
+                    REValidacion.ErrorMessage = "La direcciï¿½n de correo no tiene un formato valido"
                     REValidacion.CssClass = "tab_contenido"
                     REValidacion.ValidationGroup = GroupValidation
                     REValidacion.ValidationExpression = "\S+@\S+\.\S{2,3}"
@@ -4152,7 +4152,7 @@ Public Class Lecturas
                     CoValidacion.ControlToValidate = arrNodesControl(m)
                     CoValidacion.ClientIDMode = ClientIDMode.Static
                     CoValidacion.Text = "*"
-                    CoValidacion.ErrorMessage = arrNodesLabel(m) & " debe ser un valor numérico"
+                    CoValidacion.ErrorMessage = arrNodesLabel(m) & " debe ser un valor numï¿½rico"
                     CoValidacion.CssClass = "tab_contenido"
                     CoValidacion.ValidationGroup = GroupValidation
                     CoValidacion.Operator = ValidationCompareOperator.DataTypeCheck
@@ -4164,7 +4164,7 @@ Public Class Lecturas
                     CoValidacion.ControlToValidate = arrNodesControl(m)
                     CoValidacion.ClientIDMode = ClientIDMode.Static
                     CoValidacion.Text = "*"
-                    CoValidacion.ErrorMessage = arrNodesLabel(m) & " debe ser un valor alfanumérico"
+                    CoValidacion.ErrorMessage = arrNodesLabel(m) & " debe ser un valor alfanumï¿½rico"
                     CoValidacion.CssClass = "tab_contenido"
                     CoValidacion.ValidationGroup = GroupValidation
                     CoValidacion.Operator = ValidationCompareOperator.DataTypeCheck
@@ -4268,10 +4268,10 @@ Public Class Lecturas
         Dim FormularioWeb As New FormularioWeb
 
         ' Primero se despliegan
-        ' los campos que son de contexto y que no pueden ser alterados por ningún motivo, como
-        ' por ejemplo aquellos campos que son claves únicas y que no pueden ser modificados
+        ' los campos que son de contexto y que no pueden ser alterados por ningï¿½n motivo, como
+        ' por ejemplo aquellos campos que son claves ï¿½nicas y que no pueden ser modificados
         ' o aquellos campos que corresponden a la foreing key hacia la tabla padre, en el
-        ' caso de una aplicación del tipo master-detail.
+        ' caso de una aplicaciï¿½n del tipo master-detail.
 
         ' Estos campos se encuentran en la section FormKeys y pueden no existir para determinados
         ' tipos de formularios y se leen mediante el metodo 
@@ -4279,8 +4279,8 @@ Public Class Lecturas
 
         t = Lecturas.LeerKeysFormularioWeb(arrLabel, arrControl, NumeroPagina, i)
 
-        ' A continuación pongo los textos de identificación de la página, que fueron pasados como
-        ' parámetros de invocación
+        ' A continuaciï¿½n pongo los textos de identificaciï¿½n de la pï¿½gina, que fueron pasados como
+        ' parï¿½metros de invocaciï¿½n
 
         If NumeroPagina <> 271 Then
 
@@ -4303,23 +4303,23 @@ Public Class Lecturas
         End If
 
         ' Bajo el nuevo esquema, creo otra tabla para los campos claves y la sumo al placeholder
-        'Luego se agrega la tabla de control de validación de los campos
+        'Luego se agrega la tabla de control de validaciï¿½n de los campos
 
         i = 0
 
-        ' A continuación leo el registro de cabecera del formulario y desde el cual derivan el
+        ' A continuaciï¿½n leo el registro de cabecera del formulario y desde el cual derivan el
         ' resto de los registros que indican sus atributos y sus acciones
-        ' Este registro se identifica pues es el único del formulario que pertenece a la 
+        ' Este registro se identifica pues es el ï¿½nico del formulario que pertenece a la 
         ' section FormHeader y se lee con el metodo: LeerHeaderFormularioWeb, que devuelve
-        ' una única variable cuyo valor gobierna las siguientes decisiones de despliegue de los 
-        ' atributos del formulario web, para ello este metodo se implementa como una función que 
-        ' devuelve un único campo booleano que puede poseer los siguientes valores:
+        ' una ï¿½nica variable cuyo valor gobierna las siguientes decisiones de despliegue de los 
+        ' atributos del formulario web, para ello este metodo se implementa como una funciï¿½n que 
+        ' devuelve un ï¿½nico campo booleano que puede poseer los siguientes valores:
 
         '   False:  No se encontro registro de cabecera, en cuyo caso el formulario es plano y no
         '           requiere un recorrido recursivo para ir desplegando sus atributos.
         '   ------------------------------------------------------------------------------------
         '   True:  Se encontro registro de cabecera y ello indica que el formulario debe ser recorrido
-        '           en forma recursiva a continuación del despliegue de los campos clave, siempre y cuando
+        '           en forma recursiva a continuaciï¿½n del despliegue de los campos clave, siempre y cuando
         '           estos existan como atributos del formulario.
         t = Lecturas.LeerHeaderFormularioWeb(arrLabel, arrControl, NumeroPagina, i, FormularioWebPId)
 
@@ -4335,8 +4335,8 @@ Public Class Lecturas
 
             i = 0
             t = Lecturas.LeerNodesFormularioWeb(arrLabel, arrControl, ArrNodesId, i, FormularioWebPId)
-            If i > 1 Then 'Solo se despliegan tabs cuando hay más de 1, en el otro caso no lo amerita.
-                'Creamos tabla y la única fila
+            If i > 1 Then 'Solo se despliegan tabs cuando hay mï¿½s de 1, en el otro caso no lo amerita.
+                'Creamos tabla y la ï¿½nica fila
                 AnchoTablaTabs = 116 * (i + 1)
                 MyTable = New Table
                 MyTable.ID = "ViewBody2" & FormularioWebPId
@@ -4380,7 +4380,7 @@ Public Class Lecturas
                 For k = 0 To i - 1
                     n = 0
                     t = Lecturas.LeerNodesFormularioWeb(arrNodesLabel, arrNodesControl, arrSubNodesId, n, ArrNodesId(k))
-                    'Aqui acabo de leer los nodos del primer tab, por ahora no hay más anidamiento, asi que cada nodo
+                    'Aqui acabo de leer los nodos del primer tab, por ahora no hay mï¿½s anidamiento, asi que cada nodo
                     'en arrNodesLabel es en realidad una hoja
                     MiTablaSubTab = New Table
                     MiTablaSubTab.ID = "sub" & arrControl(k) & "sub" & NumeroPagina
@@ -4575,7 +4575,7 @@ Public Class Lecturas
                                     txtCheckBox = New CheckBox
                                     txtCheckBox.ID = "chk" & arrNodesControl(m)
                                     txtCheckBox.ClientIDMode = ClientIDMode.Static
-                                    txtCheckBox.ToolTip = "Marque el check box para realizar la búsqueda usando el valor seleccionado para el campo " & arrNodesLabel(m)
+                                    txtCheckBox.ToolTip = "Marque el check box para realizar la bï¿½squeda usando el valor seleccionado para el campo " & arrNodesLabel(m)
                                     txtCheckBox.Height = "20"
                                     MiCellSubTab.Controls.Add(txtCheckBox)
                                     MiCellSubTab.Controls.Add(New LiteralControl(" "))
@@ -4599,7 +4599,7 @@ Public Class Lecturas
                                     txtCheckBox = New CheckBox
                                     txtCheckBox.ID = "chk" & arrNodesControl(m)
                                     txtCheckBox.ClientIDMode = ClientIDMode.Static
-                                    txtCheckBox.ToolTip = "Marque el check box para realizar la búsqueda usando el valor seleccionado para el campo " & arrNodesLabel(m)
+                                    txtCheckBox.ToolTip = "Marque el check box para realizar la bï¿½squeda usando el valor seleccionado para el campo " & arrNodesLabel(m)
                                     MiCellSubTab.Controls.Add(txtCheckBox)
                                     MiCellSubTab.Controls.Add(New LiteralControl(" "))
                                     txtTextBox = New TextBox
@@ -4629,7 +4629,7 @@ Public Class Lecturas
                                     AutoComp.CompletionSetCount = "12"
                                     MiCellSubTab.Controls.Add(AutoComp)
 
-                                Case "UploadArchivo" 'Sólo 1 campo de este tipo por página web
+                                Case "UploadArchivo" 'Sï¿½lo 1 campo de este tipo por pï¿½gina web
                                     txtUploadFile = New FileUpload
                                     txtUploadFile.ID = "txtUploadFile"
                                     txtUploadFile.ClientIDMode = ClientIDMode.Static
@@ -4637,7 +4637,7 @@ Public Class Lecturas
                                     txtUploadFile.CssClass = CssClassControl
                                     MiCellSubTab.Controls.Add(txtUploadFile)
                                     MiCellSubTab.Controls.Add(New LiteralControl(" "))
-                                    ' Se agrega el botón Save
+                                    ' Se agrega el botï¿½n Save
                                     SaveButton = New Button
                                     SaveButton.ID = "SaveButton"
                                     SaveButton.CssClass = "boxceleste"
@@ -4674,7 +4674,7 @@ Public Class Lecturas
                                     UploadLink.Visible = True
                                     MiCellSubTab.Controls.Add(UploadLink)
 
-                                Case "VerDemanda" 'Sólo 1 campo de este tipo por página web
+                                Case "VerDemanda" 'Sï¿½lo 1 campo de este tipo por pï¿½gina web
                                     ' Se agrega el Hyperlink para ver el archivo
                                     UploadLink = New HyperLink
                                     UploadLink.ID = "lnkFile"
@@ -4686,7 +4686,7 @@ Public Class Lecturas
                                     UploadLink.Visible = True
                                     MiCellSubTab.Controls.Add(UploadLink)
 
-                                Case "VerPrecautoria" 'Sólo 1 campo de este tipo por página web
+                                Case "VerPrecautoria" 'Sï¿½lo 1 campo de este tipo por pï¿½gina web
                                     ' Se agrega el Hyperlink para ver el archivo
                                     UploadLink = New HyperLink
                                     UploadLink.ID = "lnkFile2"
@@ -4698,7 +4698,7 @@ Public Class Lecturas
                                     UploadLink.Visible = True
                                     MiCellSubTab.Controls.Add(UploadLink)
 
-                                Case "VerEscritoMandamiento" 'Sólo 1 campo de este tipo por página web
+                                Case "VerEscritoMandamiento" 'Sï¿½lo 1 campo de este tipo por pï¿½gina web
                                     ' Se agrega el Hyperlink para ver el archivo
                                     UploadLink = New HyperLink
                                     UploadLink.ID = "lnkFile"
@@ -4710,7 +4710,7 @@ Public Class Lecturas
                                     UploadLink.Visible = True
                                     MiCellSubTab.Controls.Add(UploadLink)
 
-                                Case "VerCartaBanco" 'Sólo 1 campo de este tipo por página web
+                                Case "VerCartaBanco" 'Sï¿½lo 1 campo de este tipo por pï¿½gina web
                                     ' Se agrega el Hyperlink para ver el archivo
                                     UploadLink = New HyperLink
                                     UploadLink.ID = "lnkFile"
@@ -4722,19 +4722,19 @@ Public Class Lecturas
                                     UploadLink.Visible = True
                                     MiCellSubTab.Controls.Add(UploadLink)
 
-                                Case "VerCedula" 'Sólo 1 campo de este tipo por página web
+                                Case "VerCedula" 'Sï¿½lo 1 campo de este tipo por pï¿½gina web
                                     ' Se agrega el Hyperlink para ver el archivo
                                     UploadLink = New HyperLink
                                     UploadLink.ID = "lnkFile"
                                     UploadLink.ClientIDMode = ClientIDMode.Static
                                     UploadLink.ImageUrl = "~/img/lupa20x20.png"
                                     UploadLink.BorderWidth = 0
-                                    UploadLink.Text = "Ver Propuesta de Cédula"
+                                    UploadLink.Text = "Ver Propuesta de Cï¿½dula"
                                     UploadLink.ToolTip = ToolTip
                                     UploadLink.Visible = True
                                     MiCellSubTab.Controls.Add(UploadLink)
 
-                                Case "VerEstampe" 'Sólo 1 campo de este tipo por página web
+                                Case "VerEstampe" 'Sï¿½lo 1 campo de este tipo por pï¿½gina web
                                     ' Se agrega el Hyperlink para ver el archivo
                                     UploadLink = New HyperLink
                                     UploadLink.ID = "lnkFile2"
@@ -4746,14 +4746,14 @@ Public Class Lecturas
                                     UploadLink.Visible = True
                                     MiCellSubTab.Controls.Add(UploadLink)
 
-                                Case "VerEscrito44" 'Sólo 1 campo de este tipo por página web
+                                Case "VerEscrito44" 'Sï¿½lo 1 campo de este tipo por pï¿½gina web
                                     ' Se agrega el Hyperlink para ver el archivo
                                     UploadLink = New HyperLink
                                     UploadLink.ID = "lnkFile"
                                     UploadLink.ClientIDMode = ClientIDMode.Static
                                     UploadLink.ImageUrl = "~/img/lupa20x20.png"
                                     UploadLink.BorderWidth = 0
-                                    UploadLink.Text = "Ver propuesta de escrito para solicitar que el tribunal dicte la resolución para notificar por el artículo 44"
+                                    UploadLink.Text = "Ver propuesta de escrito para solicitar que el tribunal dicte la resoluciï¿½n para notificar por el artï¿½culo 44"
                                     UploadLink.ToolTip = "De un click para visualizar la propuesta de Escrito"
                                     UploadLink.Visible = True
                                     MiCellSubTab.Controls.Add(UploadLink)
@@ -4773,7 +4773,7 @@ Public Class Lecturas
                                     txtDropDownList.ClientIDMode = ClientIDMode.Static
                                     txtDropDownList.CssClass = CssClassControl
                                     txtDropDownList.Style(HtmlTextWriterStyle.Width) = "500"
-                                    txtDropDownList.ToolTip = "Escoja la opción de menú"
+                                    txtDropDownList.ToolTip = "Escoja la opciï¿½n de menï¿½"
                                     MiCellSubTab.Controls.Add(txtDropDownList)
                                     MiCellSubTab.Controls.Add(New LiteralControl("<br /><br /> "))
 
@@ -4791,7 +4791,7 @@ Public Class Lecturas
                                     txtCascadeDropDownList.ClientIDMode = ClientIDMode.Static
                                     txtCascadeDropDownList.TargetControlID = "ddlAmbitos"
                                     txtCascadeDropDownList.Category = "Ambitos"
-                                    txtCascadeDropDownList.PromptText = "Escoja un ámbito ...."
+                                    txtCascadeDropDownList.PromptText = "Escoja un ï¿½mbito ...."
                                     txtCascadeDropDownList.LoadingText = "Por favor espere ..."
                                     txtCascadeDropDownList.ServicePath = "AmbitosService.asmx"
                                     txtCascadeDropDownList.ServiceMethod = "GetAmbitos"
@@ -4803,7 +4803,7 @@ Public Class Lecturas
                                     txtCascadeDropDownList.TargetControlID = "ddlHojas"
                                     txtCascadeDropDownList.ParentControlID = "ddlAmbitos"
                                     txtCascadeDropDownList.Category = "Hojas"
-                                    txtCascadeDropDownList.PromptText = "Escoja una opción del menú ...."
+                                    txtCascadeDropDownList.PromptText = "Escoja una opciï¿½n del menï¿½ ...."
                                     txtCascadeDropDownList.LoadingText = "Por favor espere ..."
                                     txtCascadeDropDownList.ServicePath = "AmbitosService.asmx"
                                     txtCascadeDropDownList.ServiceMethod = "GetHojas"
@@ -5080,10 +5080,10 @@ Public Class Lecturas
         Dim FormularioWeb As New FormularioWeb
 
         ' Primero se despliegan
-        ' los campos que son de contexto y que no pueden ser alterados por ningún motivo, como
-        ' por ejemplo aquellos campos que son claves únicas y que no pueden ser modificados
+        ' los campos que son de contexto y que no pueden ser alterados por ningï¿½n motivo, como
+        ' por ejemplo aquellos campos que son claves ï¿½nicas y que no pueden ser modificados
         ' o aquellos campos que corresponden a la foreing key hacia la tabla padre, en el
-        ' caso de una aplicación del tipo master-detail.
+        ' caso de una aplicaciï¿½n del tipo master-detail.
 
         ' Estos campos se encuentran en la section FormKeys y pueden no existir para determinados
         ' tipos de formularios y se leen mediante el metodo 
@@ -5091,8 +5091,8 @@ Public Class Lecturas
 
         t = Lecturas.LeerKeysFormularioWeb(arrLabel, arrControl, NumeroPagina, i)
 
-        ' A continuación pongo los textos de identificación de la página, que fueron pasados como
-        ' parámetros de invocación
+        ' A continuaciï¿½n pongo los textos de identificaciï¿½n de la pï¿½gina, que fueron pasados como
+        ' parï¿½metros de invocaciï¿½n
 
         MyTable = New Table
         MyTable.ID = "ViewHeader"
@@ -5108,7 +5108,7 @@ Public Class Lecturas
         Cell.Controls.Add(New LiteralControl("<h1>" & TituloPagina & "</h1>"))
         Row.Cells.Add(Cell)
         MyTable.Rows.Add(Row)
-        'Linea de División
+        'Linea de Divisiï¿½n
         'Row = New TableRow
         'Cell = New TableCell
         'Cell.Style(HtmlTextWriterStyle.TextAlign) = "left"
@@ -5117,8 +5117,8 @@ Public Class Lecturas
         'Cell.Controls.Add(New LiteralControl("<hr />"))
         'Row.Cells.Add(Cell)
         'MyTable.Rows.Add(Row)
-        'Descripción
-        'Se esconde la descripción a solicitud de Priscilla
+        'Descripciï¿½n
+        'Se esconde la descripciï¿½n a solicitud de Priscilla
         'Row = New TableRow
         'Cell = New TableCell
         'Cell.CssClass = "tab_contenido"
@@ -5143,7 +5143,7 @@ Public Class Lecturas
             Row = New TableRow
             For k = 0 To i - 1
                 t = Lecturas.LeerControlFormularioWeb(TipoControl, CssClassLabel, CssClassControl, EtiquetaAlign, ControlWidth, ControlTextMode, ToolTip, IsRequiredField, IsNotEnabledField, DomainField, DataTextField, DataFile, SelectCommand, "FormKeys", GroupValidation, NumeroPagina, k + 1)
-                'aqui va la creación de la fila
+                'aqui va la creaciï¿½n de la fila
                 Cell = New TableCell
                 Cell.CssClass = CssClassLabel
                 Cell.Style(HtmlTextWriterStyle.TextAlign) = EtiquetaAlign
@@ -5167,18 +5167,18 @@ Public Class Lecturas
                 If IsNotEnabledField Then
                     txtTextBox.Enabled = False
                 End If
-                ' OJO esta instrucción no es generica y la coloque ha solicitud de Juan Manuel
+                ' OJO esta instrucciï¿½n no es generica y la coloque ha solicitud de Juan Manuel
                 ' para esconder el campo Secuencia
                 If k = 1 Then
-                    txtTextBox.Visible = False  'Se esconde el número de secuencia
+                    txtTextBox.Visible = False  'Se esconde el nï¿½mero de secuencia
                 End If
                 Cell.Controls.Add(txtTextBox)
                 Row.Cells.Add(Cell)
-                ' Aquí se suma la fila
+                ' Aquï¿½ se suma la fila
             Next
             MyTable.Rows.Add(Row)
-            'Linea de División
-            'Se elimina la línea el 25-09-2011
+            'Linea de Divisiï¿½n
+            'Se elimina la lï¿½nea el 25-09-2011
             'Row = New TableRow
             'Cell = New TableCell
             'Cell.Style(HtmlTextWriterStyle.TextAlign) = "left"
@@ -5192,7 +5192,7 @@ Public Class Lecturas
 
 
 
-        'Luego se agrega la tabla de control de validación de los campos
+        'Luego se agrega la tabla de control de validaciï¿½n de los campos
 
         MyTable = New Table
         MyTable.ID = "ViewValidationSummary"
@@ -5217,19 +5217,19 @@ Public Class Lecturas
 
         i = 0
 
-        ' A continuación leo el registro de cabecera del formulario y desde el cual derivan el
+        ' A continuaciï¿½n leo el registro de cabecera del formulario y desde el cual derivan el
         ' resto de los registros que indican sus atributos y sus acciones
-        ' Este registro se identifica pues es el único del formulario que pertenece a la 
+        ' Este registro se identifica pues es el ï¿½nico del formulario que pertenece a la 
         ' section FormHeader y se lee con el metodo: LeerHeaderFormularioWeb, que devuelve
-        ' una única variable cuyo valor gobierna las siguientes decisiones de despliegue de los 
-        ' atributos del formulario web, para ello este metodo se implementa como una función que 
-        ' devuelve un único campo booleano que puede poseer los siguientes valores:
+        ' una ï¿½nica variable cuyo valor gobierna las siguientes decisiones de despliegue de los 
+        ' atributos del formulario web, para ello este metodo se implementa como una funciï¿½n que 
+        ' devuelve un ï¿½nico campo booleano que puede poseer los siguientes valores:
 
         '   False:  No se encontro registro de cabecera, en cuyo caso el formulario es plano y no
         '           requiere un recorrido recursivo para ir desplegando sus atributos.
         '   ------------------------------------------------------------------------------------
         '   True:  Se encontro registro de cabecera y ello indica que el formulario debe ser recorrido
-        '           en forma recursiva a continuación del despliegue de los campos clave, siempre y cuando
+        '           en forma recursiva a continuaciï¿½n del despliegue de los campos clave, siempre y cuando
         '           estos existan como atributos del formulario.
         t = Lecturas.LeerHeaderFormularioWeb(arrLabel, arrControl, NumeroPagina, i, FormularioWebPId)
 
@@ -5245,8 +5245,8 @@ Public Class Lecturas
 
             i = 0
             t = Lecturas.LeerNodesFormularioWeb(arrLabel, arrControl, ArrNodesId, i, FormularioWebPId)
-            If i > 1 Then 'Solo se despliegan tabs cuando hay más de 1, en el otro caso no lo amerita.
-                'Creamos tabla y la única fila
+            If i > 1 Then 'Solo se despliegan tabs cuando hay mï¿½s de 1, en el otro caso no lo amerita.
+                'Creamos tabla y la ï¿½nica fila
                 AnchoTablaTabs = 116 * (i + 1)
                 MyTable = New Table
                 MyTable.ID = "ViewBody" & FormularioWebPId
@@ -5290,7 +5290,7 @@ Public Class Lecturas
                 For k = 0 To i - 1
                     n = 0
                     t = Lecturas.LeerNodesFormularioWeb(arrNodesLabel, arrNodesControl, arrSubNodesId, n, ArrNodesId(k))
-                    'Aqui acabo de leer los nodos del primer tab, por ahora no hay más anidamiento, asi que cada nodo
+                    'Aqui acabo de leer los nodos del primer tab, por ahora no hay mï¿½s anidamiento, asi que cada nodo
                     'en arrNodesLabel es en realidad una hoja
                     MiTablaSubTab = New Table
                     MiTablaSubTab.ID = "sub" & arrControl(k) & "sub"
@@ -5486,7 +5486,7 @@ Public Class Lecturas
                                     txtCheckBox = New CheckBox
                                     txtCheckBox.ID = "chk" & arrNodesControl(m)
                                     txtCheckBox.ClientIDMode = ClientIDMode.Static
-                                    txtCheckBox.ToolTip = "Marque el check box para realizar la búsqueda usando el valor seleccionado para el campo " & arrNodesLabel(m)
+                                    txtCheckBox.ToolTip = "Marque el check box para realizar la bï¿½squeda usando el valor seleccionado para el campo " & arrNodesLabel(m)
                                     txtCheckBox.Height = "20"
                                     MiCellSubTab.Controls.Add(txtCheckBox)
                                     MiCellSubTab.Controls.Add(New LiteralControl(" "))
@@ -5510,7 +5510,7 @@ Public Class Lecturas
                                     txtCheckBox = New CheckBox
                                     txtCheckBox.ID = "chk" & arrNodesControl(m)
                                     txtCheckBox.ClientIDMode = ClientIDMode.Static
-                                    txtCheckBox.ToolTip = "Marque el check box para realizar la búsqueda usando el valor seleccionado para el campo " & arrNodesLabel(m)
+                                    txtCheckBox.ToolTip = "Marque el check box para realizar la bï¿½squeda usando el valor seleccionado para el campo " & arrNodesLabel(m)
                                     MiCellSubTab.Controls.Add(txtCheckBox)
                                     MiCellSubTab.Controls.Add(New LiteralControl(" "))
                                     txtTextBox = New TextBox
@@ -5540,7 +5540,7 @@ Public Class Lecturas
                                     AutoComp.CompletionSetCount = "12"
                                     MiCellSubTab.Controls.Add(AutoComp)
 
-                                Case "UploadArchivo" 'Sólo 1 campo de este tipo por página web
+                                Case "UploadArchivo" 'Sï¿½lo 1 campo de este tipo por pï¿½gina web
                                     txtUploadFile = New FileUpload
                                     txtUploadFile.ID = "txtUploadFile"
                                     txtUploadFile.ClientIDMode = ClientIDMode.Static
@@ -5548,7 +5548,7 @@ Public Class Lecturas
                                     txtUploadFile.CssClass = CssClassControl
                                     MiCellSubTab.Controls.Add(txtUploadFile)
                                     MiCellSubTab.Controls.Add(New LiteralControl(" "))
-                                    ' Se agrega el botón Save
+                                    ' Se agrega el botï¿½n Save
                                     SaveButton = New Button
                                     SaveButton.ID = "SaveButton"
                                     SaveButton.CssClass = "boxceleste"
@@ -5595,7 +5595,7 @@ Public Class Lecturas
                                     txtDropDownList.ClientIDMode = ClientIDMode.Static
                                     txtDropDownList.CssClass = CssClassControl
                                     txtDropDownList.Style(HtmlTextWriterStyle.Width) = "500"
-                                    txtDropDownList.ToolTip = "Escoja la opción de menú"
+                                    txtDropDownList.ToolTip = "Escoja la opciï¿½n de menï¿½"
                                     MiCellSubTab.Controls.Add(txtDropDownList)
                                     MiCellSubTab.Controls.Add(New LiteralControl("<br /><br /> "))
 
@@ -5613,7 +5613,7 @@ Public Class Lecturas
                                     txtCascadeDropDownList.ClientIDMode = ClientIDMode.Static
                                     txtCascadeDropDownList.TargetControlID = "ddlAmbitos"
                                     txtCascadeDropDownList.Category = "Ambitos"
-                                    txtCascadeDropDownList.PromptText = "Escoja un ámbito ...."
+                                    txtCascadeDropDownList.PromptText = "Escoja un ï¿½mbito ...."
                                     txtCascadeDropDownList.LoadingText = "Por favor espere ..."
                                     txtCascadeDropDownList.ServicePath = "AmbitosService.asmx"
                                     txtCascadeDropDownList.ServiceMethod = "GetAmbitos"
@@ -5625,7 +5625,7 @@ Public Class Lecturas
                                     txtCascadeDropDownList.TargetControlID = "ddlHojas"
                                     txtCascadeDropDownList.ParentControlID = "ddlAmbitos"
                                     txtCascadeDropDownList.Category = "Hojas"
-                                    txtCascadeDropDownList.PromptText = "Escoja una opción del menú ...."
+                                    txtCascadeDropDownList.PromptText = "Escoja una opciï¿½n del menï¿½ ...."
                                     txtCascadeDropDownList.LoadingText = "Por favor espere ..."
                                     txtCascadeDropDownList.ServicePath = "AmbitosService.asmx"
                                     txtCascadeDropDownList.ServiceMethod = "GetHojas"
@@ -5723,7 +5723,7 @@ Public Class Lecturas
                                     REValidacion.ControlToValidate = arrNodesControl(m)
                                     REValidacion.ClientIDMode = ClientIDMode.Static
                                     REValidacion.Text = "*"
-                                    REValidacion.ErrorMessage = "La dirección de correo no tiene un formato valido"
+                                    REValidacion.ErrorMessage = "La direcciï¿½n de correo no tiene un formato valido"
                                     REValidacion.CssClass = "tab_contenido"
                                     REValidacion.ValidationGroup = GroupValidation
                                     REValidacion.ValidationExpression = "\S+@\S+\.\S{2,3}"
@@ -5746,7 +5746,7 @@ Public Class Lecturas
                                     CoValidacion.ControlToValidate = arrNodesControl(m)
                                     CoValidacion.ClientIDMode = ClientIDMode.Static
                                     CoValidacion.Text = "*"
-                                    CoValidacion.ErrorMessage = arrNodesLabel(m) & " debe ser un valor numérico"
+                                    CoValidacion.ErrorMessage = arrNodesLabel(m) & " debe ser un valor numï¿½rico"
                                     CoValidacion.CssClass = "tab_contenido"
                                     CoValidacion.ValidationGroup = GroupValidation
                                     CoValidacion.Operator = ValidationCompareOperator.DataTypeCheck
@@ -5758,7 +5758,7 @@ Public Class Lecturas
                                     CoValidacion.ControlToValidate = arrNodesControl(m)
                                     CoValidacion.ClientIDMode = ClientIDMode.Static
                                     CoValidacion.Text = "*"
-                                    CoValidacion.ErrorMessage = arrNodesLabel(m) & " debe ser un valor alfanumérico"
+                                    CoValidacion.ErrorMessage = arrNodesLabel(m) & " debe ser un valor alfanumï¿½rico"
                                     CoValidacion.CssClass = "tab_contenido"
                                     CoValidacion.ValidationGroup = GroupValidation
                                     CoValidacion.Operator = ValidationCompareOperator.DataTypeCheck
@@ -5943,9 +5943,9 @@ Public Class Lecturas
             MyView.Controls.Add(MyTable)
         Else
 
-            ' Significa que no hay tabs definidos para el formulario en cuestión y que 
-            ' por tanto la lógica de despliegue es la misma de siempre y podremos hacer todo
-            ' en una única tabla y luego agregarla a la view.
+            ' Significa que no hay tabs definidos para el formulario en cuestiï¿½n y que 
+            ' por tanto la lï¿½gica de despliegue es la misma de siempre y podremos hacer todo
+            ' en una ï¿½nica tabla y luego agregarla a la view.
 
             MyTable = New Table
             MyTable.ID = "ViewBody"
@@ -5954,7 +5954,7 @@ Public Class Lecturas
             MyTable.CellPadding = "2"
 
 
-            'Linea de División
+            'Linea de Divisiï¿½n
             Row = New TableRow
             Cell = New TableCell
             Cell.Style(HtmlTextWriterStyle.TextAlign) = "left"
@@ -6035,7 +6035,7 @@ Public Class Lecturas
                             AutoComp.CompletionListItemCssClass = CssClassControl
                             AutoComp.TargetControlID = arrControl(k)
                             AutoComp.ServicePath = "AutoComplete.asmx"
-                            AutoComp.ServiceMethod = Lecturas.LeerNombreMetodoAutocomplete("Form", NumeroPagina, k + 1)  ' Aqui hay que invocar un metodo para traer el nombre del método
+                            AutoComp.ServiceMethod = Lecturas.LeerNombreMetodoAutocomplete("Form", NumeroPagina, k + 1)  ' Aqui hay que invocar un metodo para traer el nombre del mï¿½todo
                             AutoComp.MinimumPrefixLength = "2"
                             AutoComp.CompletionInterval = "1000"
                             AutoComp.EnableCaching = "true"
@@ -6088,7 +6088,7 @@ Public Class Lecturas
                             txtCheckBox = New CheckBox
                             txtCheckBox.ID = "chk" & arrControl(k)
                             txtCheckBox.ClientIDMode = ClientIDMode.Static
-                            txtCheckBox.ToolTip = "Marque el check box para realizar la búsqueda usando el valor seleccionado para el campo " & arrLabel(k)
+                            txtCheckBox.ToolTip = "Marque el check box para realizar la bï¿½squeda usando el valor seleccionado para el campo " & arrLabel(k)
                             Cell.Controls.Add(txtCheckBox)
                             Cell.Controls.Add(New LiteralControl(" "))
                             txtDropDownList = New DropDownList
@@ -6107,7 +6107,7 @@ Public Class Lecturas
                             sqlSource.DataFile = DataFile
                             sqlSource.SelectCommand = SelectCommand
                             Cell.Controls.Add(sqlSource)
-                        Case "UploadArchivo" 'Sólo 1 campo de este tipo por página web
+                        Case "UploadArchivo" 'Sï¿½lo 1 campo de este tipo por pï¿½gina web
                             txtUploadFile = New FileUpload
                             txtUploadFile.ID = "txtUploadFile"
                             txtUploadFile.ClientIDMode = ClientIDMode.Static
@@ -6115,7 +6115,7 @@ Public Class Lecturas
                             txtUploadFile.CssClass = CssClassControl
                             Cell.Controls.Add(txtUploadFile)
                             Cell.Controls.Add(New LiteralControl(" "))
-                            ' Se agrega el botón Save
+                            ' Se agrega el botï¿½n Save
                             SaveButton = New Button
                             SaveButton.ID = "SaveButton"
                             SaveButton.CssClass = "boxceleste"
@@ -6162,7 +6162,7 @@ Public Class Lecturas
                             txtDropDownList.ClientIDMode = ClientIDMode.Static
                             txtDropDownList.CssClass = CssClassControl
                             txtDropDownList.Style(HtmlTextWriterStyle.Width) = "500"
-                            txtDropDownList.ToolTip = "Escoja la opción de menú"
+                            txtDropDownList.ToolTip = "Escoja la opciï¿½n de menï¿½"
                             Cell.Controls.Add(txtDropDownList)
                             Cell.Controls.Add(New LiteralControl("<br /> "))
 
@@ -6180,7 +6180,7 @@ Public Class Lecturas
                             txtCascadeDropDownList.ClientIDMode = ClientIDMode.Static
                             txtCascadeDropDownList.TargetControlID = "ddlAmbitos"
                             txtCascadeDropDownList.Category = "Ambitos"
-                            txtCascadeDropDownList.PromptText = "Escoja un ámbito ...."
+                            txtCascadeDropDownList.PromptText = "Escoja un ï¿½mbito ...."
                             txtCascadeDropDownList.LoadingText = "Por favor espere ..."
                             txtCascadeDropDownList.ServicePath = "AmbitosService.asmx"
                             txtCascadeDropDownList.ServiceMethod = "GetAmbitos"
@@ -6192,7 +6192,7 @@ Public Class Lecturas
                             txtCascadeDropDownList.TargetControlID = "ddlHojas"
                             txtCascadeDropDownList.ParentControlID = "ddlAmbitos"
                             txtCascadeDropDownList.Category = "Hojas"
-                            txtCascadeDropDownList.PromptText = "Escoja una opción del menú ...."
+                            txtCascadeDropDownList.PromptText = "Escoja una opciï¿½n del menï¿½ ...."
                             txtCascadeDropDownList.LoadingText = "Por favor espere ..."
                             txtCascadeDropDownList.ServicePath = "AmbitosService.asmx"
                             txtCascadeDropDownList.ServiceMethod = "GetHojas"
@@ -6204,7 +6204,7 @@ Public Class Lecturas
                             txtCascadeDropDownList.TargetControlID = "ddlDocumentos"
                             txtCascadeDropDownList.ParentControlID = "ddlHojas"
                             txtCascadeDropDownList.Category = "Documentos"
-                            txtCascadeDropDownList.PromptText = "Escoja una opción del menú ...."
+                            txtCascadeDropDownList.PromptText = "Escoja una opciï¿½n del menï¿½ ...."
                             txtCascadeDropDownList.LoadingText = "Por favor espere ..."
                             txtCascadeDropDownList.ServicePath = "AmbitosService.asmx"
                             txtCascadeDropDownList.ServiceMethod = "GetDocumentos"
@@ -6213,7 +6213,7 @@ Public Class Lecturas
                             txtCheckBox = New CheckBox
                             txtCheckBox.ID = "chk" & arrNodesControl(m)
                             txtCheckBox.ClientIDMode = ClientIDMode.Static
-                            txtCheckBox.ToolTip = "Marque el check box para realizar la búsqueda usando el valor seleccionado para el campo " & arrNodesLabel(m)
+                            txtCheckBox.ToolTip = "Marque el check box para realizar la bï¿½squeda usando el valor seleccionado para el campo " & arrNodesLabel(m)
                             Cell.Controls.Add(txtCheckBox)
                             Cell.Controls.Add(New LiteralControl(" "))
                             txtTextBox = New TextBox
@@ -6321,7 +6321,7 @@ Public Class Lecturas
                             REValidacion.ID = "RegularExpression" & arrControl(k)
                             REValidacion.ControlToValidate = arrControl(k)
                             REValidacion.Text = "*"
-                            REValidacion.ErrorMessage = "La dirección de correo no tiene un formato valido"
+                            REValidacion.ErrorMessage = "La direcciï¿½n de correo no tiene un formato valido"
                             REValidacion.CssClass = "tab_contenido"
                             REValidacion.ValidationGroup = GroupValidation
                             REValidacion.ValidationExpression = "\S+@\S+\.\S{2,3}"
@@ -6342,7 +6342,7 @@ Public Class Lecturas
                             CoValidacion.ID = "CompareValidator" & arrControl(k)
                             CoValidacion.ControlToValidate = arrControl(k)
                             CoValidacion.Text = "*"
-                            CoValidacion.ErrorMessage = arrLabel(k) & " debe ser un valor numérico"
+                            CoValidacion.ErrorMessage = arrLabel(k) & " debe ser un valor numï¿½rico"
                             CoValidacion.CssClass = "tab_contenido"
                             CoValidacion.ValidationGroup = GroupValidation
                             CoValidacion.Operator = ValidationCompareOperator.DataTypeCheck
@@ -6353,7 +6353,7 @@ Public Class Lecturas
                             CoValidacion.ID = "CompareValidator" & arrControl(k)
                             CoValidacion.ControlToValidate = arrControl(k)
                             CoValidacion.Text = "*"
-                            CoValidacion.ErrorMessage = arrLabel(k) & " debe ser un valor alfanumérico"
+                            CoValidacion.ErrorMessage = arrLabel(k) & " debe ser un valor alfanumï¿½rico"
                             CoValidacion.CssClass = "tab_contenido"
                             CoValidacion.ValidationGroup = GroupValidation
                             CoValidacion.Operator = ValidationCompareOperator.DataTypeCheck
@@ -6387,7 +6387,7 @@ Public Class Lecturas
                 End If
             Next
 
-            'Linea de División
+            'Linea de Divisiï¿½n
             Row = New TableRow
             Cell = New TableCell
             Cell.Style(HtmlTextWriterStyle.TextAlign) = "left"
@@ -6783,7 +6783,7 @@ Public Class Lecturas
 
         '-------------------------- 05-08-2010 -----------------
         ' Esta nueva rutina es solo para mostrar un formulario, sin dejarlo operativo, solo se muestra
-        ' bajo los datos de la página que representa.
+        ' bajo los datos de la pï¿½gina que representa.
         '----------------------------------------------------------
 
         Dim Lecturas As New Lecturas
@@ -6851,7 +6851,7 @@ Public Class Lecturas
         MyTable.CellSpacing = "2"
         MyTable.CellPadding = "2"
 
-        'Linea de División
+        'Linea de Divisiï¿½n
         Row = New TableRow
         Cell = New TableCell
         Cell.Style(HtmlTextWriterStyle.TextAlign) = "left"
@@ -6898,7 +6898,7 @@ Public Class Lecturas
         MyTable.CellSpacing = "2"
         MyTable.CellPadding = "2"
         MyTable.CssClass = "visible"
-        'Linea de División
+        'Linea de Divisiï¿½n
         Row = New TableRow
         Cell = New TableCell
         Cell.Style(HtmlTextWriterStyle.TextAlign) = "center"
@@ -6913,10 +6913,10 @@ Public Class Lecturas
         Cell.CssClass = "subtit"
         Cell.Style(HtmlTextWriterStyle.TextAlign) = "center"
         Cell.ColumnSpan = "2"
-        Cell.Controls.Add(New LiteralControl("Visualización del formato de la Página Web"))
+        Cell.Controls.Add(New LiteralControl("Visualizaciï¿½n del formato de la Pï¿½gina Web"))
         Row.Cells.Add(Cell)
         MyTable.Rows.Add(Row)
-        'Linea de División
+        'Linea de Divisiï¿½n
         Row = New TableRow
         Cell = New TableCell
         Cell.Style(HtmlTextWriterStyle.TextAlign) = "left"
@@ -6930,10 +6930,10 @@ Public Class Lecturas
 
 
         ' Primero se despliegan
-        ' los campos que son de contexto y que no pueden ser alterados por ningún motivo, como
-        ' por ejemplo aquellos campos que son claves únicas y que no pueden ser modificados
+        ' los campos que son de contexto y que no pueden ser alterados por ningï¿½n motivo, como
+        ' por ejemplo aquellos campos que son claves ï¿½nicas y que no pueden ser modificados
         ' o aquellos campos que corresponden a la foreing key hacia la tabla padre, en el
-        ' caso de una aplicación del tipo master-detail.
+        ' caso de una aplicaciï¿½n del tipo master-detail.
 
         ' Estos campos se encuentran en la section FormKeys y pueden no existir para determinados
         ' tipos de formularios y se leen mediante el metodo 
@@ -6955,7 +6955,7 @@ Public Class Lecturas
             Row = New TableRow
             For k = 0 To i - 1
                 t = Lecturas.LeerControlFormularioWebConID(TipoControl, CssClassLabel, CssClassControl, EtiquetaAlign, ControlWidth, ControlTextMode, ToolTip, IsRequiredField, IsNotEnabledField, DomainField, DataTextField, DataFile, SelectCommand, "FormKeys", GroupValidation, NumeroPagina, k + 1, RegID)
-                'aqui va la creación de la fila
+                'aqui va la creaciï¿½n de la fila
                 Cell = New TableCell
                 Cell.CssClass = CssClassLabel
                 Cell.Style(HtmlTextWriterStyle.TextAlign) = EtiquetaAlign
@@ -6967,11 +6967,11 @@ Public Class Lecturas
                 ControlAtributes = ControlAtributes & "Obligatorio? : " & IsRequiredField.ToString & vbCrLf
                 ControlAtributes = ControlAtributes & "Is Not Enabled? : " & IsNotEnabledField.ToString & vbCrLf
                 ControlAtributes = ControlAtributes & "Dominio : " & DomainField & vbCrLf
-                ControlAtributes = ControlAtributes & "Sección : " & "FormKeys" & vbCrLf
+                ControlAtributes = ControlAtributes & "Secciï¿½n : " & "FormKeys" & vbCrLf
                 ControlAtributes = ControlAtributes & "SQL : " & SelectCommand
                 Cell.ToolTip = ControlAtributes
 
-                'Linea para incorporar el link para Modificar un control de la Página.
+                'Linea para incorporar el link para Modificar un control de la Pï¿½gina.
                 Dim linkFormKeys As String = "AdministraEntidades.aspx?PaginaWebName=Ficha de FormularioWeb&ID=" & RegID & "&MenuOptionsId=" & MenuOptionsId & "&MasterName=" & MasterName & "&MasterId=" & MasterId & "&Section=FormKeys&Number=" & NumeroPagina
                 Url = "<a href='" & linkFormKeys & "'>" & arrLabel(k) & "</a>"
                 Cell.Controls.Add(New LiteralControl(Url & " : "))
@@ -6994,10 +6994,10 @@ Public Class Lecturas
                 End If
                 Cell.Controls.Add(txtTextBox)
                 Row.Cells.Add(Cell)
-                ' Aquí se suma la fila
+                ' Aquï¿½ se suma la fila
             Next
             MyTable.Rows.Add(Row)
-            'Linea de División
+            'Linea de Divisiï¿½n
             Row = New TableRow
             Cell = New TableCell
             Cell.Style(HtmlTextWriterStyle.TextAlign) = "left"
@@ -7009,8 +7009,8 @@ Public Class Lecturas
         End If
         MyView.Controls.Add(MyTable)
 
-        ' A continuación pongo los textos de identificación de la página, que fueron pasados como
-        ' parámetros de invocación
+        ' A continuaciï¿½n pongo los textos de identificaciï¿½n de la pï¿½gina, que fueron pasados como
+        ' parï¿½metros de invocaciï¿½n
 
         MyTable = New Table
         MyTable.ID = "ViewHeader" & NumeroPagina
@@ -7027,7 +7027,7 @@ Public Class Lecturas
         Cell.Controls.Add(New LiteralControl(TituloPagina))
         Row.Cells.Add(Cell)
         MyTable.Rows.Add(Row)
-        'Linea de División
+        'Linea de Divisiï¿½n
         Row = New TableRow
         Cell = New TableCell
         Cell.Style(HtmlTextWriterStyle.TextAlign) = "left"
@@ -7036,7 +7036,7 @@ Public Class Lecturas
         Cell.Controls.Add(New LiteralControl("<hr />"))
         Row.Cells.Add(Cell)
         MyTable.Rows.Add(Row)
-        'Descripción
+        'Descripciï¿½n
         Row = New TableRow
         Cell = New TableCell
         Cell.CssClass = "tab_contenido"
@@ -7047,7 +7047,7 @@ Public Class Lecturas
         MyTable.Rows.Add(Row)
         MyView.Controls.Add(MyTable)
 
-        'Luego se agrega la tabla de control de validación de los campos
+        'Luego se agrega la tabla de control de validaciï¿½n de los campos
         ' No tiene sentido para efectos de solo mostrar el formulario
 
         i = 0
@@ -7059,7 +7059,7 @@ Public Class Lecturas
             i = 0
             t = Lecturas.LeerNodesFormularioWeb(arrLabel, arrControl, ArrNodesId, i, FormularioWebPId)
 
-            'Creamos tabla y la única fila
+            'Creamos tabla y la ï¿½nica fila
             AnchoTablaTabs = 116 * (i + 1)
             MyTable = New Table
             MyTable.ID = "ViewBody" & FormularioWebPId & NumeroPagina
@@ -7083,7 +7083,7 @@ Public Class Lecturas
                 ControlAtributes = "Etiqueta Grupo: " & arrLabel(k) & vbCrLf
                 ControlAtributes = ControlAtributes & "Field Group: " & arrControl(k) & vbCrLf
                 ControlAtributes = ControlAtributes & "Width: " & "120" & vbCrLf
-                ControlAtributes = ControlAtributes & "Sección : " & "FormGroup"
+                ControlAtributes = ControlAtributes & "Secciï¿½n : " & "FormGroup"
                 Cell.ToolTip = ControlAtributes
                 Cell.Controls.Add(New LiteralControl("<a onclick='" & sJavaScript & "'>" & arrLabel(k) & "</a>"))
                 Row.Cells.Add(Cell)
@@ -7107,7 +7107,7 @@ Public Class Lecturas
                 For k = 0 To i - 1
                     n = 0
                     t = Lecturas.LeerNodesFormularioWeb(arrNodesLabel, arrNodesControl, arrSubNodesId, n, ArrNodesId(k))
-                    'Aqui acabo de leer los nodos del primer tab, por ahora no hay más anidamiento, asi que cada nodo
+                    'Aqui acabo de leer los nodos del primer tab, por ahora no hay mï¿½s anidamiento, asi que cada nodo
                     'en arrNodesLabel es en realidad una hoja
                     MiTablaSubTab = New Table
                     MiTablaSubTab.ID = "sub" & arrControl(k) & "sub"
@@ -7144,9 +7144,9 @@ Public Class Lecturas
                         ControlAtributes = ControlAtributes & "Obligatorio? : " & IsRequiredField.ToString & vbCrLf
                         ControlAtributes = ControlAtributes & "Is Not Enabled? : " & IsNotEnabledField.ToString & vbCrLf
                         ControlAtributes = ControlAtributes & "Dominio : " & DomainField & vbCrLf
-                        ControlAtributes = ControlAtributes & "Sección : " & "Form" & vbCrLf
+                        ControlAtributes = ControlAtributes & "Secciï¿½n : " & "Form" & vbCrLf
                         ControlAtributes = ControlAtributes & "SQL : " & SelectCommand & vbCrLf
-                        ControlAtributes = ControlAtributes & "Método de la WS: " & FormularioWebServiceCall
+                        ControlAtributes = ControlAtributes & "Mï¿½todo de la WS: " & FormularioWebServiceCall
                         MiCellSubTab.ToolTip = ControlAtributes
                         MiCellSubTab.Controls.Add(New LiteralControl(arrNodesLabel(m) & " : "))
                         MiRowSubTab.Cells.Add(MiCellSubTab)
@@ -7246,7 +7246,7 @@ Public Class Lecturas
                                 txtCheckBox = New CheckBox
                                 txtCheckBox.ID = "chk" & arrNodesControl(m)
                                 'txtCheckBox.ClientIDMode = ClientIDMode.Static
-                                txtCheckBox.ToolTip = "Marque el check box para realizar la búsqueda usando el valor seleccionado para el campo " & arrNodesLabel(m)
+                                txtCheckBox.ToolTip = "Marque el check box para realizar la bï¿½squeda usando el valor seleccionado para el campo " & arrNodesLabel(m)
                                 MiCellSubTab.Controls.Add(txtCheckBox)
                                 MiCellSubTab.Controls.Add(New LiteralControl(" "))
                                 txtDropDownList = New DropDownList
@@ -7309,7 +7309,7 @@ Public Class Lecturas
                         ControlAtributes = ControlAtributes & "Type: " & TipoControl & vbCrLf
                         ControlAtributes = ControlAtributes & "Group Validations : " & GroupValidation & vbCrLf
                         ControlAtributes = ControlAtributes & "ToolTip : " & ToolTip & vbCrLf
-                        ControlAtributes = ControlAtributes & "Sección : " & "Button" & vbCrLf
+                        ControlAtributes = ControlAtributes & "Secciï¿½n : " & "Button" & vbCrLf
                         ControlAtributes = ControlAtributes & "Select : " & SelectCommand & vbCrLf
                         ControlAtributes = ControlAtributes & "Evento : " & FormularioWebEvent & vbCrLf
                         ControlAtributes = ControlAtributes & "Next Page : " & FormularioWebPageCall & vbCrLf
@@ -7332,7 +7332,7 @@ Public Class Lecturas
                         ControlAtributes = ControlAtributes & "Type: " & TipoControl & vbCrLf
                         ControlAtributes = ControlAtributes & "Group Validations : " & GroupValidation & vbCrLf
                         ControlAtributes = ControlAtributes & "ToolTip : " & ToolTip & vbCrLf
-                        ControlAtributes = ControlAtributes & "Sección : " & "Button" & vbCrLf
+                        ControlAtributes = ControlAtributes & "Secciï¿½n : " & "Button" & vbCrLf
                         ControlAtributes = ControlAtributes & "Select : " & SelectCommand & vbCrLf
                         ControlAtributes = ControlAtributes & "Evento : " & FormularioWebEvent & vbCrLf
                         ControlAtributes = ControlAtributes & "Next Page : " & FormularioWebPageCall & vbCrLf
@@ -7355,7 +7355,7 @@ Public Class Lecturas
                         ControlAtributes = ControlAtributes & "Type: " & TipoControl & vbCrLf
                         ControlAtributes = ControlAtributes & "Group Validations : " & GroupValidation & vbCrLf
                         ControlAtributes = ControlAtributes & "ToolTip : " & ToolTip & vbCrLf
-                        ControlAtributes = ControlAtributes & "Sección : " & "Button" & vbCrLf
+                        ControlAtributes = ControlAtributes & "Secciï¿½n : " & "Button" & vbCrLf
                         ControlAtributes = ControlAtributes & "Select : " & SelectCommand & vbCrLf
                         ControlAtributes = ControlAtributes & "Evento : " & FormularioWebEvent & vbCrLf
                         ControlAtributes = ControlAtributes & "Next Page : " & FormularioWebPageCall & vbCrLf
@@ -7378,7 +7378,7 @@ Public Class Lecturas
                         ControlAtributes = ControlAtributes & "Type: " & TipoControl & vbCrLf
                         ControlAtributes = ControlAtributes & "Group Validations : " & GroupValidation & vbCrLf
                         ControlAtributes = ControlAtributes & "ToolTip : " & ToolTip & vbCrLf
-                        ControlAtributes = ControlAtributes & "Sección : " & "Button" & vbCrLf
+                        ControlAtributes = ControlAtributes & "Secciï¿½n : " & "Button" & vbCrLf
                         ControlAtributes = ControlAtributes & "Select : " & SelectCommand & vbCrLf
                         ControlAtributes = ControlAtributes & "Evento : " & FormularioWebEvent & vbCrLf
                         ControlAtributes = ControlAtributes & "Next Page : " & FormularioWebPageCall & vbCrLf
@@ -7401,7 +7401,7 @@ Public Class Lecturas
                         ControlAtributes = ControlAtributes & "Type: " & TipoControl & vbCrLf
                         ControlAtributes = ControlAtributes & "Group Validations : " & GroupValidation & vbCrLf
                         ControlAtributes = ControlAtributes & "ToolTip : " & ToolTip & vbCrLf
-                        ControlAtributes = ControlAtributes & "Sección : " & "Button" & vbCrLf
+                        ControlAtributes = ControlAtributes & "Secciï¿½n : " & "Button" & vbCrLf
                         ControlAtributes = ControlAtributes & "Select : " & SelectCommand & vbCrLf
                         ControlAtributes = ControlAtributes & "Evento : " & FormularioWebEvent & vbCrLf
                         ControlAtributes = ControlAtributes & "Next Page : " & FormularioWebPageCall & vbCrLf
@@ -7424,7 +7424,7 @@ Public Class Lecturas
                         ControlAtributes = ControlAtributes & "Type: " & TipoControl & vbCrLf
                         ControlAtributes = ControlAtributes & "Group Validations : " & GroupValidation & vbCrLf
                         ControlAtributes = ControlAtributes & "ToolTip : " & ToolTip & vbCrLf
-                        ControlAtributes = ControlAtributes & "Sección : " & "Button" & vbCrLf
+                        ControlAtributes = ControlAtributes & "Secciï¿½n : " & "Button" & vbCrLf
                         ControlAtributes = ControlAtributes & "Select : " & SelectCommand & vbCrLf
                         ControlAtributes = ControlAtributes & "Evento : " & FormularioWebEvent & vbCrLf
                         ControlAtributes = ControlAtributes & "Next Page : " & FormularioWebPageCall & vbCrLf
@@ -7447,7 +7447,7 @@ Public Class Lecturas
                         ControlAtributes = ControlAtributes & "Type: " & TipoControl & vbCrLf
                         ControlAtributes = ControlAtributes & "Group Validations : " & GroupValidation & vbCrLf
                         ControlAtributes = ControlAtributes & "ToolTip : " & ToolTip & vbCrLf
-                        ControlAtributes = ControlAtributes & "Sección : " & "Button" & vbCrLf
+                        ControlAtributes = ControlAtributes & "Secciï¿½n : " & "Button" & vbCrLf
                         ControlAtributes = ControlAtributes & "Select : " & SelectCommand & vbCrLf
                         ControlAtributes = ControlAtributes & "Evento : " & FormularioWebEvent & vbCrLf
                         ControlAtributes = ControlAtributes & "Next Page : " & FormularioWebPageCall & vbCrLf
@@ -7466,9 +7466,9 @@ Public Class Lecturas
             MyView.Controls.Add(MyTable)
         Else
 
-            ' Significa que no hay tabs definidos para el formulario en cuestión y que 
-            ' por tanto la lógica de despliegue es la misma de siempre y podremos hacer todo
-            ' en una única tabla y luego agregarla a la view.
+            ' Significa que no hay tabs definidos para el formulario en cuestiï¿½n y que 
+            ' por tanto la lï¿½gica de despliegue es la misma de siempre y podremos hacer todo
+            ' en una ï¿½nica tabla y luego agregarla a la view.
 
             MyTable = New Table
             MyTable.ID = "ViewBody" & NumeroPagina
@@ -7477,7 +7477,7 @@ Public Class Lecturas
             MyTable.CellPadding = "2"
 
 
-            'Linea de División
+            'Linea de Divisiï¿½n
             Row = New TableRow
             Cell = New TableCell
             Cell.Style(HtmlTextWriterStyle.TextAlign) = "left"
@@ -7505,9 +7505,9 @@ Public Class Lecturas
                 ControlAtributes = ControlAtributes & "Obligatorio? : " & IsRequiredField.ToString & vbCrLf
                 ControlAtributes = ControlAtributes & "Is Not Enabled? : " & IsNotEnabledField.ToString & vbCrLf
                 ControlAtributes = ControlAtributes & "Dominio : " & DomainField & vbCrLf
-                ControlAtributes = ControlAtributes & "Sección : " & "Form" & vbCrLf
+                ControlAtributes = ControlAtributes & "Secciï¿½n : " & "Form" & vbCrLf
                 ControlAtributes = ControlAtributes & "SQL : " & SelectCommand & vbCrLf
-                ControlAtributes = ControlAtributes & "Método de la WS: " & FormularioWebServiceCall
+                ControlAtributes = ControlAtributes & "Mï¿½todo de la WS: " & FormularioWebServiceCall
                 Cell.ToolTip = ControlAtributes
                 Cell.Controls.Add(New LiteralControl(arrLabel(k) & " : "))
                 Row.Cells.Add(Cell)
@@ -7555,7 +7555,7 @@ Public Class Lecturas
                         AutoComp.CompletionListItemCssClass = CssClassControl
                         AutoComp.TargetControlID = arrControl(k)
                         AutoComp.ServicePath = "AutoComplete.asmx"
-                        AutoComp.ServiceMethod = Lecturas.LeerNombreMetodoAutocomplete("Form", NumeroPagina, k + 1)  ' Aqui hay que invocar un metodo para traer el nombre del método
+                        AutoComp.ServiceMethod = Lecturas.LeerNombreMetodoAutocomplete("Form", NumeroPagina, k + 1)  ' Aqui hay que invocar un metodo para traer el nombre del mï¿½todo
                         AutoComp.MinimumPrefixLength = "2"
                         AutoComp.CompletionInterval = "1000"
                         AutoComp.EnableCaching = "true"
@@ -7607,7 +7607,7 @@ Public Class Lecturas
                         txtCheckBox = New CheckBox
                         txtCheckBox.ID = "chk" & arrControl(k)
                         'txtCheckBox.ClientIDMode = ClientIDMode.Static
-                        txtCheckBox.ToolTip = "Marque el check box para realizar la búsqueda usando el valor seleccionado para el campo " & arrLabel(k)
+                        txtCheckBox.ToolTip = "Marque el check box para realizar la bï¿½squeda usando el valor seleccionado para el campo " & arrLabel(k)
                         Cell.Controls.Add(txtCheckBox)
                         Cell.Controls.Add(New LiteralControl(" "))
                         txtDropDownList = New DropDownList
@@ -7632,7 +7632,7 @@ Public Class Lecturas
                 MyTable.Rows.Add(Row)
             Next
 
-            'Linea de División
+            'Linea de Divisiï¿½n
             Row = New TableRow
             Cell = New TableCell
             Cell.Style(HtmlTextWriterStyle.TextAlign) = "left"
@@ -7669,7 +7669,7 @@ Public Class Lecturas
                         ControlAtributes = ControlAtributes & "Type: " & TipoControl & vbCrLf
                         ControlAtributes = ControlAtributes & "Group Validations : " & GroupValidation & vbCrLf
                         ControlAtributes = ControlAtributes & "ToolTip : " & ToolTip & vbCrLf
-                        ControlAtributes = ControlAtributes & "Sección : " & "Button" & vbCrLf
+                        ControlAtributes = ControlAtributes & "Secciï¿½n : " & "Button" & vbCrLf
                         ControlAtributes = ControlAtributes & "Select : " & SelectCommand & vbCrLf
                         ControlAtributes = ControlAtributes & "Evento : " & FormularioWebEvent & vbCrLf
                         ControlAtributes = ControlAtributes & "Next Page : " & FormularioWebPageCall & vbCrLf
@@ -7692,7 +7692,7 @@ Public Class Lecturas
                         ControlAtributes = ControlAtributes & "Type: " & TipoControl & vbCrLf
                         ControlAtributes = ControlAtributes & "Group Validations : " & GroupValidation & vbCrLf
                         ControlAtributes = ControlAtributes & "ToolTip : " & ToolTip & vbCrLf
-                        ControlAtributes = ControlAtributes & "Sección : " & "Button" & vbCrLf
+                        ControlAtributes = ControlAtributes & "Secciï¿½n : " & "Button" & vbCrLf
                         ControlAtributes = ControlAtributes & "Select : " & SelectCommand & vbCrLf
                         ControlAtributes = ControlAtributes & "Evento : " & FormularioWebEvent & vbCrLf
                         ControlAtributes = ControlAtributes & "Next Page : " & FormularioWebPageCall & vbCrLf
@@ -7715,7 +7715,7 @@ Public Class Lecturas
                         ControlAtributes = ControlAtributes & "Type: " & TipoControl & vbCrLf
                         ControlAtributes = ControlAtributes & "Group Validations : " & GroupValidation & vbCrLf
                         ControlAtributes = ControlAtributes & "ToolTip : " & ToolTip & vbCrLf
-                        ControlAtributes = ControlAtributes & "Sección : " & "Button" & vbCrLf
+                        ControlAtributes = ControlAtributes & "Secciï¿½n : " & "Button" & vbCrLf
                         ControlAtributes = ControlAtributes & "Select : " & SelectCommand & vbCrLf
                         ControlAtributes = ControlAtributes & "Evento : " & FormularioWebEvent & vbCrLf
                         ControlAtributes = ControlAtributes & "Next Page : " & FormularioWebPageCall & vbCrLf
@@ -7738,7 +7738,7 @@ Public Class Lecturas
                         ControlAtributes = ControlAtributes & "Type: " & TipoControl & vbCrLf
                         ControlAtributes = ControlAtributes & "Group Validations : " & GroupValidation & vbCrLf
                         ControlAtributes = ControlAtributes & "ToolTip : " & ToolTip & vbCrLf
-                        ControlAtributes = ControlAtributes & "Sección : " & "Button" & vbCrLf
+                        ControlAtributes = ControlAtributes & "Secciï¿½n : " & "Button" & vbCrLf
                         ControlAtributes = ControlAtributes & "Select : " & SelectCommand & vbCrLf
                         ControlAtributes = ControlAtributes & "Evento : " & FormularioWebEvent & vbCrLf
                         ControlAtributes = ControlAtributes & "Next Page : " & FormularioWebPageCall & vbCrLf
@@ -7761,7 +7761,7 @@ Public Class Lecturas
                         ControlAtributes = ControlAtributes & "Type: " & TipoControl & vbCrLf
                         ControlAtributes = ControlAtributes & "Group Validations : " & GroupValidation & vbCrLf
                         ControlAtributes = ControlAtributes & "ToolTip : " & ToolTip & vbCrLf
-                        ControlAtributes = ControlAtributes & "Sección : " & "Button" & vbCrLf
+                        ControlAtributes = ControlAtributes & "Secciï¿½n : " & "Button" & vbCrLf
                         ControlAtributes = ControlAtributes & "Select : " & SelectCommand & vbCrLf
                         ControlAtributes = ControlAtributes & "Evento : " & FormularioWebEvent & vbCrLf
                         ControlAtributes = ControlAtributes & "Next Page : " & FormularioWebPageCall & vbCrLf
@@ -7784,7 +7784,7 @@ Public Class Lecturas
                         ControlAtributes = ControlAtributes & "Type: " & TipoControl & vbCrLf
                         ControlAtributes = ControlAtributes & "Group Validations : " & GroupValidation & vbCrLf
                         ControlAtributes = ControlAtributes & "ToolTip : " & ToolTip & vbCrLf
-                        ControlAtributes = ControlAtributes & "Sección : " & "Button" & vbCrLf
+                        ControlAtributes = ControlAtributes & "Secciï¿½n : " & "Button" & vbCrLf
                         ControlAtributes = ControlAtributes & "Select : " & SelectCommand & vbCrLf
                         ControlAtributes = ControlAtributes & "Evento : " & FormularioWebEvent & vbCrLf
                         ControlAtributes = ControlAtributes & "Next Page : " & FormularioWebPageCall & vbCrLf
@@ -7807,7 +7807,7 @@ Public Class Lecturas
                         ControlAtributes = ControlAtributes & "Type: " & TipoControl & vbCrLf
                         ControlAtributes = ControlAtributes & "Group Validations : " & GroupValidation & vbCrLf
                         ControlAtributes = ControlAtributes & "ToolTip : " & ToolTip & vbCrLf
-                        ControlAtributes = ControlAtributes & "Sección : " & "Button" & vbCrLf
+                        ControlAtributes = ControlAtributes & "Secciï¿½n : " & "Button" & vbCrLf
                         ControlAtributes = ControlAtributes & "Select : " & SelectCommand & vbCrLf
                         ControlAtributes = ControlAtributes & "Evento : " & FormularioWebEvent & vbCrLf
                         ControlAtributes = ControlAtributes & "Next Page : " & FormularioWebPageCall & vbCrLf
@@ -7838,7 +7838,7 @@ Public Class Lecturas
         MyTable.CellSpacing = "2"
         MyTable.CellPadding = "2"
         MyTable.CssClass = "visible"
-        'Linea de División
+        'Linea de Divisiï¿½n
         Row = New TableRow
         Cell = New TableCell
         Cell.Style(HtmlTextWriterStyle.TextAlign) = "left"
@@ -7853,10 +7853,10 @@ Public Class Lecturas
         Cell.CssClass = "subtit"
         Cell.Style(HtmlTextWriterStyle.TextAlign) = "center"
         Cell.ColumnSpan = "2"
-        Cell.Controls.Add(New LiteralControl("Lista de Controles de la Página"))
+        Cell.Controls.Add(New LiteralControl("Lista de Controles de la Pï¿½gina"))
         Row.Cells.Add(Cell)
         MyTable.Rows.Add(Row)
-        'Linea de División
+        'Linea de Divisiï¿½n
         Row = New TableRow
         Cell = New TableCell
         Cell.Style(HtmlTextWriterStyle.TextAlign) = "left"
@@ -7875,7 +7875,7 @@ Public Class Lecturas
         MyTable.CellSpacing = "2"
         MyTable.CellPadding = "2"
         MyTable.CssClass = "visible"
-        'Linea de División
+        'Linea de Divisiï¿½n
         Row = New TableRow
         Cell = New TableCell
         Cell.Style(HtmlTextWriterStyle.TextAlign) = "left"
@@ -7890,10 +7890,10 @@ Public Class Lecturas
         Cell.CssClass = "subtit"
         Cell.Style(HtmlTextWriterStyle.TextAlign) = "center"
         Cell.ColumnSpan = "2"
-        Cell.Controls.Add(New LiteralControl("Lista de Requerimientos de la Página"))
+        Cell.Controls.Add(New LiteralControl("Lista de Requerimientos de la Pï¿½gina"))
         Row.Cells.Add(Cell)
         MyTable.Rows.Add(Row)
-        'Linea de División
+        'Linea de Divisiï¿½n
         Row = New TableRow
         Cell = New TableCell
         Cell.Style(HtmlTextWriterStyle.TextAlign) = "left"
@@ -8085,12 +8085,12 @@ Public Class Lecturas
         i = 0
         t = Lecturas.LeerTabsFormularioWeb(arrLabel, arrControl, NumeroPagina, i)
 
-        If i > 0 Then  'Página posee tabs
-            'Linea de División
-            ' Aquí vamos a verificar si la evidencia de ejecución de una tarea, requiere o no
-            ' el ingreso de un indicador, de no ser así, no se muestra el tab.
+        If i > 0 Then  'Pï¿½gina posee tabs
+            'Linea de Divisiï¿½n
+            ' Aquï¿½ vamos a verificar si la evidencia de ejecuciï¿½n de una tarea, requiere o no
+            ' el ingreso de un indicador, de no ser asï¿½, no se muestra el tab.
 
-            'Se elimina esta línea el 25-09-2011
+            'Se elimina esta lï¿½nea el 25-09-2011
             'Row = New TableRow
             'Cell = New TableCell
             'Cell.Style(HtmlTextWriterStyle.TextAlign) = "left"
@@ -8112,7 +8112,7 @@ Public Class Lecturas
             TC.OnClientActiveTabChanged = "ActiveTabChanged"
             ' Primer Tab Panel: Con k corren los paneles                                  
 
-            'Aquí comienza el If si me quiero saltar un tab.
+            'Aquï¿½ comienza el If si me quiero saltar un tab.
 
             For k = 0 To i - 1
                 t = Lecturas.LeerControlFormularioWeb(TipoControl, CssClassLabel, CssClassControl, EtiquetaAlign, ControlWidth, ControlTextMode, ToolTip, IsRequiredField, IsNotEnabledField, DomainField, DataTextField, DataFile, SelectCommand, "Tabs", GroupValidation, NumeroPagina, k + 1)
@@ -8142,7 +8142,7 @@ Public Class Lecturas
                 Fila.Cells.Add(Celda)
                 Tabla.Rows.Add(Fila)
 
-                'Linea de División
+                'Linea de Divisiï¿½n
                 'Fila = New TableRow
                 'Celda = New TableCell
                 'Celda.Style(HtmlTextWriterStyle.TextAlign) = "left"
@@ -8152,7 +8152,7 @@ Public Class Lecturas
                 'Fila.Cells.Add(Celda)
                 'Tabla.Rows.Add(Fila)
 
-                'Descripción
+                'Descripciï¿½n
                 'Fila = New TableRow
                 'Celda = New TableCell
                 'Celda.CssClass = "tab_contenido"
@@ -8162,7 +8162,7 @@ Public Class Lecturas
                 'Fila.Cells.Add(Celda)
                 'Tabla.Rows.Add(Fila)
 
-                'Linea de División
+                'Linea de Divisiï¿½n
                 'Fila = New TableRow
                 'Celda = New TableCell
                 'Celda.Style(HtmlTextWriterStyle.TextAlign) = "left"
@@ -8206,7 +8206,7 @@ Public Class Lecturas
                             Url = "<a href='" & linkAgregar & "'>Editar " & arrLabel(k) & "</a>"
                         End If
                     Else
-                        Url = "<span class=""subtit"">Esta tarea no requiere ingresar un indicador de gestión</span>"
+                        Url = "<span class=""subtit"">Esta tarea no requiere ingresar un indicador de gestiï¿½n</span>"
                     End If
 
                     Fila = New TableRow
@@ -8225,7 +8225,7 @@ Public Class Lecturas
                 Celda.Height = "4"
                 Celda.ColumnSpan = "2"
 
-                'Aquí vamos a poner la grilla de datos asociada a cada tabs
+                'Aquï¿½ vamos a poner la grilla de datos asociada a cada tabs
 
                 'Columnas del Formulario
                 n = 0
@@ -8333,7 +8333,7 @@ Public Class Lecturas
                             Grilla.Columns.Add(ItemTempColumnGrid)
                         Case "DownLoadField"
                             HyperColumnGrid = New HyperLinkField
-                            HyperColumnGrid.DataTextField = "Título"
+                            HyperColumnGrid.DataTextField = "Tï¿½tulo"
                             HyperColumnGrid.ShowHeader = True
                             HyperColumnGrid.HeaderText = arrGrillaLabel(m)
                             HyperColumnGrid.DataNavigateUrlFields = New String(0) {"Url"}
@@ -8386,9 +8386,9 @@ Public Class Lecturas
                 ' Cambio introducido el 08 de abril de 2011
                 ' Se verifica que el el campo DomainField no contiene la glosa RelationBetweenTables
                 If DomainField = "RelationBetweenTables" Then
-                    'Vamos a introducir un cambio para mejorar el desempeño del despliegue de 
+                    'Vamos a introducir un cambio para mejorar el desempeï¿½o del despliegue de 
                     'las listas de asociaciones entre la tabla maestra y sus tablas asociados.
-                    'Para ello al momento de desplegar sólo vamos a mostrar los registros asociados
+                    'Para ello al momento de desplegar sï¿½lo vamos a mostrar los registros asociados
                     'Luego vamos a examinar el mecanismo para hacer nuevas asociaciones.
 
 
@@ -8398,18 +8398,18 @@ Public Class Lecturas
                                 Case 1
                                     'sSQL = "SELECT MenuOptions.MenuOptionsId AS Id, Acciones.AmbitosCodigo AS Grupo, MenuOptions.Texto AS Nombre "
                                     'sSQL = sSQL & "FROM (Acciones INNER JOIN Ambitos ON Acciones.AmbitosCodigo = Ambitos.AmbitosCodigo) INNER JOIN MenuOptions ON Ambitos.AmbitosSideBarMenu = MenuOptions.SideBarMenu "
-                                    'sSQL = sSQL & "WHERE (((MenuOptions.PaginaWebName)=""Lista Políticas"") AND ((MenuOptions.IsNodoHoja)=""Hoja"") AND ((Acciones.AccionesId)=" & PivotId & ")) "
+                                    'sSQL = sSQL & "WHERE (((MenuOptions.PaginaWebName)=""Lista Polï¿½ticas"") AND ((MenuOptions.IsNodoHoja)=""Hoja"") AND ((Acciones.AccionesId)=" & PivotId & ")) "
                                     'sSQL = sSQL & "ORDER BY MenuOptions.Texto"
 
                                     sSQL = "SELECT Usuarios.[UsuariosId] as Id, Usuarios.[UsuariosCodigo] As Codigo, Usuarios.[UsuariosName] As Nombre "
                                     sSQL = sSQL & "FROM(Usuarios)"
                                     'Case 1
-                                    'sSQL = "SELECT DocumentosSGI.DocumentosSGIId As Id, MenuOptions.Texto as Requisito, DocumentosSGI.DocumentosSGITipo as Tipo, DocumentosSGI.DocumentosSGINombre As Título, 'SGI\' + DocumentosSGI.DocumentosSGIPath as Url  "
+                                    'sSQL = "SELECT DocumentosSGI.DocumentosSGIId As Id, MenuOptions.Texto as Requisito, DocumentosSGI.DocumentosSGITipo as Tipo, DocumentosSGI.DocumentosSGINombre As Tï¿½tulo, 'SGI\' + DocumentosSGI.DocumentosSGIPath as Url  "
                                     'sSQL = sSQL & "FROM ((((Acciones INNER JOIN RequisitosPorAccion ON Acciones.AccionesId = RequisitosPorAccion.AccionesId) INNER JOIN APIDocumentosSGI ON RequisitosPorAccion.MenuOptionsId = APIDocumentosSGI.MenuOptionsID) INNER JOIN DocumentosSGI ON APIDocumentosSGI.DocumentosSGICodigo = DocumentosSGI.DocumentosSGICodigo) INNER JOIN TipoDoc ON DocumentosSGI.DocumentosSGITipo = TipoDoc.TipoDocName) INNER JOIN MenuOptions ON RequisitosPorAccion.MenuOptionsId = MenuOptions.MenuOptionsId "
                                     'sSQL = sSQL & "WHERE(((Acciones.[AccionesId]) = " & PivotId & ")) "
                                     'sSQL = sSQL & "ORDER BY TipoDoc.TipoDocSecuencia, DocumentosSGI.DocumentosSGINombre"
                                 Case 0
-                                    sSQL = "SELECT DocumentosSGI.DocumentosSGIId AS Id, DocumentosSGI.DocumentosSGICodigo AS Código, DocumentosSGI.DocumentosSGINombre AS Título, DocumentosSGI.DocumentosSGIArea AS Emisor, Mid(DocumentosSGI.DocumentosSGIFEmision,1.1) AS Emisión, DocumentosSGI.DocumentosSGIFRevision AS Rev, DocumentosSGI.DocumentosSGIOrigen AS C_Externo, 'SGI\'+DocumentosSGI.DocumentosSGIPath AS Url, DocumentosSGI.DocumentosSGITipo As Tipo "
+                                    sSQL = "SELECT DocumentosSGI.DocumentosSGIId AS Id, DocumentosSGI.DocumentosSGICodigo AS Cï¿½digo, DocumentosSGI.DocumentosSGINombre AS Tï¿½tulo, DocumentosSGI.DocumentosSGIArea AS Emisor, Mid(DocumentosSGI.DocumentosSGIFEmision,1.1) AS Emisiï¿½n, DocumentosSGI.DocumentosSGIFRevision AS Rev, DocumentosSGI.DocumentosSGIOrigen AS C_Externo, 'SGI\'+DocumentosSGI.DocumentosSGIPath AS Url, DocumentosSGI.DocumentosSGITipo As Tipo "
                                     sSQL = sSQL & "FROM(DocumentosSGI) "
                                     sSQL = sSQL & "WHERE (((DocumentosSGI.DocumentosSGITipo)='Procedimiento')) OR (((DocumentosSGI.DocumentosSGITipo)='Formulario')) "
                                     sSQL = sSQL & "ORDER BY DocumentosSGI.DocumentosSGIId"
@@ -8483,7 +8483,7 @@ Public Class Lecturas
                                     'sSQL = SelectCommand & " WHERE GerenciasMision.GerenciasMisionYear='" & Agno & "' AND Gerencias.GerenciasCodigo='" & Gerencia & "'"
                                     sSQL = SelectCommand & " Where ProgramasMapa.ProgramasCodigo = '" & MasterName & "' AND ProgramasMapa.StakeholdersCodigo = '" & StakeholderCode & "' "
 
-                                    'WHERE (((ProgramasMapa.ProgramasCodigo)='Programa Voluntariado 2011') AND ((ProgramasMapa.StakeholdersCodigo)='Claudia Alarcón'));
+                                    'WHERE (((ProgramasMapa.ProgramasCodigo)='Programa Voluntariado 2011') AND ((ProgramasMapa.StakeholdersCodigo)='Claudia Alarcï¿½n'));
 
                             End Select
                         Case "Ficha de ProgramasMapa"
@@ -8494,7 +8494,7 @@ Public Class Lecturas
                                     'sSQL = SelectCommand & " WHERE GerenciasMision.GerenciasMisionYear='" & Agno & "' AND Gerencias.GerenciasCodigo='" & Gerencia & "'"
                                     sSQL = SelectCommand & " Where ProgramasMapa.ProgramasCodigo = '" & MasterName & "' AND ProgramasMapa.StakeholdersCodigo = '" & StakeholderCode & "' "
 
-                                    'WHERE (((ProgramasMapa.ProgramasCodigo)='Programa Voluntariado 2011') AND ((ProgramasMapa.StakeholdersCodigo)='Claudia Alarcón'));
+                                    'WHERE (((ProgramasMapa.ProgramasCodigo)='Programa Voluntariado 2011') AND ((ProgramasMapa.StakeholdersCodigo)='Claudia Alarcï¿½n'));
 
                                 Case "SubGruposPriorizacion"
                                     sSQL = SelectCommand
@@ -8624,7 +8624,7 @@ Public Class Lecturas
                 TC.Controls.Add(TP)
             Next
 
-            'Aquí termina el End If si me quiero saltar un tab
+            'Aquï¿½ termina el End If si me quiero saltar un tab
 
 
             Cell.Controls.Add(TC)
@@ -8815,13 +8815,13 @@ Public Class Lecturas
         Dim Espacios As String = ""
         Dim BarraSubMenu As String = "<table width=""1000"" border=""0"" cellpadding=""0"" cellspacing=""0"" id=""submenu"">"
 
-        'Aquí sólo creo la tabla y le traspaso el MenuOptionsId a la siguiente rutina.
+        'Aquï¿½ sï¿½lo creo la tabla y le traspaso el MenuOptionsId a la siguiente rutina.
         'La siguiente rutina lee las columnas de la barra de sub menu y por cada registro
-        'crea una columna, pone el título y luego invoca la tercera rutina que agrega a dicha 
+        'crea una columna, pone el tï¿½tulo y luego invoca la tercera rutina que agrega a dicha 
         'columna los link a las aplicaciones.
 
 
-        'De esta instrucción nos interesa rescatar sólo el MenuOptionsId que vamos a usar como 
+        'De esta instrucciï¿½n nos interesa rescatar sï¿½lo el MenuOptionsId que vamos a usar como 
         'ParentId para rescatar los nodos del sub menu.
 
         sSQL = "SELECT MenuOptionsId, texto "
@@ -8857,7 +8857,7 @@ Public Class Lecturas
         Dim FilaOpciones As String = "<tr>"
         Dim i As Integer = 0
 
-        'Se llena la primera fila, con sus respectivas columnas de título
+        'Se llena la primera fila, con sus respectivas columnas de tï¿½tulo
 
         'Se leen los encabezados y por cada uno se va llenando la Fila de Encabezado y 
         'se invoca la siguiente rutina para llenar las opciones del meni.
@@ -8894,7 +8894,7 @@ Public Class Lecturas
         Dim sSQL As String
         Dim MenuOption As String = ""
 
-        'Se leen las opciones del menú que estan asociados a vínculos a las aplicaciones
+        'Se leen las opciones del menï¿½ que estan asociados a vï¿½nculos a las aplicaciones
         sSQL = "SELECT MenuOptionsId, Class, href, title, texto, IsNodoHoja "
         sSQL = sSQL & "FROM MenuOptions "
         sSQL = sSQL & "WHERE MenuOptionsPId = " & MenuOptionsId
@@ -9066,10 +9066,10 @@ Public Class Lecturas
         Dim sJavaScript As String = ""
 
         ' Primero se despliegan
-        ' los campos que son de contexto y que no pueden ser alterados por ningún motivo, como
-        ' por ejemplo aquellos campos que son claves únicas y que no pueden ser modificados
+        ' los campos que son de contexto y que no pueden ser alterados por ningï¿½n motivo, como
+        ' por ejemplo aquellos campos que son claves ï¿½nicas y que no pueden ser modificados
         ' o aquellos campos que corresponden a la foreing key hacia la tabla padre, en el
-        ' caso de una aplicación del tipo master-detail.
+        ' caso de una aplicaciï¿½n del tipo master-detail.
 
         ' Estos campos se encuentran en la section FormKeys y pueden no existir para determinados
         ' tipos de formularios y se leen mediante el metodo 
@@ -9077,8 +9077,8 @@ Public Class Lecturas
 
         t = Lecturas.LeerKeysFormularioWeb(arrLabel, arrControl, NumeroPagina, i)
 
-        ' A continuación pongo los textos de identificación de la página, que fueron pasados como
-        ' parámetros de invocación
+        ' A continuaciï¿½n pongo los textos de identificaciï¿½n de la pï¿½gina, que fueron pasados como
+        ' parï¿½metros de invocaciï¿½n
 
         MyTable = New Table
         MyTable.ID = "ViewHeader"
@@ -9094,7 +9094,7 @@ Public Class Lecturas
         Cell.Controls.Add(New LiteralControl("<h1>" & TituloPagina & "</h1>"))
         Row.Cells.Add(Cell)
         MyTable.Rows.Add(Row)
-        'Linea de División
+        'Linea de Divisiï¿½n
         'Row = New TableRow
         'Cell = New TableCell
         'Cell.Style(HtmlTextWriterStyle.TextAlign) = "left"
@@ -9103,8 +9103,8 @@ Public Class Lecturas
         'Cell.Controls.Add(New LiteralControl("<hr />"))
         'Row.Cells.Add(Cell)
         'MyTable.Rows.Add(Row)
-        'Descripción
-        'Se esconde la descripción a solicitud de Priscilla
+        'Descripciï¿½n
+        'Se esconde la descripciï¿½n a solicitud de Priscilla
         'Row = New TableRow
         'Cell = New TableCell
         'Cell.CssClass = "tab_contenido"
@@ -9126,7 +9126,7 @@ Public Class Lecturas
             Row = New TableRow
             For k = 0 To i - 1
                 t = Lecturas.LeerControlFormularioWeb(TipoControl, CssClassLabel, CssClassControl, EtiquetaAlign, ControlWidth, ControlTextMode, ToolTip, IsRequiredField, IsNotEnabledField, DomainField, DataTextField, DataFile, SelectCommand, "FormKeys", GroupValidation, NumeroPagina, k + 1)
-                'aqui va la creación de la fila
+                'aqui va la creaciï¿½n de la fila
                 Cell = New TableCell
                 Cell.CssClass = CssClassLabel
                 Cell.Style(HtmlTextWriterStyle.TextAlign) = EtiquetaAlign
@@ -9151,17 +9151,17 @@ Public Class Lecturas
                 If IsNotEnabledField Then
                     txtTextBox.Enabled = False
                 End If
-                ' OJO esta instrucción no es generica y la coloque ha solicitud de Juan Manuel
+                ' OJO esta instrucciï¿½n no es generica y la coloque ha solicitud de Juan Manuel
                 ' para esconder el campo Secuencia
                 If k = 1 Then
-                    txtTextBox.Visible = False  'Se esconde el número de secuencia
+                    txtTextBox.Visible = False  'Se esconde el nï¿½mero de secuencia
                 End If
                 Cell.Controls.Add(txtTextBox)
                 Row.Cells.Add(Cell)
-                ' Aquí se suma la fila
+                ' Aquï¿½ se suma la fila
             Next
             MyTable.Rows.Add(Row)
-            'Linea de División
+            'Linea de Divisiï¿½n
             'Se elimino el 25-09-2011
             'Row = New TableRow
             'Cell = New TableCell
@@ -9176,7 +9176,7 @@ Public Class Lecturas
 
 
 
-        'Luego se agrega la tabla de control de validación de los campos
+        'Luego se agrega la tabla de control de validaciï¿½n de los campos
 
         MyTable = New Table
         MyTable.ID = "ViewValidationSummary"
@@ -9201,19 +9201,19 @@ Public Class Lecturas
 
         i = 0
 
-        ' A continuación leo el registro de cabecera del formulario y desde el cual derivan el
+        ' A continuaciï¿½n leo el registro de cabecera del formulario y desde el cual derivan el
         ' resto de los registros que indican sus atributos y sus acciones
-        ' Este registro se identifica pues es el único del formulario que pertenece a la 
+        ' Este registro se identifica pues es el ï¿½nico del formulario que pertenece a la 
         ' section FormHeader y se lee con el metodo: LeerHeaderFormularioWeb, que devuelve
-        ' una única variable cuyo valor gobierna las siguientes decisiones de despliegue de los 
-        ' atributos del formulario web, para ello este metodo se implementa como una función que 
-        ' devuelve un único campo booleano que puede poseer los siguientes valores:
+        ' una ï¿½nica variable cuyo valor gobierna las siguientes decisiones de despliegue de los 
+        ' atributos del formulario web, para ello este metodo se implementa como una funciï¿½n que 
+        ' devuelve un ï¿½nico campo booleano que puede poseer los siguientes valores:
 
         '   False:  No se encontro registro de cabecera, en cuyo caso el formulario es plano y no
         '           requiere un recorrido recursivo para ir desplegando sus atributos.
         '   ------------------------------------------------------------------------------------
         '   True:  Se encontro registro de cabecera y ello indica que el formulario debe ser recorrido
-        '           en forma recursiva a continuación del despliegue de los campos clave, siempre y cuando
+        '           en forma recursiva a continuaciï¿½n del despliegue de los campos clave, siempre y cuando
         '           estos existan como atributos del formulario.
         t = Lecturas.LeerHeaderFormularioWeb(arrLabel, arrControl, NumeroPagina, i, FormularioWebPId)
 
@@ -9229,8 +9229,8 @@ Public Class Lecturas
 
             i = 0
             t = Lecturas.LeerNodesFormularioWeb(arrLabel, arrControl, ArrNodesId, i, FormularioWebPId)
-            If i > 1 Then 'Solo se despliegan tabs cuando hay más de 1, en el otro caso no lo amerita.
-                'Creamos tabla y la única fila
+            If i > 1 Then 'Solo se despliegan tabs cuando hay mï¿½s de 1, en el otro caso no lo amerita.
+                'Creamos tabla y la ï¿½nica fila
                 AnchoTablaTabs = 116 * (i + 1)
                 MyTable = New Table
                 MyTable.ID = "ViewBody" & FormularioWebPId
@@ -9274,7 +9274,7 @@ Public Class Lecturas
                 For k = 0 To i - 1
                     n = 0
                     t = Lecturas.LeerNodesFormularioWeb(arrNodesLabel, arrNodesControl, arrSubNodesId, n, ArrNodesId(k))
-                    'Aqui acabo de leer los nodos del primer tab, por ahora no hay más anidamiento, asi que cada nodo
+                    'Aqui acabo de leer los nodos del primer tab, por ahora no hay mï¿½s anidamiento, asi que cada nodo
                     'en arrNodesLabel es en realidad una hoja
                     MiTablaSubTab = New Table
                     MiTablaSubTab.ID = "sub" & arrControl(k) & "sub"
@@ -9419,7 +9419,7 @@ Public Class Lecturas
                                     txtCheckBox = New CheckBox
                                     txtCheckBox.ID = "chk" & arrNodesControl(m)
                                     txtCheckBox.ClientIDMode = ClientIDMode.Static
-                                    txtCheckBox.ToolTip = "Marque el check box para realizar la búsqueda usando el valor seleccionado para el campo " & arrNodesLabel(m)
+                                    txtCheckBox.ToolTip = "Marque el check box para realizar la bï¿½squeda usando el valor seleccionado para el campo " & arrNodesLabel(m)
                                     MiCellSubTab.Controls.Add(txtCheckBox)
                                     MiCellSubTab.Controls.Add(New LiteralControl(" "))
                                     txtDropDownList = New DropDownList
@@ -9437,7 +9437,7 @@ Public Class Lecturas
                                     sqlSource.DataFile = DataFile
                                     sqlSource.SelectCommand = SelectCommand
                                     MiCellSubTab.Controls.Add(sqlSource)
-                                Case "UploadArchivo" 'Sólo 1 campo de este tipo por página web
+                                Case "UploadArchivo" 'Sï¿½lo 1 campo de este tipo por pï¿½gina web
                                     txtUploadFile = New FileUpload
                                     txtUploadFile.ID = "txtUploadFile"
                                     txtUploadFile.ClientIDMode = ClientIDMode.Static
@@ -9447,7 +9447,7 @@ Public Class Lecturas
                                     txtUploadFile.Height = "20"
                                     MiCellSubTab.Controls.Add(txtUploadFile)
                                     MiCellSubTab.Controls.Add(New LiteralControl(" "))
-                                    ' Se agrega el botón Save
+                                    ' Se agrega el botï¿½n Save
                                     SaveButton = New Button
                                     SaveButton.ID = "SaveButton"
                                     SaveButton.CssClass = "boxceleste"
@@ -9499,7 +9499,7 @@ Public Class Lecturas
                                     txtDropDownList.ClientIDMode = ClientIDMode.Static
                                     txtDropDownList.CssClass = CssClassControl
                                     txtDropDownList.Style(HtmlTextWriterStyle.Width) = "500"
-                                    txtDropDownList.ToolTip = "Escoja la opción de menú"
+                                    txtDropDownList.ToolTip = "Escoja la opciï¿½n de menï¿½"
                                     MiCellSubTab.Controls.Add(txtDropDownList)
                                     MiCellSubTab.Controls.Add(New LiteralControl("<br /> "))
 
@@ -9592,7 +9592,7 @@ Public Class Lecturas
                                     REValidacion.ControlToValidate = arrNodesControl(m)
                                     REValidacion.ClientIDMode = ClientIDMode.Static
                                     REValidacion.Text = "*"
-                                    REValidacion.ErrorMessage = "La dirección de correo no tiene un formato valido"
+                                    REValidacion.ErrorMessage = "La direcciï¿½n de correo no tiene un formato valido"
                                     REValidacion.CssClass = "tab_contenido"
                                     REValidacion.ValidationGroup = GroupValidation
                                     REValidacion.ValidationExpression = "\S+@\S+\.\S{2,3}"
@@ -9615,7 +9615,7 @@ Public Class Lecturas
                                     CoValidacion.ControlToValidate = arrNodesControl(m)
                                     CoValidacion.ClientIDMode = ClientIDMode.Static
                                     CoValidacion.Text = "*"
-                                    CoValidacion.ErrorMessage = arrNodesLabel(m) & " debe ser un valor numérico"
+                                    CoValidacion.ErrorMessage = arrNodesLabel(m) & " debe ser un valor numï¿½rico"
                                     CoValidacion.CssClass = "tab_contenido"
                                     CoValidacion.ValidationGroup = GroupValidation
                                     CoValidacion.Operator = ValidationCompareOperator.DataTypeCheck
@@ -9627,7 +9627,7 @@ Public Class Lecturas
                                     CoValidacion.ControlToValidate = arrNodesControl(m)
                                     CoValidacion.ClientIDMode = ClientIDMode.Static
                                     CoValidacion.Text = "*"
-                                    CoValidacion.ErrorMessage = arrNodesLabel(m) & " debe ser un valor alfanumérico"
+                                    CoValidacion.ErrorMessage = arrNodesLabel(m) & " debe ser un valor alfanumï¿½rico"
                                     CoValidacion.CssClass = "tab_contenido"
                                     CoValidacion.ValidationGroup = GroupValidation
                                     CoValidacion.Operator = ValidationCompareOperator.DataTypeCheck
@@ -9786,9 +9786,9 @@ Public Class Lecturas
             MyView.Controls.Add(MyTable)
         Else
 
-            ' Significa que no hay tabs definidos para el formulario en cuestión y que 
-            ' por tanto la lógica de despliegue es la misma de siempre y podremos hacer todo
-            ' en una única tabla y luego agregarla a la view.
+            ' Significa que no hay tabs definidos para el formulario en cuestiï¿½n y que 
+            ' por tanto la lï¿½gica de despliegue es la misma de siempre y podremos hacer todo
+            ' en una ï¿½nica tabla y luego agregarla a la view.
 
             MyTable = New Table
             MyTable.ID = "ViewBody"
@@ -9797,7 +9797,7 @@ Public Class Lecturas
             MyTable.CellPadding = "2"
 
 
-            'Linea de División
+            'Linea de Divisiï¿½n
             Row = New TableRow
             Cell = New TableCell
             Cell.Style(HtmlTextWriterStyle.TextAlign) = "left"
@@ -9876,7 +9876,7 @@ Public Class Lecturas
                             AutoComp.CompletionListItemCssClass = CssClassControl
                             AutoComp.TargetControlID = arrControl(k)
                             AutoComp.ServicePath = "AutoComplete.asmx"
-                            AutoComp.ServiceMethod = Lecturas.LeerNombreMetodoAutocomplete("Form", NumeroPagina, k + 1)  ' Aqui hay que invocar un metodo para traer el nombre del método
+                            AutoComp.ServiceMethod = Lecturas.LeerNombreMetodoAutocomplete("Form", NumeroPagina, k + 1)  ' Aqui hay que invocar un metodo para traer el nombre del mï¿½todo
                             AutoComp.MinimumPrefixLength = "2"
                             AutoComp.CompletionInterval = "1000"
                             AutoComp.EnableCaching = "true"
@@ -9928,7 +9928,7 @@ Public Class Lecturas
                             txtCheckBox = New CheckBox
                             txtCheckBox.ID = "chk" & arrControl(k)
                             txtCheckBox.ClientIDMode = ClientIDMode.Static
-                            txtCheckBox.ToolTip = "Marque el check box para realizar la búsqueda usando el valor seleccionado para el campo " & arrLabel(k)
+                            txtCheckBox.ToolTip = "Marque el check box para realizar la bï¿½squeda usando el valor seleccionado para el campo " & arrLabel(k)
                             Cell.Controls.Add(txtCheckBox)
                             Cell.Controls.Add(New LiteralControl(" "))
                             txtDropDownList = New DropDownList
@@ -9946,7 +9946,7 @@ Public Class Lecturas
                             sqlSource.DataFile = DataFile
                             sqlSource.SelectCommand = SelectCommand
                             Cell.Controls.Add(sqlSource)
-                        Case "UploadArchivo" 'Sólo 1 campo de este tipo por página web
+                        Case "UploadArchivo" 'Sï¿½lo 1 campo de este tipo por pï¿½gina web
                             txtUploadFile = New FileUpload
                             txtUploadFile.ID = "txtUploadFile"
                             txtUploadFile.ClientIDMode = ClientIDMode.Static
@@ -9955,7 +9955,7 @@ Public Class Lecturas
                             txtUploadFile.Height = "20"
                             Cell.Controls.Add(txtUploadFile)
                             Cell.Controls.Add(New LiteralControl(" "))
-                            ' Se agrega el botón Save
+                            ' Se agrega el botï¿½n Save
                             SaveButton = New Button
                             SaveButton.ID = "SaveButton"
                             SaveButton.CssClass = "boxceleste"
@@ -10005,7 +10005,7 @@ Public Class Lecturas
                             txtDropDownList.ClientIDMode = ClientIDMode.Static
                             txtDropDownList.CssClass = CssClassControl
                             txtDropDownList.Style(HtmlTextWriterStyle.Width) = "500"
-                            txtDropDownList.ToolTip = "Escoja la opción de menú"
+                            txtDropDownList.ToolTip = "Escoja la opciï¿½n de menï¿½"
                             Cell.Controls.Add(txtDropDownList)
                             Cell.Controls.Add(New LiteralControl("<br /> "))
 
@@ -10095,7 +10095,7 @@ Public Class Lecturas
                             REValidacion.ID = "RegularExpression" & arrControl(k)
                             REValidacion.ControlToValidate = arrControl(k)
                             REValidacion.Text = "*"
-                            REValidacion.ErrorMessage = "La dirección de correo no tiene un formato valido"
+                            REValidacion.ErrorMessage = "La direcciï¿½n de correo no tiene un formato valido"
                             REValidacion.CssClass = "tab_contenido"
                             REValidacion.ValidationGroup = GroupValidation
                             REValidacion.ValidationExpression = "\S+@\S+\.\S{2,3}"
@@ -10116,7 +10116,7 @@ Public Class Lecturas
                             CoValidacion.ID = "CompareValidator" & arrControl(k)
                             CoValidacion.ControlToValidate = arrControl(k)
                             CoValidacion.Text = "*"
-                            CoValidacion.ErrorMessage = arrLabel(k) & " debe ser un valor numérico"
+                            CoValidacion.ErrorMessage = arrLabel(k) & " debe ser un valor numï¿½rico"
                             CoValidacion.CssClass = "tab_contenido"
                             CoValidacion.ValidationGroup = GroupValidation
                             CoValidacion.Operator = ValidationCompareOperator.DataTypeCheck
@@ -10127,7 +10127,7 @@ Public Class Lecturas
                             CoValidacion.ID = "CompareValidator" & arrControl(k)
                             CoValidacion.ControlToValidate = arrControl(k)
                             CoValidacion.Text = "*"
-                            CoValidacion.ErrorMessage = arrLabel(k) & " debe ser un valor alfanumérico"
+                            CoValidacion.ErrorMessage = arrLabel(k) & " debe ser un valor alfanumï¿½rico"
                             CoValidacion.CssClass = "tab_contenido"
                             CoValidacion.ValidationGroup = GroupValidation
                             CoValidacion.Operator = ValidationCompareOperator.DataTypeCheck
@@ -10161,7 +10161,7 @@ Public Class Lecturas
                 End If
             Next
 
-            'Linea de División
+            'Linea de Divisiï¿½n
             Row = New TableRow
             Cell = New TableCell
             Cell.Style(HtmlTextWriterStyle.TextAlign) = "left"
@@ -10659,8 +10659,8 @@ Public Class Lecturas
         i = 0
         t = Lecturas.LeerTabsFormularioWeb(arrLabel, arrControl, NumeroPagina, i)
 
-        If i > 0 Then  'Página posee tabs
-            'Linea de División
+        If i > 0 Then  'Pï¿½gina posee tabs
+            'Linea de Divisiï¿½n
             Row = New TableRow
             Cell = New TableCell
             Cell.Style(HtmlTextWriterStyle.TextAlign) = "left"
@@ -10710,7 +10710,7 @@ Public Class Lecturas
                 Fila.Cells.Add(Celda)
                 Tabla.Rows.Add(Fila)
 
-                'Linea de División
+                'Linea de Divisiï¿½n
                 Fila = New TableRow
                 Celda = New TableCell
                 Celda.Style(HtmlTextWriterStyle.TextAlign) = "left"
@@ -10720,7 +10720,7 @@ Public Class Lecturas
                 Fila.Cells.Add(Celda)
                 Tabla.Rows.Add(Fila)
 
-                'Descripción
+                'Descripciï¿½n
                 Fila = New TableRow
                 Celda = New TableCell
                 Celda.CssClass = "tab_contenido"
@@ -10730,7 +10730,7 @@ Public Class Lecturas
                 Fila.Cells.Add(Celda)
                 Tabla.Rows.Add(Fila)
 
-                'Linea de División
+                'Linea de Divisiï¿½n
                 Fila = New TableRow
                 Celda = New TableCell
                 Celda.Style(HtmlTextWriterStyle.TextAlign) = "left"
@@ -10749,7 +10749,7 @@ Public Class Lecturas
                 Celda.Height = "4"
                 Celda.ColumnSpan = "2"
 
-                'Aquí vamos a poner la grilla de datos asociada a cada tabs
+                'Aquï¿½ vamos a poner la grilla de datos asociada a cada tabs
 
                 'Columnas del Formulario
                 n = 0
@@ -10800,7 +10800,7 @@ Public Class Lecturas
 
                         Case "DownLoadField"
                             HyperColumnGrid = New HyperLinkField
-                            HyperColumnGrid.DataTextField = "Título"
+                            HyperColumnGrid.DataTextField = "Tï¿½tulo"
                             HyperColumnGrid.ShowHeader = True
                             HyperColumnGrid.HeaderText = arrGrillaLabel(m)
                             HyperColumnGrid.DataNavigateUrlFields = New String(0) {"Url"}
@@ -10898,7 +10898,7 @@ Public Class Lecturas
             'js = js & "         if(win.closed) {" & vbCrLf
             js = js & "         if(true) {" & vbCrLf
             js = js & "             clearInterval(timer);" & vbCrLf
-            js = js & "             alert('¡detecto cierre de la ventana modal!');" & vbCrLf
+            js = js & "             alert('ï¿½detecto cierre de la ventana modal!');" & vbCrLf
             js = js & "             window.addEventListener(""Unlistener"",receiveMessage" & Control & "(),false);" & vbCrLf
             '----------------------
 
@@ -10912,7 +10912,7 @@ Public Class Lecturas
             js = js & "     var vals = win.data;" & vbCrLf
             js = js & "     if (vals != null) {" & vbCrLf
             js = js & "         if (vals[0] == ""No selecciono un elemento"") {" & vbCrLf
-            js = js & "             alert('¡debe seleccionar un elemento válido!'); }" & vbCrLf
+            js = js & "             alert('ï¿½debe seleccionar un elemento vï¿½lido!'); }" & vbCrLf
             js = js & "         else {" & vbCrLf
             js = js & "             $get(""" & Control & """).value = vals[1];" & vbCrLf
             js = js & "             $get(""" & Control & "Description"").value = vals[0];" & vbCrLf
@@ -10978,7 +10978,7 @@ Public Class Lecturas
             js = js & "vals = window.showModalDialog(urlName);" & vbCrLf
             js = js & "if (vals != null) {" & vbCrLf
             js = js & "if (vals[0] == ""No selecciono un elemento"") {" & vbCrLf
-            js = js & "alert('¡debe seleccionar un elemento válido!'); }" & vbCrLf
+            js = js & "alert('ï¿½debe seleccionar un elemento vï¿½lido!'); }" & vbCrLf
             js = js & "else {" & vbCrLf
             js = js & "$get(""" & Control & """).value = vals[1];" & vbCrLf
             js = js & "$get(""" & Control & "Description"").value = vals[0];" & vbCrLf
@@ -11211,7 +11211,7 @@ Public Class Lecturas
         Dim Lecturas As New Lecturas
 
         Try
-            FechaEscrita = CType(Fecha, Date).Day & " de " & Lecturas.NombreMes(CLng(CType(Fecha, Date).Month)) & " del año " & CType(Fecha, Date).Year
+            FechaEscrita = CType(Fecha, Date).Day & " de " & Lecturas.NombreMes(CLng(CType(Fecha, Date).Month)) & " del aï¿½o " & CType(Fecha, Date).Year
         Catch ex As Exception
             FechaEscrita = ""
         End Try
@@ -11287,7 +11287,7 @@ Public Class Lecturas
         
 
 
-        'Botones del Formulario. Solo botón Login
+        'Botones del Formulario. Solo botï¿½n Login
         'Row = New TableRow
         'Cell = New TableCell
         'Cell.CssClass = "textocontgris10bold"
@@ -11343,8 +11343,8 @@ Public Class Lecturas
         txtCheckBox = New CheckBox
         txtCheckBox.ID = "chkCritica"
         txtCheckBox.ClientIDMode = ClientIDMode.Static
-        txtCheckBox.ToolTip = "De un click de mousse para solicitar el registro de un mensaje de fecha crítica en el muro"
-        txtCheckBox.Text = "Alerta Fecha Crítica"
+        txtCheckBox.ToolTip = "De un click de mousse para solicitar el registro de un mensaje de fecha crï¿½tica en el muro"
+        txtCheckBox.Text = "Alerta Fecha Crï¿½tica"
         Cell.Controls.Add(txtCheckBox)
         Cell.Controls.Add(New LiteralControl(" "))
 
@@ -11388,9 +11388,9 @@ Public Class Lecturas
         '----------------------------------------------------------
 
         '-------------------------- 07-Junio-2013 -----------------
-        ' Esta nueva rutina supone trabajar con una vista con un único botón que responde del lado
-        ' del cliente y para el cual también se autogenera el javascript que va de depender de la 
-        ' vista escogida en términos de la acción cuyo resultado va a ser informado por el usuario.
+        ' Esta nueva rutina supone trabajar con una vista con un ï¿½nico botï¿½n que responde del lado
+        ' del cliente y para el cual tambiï¿½n se autogenera el javascript que va de depender de la 
+        ' vista escogida en tï¿½rminos de la acciï¿½n cuyo resultado va a ser informado por el usuario.
         '----------------------------------------------------------
 
         Dim Lecturas As New Lecturas
@@ -11462,10 +11462,10 @@ Public Class Lecturas
         Dim MyScript As String = ""
 
         ' Primero se despliegan
-        ' los campos que son de contexto y que no pueden ser alterados por ningún motivo, como
-        ' por ejemplo aquellos campos que son claves únicas y que no pueden ser modificados
+        ' los campos que son de contexto y que no pueden ser alterados por ningï¿½n motivo, como
+        ' por ejemplo aquellos campos que son claves ï¿½nicas y que no pueden ser modificados
         ' o aquellos campos que corresponden a la foreing key hacia la tabla padre, en el
-        ' caso de una aplicación del tipo master-detail.
+        ' caso de una aplicaciï¿½n del tipo master-detail.
 
         ' Estos campos se encuentran en la section FormKeys y pueden no existir para determinados
         ' tipos de formularios y se leen mediante el metodo 
@@ -11473,8 +11473,8 @@ Public Class Lecturas
 
         t = Lecturas.LeerKeysFormularioWeb(arrLabel, arrControl, NumeroPagina, i)
 
-        ' A continuación pongo los textos de identificación de la página, que fueron pasados como
-        ' parámetros de invocación
+        ' A continuaciï¿½n pongo los textos de identificaciï¿½n de la pï¿½gina, que fueron pasados como
+        ' parï¿½metros de invocaciï¿½n
 
         If NumeroPagina <> 271 Then
 
@@ -11493,7 +11493,7 @@ Public Class Lecturas
             'Row.Cells.Add(Cell)
             'MyTable.Rows.Add(Row)
             'MyView.Controls.Add(MyTable)
-            ' Quitamos el título y lo asociamos al formulario de entrada de datos - 24 de Julio de 2013
+            ' Quitamos el tï¿½tulo y lo asociamos al formulario de entrada de datos - 24 de Julio de 2013
             '-------------------------------------------------------------------------------------------
             'If ConTitulo Then
             '    Dim CodigoHTML As String = "<p><center><h1>" & TituloPagina & "</h1></center></p>"
@@ -11504,23 +11504,23 @@ Public Class Lecturas
         End If
 
         ' Bajo el nuevo esquema, creo otra tabla para los campos claves y la sumo al placeholder
-        'Luego se agrega la tabla de control de validación de los campos
+        'Luego se agrega la tabla de control de validaciï¿½n de los campos
 
         i = 0
 
-        ' A continuación leo el registro de cabecera del formulario y desde el cual derivan el
+        ' A continuaciï¿½n leo el registro de cabecera del formulario y desde el cual derivan el
         ' resto de los registros que indican sus atributos y sus acciones
-        ' Este registro se identifica pues es el único del formulario que pertenece a la 
+        ' Este registro se identifica pues es el ï¿½nico del formulario que pertenece a la 
         ' section FormHeader y se lee con el metodo: LeerHeaderFormularioWeb, que devuelve
-        ' una única variable cuyo valor gobierna las siguientes decisiones de despliegue de los 
-        ' atributos del formulario web, para ello este metodo se implementa como una función que 
-        ' devuelve un único campo booleano que puede poseer los siguientes valores:
+        ' una ï¿½nica variable cuyo valor gobierna las siguientes decisiones de despliegue de los 
+        ' atributos del formulario web, para ello este metodo se implementa como una funciï¿½n que 
+        ' devuelve un ï¿½nico campo booleano que puede poseer los siguientes valores:
 
         '   False:  No se encontro registro de cabecera, en cuyo caso el formulario es plano y no
         '           requiere un recorrido recursivo para ir desplegando sus atributos.
         '   ------------------------------------------------------------------------------------
         '   True:  Se encontro registro de cabecera y ello indica que el formulario debe ser recorrido
-        '           en forma recursiva a continuación del despliegue de los campos clave, siempre y cuando
+        '           en forma recursiva a continuaciï¿½n del despliegue de los campos clave, siempre y cuando
         '           estos existan como atributos del formulario.
         t = Lecturas.LeerHeaderFormularioWeb(arrLabel, arrControl, NumeroPagina, i, FormularioWebPId)
 
@@ -11536,8 +11536,8 @@ Public Class Lecturas
 
             i = 0
             t = Lecturas.LeerNodesFormularioWeb(arrLabel, arrControl, ArrNodesId, i, FormularioWebPId)
-            If i > 1 Then 'Solo se despliegan tabs cuando hay más de 1, en el otro caso no lo amerita.
-                'Creamos tabla y la única fila
+            If i > 1 Then 'Solo se despliegan tabs cuando hay mï¿½s de 1, en el otro caso no lo amerita.
+                'Creamos tabla y la ï¿½nica fila
                 AnchoTablaTabs = 116 * (i + 1)
                 MyTable = New Table
                 MyTable.ID = "ViewBody2" & FormularioWebPId
@@ -11581,13 +11581,13 @@ Public Class Lecturas
                 For k = 0 To i - 1
                     n = 0
                     t = Lecturas.LeerNodesFormularioWeb(arrNodesLabel, arrNodesControl, arrSubNodesId, n, ArrNodesId(k))
-                    'Aqui acabo de leer los nodos del primer tab, por ahora no hay más anidamiento, asi que cada nodo
+                    'Aqui acabo de leer los nodos del primer tab, por ahora no hay mï¿½s anidamiento, asi que cada nodo
                     'en arrNodesLabel es en realidad una hoja
                     MiTablaSubTab = New Table
                     MiTablaSubTab.ID = "sub" & arrControl(k) & "sub" & NumeroPagina
                     MiTablaSubTab.ClientIDMode = ClientIDMode.Static
                     MiTablaSubTab.Width = AnchoVista  '735  y 720
-                    ' Asociamos el título al formulario de entrada de datos - 24 de Julio de 2013
+                    ' Asociamos el tï¿½tulo al formulario de entrada de datos - 24 de Julio de 2013
                     '-------------------------------------------------------------------------------------------
                     If ConTitulo Then
                         MiTablaSubTab.Caption = "<h2>" & TituloPagina & "</h2>"
@@ -11782,7 +11782,7 @@ Public Class Lecturas
                                     txtCheckBox = New CheckBox
                                     txtCheckBox.ID = "chk" & arrNodesControl(m)
                                     txtCheckBox.ClientIDMode = ClientIDMode.Static
-                                    txtCheckBox.ToolTip = "Marque el check box para realizar la búsqueda usando el valor seleccionado para el campo " & arrNodesLabel(m)
+                                    txtCheckBox.ToolTip = "Marque el check box para realizar la bï¿½squeda usando el valor seleccionado para el campo " & arrNodesLabel(m)
                                     txtCheckBox.Height = "20"
                                     MiCellSubTab.Controls.Add(txtCheckBox)
                                     MiCellSubTab.Controls.Add(New LiteralControl(" "))
@@ -11806,7 +11806,7 @@ Public Class Lecturas
                                     txtCheckBox = New CheckBox
                                     txtCheckBox.ID = "chk" & arrNodesControl(m)
                                     txtCheckBox.ClientIDMode = ClientIDMode.Static
-                                    txtCheckBox.ToolTip = "Marque el check box para realizar la búsqueda usando el valor seleccionado para el campo " & arrNodesLabel(m)
+                                    txtCheckBox.ToolTip = "Marque el check box para realizar la bï¿½squeda usando el valor seleccionado para el campo " & arrNodesLabel(m)
                                     MiCellSubTab.Controls.Add(txtCheckBox)
                                     MiCellSubTab.Controls.Add(New LiteralControl(" "))
                                     txtTextBox = New TextBox
@@ -11836,7 +11836,7 @@ Public Class Lecturas
                                     AutoComp.CompletionSetCount = "12"
                                     MiCellSubTab.Controls.Add(AutoComp)
 
-                                Case "UploadArchivo" 'Sólo 1 campo de este tipo por página web
+                                Case "UploadArchivo" 'Sï¿½lo 1 campo de este tipo por pï¿½gina web
                                     txtUploadFile = New FileUpload
                                     txtUploadFile.ID = "txtUploadFile"
                                     txtUploadFile.ClientIDMode = ClientIDMode.Static
@@ -11844,7 +11844,7 @@ Public Class Lecturas
                                     txtUploadFile.CssClass = CssClassControl
                                     MiCellSubTab.Controls.Add(txtUploadFile)
                                     MiCellSubTab.Controls.Add(New LiteralControl(" "))
-                                    ' Se agrega el botón Save
+                                    ' Se agrega el botï¿½n Save
                                     SaveButton = New Button
                                     SaveButton.ID = "SaveButton"
                                     SaveButton.CssClass = "boxceleste"
@@ -11899,7 +11899,7 @@ Public Class Lecturas
                                     txtDropDownList.ClientIDMode = ClientIDMode.Static
                                     txtDropDownList.CssClass = CssClassControl
                                     txtDropDownList.Style(HtmlTextWriterStyle.Width) = "500"
-                                    txtDropDownList.ToolTip = "Escoja la opción de menú"
+                                    txtDropDownList.ToolTip = "Escoja la opciï¿½n de menï¿½"
                                     MiCellSubTab.Controls.Add(txtDropDownList)
                                     MiCellSubTab.Controls.Add(New LiteralControl("<br /><br /> "))
 
@@ -11917,7 +11917,7 @@ Public Class Lecturas
                                     txtCascadeDropDownList.ClientIDMode = ClientIDMode.Static
                                     txtCascadeDropDownList.TargetControlID = "ddlAmbitos"
                                     txtCascadeDropDownList.Category = "Ambitos"
-                                    txtCascadeDropDownList.PromptText = "Escoja un ámbito ...."
+                                    txtCascadeDropDownList.PromptText = "Escoja un ï¿½mbito ...."
                                     txtCascadeDropDownList.LoadingText = "Por favor espere ..."
                                     txtCascadeDropDownList.ServicePath = "AmbitosService.asmx"
                                     txtCascadeDropDownList.ServiceMethod = "GetAmbitos"
@@ -11929,7 +11929,7 @@ Public Class Lecturas
                                     txtCascadeDropDownList.TargetControlID = "ddlHojas"
                                     txtCascadeDropDownList.ParentControlID = "ddlAmbitos"
                                     txtCascadeDropDownList.Category = "Hojas"
-                                    txtCascadeDropDownList.PromptText = "Escoja una opción del menú ...."
+                                    txtCascadeDropDownList.PromptText = "Escoja una opciï¿½n del menï¿½ ...."
                                     txtCascadeDropDownList.LoadingText = "Por favor espere ..."
                                     txtCascadeDropDownList.ServicePath = "AmbitosService.asmx"
                                     txtCascadeDropDownList.ServiceMethod = "GetHojas"
@@ -12053,8 +12053,8 @@ Public Class Lecturas
                 t = Lecturas.LeerControlFormularioWeb(TipoControl, CssClassLabel, CssClassControl, EtiquetaAlign, ControlWidth, ControlTextMode, ToolTip, IsRequiredField, IsNotEnabledField, DomainField, DataTextField, DataFile, SelectCommand, "Button", "InputValidation", NumeroPagina, k + 1, FormularioWebServiceCall)
                 Select Case arrControl(k)
 
-                    Case "UpdateButton"  'Este botón invoca un evento en el cliente que a su vez invoca un servicio web
-                        If Len(FormularioWebServiceCall) > 0 Then  'Se muestra sólo si existe un servicio web a invocar
+                    Case "UpdateButton"  'Este botï¿½n invoca un evento en el cliente que a su vez invoca un servicio web
+                        If Len(FormularioWebServiceCall) > 0 Then  'Se muestra sï¿½lo si existe un servicio web a invocar
                             'Aqui agregar un boton cliente
                             Cell.Controls.Add(New LiteralControl("<input id=""html" & arrControl(k) & """ type=""button"" value=""" & arrLabel(k) & """ class=""" & CssClassControl & """ title=""" & ToolTip & """ onclick=""" & arrControl(k) & "(" & UsuariosId & ");"" />"))
                             'Aqui genero el script que responde al evento click del boton cliente
@@ -12063,9 +12063,9 @@ Public Class Lecturas
                             'Lo comento en forma temporal - 14 de Julio de 2013
                             MyScript = MyScript & GenerarJScriptPorAccion(NumeroPagina, FormularioWebServiceCall, arrControl(k))
                         End If
-                    Case "CancelButton"  'Este botón invoca un evento en el cliente que a su vez invoca un servicio web
+                    Case "CancelButton"  'Este botï¿½n invoca un evento en el cliente que a su vez invoca un servicio web
 
-                        If Len(FormularioWebServiceCall) > 0 Then  'Se muestra sólo si existe un servicio web a invocar
+                        If Len(FormularioWebServiceCall) > 0 Then  'Se muestra sï¿½lo si existe un servicio web a invocar
                             'Aqui agregar un boton cliente
                             If IsConRecorridoRegistros = True Then  ' Se agregan dos botones para recorrer los registros
                                 Cell.Controls.Add(New LiteralControl("<input id=""html" & arrControl(k) & "Anterior" & """ type=""button"" value=""" & "Anterior" & """ class=""" & CssClassControl & """ title=""" & "Leer registro anterior" & """ onclick=""" & "LeerAnterior" & "(" & UsuariosId & ");"" />"))
@@ -12090,8 +12090,8 @@ Public Class Lecturas
                                 'Cell.Controls.Add(New LiteralControl(" <a href='" & FormularioWebServiceCall & "'><span class=""" & CssClassControl & """ title=""" & ToolTip & """ style=""width:60px;height:20px"" >" & arrLabel(k) & "</span></a>"))
                             End If
                         End If
-                    Case "DeleteButton"  'Este botón invoca un evento en el cliente que a su vez invoca un servicio web
-                        If Len(FormularioWebServiceCall) > 0 Then  'Se muestra sólo si existe un servicio web a invocar
+                    Case "DeleteButton"  'Este botï¿½n invoca un evento en el cliente que a su vez invoca un servicio web
+                        If Len(FormularioWebServiceCall) > 0 Then  'Se muestra sï¿½lo si existe un servicio web a invocar
                             If Formato = "aspx" Then
                                 'Aqui agregar un boton cliente
                                 Cell.Controls.Add(New LiteralControl("<input id=""html" & arrControl(k) & """ type=""button"" value=""" & arrLabel(k) & """ class=""" & CssClassControl & """ title=""" & ToolTip & """ onclick=""" & arrControl(k) & "(" & UsuariosId & ");"" />"))
@@ -12114,8 +12114,8 @@ Public Class Lecturas
 
                         End If
 
-                    Case "NewButton"  'Este botón invoca un evento en el cliente que a su vez invoca un servicio web
-                        If Len(FormularioWebServiceCall) > 0 Then  'Se muestra sólo si existe un servicio web a invocar
+                    Case "NewButton"  'Este botï¿½n invoca un evento en el cliente que a su vez invoca un servicio web
+                        If Len(FormularioWebServiceCall) > 0 Then  'Se muestra sï¿½lo si existe un servicio web a invocar
                             'Aqui agregar un boton cliente
                             Cell.Controls.Add(New LiteralControl("<input id=""html" & arrControl(k) & """ type=""button"" value=""" & arrLabel(k) & """ class=""" & CssClassControl & """ title=""" & ToolTip & """ onclick=""" & arrControl(k) & "(" & UsuariosId & ");"" />"))
                             'Aqui genero el script que responde al evento click del boton cliente
@@ -12138,7 +12138,7 @@ Public Class Lecturas
         Dim FormularioWeb As New FormularioWeb
 
 
-        ' Aqui voy, debo pasar el número de la página y seleccionar los controles y armar la invocación de la 
+        ' Aqui voy, debo pasar el nï¿½mero de la pï¿½gina y seleccionar los controles y armar la invocaciï¿½n de la 
         ' web service para actualizar esos datos en la carpeta judicial.
 
         Dim AccesoEA As New AccesoEA
@@ -12154,7 +12154,7 @@ Public Class Lecturas
         Try
             dtr = AccesoEA.ListarRegistros(sSQL)
             While dtr.Read
-                'Se elimina esta condición para permitir el manejo de campos ocultos como parámetros de invocación del servicio de actualización
+                'Se elimina esta condiciï¿½n para permitir el manejo de campos ocultos como parï¿½metros de invocaciï¿½n del servicio de actualizaciï¿½n
                 'If FormularioWeb.CampoIsVisible(CLng(dtr("Id").ToString)) = True Then
                 If Mid(dtr("control").ToString, 1, 3) = "chk" Then
                     StringUpdate = StringUpdate & " $get(""" & dtr("control").ToString & """).checked,"
@@ -12272,7 +12272,7 @@ Public Class Lecturas
                     Url = "<a href='" & linkAgregar & "'>Editar " & arrLabel & "</a>"
                 End If
             Else
-                Url = "<span class=""subtit"">Esta tarea no requiere ingresar un indicador de gestión</span>"
+                Url = "<span class=""subtit"">Esta tarea no requiere ingresar un indicador de gestiï¿½n</span>"
             End If
             CodigoHTML = CodigoHTML & "<p>" & Url & "</p>"
         End If
@@ -12305,9 +12305,9 @@ Public Class Lecturas
         ' Cambio introducido el 08 de abril de 2011
         ' Se verifica que el el campo DomainField no contiene la glosa RelationBetweenTables
         If DomainField = "RelationBetweenTables" Then
-            'Vamos a introducir un cambio para mejorar el desempeño del despliegue de 
+            'Vamos a introducir un cambio para mejorar el desempeï¿½o del despliegue de 
             'las listas de asociaciones entre la tabla maestra y sus tablas asociados.
-            'Para ello al momento de desplegar sólo vamos a mostrar los registros asociados
+            'Para ello al momento de desplegar sï¿½lo vamos a mostrar los registros asociados
             'Luego vamos a examinar el mecanismo para hacer nuevas asociaciones.
             Select Case PaginaWebName
                 Case "Ficha de DocumentosSGIPorCarpeta"
@@ -12346,7 +12346,7 @@ Public Class Lecturas
                     Select Case TipoControl
                         Case "HyperLinkField"
                             If DomainField = "RelationBetweenTables" Then
-                                'Aqui debo poner la otra condición
+                                'Aqui debo poner la otra condiciï¿½n
                                 'ItemTempColumnGrid.ItemTemplate = New PlantillaRelationsBetweenTables(DataControlRowType.DataRow, New String(0) {arrGrillaControl(m)}, DataTextField, PivotTable, DataFile, PivotId, UserId)
                             Else
                                 CodigoHTML = CodigoHTML & "<td align=""" & arrEtiquetaAlign(m) & """><a href=""" & SelectCommandHyperLinkField & "&MasterName=" & MasterName & "&MasterId=" & MasterId & "&Id=" & dtr(arrGrillaControl(m)).ToString & """><img src=""img/editar.png"" alt=""Ver la ficha del documento"" style=""cursor:hand; vertical-align:bottom;"" hspace=""5"" border=""0"" /></a></td>"
@@ -12369,7 +12369,7 @@ Public Class Lecturas
 
                             End If
                         Case "DownLoadField"
-                            CodigoHTML = CodigoHTML & "<td align=""" & arrEtiquetaAlign(m) & """><a href=""" & dtr("URL").ToString & """ target=""_blank"" >" & dtr("Título").ToString & "</a></td>"
+                            CodigoHTML = CodigoHTML & "<td align=""" & arrEtiquetaAlign(m) & """><a href=""" & dtr("URL").ToString & """ target=""_blank"" >" & dtr("Tï¿½tulo").ToString & "</a></td>"
                         Case "TemplateField"
                             Select Case Mid(arrGrillaControl(m), 1, 3)
                                 Case "Usr"

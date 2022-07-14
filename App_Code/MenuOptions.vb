@@ -444,7 +444,7 @@ Public Class MenuOptions
 
         Try
             MenuOptionsInsert = AccesoEA.ABMRegistros(strUpdate)
-            MenuOptionsId = Lecturas.LeerMaximoId("Select Max(MenuOptionsId) as MaximoId FROM (MenuOptions)")
+            MenuOptionsId = Lecturas.LeerMaximoId("Select Max(MenuOptionsId) as MaximoId FROM MenuOptions")
             sSQL = "UPDATE [montes].[dbo].MenuOptions SET "
             sSQL = sSQL & "MenuOptions.href = '" & "IndexSGI.aspx?PaginaWebName=Por definir&MenuOptionsId=" & MenuOptionsId & "', "
             sSQL = sSQL & "MenuOptions.DateLastUpdate = '" & AccionesABM.DateTransform(Now()) & "', "
