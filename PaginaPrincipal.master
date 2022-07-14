@@ -1,0 +1,105 @@
+<%@ Master Language="VB" CodeFile="PaginaPrincipal.master.vb" Inherits="PaginaPrincipal" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <meta content="text/html; charset=iso-8859-1" http-equiv="Content-Type" />
+    <link rel="stylesheet" type="text/css" href="Styles/royal_estilo.css" />
+    <style type="text/css"> BODY {MARGIN: 4px}  </style>
+
+<script type="text/javascript" src="Scripts/AC_RunActiveContent.js"></script>
+
+<meta name="GENERATOR" content="MSHTML 8.00.7600.16535" />
+</head>
+<body>
+<form id="form1" runat="server">
+
+<TABLE border=0 cellSpacing=0 cellPadding=0 width=952>
+  <TBODY>
+  <TR>
+    <TD class="tab_normal" width="950">
+     <div>
+        <asp:ContentPlaceHolder id="Logo" runat="server">
+        
+        </asp:ContentPlaceHolder>
+    </div>
+</TD></TR>
+  <TR>
+    <TD class="tab_normal">
+     <div>
+        <asp:ContentPlaceHolder id="Banner" runat="server">
+        
+        </asp:ContentPlaceHolder>
+    </div>
+</TD></TR>
+  <TR>
+    <TD>
+      <TABLE border=0 cellSpacing=0 cellPadding=0 width="100%" align=center>
+        <TBODY>
+        <TR>
+          <TD>
+     <div>
+        <asp:ContentPlaceHolder id="BarMenu" runat="server">
+        
+        </asp:ContentPlaceHolder>
+    </div>            
+            </TD></TR></TBODY></TABLE></TD></TR>
+  <TR>
+    <TD>
+      <TABLE class="tab_normal" border="0" cellSpacing="0" cellPadding="0" width="925" 
+      align="center">
+        <TBODY>
+        <TR>
+          <TD>
+            <TABLE border=0 cellSpacing=0 cellPadding=0 width=925>
+              <TBODY>
+              <TR>
+                <TD vAlign=top width=306 align=middle>
+                      <div>
+                            <asp:ContentPlaceHolder id="SideBarMenu" runat="server">
+        
+                            </asp:ContentPlaceHolder>
+                      </div>
+    <BR><BR></TD>
+                <TD 
+                background="img/puntos_certical.gif" width="3">&nbsp;</TD>
+                <TD vAlign="top" width="306" align="middle">
+                       <div>
+        <asp:ContentPlaceHolder id="ContentArea" runat="server">
+        
+        </asp:ContentPlaceHolder>
+    </div><BR></TD>
+                <TD 
+                background="img/puntos_certical.gif" width="3">&nbsp;</TD>
+                <TD vAlign="top" width="307" align="middle">
+                       <div>
+        <asp:ContentPlaceHolder id="KPIArea" runat="server">
+        
+        </asp:ContentPlaceHolder>
+    </div>
+    </TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR>
+  <TR>
+    <TD>
+           <div>
+        <asp:ContentPlaceHolder id="PiePagina" runat="server">
+        
+        </asp:ContentPlaceHolder>
+    </div></TD></TR></TBODY></TABLE>
+<SCRIPT type="text/javascript">
+    var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+    document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</SCRIPT>
+
+<SCRIPT type="text/javascript">
+    try {
+        var pageTracker = _gat._getTracker("UA-10575158-1");
+        pageTracker._trackPageview();
+    } catch (err) { }</SCRIPT> 
+ 
+ 
+ 
+    </form>
+</body>
+</html>

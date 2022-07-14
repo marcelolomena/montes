@@ -1,0 +1,516 @@
+.c_menu_left
+{
+	background-image: url(../IMG/Menu_r8_c4.gif);
+	background-repeat: no-repeat;
+	height: 29px;
+	width: 7px;
+	background-position: right bottom;
+}
+.c_menu_center
+{
+	background-image: url(../IMG/Menu_r8_c8.gif);
+	background-repeat: repeat-x;
+	background-position: center bottom;
+	height: 29px;
+	font-family: Geneva, Arial, Helvetica, san-serif;
+	font-size: 12px;
+	font-weight: bold;
+	color: #FFFFFF;
+	padding-left: 3px;
+}
+
+.celdaMenu
+{
+	text-align: left;
+	background-color: #ffffff;
+	background-image: url(../IMG/FondoCeldaMenu.gif);
+	background-repeat: repeat-x;
+	background-position: center bottom;
+	font-size: 11px;
+	color: #3366CC;
+	border-top-color: #00b4ab;
+	border-top-style: solid;
+	border-top-width: 1px;		
+	border-right-width: 1px;
+	border-bottom-width: 1px;
+	border-right-style: solid;
+	border-bottom-style: solid;
+	border-right-color: #00b4ab;
+	border-bottom-color: #00b4ab;
+	padding-left: 3px;
+	border-left-width: 1px;
+	border-left-style: solid;
+	border-left-color: #00b4ab;
+	padding-top: 2px;
+	padding-bottom: 2px;
+}
+
+.celda_Menu_activo
+{
+	background-image: none;
+	font-size: 10px;
+	color: #03746B;
+	background-color: #FFFCBF;
+	text-align: left;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	font-weight: bolder;
+	border-right-width: 1px;
+	border-left-width: 1px;
+	border-right-style: solid;
+	border-left-style: solid;
+	border-right-color: #00b4ab;
+	border-left-color: #00b4ab;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #00b4ab;
+	padding-left: 3px;
+}
+
+.Menu_bottom_2
+{
+	background-image: url(../IMG/Menu_bottom_2.gif);
+	background-position: center top;
+	height: 6px;
+	background-repeat: repeat-x;
+}
+.Menu_bottom_3
+{
+	background-image: url(../IMG/Menu_bottom_3.gif);
+	background-position: left top;
+	height: 6px;
+	width: 7px;
+	background-repeat: no-repeat;
+}
+.Menu_bottom_1
+{
+	background-image: url(../IMG/Menu_bottom_1.gif);
+	background-position: right top;
+	height: 6px;
+	width: 7px;
+	background-repeat: no-repeat;
+}
+.colorLink
+{
+	background-color: #FFFAB8;
+	font-size: 11px;
+	color: #515151;
+	padding-left: 4px;
+	padding-bottom: 8px;
+	border: #2175d9;
+	border-style: solid;
+	border-top-width: 1px;
+	border-right-width: 1px;
+	border-bottom-width: 1px;
+	border-left-width: 1px;
+	padding-right: 4px;
+}
+
+.txt_general
+{
+	font-size: 11px;
+	color: #666666;
+	text-align: justify;
+	padding-left: 8px;
+	padding-right: 8px;
+	margin-top: 0px;
+}
+.txt_fecha
+{
+	font-size: 11px;
+	font-weight: normal;
+	color: #666666;
+	text-align: right;
+}
+.input
+{
+	font-size: 10px;
+	font-weight: normal;
+	color: #666666;
+	border-color: #999999 #CCCCCC #CCCCCC #999999;
+	border-style: solid;
+	border-top-width: 2px;
+	border-right-width: 1px;
+	border-bottom-width: 1px;
+	border-left-width: 2px;
+}
+.txtCopy
+{
+	font-size: 11px;
+	font-weight: normal;
+	color: #999999;
+	text-align: center;
+	padding-top: 20px;
+	padding-bottom: 6px;
+	vertical-align: bottom;
+}
+.txt_destacado
+{
+	font-size: 14px;
+	font-weight: bold;
+	color: #3366CC;
+}
+.tabla_resultado
+{
+	font-size: 11px;
+	font-weight: normal;
+	color: #666666;
+	background-color: #F5F5F5;
+	padding-top: 2px;
+	padding-right: 5px;
+	padding-bottom: 2px;
+	padding-left: 5px;
+	border-top: 3px solid #00b4ab;
+	border-right: 1px solid #00b4ab;
+	border-bottom: 2px solid #00b4ab;
+	border-left: 1px solid #00b4ab;
+}
+.txt_rojo
+{
+	font-size: 11px;
+	font-weight: normal;
+	color: #FF0000;
+}
+
+.celdamenuBienvenido
+{
+	font-size: 10px;
+	font-weight: normal;
+	color: #666666;
+	border-color: #CCCCCC;
+	border-style: solid;
+	border-top-width: 1px;
+	border-right-width: 0px;
+	border-bottom-width: 0px;
+	border-left-width: 0px;
+}
+.txt_label
+{
+	font-size: 10px;
+	font-weight: bold;
+	color: #333333;
+	text-align: right;
+	padding-right: 5px;
+}
+.celdalabel
+{
+	font-size: 10px;
+	font-weight: normal;
+	color: #666666;
+	background-color: #F3F3F3;
+	border-bottom-width: 1px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	padding-left: 5px;
+	border-bottom-style: solid;
+	border-bottom-color: #FFFFFF;
+}
+.tabla_grilla
+{
+	border: 1px #adc2eb solid;
+}
+.grilla_top
+{
+	font-size: 10px;
+	font-weight: bold;
+	color: #FFFFFF;
+	background-color: #2175d9;
+	text-align: center;
+	padding-top: 1px;
+	padding-bottom: 1px;
+	clip: rect(   );
+	border-right-width: 1px;
+	border-bottom-width: 1px;
+	padding-right: 2px;
+	padding-left: 2px;
+	border-right-style: solid;
+	border-bottom-style: solid;
+	border-right-color: #FFFFFF;
+	border-bottom-color: #FFFFFF;
+}
+.grilla_Fila1
+{
+	font-size: 10px;
+	font-weight: normal;
+	color: #4C4C4C;
+	background-color: #FFFFFF;
+	border-color: #adc2eb;
+	border-style: solid;
+	border-top-width: 0px;
+	border-right-width: 0px;
+	border-bottom-width: 0px;
+	border-left-width: 1px;
+	padding-left: 2px;
+	padding-top: 2px;
+	text-align:justify;
+}
+.grilla_Fila2
+{
+	font-size: 10px;
+	font-weight: normal;
+	color: #4C4C4C;
+	background-color: #B26C4A;
+	border-color: #adc2eb;
+	border-style: solid;
+	border-top-width: 0px;
+	border-right-width: 0px;
+	border-bottom-width: 0px;
+	border-left-width: 1px;
+	padding-left: 2px;
+	padding-top: 2px;
+	text-align: justify;
+}
+.txt_bold
+{
+	font-size: 11px;
+	font-weight: bold;
+	color: #666666;
+}
+.tabla800
+{
+	width: 760px;
+}
+
+.celdaTitulos
+{
+	border-color: #00CCCC;
+	border-style: solid;
+	border-top-width: 0px;
+	border-right-width: 0px;
+	border-bottom-width: 1px;
+	border-left-width: 0px;
+	font-size: 15px;
+	font-weight: bold;
+	color: #3366CC;
+	padding-top: 10px;
+	text-align: left;
+	font-family: Geneva, Arial, Helvetica, sans-serif;
+}
+
+.txt_azul10Right
+{
+	font-size: 10px;
+	color: #0066CC;
+	text-align: right;
+	padding-top: 2px;
+	padding-right: 25px;
+}
+.separador
+{
+	background-image: url(../IMG/separador.gif);
+	background-repeat: repeat-x;
+	height: 6px;
+}
+.celda_amarillaMensajes
+{
+	font-size: 11px;
+	font-weight: normal;
+	color: #666666;
+	background-color: #FEFBD3;
+	text-align: left;
+	padding-bottom: 5px;
+	padding-top: 2px;
+}
+.celdaMenuSinFondo
+{
+	font-size: 10px;
+	color: #3366cc;
+	text-align: left;
+	padding-left: 3px;
+	border-right-width: 1px;
+	border-left-width: 1px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	border-right-style: solid;
+	border-left-style: solid;
+	border-right-color: #00b4ab;
+	border-left-color: #00b4ab;
+}
+.linkmenu:link
+{
+	font-size: 11px;
+	color: #045898;
+	text-decoration: none;
+	font-weight: normal;
+}
+.linkmenu:visited
+{
+	font-size: 11px;
+	color: #3366CC;
+	text-decoration: none;
+	font-weight: normal;
+}
+.linkmenu:hover
+{
+	font-size: 11px;
+	color: #00B4AB;
+	text-decoration: none;
+	font-weight: normal;
+}
+
+.linksubmenu:link
+{
+	font-size: 10px;
+	color: #2175D9;
+	text-decoration: none;
+	font-weight: normal;
+}
+.linksubmenu:visited
+{
+	font-size: 10px;
+	color: #5A77B4;
+	text-decoration: none;
+	font-weight: normal;
+}
+.linksubmenu:hover
+{
+	font-size: 10px;
+	color: #00B4AB;
+	font-weight: normal;
+}
+
+.celda_subMenu
+{
+	font-size: 10px;
+	color: #3366CC;
+	background-color: #FFFFE6;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	padding-left: 6px;
+	text-align: left;
+	border-top-width: 1px;
+	border-top-style: solid;
+	border-top-color: #00b4ab;
+}
+.txt_blanco
+{
+	font-size: 10px;
+	font-weight: bold;
+	color: #FFFFFF;
+	padding-left: 8px;
+}
+.TituloPrincipal {
+	font-size: 17px;
+	font-weight: bold;
+	color: #00B4AB;
+	padding-bottom: 5px;
+	font-family: Geneva, Arial, Helvetica, sans-serif;
+}
+.celdamenuTop {
+	color: #FFFFFF;
+	background-color: #B9DAD7;
+	border: 1px solid #FFFFFF;
+}
+.celda_cartilla {
+	font-size: 10px;
+	font-weight: normal;
+	color: #4C4C4C;
+	background-color: #FFFFFF;
+	border-right-width: 1px;
+	border-bottom-width: 1px;
+	padding-left: 2px;
+	padding-top: 2px;
+	border-right-style: solid;
+	border-bottom-style: solid;
+	border-right-color: #adc2eb;
+	border-bottom-color: #adc2eb;
+}
+a:link { font-size: 11px; font-style: normal; line-height: normal; font-weight: normal; color:  #3366CC; text-decoration: underline }
+a:visited { font-size: 11px; font-style: normal; line-height: normal; font-weight: normal; color: #3366CC; text-decoration: underline }
+a:hover {  font-size: 11px; font-style: normal; line-height: normal; font-weight: normal; color: #FF0000; text-decoration: underline }
+.lineablanca {
+	border-bottom-width: 2px;
+	border-bottom-style: solid;
+	border-bottom-color: #FFFFFF;
+}
+.celda_cartillaColor {
+	font-size: 11px;
+	font-weight: normal;
+	color: #333333;
+	background-color: #DFEFFF;
+	border-right-width: 1px;
+	border-bottom-width: 1px;
+	padding-left: 2px;
+	padding-top: 2px;
+	border-right-style: solid;
+	border-bottom-style: solid;
+	border-right-color: #adc2eb;
+	border-bottom-color: #adc2eb;
+}
+.celda_cuadroBeneColor {
+	font-size: 11px;
+	font-weight: normal;
+	color: #333333;
+	background-color: #C7F8F5;
+	border-right-width: 1px;
+	border-bottom-width: 1px;
+	padding-left: 2px;
+	padding-top: 2px;
+	border-right-style: solid;
+	border-bottom-style: solid;
+	border-right-color: #adc2eb;
+	border-bottom-color: #adc2eb;
+}
+.cuadroBeneficios {
+	font-size: 10px;
+	font-weight: bold;
+	color: #FFFFFF;
+	background-color: #00b4ab;
+	text-align: center;
+	padding-top: 1px;
+	padding-bottom: 1px;
+	clip: rect(   );
+	border-right-width: 1px;
+	border-bottom-width: 1px;
+	padding-right: 2px;
+	padding-left: 2px;
+	border-right-style: solid;
+	border-bottom-style: solid;
+	border-right-color: #FFFFFF;
+	border-bottom-color: #FFFFFF;
+}
+.txt_12 {
+	font-size: 12px;
+	color: #333333;
+	text-align: justify;
+	padding-left: 5px;
+	padding-right: 5px;
+}
+.celdalabelSeparador {
+	font-size: 11px;
+	font-weight: normal;
+	color: #666666;
+	background-color: #F3F3F3;
+	border-bottom-width: 1px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	padding-left: 5px;
+	border-bottom-style: solid;
+	border-bottom-color: #CCCCCC;
+}
+ul {
+	list-style-image: none;
+	list-style-type: none;
+	padding: 0px;
+	margin: 0px;
+}
+li {
+	float: none;
+	list-style-image: none;
+	list-style-type: none;
+	margin-left: 0px;
+}
+.invisible { 
+	visibility:	hidden;
+	position:	absolute;	
+	overflow:	visible;
+	z-index:	100;
+	padding: 0;
+	margin: 0;
+	display:none;
+}
+
+.visible { 
+	background-color: white ;
+	padding:0px 0px ;
+}

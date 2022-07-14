@@ -1,0 +1,326 @@
+<STYLE>
+
+
+BODY 			{font-family: Verdana,Arial,Helvetica;
+				font-size: 11px;
+				color:#666666}
+
+P	 			{font-family: Arial, Helvetica, sans-serif;
+				font-size: 11px;
+				color:#64666F}
+h3 {
+	font-size: 13px;
+	font-weight: bold;
+	color: #666666;
+}
+
+			
+TD	 			{font-family: Arial, Helvetica, sans-serif;
+				font-size: 11px;
+				color:#64666F}
+.fondo_cell_ppt {
+	background-image: url(imagenes/areas_negocio/finanzas/fond_ppt.gif);
+	background-repeat: repeat-x;
+	background-position: bottom;
+}
+
+
+B	 			{font-family: Arial, Helvetica, sans-serif;
+				font-size: 11px; color: #64666F}
+			
+A:link 			{COLOR:#64666F; 
+				TEXT-DECORATION: none}
+			
+A:visited 		{COLOR:#64666F; 
+				TEXT-DECORATION: none}
+	
+A:hover 		{COLOR:B47555; 
+				TEXT-DECORATION: none}
+
+
+</STYLE>
+
+.pie {  font-family: Verdana, Arial, Helvetica; list-style-position: outside; list-style-image: url(images/vineta.gif); list-style-type: square}
+.pie {  font-family: Arial, Helvetica, sans-serif; font-size: 9px; font-style: normal; color: #8C909B; font-weight: normal}
+.pie_bold {  font-family: Arial, Helvetica, sans-serif; font-size: 11px; font-weight: bold; color: #666666}
+.subportada {  font-family: Arial, Helvetica, sans-serif; font-size: 11px; font-style: normal; line-height: 18px; color: #64666F}
+.blanco {  font-family: Arial, Helvetica, sans-serif; font-size: 11px; color: #FFFFFF}
+.blancotabla1 { font-family: Arial, Helvetica, sans-serif; font-size: 9px; color: #FFFFFF }
+.texto_zonacobre {  font-family: Arial, Helvetica, sans-serif; font-size: 11px; color: DFDFDF}
+.titulo_agenda {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	color: #9B4C3B
+}
+.titulo_cafe {  font-family: Arial, Helvetica, sans-serif; font-size: 11px; font-weight: normal; color: #9F5B3A}
+.titulo_cafe_bold {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-weight: bold;
+	color: #9B4C3B
+}
+.titulo_codelco_informa {  font-family: Arial, Helvetica, sans-serif; font-size: 12px; font-weight: bold; color: #B26C4A}
+.titulo_azul_codelco_informa {  font-family: Arial, Helvetica, sans-serif; font-size: 11px; font-weight: bold; color: 022F56}
+#paginacion {
+	text-align: center;
+	margin-top: 10px;
+	font-size: 9px;
+}
+#paginacion .selec {
+	font-weight: bold;
+	color: #B26C4A;
+	font-size: 11px;
+}
+#paginacion a {
+	color: #61717D;
+}
+.bordeFoto {
+	border: 2px solid #E8E8E8;
+}
+
+.titulo_cafe_boldMay {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-weight: bold;
+	color: #9B4C3B;
+	text-transform: uppercase;
+}
+.bordeSupBottom {
+	border-top-width: 2px;
+	border-bottom-width: 2px;
+	border-top-style: solid;
+	border-bottom-style: solid;
+	border-top-color: #E8E8E8;
+	border-bottom-color: #E8E8E8;
+}
+.titulo_15 {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 15px;
+	font-weight: bold;
+	color: #B26C4A
+}
+
+.dato2 {
+	margin-left: 0px;
+}
+.dato2 th {
+	border-top-width: 1px;
+	border-bottom-width: 1px;
+	border-top-style: dotted;
+	border-bottom-style: dotted;
+	border-top-color: #b0bec8;
+	border-bottom-color: #b0bec8;
+	background-color: #B26C4A;
+	font-weight: bold;
+	padding-top: 1px;
+	padding-bottom: 1px;
+	text-align: left;
+	color: #FFFFFF;
+	text-transform: uppercase;
+	padding-left: 5px;
+	font-size: 11px;
+}
+.dato2 th.center {
+	border-top-width: 1px;
+	border-bottom-width: 1px;
+	border-top-style: dotted;
+	border-bottom-style: dotted;
+	border-top-color: #b0bec8;
+	border-bottom-color: #b0bec8;
+	background-color: #d1e1e7;
+	font-weight: bold;
+	padding-top: 1px;
+	padding-bottom: 1px;
+	text-align: center;
+}
+.dato2 td {
+	padding-left: 5px;
+	padding-right: 5px;
+	border-bottom-width: 1px;
+	border-bottom-style: dotted;
+	border-bottom-color: #b0bec8;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+.dato2t {
+	margin-left: 0px;
+}
+.dato2t th {
+	border-top-width: 1px;
+	border-bottom-width: 1px;
+	border-top-style: dotted;
+	border-bottom-style: dotted;
+	border-top-color: #b0bec8;
+	border-bottom-color: #b0bec8;
+	background-color: #B26C4A;
+	font-weight: bold;
+	padding-top: 1px;
+	padding-bottom: 1px;
+	text-align: left;
+	color: #FFFFFF;
+	text-transform: uppercase;
+	padding-left: 5px;
+	font-size: 11px;
+}
+.dato2t th.center {
+	border-top-width: 1px;
+	border-bottom-width: 1px;
+	border-top-style: dotted;
+	border-bottom-style: dotted;
+	border-top-color: #b0bec8;
+	border-bottom-color: #b0bec8;
+	background-color: #d1e1e7;
+	font-weight: bold;
+	padding-top: 1px;
+	padding-bottom: 1px;
+	text-align: center;
+}
+.dato2t td {
+	padding-left: 5px;
+	padding-right: 5px;
+	border-bottom-width: 1px;
+	border-bottom-style: dotted;
+	border-bottom-color: #b0bec8;
+	padding-top: 13px;
+	padding-bottom: 13px;
+}
+.ficha {
+	background-color: #F0F0F0;
+	color: #000000;
+	width: 100%;
+	margin-right: auto;
+	margin-left: auto;
+	border-top-width: 3px;
+	border-top-style: solid;
+	border-top-color: #999999;
+}
+.ficha a {
+	color: #000000;
+	text-decoration: none;
+}
+.ficha a:hover {
+	color: #000000;
+	text-decoration: underline;
+}
+.ficha th {
+	text-align: left;
+	padding: 4px;
+	vertical-align: top;
+	font-size: 11px;
+}
+.ficha td {
+	color: #333333;
+	padding: 4px;
+	vertical-align: top;
+}
+
+
+
+.bajada {
+	font-weight: bold;
+}
+.listadoSubmenu {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+}
+.bloque {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	background-color: #EFEFEF;
+	border: 1px solid #CDCDCD;
+}
+.galeria {
+	width: 166px;
+	float: left;
+	height: 210px;
+}
+.f_cell_prensa {
+	background-image: url(imagenes/prensa/home_new/f_cell.gif);
+	background-repeat: repeat-x;
+	background-position: top;
+}
+.foto_pequena {
+	float: left;
+	margin-right: 10px;
+	margin-top: 4px;
+	border: 1px solid #858585;
+}
+.titulares {
+	padding: 10px;
+	text-align: right;
+	width: 340px;
+}
+.fotoflickr {
+	padding: 5px;
+	border: 1px solid #CCCCCC;
+	float: left;
+	margin-right: 6px;
+}
+.caja_docs {
+	padding: 12px;
+}
+.caja_docs p {
+	margin: 0px;
+}
+.desc_docs {
+	border-bottom-width: 1px;
+	border-bottom-style: dotted;
+	border-bottom-color: #a0a0a0;
+	padding-bottom: 5px;
+	padding-top: 3px;
+	height: 70px;
+}
+.caja_docs_files {
+	padding-top: 6px;
+}
+
+.float_right {
+	float: right;
+}
+.detalle {
+	font-family: Arial, Helvetica, sans-serif;
+	margin-right: 18px;
+	margin-left: 18px;
+	width: 603px;
+}
+
+.detalle2 {
+	font-family: Arial, Helvetica, sans-serif;
+	margin-right: 18px;
+	margin-left: 18px;
+	width: 474px;
+}
+
+.titulo25 {
+	font-size: 25px;
+	color: #B7856A;
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: lighter;
+}
+.caja_form {
+	background-color: #e9e9e9;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	border: 1px solid #CCCCCC;
+}
+.tit_innova {
+	font-size: 22px;
+	color: #AEAEAE;
+	font-family: "Arial Narrow", Arial, Helvetica;
+	font-weight: lighter;
+	margin-left: 16px;
+}
+.fond_gris {
+	background-color: #FFFFFF;
+	background-image: url(imagenes/innovacion/f_degr.gif);
+	background-repeat: repeat-x;
+	background-position: top;
+}
+.tit_innovadesc {
+	font-size: 18px;
+	color: #79818A;
+	font-family: "Arial Narrow", Arial, Helvetica;
+	font-weight: lighter;
+}

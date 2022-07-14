@@ -1,0 +1,191 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<stakeholderMap>
+		
+			<meta>
+				<footHeight/>
+				<footWidth/>
+				<bodyHeight/>
+				<bodyWidth/>
+			</meta>
+		
+			<body>				
+				<id>5000</id>
+				<label><![CDATA[Programa Voluntariado 2011]]></label>
+				<width>135</width>
+				<height>135</height>
+				<fillColor>0x666666</fillColor>
+				<borderColor>0x0080FF</borderColor>
+				<borderThickness>5</borderThickness>
+				<textColor>0xffffff</textColor>
+				<link>http://www.google.com</link>
+			</body>
+						
+			<foot>				
+				<id>7000</id>
+				<label><![CDATA[1 Coditfam]]></label>	
+				<width>162</width>
+				<height>54</height>
+				<fillColor>0xdddddd</fillColor>
+				<barColor>0x808040</barColor>
+				<barWidth>15</barWidth>
+				<borderColor>0xffffff</borderColor>
+				<borderThickness>1</borderThickness>
+				<link>http://www.google.com</link>
+				<value>3</value>
+			</foot>			
+					
+			<foot>				
+				<id>7001</id>
+				<label><![CDATA[2 CONIN]]></label>	
+				<width>162</width>
+				<height>54</height>
+				<fillColor>0xdddddd</fillColor>
+				<barColor>0x808040</barColor>
+				<barWidth>15</barWidth>
+				<borderColor>0xffffff</borderColor>
+				<borderThickness>1</borderThickness>
+				<link>http://www.google.com</link>
+				<value>3</value>
+			</foot>	
+		
+			<foot>				
+				<id>7002</id>
+				<label><![CDATA[3 Casa de Acogida Padre Mariano]]></label>
+				<width>162</width>
+				<height>54</height>
+				<fillColor>0xdddddd</fillColor>
+				<barColor>0xff0000</barColor>
+				<barWidth>15</barWidth>
+				<borderColor>0xffffff</borderColor>
+				<borderThickness>1</borderThickness>
+				<link>http://www.google.com</link>
+				<value>3</value>
+			</foot>		
+			
+			<foot>				
+				<id>7003</id>
+				<label><![CDATA[4 Club de Ancianos Jesús de Nazareth]]></label>	
+				<width>162</width>
+				<height>54</height>
+				<fillColor>0xdddddd</fillColor>
+				<barColor>0xff0000</barColor>
+				<barWidth>15</barWidth>
+				<borderColor>0xffffff</borderColor>
+				<borderThickness>1</borderThickness>
+				<link>http://www.google.com</link>
+				<value>3</value>
+			</foot>			
+					
+			<foot>				
+				<id>7004</id>
+				<label><![CDATA[5 YMCA]]></label>	
+				<width>162</width>
+				<height>54</height>
+				<fillColor>0xdddddd</fillColor>
+				<barColor>0xff0000</barColor>
+				<barWidth>15</barWidth>
+				<borderColor>0xffffff</borderColor>
+				<borderThickness>1</borderThickness>
+				<link>http://www.google.com</link>
+				<value>3</value>
+			</foot>	
+		
+			<foot>				
+				<id>7005</id>
+				<label><![CDATA[6 Centro de Padres Escuela Especial Juan Sandoval Carrasco]]></label>	
+				<width>162</width>
+				<height>54</height>
+				<fillColor>0xdddddd</fillColor>
+				<barColor>0xff0000</barColor>
+				<barWidth>15</barWidth>
+				<borderColor>0xffffff</borderColor>
+				<borderThickness>1</borderThickness>
+				<link>http://www.google.com</link>
+				<value>3</value>
+			</foot>	
+			
+			<foot>				
+				<id>7006</id>
+				<label><![CDATA[7 Centro de Padres Escuela Especial Juan Sandoval Carrasco]]></label>
+				<width>162</width>
+				<height>54</height>
+				<fillColor>0xdddddd</fillColor>
+				<barColor>0xff0000</barColor>
+				<barWidth>15</barWidth>
+				<borderColor>0xffffff</borderColor>
+				<borderThickness>1</borderThickness>
+				<link>http://www.google.com</link>
+				<value>3</value>
+			</foot>	
+			
+			<foot>				
+				<id>7007</id>
+				<label><![CDATA[8 Coditfam]]></label>	
+				<width>162</width>
+				<height>54</height>
+				<fillColor>0xdddddd</fillColor>
+				<barColor>0xff0000</barColor>
+				<barWidth>15</barWidth>
+				<borderColor>0xffffff</borderColor>
+				<borderThickness>1</borderThickness>
+				<link>http://www.google.com</link>
+				<value>3</value>
+			</foot>			
+					
+			<foot>				
+				<id>7008</id>
+				<label><![CDATA[9 CONIN]]></label>
+				<width>162</width>
+				<height>54</height>
+				<fillColor>0xdddddd</fillColor>
+				<barColor>0xFFFF80</barColor>
+				<barWidth>15</barWidth>
+				<borderColor>0xffffff</borderColor>
+				<borderThickness>1</borderThickness>
+				<link>http://www.google.com</link>
+				<value>3</value>
+			</foot>	
+		
+			<foot>				
+				<id>7009</id>
+				<label><![CDATA[10 Casa de Acogida Padre Mariano]]></label>
+				<width>162</width>
+				<height>54</height>
+				<fillColor>0xdddddd</fillColor>
+				<barColor>0xFF8040</barColor>
+				<barWidth>15</barWidth>
+				<borderColor>0xffffff</borderColor>
+				<borderThickness>1</borderThickness>
+				<link>http://www.google.com</link>
+				<value>3</value>
+			</foot>		
+			
+			<foot>				
+				<id>7010</id>
+				<label><![CDATA[11 Club de Ancianos Jesús de Nazareth]]></label>
+				<width>162</width>
+				<height>54</height>
+				<fillColor>0xdddddd</fillColor>
+				<barColor>0xff0000</barColor>
+				<barWidth>15</barWidth>
+				<borderColor>0xffffff</borderColor>
+				<borderThickness>1</borderThickness>
+				<link>http://www.google.com</link>
+				<value>3</value>
+			</foot>			
+					
+			<foot>				
+				<id>7011</id>
+				<label><![CDATA[12 YMCA]]></label>	
+				<width>162</width>
+				<height>54</height>
+				<fillColor>0xdddddd</fillColor>
+				<barColor>0xff0000</barColor>
+				<barWidth>15</barWidth>
+				<borderColor>0xffffff</borderColor>
+				<borderThickness>1</borderThickness>
+				<link>http://www.google.com</link>
+				<value>3</value>
+			</foot>						
+		
+</stakeholderMap>

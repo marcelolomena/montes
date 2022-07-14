@@ -1,0 +1,2 @@
+﻿<%@ Control Language="VB" AutoEventWireup="false" CodeFile="BuscaMisTareas.ascx.vb" Inherits="BuscaMisTareas" %>
+<asp:Label ID="lblMensaje" CssClass="tab_contenido" Visible="false" runat="server" Text="Label"></asp:Label>
