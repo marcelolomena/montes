@@ -13,7 +13,7 @@ Public Class Ambitos
         Dim dtr As IDataReader
         Dim sSQL As String
         sSQL = "Select AmbitosCodigo, AmbitosName, AmbitosDescription, AmbitosSecuencia, AmbitosSideBarMenu "
-        sSQL = sSQL & "FROM (Ambitos) "
+        sSQL = sSQL & "FROM Ambitos "
         sSQL = sSQL & "WHERE (Ambitos.AmbitosId = " & AmbitosId & ") "
         Try
             dtr = AccesoEA.ListarRegistros(sSQL)
@@ -39,7 +39,7 @@ Public Class Ambitos
         Dim dtr As IDataReader
         Dim sSQL As String
         sSQL = "Select AmbitosId "
-        sSQL = sSQL & "FROM (Ambitos) "
+        sSQL = sSQL & "FROM Ambitos "
         sSQL = sSQL & "WHERE (Ambitos.AmbitosCodigo = '" & AmbitosCodigo & "') "
         Try
             dtr = AccesoEA.ListarRegistros(sSQL)
@@ -100,7 +100,7 @@ Public Class Ambitos
         Dim dtr As IDataReader
         Dim sSQL As String
         sSQL = "Select AmbitosName "
-        sSQL = sSQL & "FROM (Ambitos) "
+        sSQL = sSQL & "FROM Ambitos "
         sSQL = sSQL & "WHERE (Ambitos.AmbitosCodigo = '" & AmbitosCodigo & "') "
         LeerAmbitosDescriptionByName = ""
         Try

@@ -73,7 +73,7 @@ Public Class CarpetaJudicial
         Dim dtr As IDataReader
         Dim sSQL As String
         sSQL = "Select CarpetaJudicialId "
-        sSQL = sSQL & "FROM (CarpetaJudicial) "
+        sSQL = sSQL & "FROM CarpetaJudicial "
         sSQL = sSQL & "WHERE (CarpetaJudicial.CarpetaJudicialCodigo = '" & CarpetaJudicialCodigo & "') "
         Try
             dtr = AccesoEA.ListarRegistros(sSQL)
@@ -91,7 +91,7 @@ Public Class CarpetaJudicial
         Dim dtr As IDataReader
         Dim sSQL As String
         sSQL = "Select CarpetaJudicialId "
-        sSQL = sSQL & "FROM (CarpetaJudicial) "
+        sSQL = sSQL & "FROM CarpetaJudicial "
         sSQL = sSQL & "WHERE (CarpetaJudicial.CarpetaJudicialCodigo = '" & CarpetaJudicialCodigo & "') "
         LeerCarpetaJudicialIdByCodigo = 0
         Try
@@ -127,7 +127,7 @@ Public Class CarpetaJudicial
         Dim dtr As IDataReader
         Dim sSQL As String
         sSQL = "Select CarpetaJudicialCodigo "
-        sSQL = sSQL & "FROM (CarpetaJudicial) "
+        sSQL = sSQL & "FROM CarpetaJudicial "
         sSQL = sSQL & "WHERE (CarpetaJudicial.CarpetaJudicialId = " & CarpetaJudicialId & ") "
         LeerCarpetaJudicialCodigoById = ""
         Try
@@ -613,7 +613,7 @@ Public Class CarpetaJudicial
         Dim dtr As IDataReader
         Dim sSQL As String
         sSQL = "Select CarpetaJudicialReceptor As Receptor "
-        sSQL = sSQL & "FROM (CarpetaJudicial) "
+        sSQL = sSQL & "FROM CarpetaJudicial "
         sSQL = sSQL & "WHERE (CarpetaJudicial.CarpetaJudicialCodigo = '" & CarpetaJudicialCodigo & "') "
         LeerReceptorByCarpetaJudicialCodigo = ""
         Try
@@ -631,7 +631,7 @@ Public Class CarpetaJudicial
         Dim dtr As IDataReader
         Dim sSQL As String
         sSQL = "Select CarpetaJudicialProcurador As Procurador "
-        sSQL = sSQL & "FROM (CarpetaJudicial) "
+        sSQL = sSQL & "FROM CarpetaJudicial "
         sSQL = sSQL & "WHERE (CarpetaJudicial.CarpetaJudicialCodigo = '" & CarpetaJudicialCodigo & "') "
         LeerProcuradorByCarpetaJudicialCodigo = ""
         Try
@@ -649,7 +649,7 @@ Public Class CarpetaJudicial
         Dim dtr As IDataReader
         Dim sSQL As String
         sSQL = "Select CarpetaJudicialSecretaria As Secretaria "
-        sSQL = sSQL & "FROM (CarpetaJudicial) "
+        sSQL = sSQL & "FROM CarpetaJudicial "
         sSQL = sSQL & "WHERE (CarpetaJudicial.CarpetaJudicialCodigo = '" & CarpetaJudicialCodigo & "') "
         LeerSecretariaByCarpetaJudicialCodigo = ""
         Try
@@ -667,7 +667,7 @@ Public Class CarpetaJudicial
         Dim dtr As IDataReader
         Dim sSQL As String
         sSQL = "Select CarpetaJudicialRut As Rut, CarpetaJudicialNombres As Nombres, CarpetaJudicialApellidos As Apellidos, CarpetaJudicialNroOperacion As Operacion, CarpetaJudicialProcurador As Procurador, CarpetaJudicialSecretaria As Secretaria, CarpetaJudicialSupervisor As Supervisor "
-        sSQL = sSQL & "FROM (CarpetaJudicial) "
+        sSQL = sSQL & "FROM CarpetaJudicial "
         sSQL = sSQL & "WHERE (CarpetaJudicial.CarpetaJudicialCodigo = '" & CarpetaJudicialCodigo & "') "
         LeerToolTipTareaByCarpetaJudicialCodigo = ""
         Try
@@ -687,7 +687,7 @@ Public Class CarpetaJudicial
         Dim dtr As IDataReader
         Dim sSQL As String
         sSQL = "Select CarpetaJudicialNroOperacion As Operacion "
-        sSQL = sSQL & "FROM (CarpetaJudicial) "
+        sSQL = sSQL & "FROM CarpetaJudicial "
         sSQL = sSQL & "WHERE (CarpetaJudicial.CarpetaJudicialCodigo = '" & CarpetaJudicialCodigo & "') "
         LeerNroOperacionByCarpetaJudicialCodigo = ""
         Try
@@ -705,7 +705,7 @@ Public Class CarpetaJudicial
         Dim dtr As IDataReader
         Dim sSQL As String
         sSQL = "Select CarpetaJudicialSupervisor As Supervisor "
-        sSQL = sSQL & "FROM (CarpetaJudicial) "
+        sSQL = sSQL & "FROM CarpetaJudicial "
         sSQL = sSQL & "WHERE (CarpetaJudicial.CarpetaJudicialCodigo = '" & CarpetaJudicialCodigo & "') "
         LeerSupervisorByCarpetaJudicialCodigo = ""
         Try
@@ -723,7 +723,7 @@ Public Class CarpetaJudicial
         Dim dtr As IDataReader
         Dim sSQL As String
         sSQL = "Select CarpetaJudicialRut As Rut, CarpetaJudicialNombres As Nombres, CarpetaJudicialApellidos As Apellidos, TipoProcesoName As TipoProceso "
-        sSQL = sSQL & "FROM (CarpetaJudicial) "
+        sSQL = sSQL & "FROM CarpetaJudicial "
         sSQL = sSQL & "WHERE (CarpetaJudicial.CarpetaJudicialCodigo = '" & CarpetaJudicialCodigo & "') "
         LeerDeudorByCarpetaJudicialCodigo = ""
         Try
@@ -741,7 +741,7 @@ Public Class CarpetaJudicial
         Dim dtr As IDataReader
         Dim sSQL As String
         sSQL = "Select CarpetaJudicialRut As Rut, CarpetaJudicialNombres As Nombres, CarpetaJudicialApellidos As Apellidos, TipoProcesoName As TipoProceso "
-        sSQL = sSQL & "FROM (CarpetaJudicial) "
+        sSQL = sSQL & "FROM CarpetaJudicial "
         sSQL = sSQL & "WHERE (CarpetaJudicial.CarpetaJudicialCodigo = '" & CarpetaJudicialCodigo & "') "
         LeerDeudorParaGanttByCarpetaJudicialCodigo = ""
         Try
@@ -759,7 +759,7 @@ Public Class CarpetaJudicial
         Dim dtr As IDataReader
         Dim sSQL As String
         sSQL = "Select CarpetaJudicialRut As Rut, CarpetaJudicialNombres As Nombres, CarpetaJudicialApellidos As Apellidos "
-        sSQL = sSQL & "FROM (CarpetaJudicial) "
+        sSQL = sSQL & "FROM CarpetaJudicial "
         sSQL = sSQL & "WHERE (CarpetaJudicial.TareasId = " & TareasId & ") "
         LeerDeudorByTareasId = ""
         Try
@@ -795,7 +795,7 @@ Public Class CarpetaJudicial
         Dim dtr As IDataReader
         Dim sSQL As String
         sSQL = "Select CarpetaJudicialRepresentanteBanco As Representante, CarpetaJudicialProfesionRepresentante as Profesion "
-        sSQL = sSQL & "FROM (CarpetaJudicial) "
+        sSQL = sSQL & "FROM CarpetaJudicial "
         sSQL = sSQL & "WHERE (CarpetaJudicial.TareasId = " & TareasId & ") "
         LeerRepresentanteBancoByTareasId = ""
         Try
@@ -813,7 +813,7 @@ Public Class CarpetaJudicial
         Dim dtr As IDataReader
         Dim sSQL As String
         sSQL = "Select CarpetaJudicialRepresentanteBanco As Representante, CarpetaJudicialProfesionRepresentante as Profesion "
-        sSQL = sSQL & "FROM (CarpetaJudicial) "
+        sSQL = sSQL & "FROM CarpetaJudicial "
         sSQL = sSQL & "WHERE (CarpetaJudicial.CarpetaJudicialCodigo = '" & CarpetaJudicialCodigo & "') "
         LeerRepresentanteBanco = ""
         Try
@@ -855,7 +855,7 @@ Public Class CarpetaJudicial
         Dim dtr As IDataReader
         Dim sSQL As String
         sSQL = "Select CarpetaJudicialRut As Rut "
-        sSQL = sSQL & "FROM (CarpetaJudicial) "
+        sSQL = sSQL & "FROM CarpetaJudicial "
         sSQL = sSQL & "WHERE (CarpetaJudicial.CarpetaJudicialCodigo = '" & CarpetaJudicialCodigo & "') "
         LeerRutDeudorByCarpetaJudicialCodigo = ""
         Try
@@ -873,7 +873,7 @@ Public Class CarpetaJudicial
         Dim dtr As IDataReader
         Dim sSQL As String
         sSQL = "Select CarpetaJudicialProcurador As Procurador, CarpetaJudicialSecretaria As Secretaria, CarpetaJudicialSupervisor As Supervisor, CarpetaJudicialReceptor As Receptor "
-        sSQL = sSQL & "FROM (CarpetaJudicial) "
+        sSQL = sSQL & "FROM CarpetaJudicial "
         sSQL = sSQL & "WHERE (CarpetaJudicial.CarpetaJudicialCodigo = '" & CarpetaJudicialCodigo & "') "
         DevolverUsuarioPorRol = ""
         Try
@@ -894,7 +894,7 @@ Public Class CarpetaJudicial
         Dim dtr As IDataReader
         Dim sSQL As String
         sSQL = "Select TareasId As Id "
-        sSQL = sSQL & "FROM (CarpetaJudicial) "
+        sSQL = sSQL & "FROM CarpetaJudicial "
         sSQL = sSQL & "WHERE (CarpetaJudicial.CarpetaJudicialCodigo = '" & CarpetaJudicialCodigo & "') "
         LeerTareasIdByCarpetaJudicialCodigo = 0
         Try

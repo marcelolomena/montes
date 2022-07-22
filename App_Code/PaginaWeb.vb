@@ -92,8 +92,10 @@ Public Class PaginaWeb
             While dtr.Read
                 LeerPaginaWebTitle = CStr(dtr("PaginaWebTitle").ToString)
             End While
+            Console.WriteLine(LeerPaginaWebTitle)
             dtr.Close()
-        Catch
+        Catch ex As Exception
+            Console.WriteLine(ex.ToString)
             LeerPaginaWebTitle = ""
         End Try
     End Function

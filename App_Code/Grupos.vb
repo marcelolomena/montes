@@ -13,7 +13,7 @@ Public Class Grupos
         Dim dtr As IDataReader
         Dim sSQL As String
         sSQL = "Select GruposCodigo, GruposName, GruposDescription "
-        sSQL = sSQL & "FROM (Grupos) "
+        sSQL = sSQL & "FROM Grupos "
         sSQL = sSQL & "WHERE (Grupos.GruposId = " & GruposId & ") "
         Try
             dtr = AccesoEA.ListarRegistros(sSQL)
@@ -33,7 +33,7 @@ Public Class Grupos
         Dim dtr As IDataReader
         Dim sSQL As String
         sSQL = "Select GruposId "
-        sSQL = sSQL & "FROM (Grupos) "
+        sSQL = sSQL & "FROM Grupos "
         sSQL = sSQL & "WHERE (Grupos.GruposCodigo = '" & GruposCodigo & "') "
         Try
             dtr = AccesoEA.ListarRegistros(sSQL)
@@ -51,7 +51,7 @@ Public Class Grupos
         Dim dtr As IDataReader
         Dim sSQL As String
         sSQL = "Select GruposName "
-        sSQL = sSQL & "FROM (Grupos) "
+        sSQL = sSQL & "FROM Grupos "
         sSQL = sSQL & "WHERE (Grupos.GruposCodigo = '" & GruposCodigo & "') "
         LeerGruposDescriptionByName = ""
         Try

@@ -16,7 +16,7 @@ Public Class Carpetas
         Dim Carpetas As New Carpetas
 
         sSQL = "SELECT TipoDoc.[TipoDocId] As Id, TipoDoc.[TipoDocName] As Nombre "
-        sSQL = sSQL & "FROM(TipoDoc) "
+        sSQL = sSQL & "FROM TipoDoc "
         sSQL = sSQL & "ORDER BY TipoDoc.[TipoDocName]"
 
         LoadTiposDocumentos = False
@@ -52,7 +52,7 @@ Public Class Carpetas
 
         LoadDocumentosPorTipo = False
 
-        sSQL = "SELECT DocumentosSGI.[DocumentosSGIId] As Id, DocumentosSGI.DocumentosSGICodigo As Codigo, DocumentosSGI.DocumentosSGINombre as Nombre, 'SGI\' + DocumentosSGI.DocumentosSGIPath As Url, Mid(DocumentosSGI.DocumentosSGIFEmision,1,10) As Fecha "
+        sSQL = "SELECT DocumentosSGI.[DocumentosSGIId] As Id, DocumentosSGI.DocumentosSGICodigo As Codigo, DocumentosSGI.DocumentosSGINombre as Nombre, 'SGI\' + DocumentosSGI.DocumentosSGIPath As Url, convert(varchar, DocumentosSGI.DocumentosSGIFEmision, 23) As Fecha "
         sSQL = sSQL & "FROM DocumentosSGI "
         sSQL = sSQL & "WHERE (((DocumentosSGI.DocumentosSGITipo)= '" & TipoDocName & "' ))"
 

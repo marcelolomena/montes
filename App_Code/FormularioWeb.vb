@@ -13,7 +13,7 @@ Public Class FormularioWeb
         Dim dtr As IDataReader
         Dim sSQL As String
         sSQL = "Select FormularioWebNumber, FormularioWebPId, FormularioWebSecuencia, FormularioWebGroupType, FormularioWebLabel, FormularioWebControl, FormularioWebTipoControl, FormularioWebControlBase, FormularioWebCssClassLabel, FormularioWebCssClassControl, FormularioWebLabelAlign, FormularioWebControlWidth, FormularioWebControlTextMode, FormularioWebToolTip, FormularioWebIsRequiredField, FormularioWebIsNotEnabled, FormularioWebDomainField, FormularioWebDataTextField, FormularioWebTipoDatos, FormularioWebDataFile, FormularioWebSelectCommand, FormularioWebSection, FormularioWebGroupValidation, FormularioWebEvent, FormularioWebPageCall, FormularioWebFormCall, FormularioWebURL, FormularioWebServiceCall, FormularioWebIsPerfilable, FormularioWebIsAbleToDisappear, FormularioWebIsVisibleToInit, FormularioWebDescription "
-        sSQL = sSQL & "FROM (FormularioWeb) "
+        sSQL = sSQL & "FROM FormularioWeb "
         sSQL = sSQL & "WHERE (FormularioWeb.FormularioWebId = " & FormularioWebId & ") "
         Try
             dtr = AccesoEA.ListarRegistros(sSQL)
@@ -157,7 +157,7 @@ Public Class FormularioWeb
         Dim sSQL As String
 
         sSQL = "Select Max(FormularioWeb.FormularioWebNumber) as Maximo "
-        sSQL = sSQL & "FROM (FormularioWeb)"
+        sSQL = sSQL & "FROM FormularioWeb"
 
         CalcularNextFormularioWebNumber = 1
 
@@ -179,7 +179,7 @@ Public Class FormularioWeb
         Dim sSQL As String
 
         sSQL = "Select FormularioWeb.FormularioWebControl, FormularioWebDataTextField, FormularioWebDomainField "
-        sSQL = sSQL & "FROM(FormularioWeb) "
+        sSQL = sSQL & "FROM FormularioWeb "
         sSQL = sSQL & "WHERE(((FormularioWeb.FormularioWebNumber) = " & FormularioWebNumber & " AND FormularioWeb.FormularioWebSection = 'Form' )) "
         sSQL = sSQL & "ORDER BY FormularioWeb.FormularioWebPId, FormularioWeb.FormularioWebSecuencia"
         Try
@@ -204,7 +204,7 @@ Public Class FormularioWeb
         Dim sSQL As String
 
         sSQL = "Select 'chk' + FormularioWeb.FormularioWebControl + '.Checked' As CampoCheck, FormularioWeb.FormularioWebControl + '.Text' as CampoControl, FormularioWebDataTextField as Variable, FormularioWebTipoDatos as Tipos "
-        sSQL = sSQL & "FROM(FormularioWeb) "
+        sSQL = sSQL & "FROM FormularioWeb "
         sSQL = sSQL & "WHERE(((FormularioWeb.FormularioWebNumber) = " & FormularioWebNumber & " AND ( FormularioWeb.FormularioWebSection = 'FormKeys' OR FormularioWeb.FormularioWebSection = 'Form' ))) "
         sSQL = sSQL & "ORDER BY FormularioWeb.FormularioWebPId, FormularioWeb.FormularioWebSecuencia"
         Try
@@ -229,7 +229,7 @@ Public Class FormularioWeb
         Dim sSQL As String
 
         sSQL = "Select PaginaWeb.FormularioWebNumber "
-        sSQL = sSQL & "FROM (PaginaWeb) "
+        sSQL = sSQL & "FROM PaginaWeb "
         sSQL = sSQL & "WHERE ((PaginaWeb.PaginaWebName) = '" & PaginaWebName & "')"
 
         LeerFormularioWebNumber = 0
@@ -253,7 +253,7 @@ Public Class FormularioWeb
         Dim sSQL As String
 
         sSQL = "Select 'Dim ' + FormularioWeb.FormularioWebControl + ' As ' + FormularioWeb.FormularioWebControlBase as Definicion, ' Etiqueta : ' + FormularioWebLabel + ' - Control : ' + FormularioWebControl + ' - Variable : ' + FormularioWebDataTextField as Glosa  "
-        sSQL = sSQL & "FROM(FormularioWeb) "
+        sSQL = sSQL & "FROM FormularioWeb "
         sSQL = sSQL & "WHERE(((FormularioWeb.FormularioWebNumber) = " & FormularioWebNumber & " AND ( FormularioWeb.FormularioWebSection = 'FormKeys' OR FormularioWeb.FormularioWebSection = 'Form' ))) "
         sSQL = sSQL & "ORDER BY FormularioWeb.FormularioWebPId, FormularioWeb.FormularioWebSecuencia"
         Try
@@ -277,8 +277,8 @@ Public Class FormularioWeb
         Dim sSQL As String
 
         sSQL = "Select 'Dim ' + FormularioWeb.FormularioWebDataTextField + ' As ' + FormularioWeb.FormularioWebTipoDatos as Definicion, ' Etiqueta : ' + FormularioWebLabel + ' - Control : ' + FormularioWebControl + ' - Variable : ' + FormularioWebDataTextField as Glosa "
-        sSQL = sSQL & "FROM(FormularioWeb) "
-        sSQL = sSQL & "WHERE(((FormularioWeb.FormularioWebNumber) = " & FormularioWebNumber & " AND ( FormularioWeb.FormularioWebSection = 'FormKeys' OR FormularioWeb.FormularioWebSection = 'Form' ))) "
+        sSQL = sSQL & "FROM FormularioWeb "
+        sSQL = sSQL & "WHERE((FormularioWeb.FormularioWebNumber = " & FormularioWebNumber & " AND ( FormularioWeb.FormularioWebSection = 'FormKeys' OR FormularioWeb.FormularioWebSection = 'Form' ))) "
         sSQL = sSQL & "ORDER BY FormularioWeb.FormularioWebPId, FormularioWeb.FormularioWebSecuencia"
         Try
             dtr = AccesoEA.ListarRegistros(sSQL)
@@ -301,7 +301,7 @@ Public Class FormularioWeb
         Dim StringUpdate As String = ""
 
         sSQL = "Select FormularioWeb.FormularioWebControl as Definicion, FormularioWebTipoDatos as TipoDatos "
-        sSQL = sSQL & "FROM(FormularioWeb) "
+        sSQL = sSQL & "FROM FormularioWeb "
         sSQL = sSQL & "WHERE(((FormularioWeb.FormularioWebNumber) = " & FormularioWebNumber & " AND ( FormularioWeb.FormularioWebSection = 'FormKeys' ))) "
         sSQL = sSQL & "ORDER BY FormularioWeb.FormularioWebPId, FormularioWeb.FormularioWebSecuencia"
         FormarStringUpdate = ""
@@ -328,8 +328,8 @@ Public Class FormularioWeb
         End Try
 
         sSQL = "Select FormularioWeb.FormularioWebControl as Definicion, FormularioWebTipoDatos as TipoDatos "
-        sSQL = sSQL & "FROM(FormularioWeb) "
-        sSQL = sSQL & "WHERE(((FormularioWeb.FormularioWebNumber) = " & FormularioWebNumber & " AND ( FormularioWeb.FormularioWebSection = 'Form' ))) "
+        sSQL = sSQL & "FROM FormularioWeb "
+        sSQL = sSQL & "WHERE((FormularioWeb.FormularioWebNumber = " & FormularioWebNumber & " AND ( FormularioWeb.FormularioWebSection = 'Form' ))) "
         sSQL = sSQL & "ORDER BY FormularioWeb.FormularioWebPId, FormularioWeb.FormularioWebSecuencia"
 
         Try
@@ -363,7 +363,7 @@ Public Class FormularioWeb
         Dim StringUpdate As String = ""
 
         sSQL = "Select FormularioWeb.FormularioWebDataTextField as Definicion, FormularioWebTipoDatos as TipoDatos "
-        sSQL = sSQL & "FROM(FormularioWeb) "
+        sSQL = sSQL & "FROM FormularioWeb "
         sSQL = sSQL & "WHERE(((FormularioWeb.FormularioWebNumber) = " & FormularioWebNumber & " AND ( FormularioWeb.FormularioWebSection = 'FormKeys' OR FormularioWeb.FormularioWebSection = 'Form' ))) "
         sSQL = sSQL & "ORDER BY FormularioWeb.FormularioWebPId, FormularioWeb.FormularioWebSecuencia"
 
@@ -397,7 +397,7 @@ Public Class FormularioWeb
         Dim StringLeer As String = ""
 
         sSQL = "Select FormularioWeb.FormularioWebDataTextField as Definicion "
-        sSQL = sSQL & "FROM(FormularioWeb) "
+        sSQL = sSQL & "FROM FormularioWeb "
         sSQL = sSQL & "WHERE(((FormularioWeb.FormularioWebNumber) = " & FormularioWebNumber & " AND ( FormularioWeb.FormularioWebSection = 'FormKeys' ))) "
         sSQL = sSQL & "ORDER BY FormularioWeb.FormularioWebPId, FormularioWeb.FormularioWebSecuencia"
         FormarStringLeer = ""
@@ -413,7 +413,7 @@ Public Class FormularioWeb
         End Try
 
         sSQL = "Select FormularioWeb.FormularioWebDataTextField as Definicion "
-        sSQL = sSQL & "FROM(FormularioWeb) "
+        sSQL = sSQL & "FROM FormularioWeb "
         sSQL = sSQL & "WHERE(((FormularioWeb.FormularioWebNumber) = " & FormularioWebNumber & " AND (FormularioWeb.FormularioWebSection = 'Form'))) "
         sSQL = sSQL & "ORDER BY FormularioWeb.FormularioWebPId, FormularioWeb.FormularioWebSecuencia"
         Try
@@ -436,7 +436,7 @@ Public Class FormularioWeb
         Dim sSQL As String
 
         sSQL = "Select FormularioWeb.FormularioWebControl, FormularioWebDataTextField "
-        sSQL = sSQL & "FROM(FormularioWeb) "
+        sSQL = sSQL & "FROM FormularioWeb "
         sSQL = sSQL & "WHERE(((FormularioWeb.FormularioWebNumber) = " & FormularioWebNumber & " AND FormularioWeb.FormularioWebSection = 'FormKeys' )) "
         sSQL = sSQL & "ORDER BY FormularioWeb.FormularioWebPId, FormularioWeb.FormularioWebSecuencia"
         Try
@@ -460,7 +460,7 @@ Public Class FormularioWeb
         Dim sSQL As String
 
         sSQL = "Select FormularioWeb.FormularioWebControl, FormularioWebDataTextField "
-        sSQL = sSQL & "FROM(FormularioWeb) "
+        sSQL = sSQL & "FROM FormularioWeb "
         sSQL = sSQL & "WHERE(((FormularioWeb.FormularioWebNumber) = " & FormularioWebNumber & " AND FormularioWeb.FormularioWebSection = 'Form' )) "
         sSQL = sSQL & "ORDER BY FormularioWeb.FormularioWebPId, FormularioWeb.FormularioWebSecuencia"
         Try
@@ -484,7 +484,7 @@ Public Class FormularioWeb
         Dim sSQL As String
 
         sSQL = "Select 'Dim chk' + FormularioWeb.FormularioWebControl + ' As CheckBox' as Definicion, ' Etiqueta : ' + FormularioWebLabel + ' - Control : ' + FormularioWebControl + ' - Variable : ' + FormularioWebDataTextField as Glosa  "
-        sSQL = sSQL & "FROM(FormularioWeb) "
+        sSQL = sSQL & "FROM FormularioWeb "
         sSQL = sSQL & "WHERE(((FormularioWeb.FormularioWebNumber) = " & FormularioWebNumber & " AND ( FormularioWeb.FormularioWebSection = 'FormKeys' OR FormularioWeb.FormularioWebSection = 'Form' ))) "
         sSQL = sSQL & "ORDER BY FormularioWeb.FormularioWebPId, FormularioWeb.FormularioWebSecuencia"
         Try
@@ -508,7 +508,7 @@ Public Class FormularioWeb
         Dim sSQL As String
 
         sSQL = "Select FormularioWeb.FormularioWebIsVisibleToInit "
-        sSQL = sSQL & "FROM (FormularioWeb) "
+        sSQL = sSQL & "FROM FormularioWeb "
         sSQL = sSQL & "WHERE (((FormularioWeb.FormularioWebId) = " & FormularioWebId & "))"
 
         CampoIsVisible = False
@@ -531,7 +531,7 @@ Public Class FormularioWeb
         Dim sSQL As String
 
         sSQL = "Select FormularioWeb.FormularioWebIsVisibleToInit "
-        sSQL = sSQL & "FROM (FormularioWeb) "
+        sSQL = sSQL & "FROM FormularioWeb "
         sSQL = sSQL & "WHERE (((FormularioWeb.FormularioWebNumber) = " & FormularioWebId & " AND (FormularioWeb.FormularioWebSecuencia) = " & i & " AND (FormularioWeb.FormularioWebSection) = '" & Section & "')) "
         CampoIsVisibleV2 = False
         Try

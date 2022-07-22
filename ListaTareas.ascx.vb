@@ -79,7 +79,7 @@ Partial Class ListaTareas
         Dim IsAuthorizedUser As Boolean = FuncionesPorRol.LeerFuncionesPorRol(Session("RolId"), CLng(Request.QueryString("MenuOptionsId")), "MenuOptions", FuncionesPorRolId)
 
 
-        Dim sqlSource As AccessDataSource
+        Dim sqlSource As SqlDataSource
         'Dim txtTextoLibre As LiteralControl
         Dim Grilla As GridView
         Dim sSQL As String = ""
@@ -310,7 +310,10 @@ Partial Class ListaTareas
         Cell.ColumnSpan = "2"
         Cell.Style(HtmlTextWriterStyle.TextAlign) = "right"
 
-        sqlSource = New AccessDataSource
+        sqlSource As New SqlDataSource()                    
+        sqlSource.ConnectionString = "Server=localhost;UID=sa;PWD=Password_01;Database=montes"
+        sqlSource.SelectCommand = SelectCommand
+
         sqlSource.ID = "ds1"
 
         t = Lecturas.LeerSQLStatementFormularioWeb("SQLSelect", DataFile, SelectCommand, NumeroPagina)

@@ -13,7 +13,7 @@ Public Class Contrato
         Dim dtr As IDataReader
         Dim sSQL As String
         sSQL = "Select ContratoCodigo, ContratoName, EmpresasCodigo, ContratoDescription, APIName, ContratoFechaInicio, ContratoFechaTermino "
-        sSQL = sSQL & "FROM (Contrato) "
+        sSQL = sSQL & "FROM Contrato "
         sSQL = sSQL & "WHERE (Contrato.ContratoId = " & ContratoId & ") "
         Try
             dtr = AccesoEA.ListarRegistros(sSQL)
@@ -45,7 +45,7 @@ Public Class Contrato
         Dim dtr As IDataReader
         Dim sSQL As String
         sSQL = "Select ContratoId "
-        sSQL = sSQL & "FROM (Contrato) "
+        sSQL = sSQL & "FROM Contrato "
         sSQL = sSQL & "WHERE (Contrato.ContratoCodigo = '" & ContratoCodigo & "') "
         Try
             dtr = AccesoEA.ListarRegistros(sSQL)
@@ -108,7 +108,7 @@ Public Class Contrato
         Dim dtr As IDataReader
         Dim sSQL As String
         sSQL = "Select ContratoName "
-        sSQL = sSQL & "FROM (Contrato) "
+        sSQL = sSQL & "FROM Contrato "
         sSQL = sSQL & "WHERE (Contrato.ContratoCodigo = '" & ContratoCodigo & "') "
         LeerContratoDescriptionByName = ""
         Try
@@ -126,7 +126,7 @@ Public Class Contrato
         Dim dtr As IDataReader
         Dim sSQL As String
         sSQL = "Select EmpresasCodigo "
-        sSQL = sSQL & "FROM (Contrato) "
+        sSQL = sSQL & "FROM Contrato "
         sSQL = sSQL & "WHERE (Contrato.ContratoCodigo = '" & ContratoCodigo & "') "
         LeerContratoEmpresasCodigoByName = ""
         Try

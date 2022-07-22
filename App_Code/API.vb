@@ -13,7 +13,7 @@ Public Class API
         Dim dtr As IDataReader
         Dim sSQL As String
         sSQL = "Select APICodigo, APIName, APIOrganizacion, APIRol1, APINombre1, APICargo1, APIOrganizacion1, APIRol2, APINombre2, APICargo2, APIOrganizacion2, APIRol3, APINombre3, APICargo3, APIOrganizacion3, APIRol4, APINombre4, APICargo4, APIOrganizacion4 "
-        sSQL = sSQL & "FROM (API) "
+        sSQL = sSQL & "FROM API "
         sSQL = sSQL & "WHERE (API.APIId = " & APIId & ") "
         Try
             dtr = AccesoEA.ListarRegistros(sSQL)
@@ -49,7 +49,7 @@ Public Class API
         Dim dtr As IDataReader
         Dim sSQL As String
         sSQL = "Select APIId "
-        sSQL = sSQL & "FROM (API) "
+        sSQL = sSQL & "FROM API "
         sSQL = sSQL & "WHERE (API.APICodigo = '" & APICodigo & "') "
         Try
             dtr = AccesoEA.ListarRegistros(sSQL)
@@ -124,7 +124,7 @@ Public Class API
         Dim dtr As IDataReader
         Dim sSQL As String
         sSQL = "Select APIName "
-        sSQL = sSQL & "FROM (API) "
+        sSQL = sSQL & "FROM API "
         sSQL = sSQL & "WHERE (API.APICodigo = '" & APICodigo & "') "
         LeerAPIDescriptionByName = ""
         Try

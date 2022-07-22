@@ -305,7 +305,8 @@ Partial Class FichaCarpetaJudicial
         Dim FormularioWebPId As Long = 0
         Dim Pagina As String = ""
         Dim NombrePagina As String = ""
-        Dim sqlSource As AccessDataSource
+     
+        Dim sqlSource As SqlDataSource        
         Dim Tareas As New Tareas
         Dim CarpetaJudicial As New CarpetaJudicial
         Dim IndicadorEsManual As Boolean = False
@@ -586,13 +587,18 @@ Partial Class FichaCarpetaJudicial
                 Celda.ColumnSpan = "2"
                 Celda.Style(HtmlTextWriterStyle.TextAlign) = "right"
 
-                sqlSource = New AccessDataSource
+
+                sqlSource = New SqlDataSource()                    
+                sqlSource.ConnectionString = "Server=localhost;UID=sa;PWD=Password_01;Database=montes"
+                sqlSource.SelectCommand = SelectCommand
+                Console.WriteLine(SelectCommand)
+
                 sqlSource.ID = "ds" & arrLabel(k)
 
                 t = Lecturas.LeerTabSQLStatementFormularioWeb("SQLSelect", DataFile, SelectCommand, FormularioWebPId)
 
                 'sqlSource.ConnectionString = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=|DataDirectory|\BDCAS.mdb"
-                sqlSource.DataFile = DataFile
+                'sqlSource.DataFile = DataFile
                 ' Cambio introducido el 08 de abril de 2011
                 ' Se verifica que el el campo DomainField no contiene la glosa RelationBetweenTables
                 If DomainField = "RelationBetweenTables" Then
@@ -603,9 +609,9 @@ Partial Class FichaCarpetaJudicial
                     Select Case PaginaWebName
                         Case "Ficha de DocumentosSGIPorCarpeta"
                             If MenuOptionsId = 503 Then
-                                sSQL = "SELECT DocumentosSGI.DocumentosSGIId as Id, Mid(DocumentosSGI.DocumentosSGIFEmision,1,10)  As Fecha, DocumentosSGI.DocumentosSGICodigo as Codigo, DocumentosSGI.DocumentosSGINombre As Nombre FROM DocumentosSGI Where DocumentosSGI.DocumentosSGITipo <> 'Compliance' Order By DocumentosSGINombre"
+                                sSQL = "SELECT DocumentosSGI.DocumentosSGIId as Id, convert(varchar, DocumentosSGI.DocumentosSGIFEmision, 23)  As Fecha, DocumentosSGI.DocumentosSGICodigo as Codigo, DocumentosSGI.DocumentosSGINombre As Nombre FROM DocumentosSGI Where DocumentosSGI.DocumentosSGITipo <> 'Compliance' Order By DocumentosSGINombre"
                             Else
-                                sSQL = "SELECT DocumentosSGI.DocumentosSGIId as Id, Mid(DocumentosSGI.DocumentosSGIFEmision,1,10)  As Fecha, DocumentosSGI.DocumentosSGICodigo as Codigo, DocumentosSGI.DocumentosSGINombre As Nombre FROM DocumentosSGI Where DocumentosSGI.DocumentosSGITipo = 'Compliance' Order By DocumentosSGINombre"
+                                sSQL = "SELECT DocumentosSGI.DocumentosSGIId as Id, convert(varchar, DocumentosSGI.DocumentosSGIFEmision, 23)  As Fecha, DocumentosSGI.DocumentosSGICodigo as Codigo, DocumentosSGI.DocumentosSGINombre As Nombre FROM DocumentosSGI Where DocumentosSGI.DocumentosSGITipo = 'Compliance' Order By DocumentosSGINombre"
                             End If
                         Case Else
                             sSQL = SelectCommand

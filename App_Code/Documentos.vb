@@ -13,7 +13,7 @@ Public Class Documentos
         Dim dtr As IDataReader
         Dim sSQL As String
         sSQL = "Select DocumentosCodigo, DocumentosNombre, DocumentosPath, DocumentosMenu, DocumentosOptionsMenuId, DocumentosGroupName, DocumentosGroupSecuencia, DocumentosGroupItemNumber, DocumentosOrigen, DocumentosTipo "
-        sSQL = sSQL & "FROM (Documentos) "
+        sSQL = sSQL & "FROM Documentos "
         sSQL = sSQL & "WHERE (Documentos.DocumentosId = " & DocumentosId & ") "
         Try
             dtr = AccesoEA.ListarRegistros(sSQL)
@@ -52,7 +52,7 @@ Public Class Documentos
         Dim dtr As IDataReader
         Dim sSQL As String
         sSQL = "Select DocumentosId "
-        sSQL = sSQL & "FROM (Documentos) "
+        sSQL = sSQL & "FROM Documentos "
         sSQL = sSQL & "WHERE (Documentos.DocumentosCodigo = '" & DocumentosCodigo & "') "
         Try
             dtr = AccesoEA.ListarRegistros(sSQL)

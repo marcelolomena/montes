@@ -13,7 +13,7 @@ Public Class TipoDoc
         Dim dtr As IDataReader
         Dim sSQL As String
         sSQL = "Select TipoDocName, TipoDocDescription, TipoDocSecuencia "
-        sSQL = sSQL & "FROM (TipoDoc) "
+        sSQL = sSQL & "FROM TipoDoc "
         sSQL = sSQL & "WHERE (TipoDoc.TipoDocId = " & TipoDocId & ") "
         Try
             dtr = AccesoEA.ListarRegistros(sSQL)
@@ -37,7 +37,7 @@ Public Class TipoDoc
         Dim dtr As IDataReader
         Dim sSQL As String
         sSQL = "Select TipoDocId "
-        sSQL = sSQL & "FROM (TipoDoc) "
+        sSQL = sSQL & "FROM TipoDoc "
         sSQL = sSQL & "WHERE (TipoDoc.TipoDocName = '" & TipoDocName & "') "
         Try
             dtr = AccesoEA.ListarRegistros(sSQL)
@@ -56,7 +56,7 @@ Public Class TipoDoc
         Dim sSQL As String
         LeerTipoDocDescriptionByName = ""
         sSQL = "Select TipoDocDescription "
-        sSQL = sSQL & "FROM (TipoDoc) "
+        sSQL = sSQL & "FROM TipoDoc "
         sSQL = sSQL & "WHERE (TipoDoc.TipoDocName = '" & TipoDocName & "') "
         Try
             dtr = AccesoEA.ListarRegistros(sSQL)
@@ -74,7 +74,7 @@ Public Class TipoDoc
         Dim sSQL As String
         LeerTipoDocNameById = ""
         sSQL = "Select TipoDocName "
-        sSQL = sSQL & "FROM (TipoDoc) "
+        sSQL = sSQL & "FROM TipoDoc "
         sSQL = sSQL & "WHERE (TipoDoc.TipoDocId = " & TipoDocId & ") "
         Try
             dtr = AccesoEA.ListarRegistros(sSQL)

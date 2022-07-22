@@ -13,7 +13,7 @@ Public Class Rol
         Dim dtr As IDataReader
         Dim sSQL As String
         sSQL = "Select RolName, RolDescription, RolNivel "
-        sSQL = sSQL & "FROM [montes].[dbo].Roles "
+        sSQL = sSQL & "FROM Roles "
         sSQL = sSQL & "WHERE (Roles.RolId = " & RolId & ") "
         Try
             dtr = AccesoEA.ListarRegistros(sSQL)
@@ -37,7 +37,7 @@ Public Class Rol
         Dim dtr As IDataReader
         Dim sSQL As String
         sSQL = "Select RolId "
-        sSQL = sSQL & "FROM [montes].[dbo].Roles "
+        sSQL = sSQL & "FROM Roles "
         sSQL = sSQL & "WHERE (Roles.RolName = '" & RolName & "') "
         Try
             dtr = AccesoEA.ListarRegistros(sSQL)
@@ -55,7 +55,7 @@ Public Class Rol
         Dim dtr As IDataReader
         Dim sSQL As String
         sSQL = "Select RolName "
-        sSQL = sSQL & "FROM [montes].[dbo].Roles "
+        sSQL = sSQL & "FROM Roles "
         sSQL = sSQL & "WHERE (Roles.RolId = " & RolId & ") "
         LeerRolNameByRolId = ""
         Try
@@ -73,7 +73,7 @@ Public Class Rol
         Dim strUpdate As String
         Dim AccionesABM As New AccionesABM
         Dim t As Integer = 0
-        strUpdate = "UPDATE [montes].[dbo].Roles SET "
+        strUpdate = "UPDATE Roles SET "
         strUpdate = strUpdate & "Roles.RolName = '" & RolName & "', "
         strUpdate = strUpdate & "Roles.RolDescription = '" & RolDescription & "', "
         strUpdate = strUpdate & "Roles.RolNivel = " & RolNivel & ", "
@@ -114,7 +114,7 @@ Public Class Rol
         Dim dtr As IDataReader
         Dim sSQL As String
         sSQL = "Select RolDescription "
-        sSQL = sSQL & "FROM [montes].[dbo].Roles "
+        sSQL = sSQL & "FROM Roles "
         sSQL = sSQL & "WHERE (Roles.RolName = '" & RolName & "') "
         LeerRolDescriptionByName = ""
         Try
@@ -167,12 +167,12 @@ Public Class Rol
             Try
                 ' Borra registro de la tabla de Roles
                 '-------------------------------------
-                strUpdate = "DELETE FROM [montes].[dbo].Roles WHERE RolId = " & RolId
+                strUpdate = "DELETE FROM Roles WHERE RolId = " & RolId
                 t = AccesoEA.ABMRegistros(strUpdate)
                 t = AccionesABM.BitacoraInsert(UserId, Replace(strUpdate, "'", " "), 0, 0, "Elimina el Rol: " & RolName, RolId, "Roles", "")
                 ' Borra registro de la tabla de FuncionesPorRol
                 '-----------------------------------------------------------------------------------------------------------
-                strUpdate = "DELETE FROM [montes].[dbo].FuncionesPorRol WHERE RolId = " & RolId
+                strUpdate = "DELETE FROM FuncionesPorRol WHERE RolId = " & RolId
                 t = AccesoEA.ABMRegistros(strUpdate)
                 t = AccionesABM.BitacoraInsert(UserId, Replace(strUpdate, "'", " "), 0, 0, "Elimina funciones del rol: " & RolName, RolId, "FuncionesPorRol", "")
                 RolDelete = True
@@ -188,7 +188,7 @@ Public Class Rol
         Dim sSQL As String
 
         sSQL = "SELECT Roles.RolId "
-        sSQL = sSQL & "FROM Usuarios INNER JOIN [montes].[dbo].Roles ON Usuarios.RolName = Roles.RolName "
+        sSQL = sSQL & "FROM Usuarios INNER JOIN Roles ON Usuarios.RolName = Roles.RolName "
         sSQL = sSQL & "WHERE (((Usuarios.[UsuariosId])=" & UserId & "))"
 
         LeerRolByUserId = 0
@@ -210,7 +210,7 @@ Public Class Rol
         Dim Usuarios As New Usuarios
 
         strUpdate = "SELECT Roles.RolName As Name "
-        strUpdate = strUpdate & "FROM [montes].[dbo].Roles "
+        strUpdate = strUpdate & "FROM Roles "
         strUpdate = strUpdate & "WHERE Roles.RolNivel < 6 "
         strUpdate = strUpdate & "ORDER BY Roles.RolNivel Asc"
 

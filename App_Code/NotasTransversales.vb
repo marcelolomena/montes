@@ -85,12 +85,12 @@ Public Class NotasTransversales
         If Cantidad = 10 Then
             strUpdate = "SELECT Top " & Cantidad & " NotasTransversales.NotasTransversalesTime, NotasTransversales.NotasTransversalesFrom, NotasTransversales.NotasTransversalesBody, NotasTransversales.UserLastUpdate, NotasTransversales.NotasTransversalesId as Id, NotasTransversales.NotasTransversalesIsAlerta as IsAlerta, NotasTransversales.NotasTransversalesFechaCritica as FechaCritica, NotasTransversales.NotasTransversalesFueLeida as IsFueLeida, NotasTransversales.NotasTransversalesFechaLectura as FechaLectura "
             strUpdate = strUpdate & "FROM NotasTransversales "
-            strUpdate = strUpdate & "WHERE NotasTransversales.NotasTransversalesFueLeida = False "
+            strUpdate = strUpdate & "WHERE NotasTransversales.NotasTransversalesFueLeida IS NULL "
             strUpdate = strUpdate & "ORDER BY NotasTransversales.NotasTransversalesTime DESC"
         Else
             strUpdate = "SELECT NotasTransversales.NotasTransversalesTime, NotasTransversales.NotasTransversalesFrom, NotasTransversales.NotasTransversalesBody, NotasTransversales.UserLastUpdate, NotasTransversales.NotasTransversalesId as Id, NotasTransversales.NotasTransversalesIsAlerta as IsAlerta, NotasTransversales.NotasTransversalesFechaCritica as FechaCritica, NotasTransversales.NotasTransversalesFueLeida as IsFueLeida, NotasTransversales.NotasTransversalesFechaLectura as FechaLectura "
             strUpdate = strUpdate & "FROM NotasTransversales "
-            strUpdate = strUpdate & "WHERE NotasTransversales.NotasTransversalesFueLeida = False "
+            strUpdate = strUpdate & "WHERE NotasTransversales.NotasTransversalesFueLeida IS NULL "
             strUpdate = strUpdate & "ORDER BY NotasTransversales.NotasTransversalesTime DESC"
         End If
 
@@ -101,7 +101,10 @@ Public Class NotasTransversales
         Try
             dtr = AccesoEA.ListarRegistros(strUpdate)
             While dtr.Read
-                If CBool(dtr("IsAlerta").ToString) = True Then
+                Console.WriteLine("--------------------------------")
+                Console.WriteLine(dtr("IsAlerta"))
+                Console.WriteLine("--------------------------------")
+                If Not String.IsNullOrEmpty(dtr("IsAlerta").ToString)  Then
                     MostrarNotasTransversales = MostrarNotasTransversales & "<tr><td width=""223"" style=""color:Red;"">" & dtr("NotasTransversalesTime").ToString & " " & dtr("NotasTransversalesBody").ToString & "<br />Quedan sólo " & DateDiff(DateInterval.Day, CDate(Now()), CDate(dtr("FechaCritica").ToString)) & " d&iacute;as<br /> (" & dtr("NotasTransversalesFrom").ToString & ")</td>"
                 Else
                     MostrarNotasTransversales = MostrarNotasTransversales & "<tr><td width=""223"">" & dtr("NotasTransversalesTime").ToString & " " & dtr("NotasTransversalesBody").ToString & "<br /> (" & dtr("NotasTransversalesFrom").ToString & ")</td>"
@@ -115,8 +118,11 @@ Public Class NotasTransversales
                 End If
 
             End While
+            Console.WriteLine("--------------------------------")
+            Console.WriteLine(MostrarNotasTransversales)
             dtr.Close()
         Catch
+
             MostrarNotasTransversales = ""
         End Try
         CodigoHTML = CodigoHTML & MostrarNotasTransversales & "</table>"

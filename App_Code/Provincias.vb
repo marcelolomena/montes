@@ -13,7 +13,7 @@ Public Class Provincias
         Dim dtr As IDataReader
         Dim sSQL As String
         sSQL = "Select ProvinciasCodigo, ProvinciasName, ProvinciasDescription, ProvinciasGobernador, RegionesCodigo "
-        sSQL = sSQL & "FROM (Provincias) "
+        sSQL = sSQL & "FROM Provincias "
         sSQL = sSQL & "WHERE (Provincias.ProvinciasId = " & ProvinciasId & ") "
         Try
             dtr = AccesoEA.ListarRegistros(sSQL)
@@ -35,7 +35,7 @@ Public Class Provincias
         Dim dtr As IDataReader
         Dim sSQL As String
         sSQL = "Select ProvinciasId "
-        sSQL = sSQL & "FROM (Provincias) "
+        sSQL = sSQL & "FROM Provincias "
         sSQL = sSQL & "WHERE (Provincias.ProvinciasCodigo = '" & ProvinciasCodigo & "') "
         Try
             dtr = AccesoEA.ListarRegistros(sSQL)
@@ -54,7 +54,7 @@ Public Class Provincias
         Dim sSQL As String
         LeerProvinciasDescriptionByName = " "
         sSQL = "Select ProvinciasName "
-        sSQL = sSQL & "FROM (Provincias) "
+        sSQL = sSQL & "FROM Provincias "
         sSQL = sSQL & "WHERE (Provincias.ProvinciasCodigo = '" & ProvinciasCodigo & "') "
         Try
             dtr = AccesoEA.ListarRegistros(sSQL)

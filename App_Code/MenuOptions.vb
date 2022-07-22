@@ -19,7 +19,7 @@ Public Class MenuOptions
         Dim sSQL As String
 
         sSQL = "Select MenuOptionsPID, Secuencia, Class, href, title, Texto, Logo, BarMenu, SideBarMenu, PaginaWebName, SystemId, PortalesName, Zona, OptionsType, IsNodoHoja, Description, cssClass, MenuOptionsWidth "
-        sSQL = sSQL & "FROM [montes].[dbo].MenuOptions "
+        sSQL = sSQL & "FROM MenuOptions "
         sSQL = sSQL & "WHERE (((MenuOptions.MenuOptionsId) = " & MenuOptionsId & ")) "
 
         Try
@@ -58,7 +58,7 @@ Public Class MenuOptions
         Dim sSQL As String
 
         sSQL = "Select Description "
-        sSQL = sSQL & "FROM [montes].[dbo].MenuOptions "
+        sSQL = sSQL & "FROM MenuOptions "
         sSQL = sSQL & "WHERE (((MenuOptions.MenuOptionsId) = " & MenuOptionsId & ")) "
 
         DescripcionDelRequisito = ""
@@ -82,7 +82,7 @@ Public Class MenuOptions
         Dim AccionesABM As New AccionesABM
         Dim t As Integer = 0
 
-        strUpdate = "UPDATE [montes].[dbo].MenuOptions "
+        strUpdate = "UPDATE MenuOptions "
         strUpdate = strUpdate & "SET "
         strUpdate = strUpdate & "MenuOptions.Description = '" & Description & "', "
         strUpdate = strUpdate & "MenuOptions.DateLastUpdate = '" & AccionesABM.DateTransform(Now()) & "', "
@@ -102,8 +102,8 @@ Public Class MenuOptions
         Dim sSQL As String
 
         sSQL = "Select MenuOptionsPID "
-        sSQL = sSQL & "FROM [montes].[dbo].MenuOptions "
-        sSQL = sSQL & "WHERE (((MenuOptions.MenuOptionsId) = " & MenuOptionsId & ")) "
+        sSQL = sSQL & "FROM MenuOptions "
+        sSQL = sSQL & "WHERE MenuOptions.MenuOptionsId = " & MenuOptionsId & " "
 
         LeerMenuOptionsPId = 0
 
@@ -126,7 +126,7 @@ Public Class MenuOptions
         Dim sSQL As String
 
         sSQL = "Select Texto "
-        sSQL = sSQL & "FROM [montes].[dbo].MenuOptions "
+        sSQL = sSQL & "FROM MenuOptions "
         sSQL = sSQL & "WHERE (((MenuOptions.MenuOptionsId) = " & MenuOptionsId & ")) "
 
         LeerTexto = ""
@@ -137,8 +137,10 @@ Public Class MenuOptions
             While dtr.Read
                 LeerTexto = dtr("Texto").ToString
             End While
+            Console.WriteLine(LeerTexto)
             dtr.Close()
-        Catch
+        Catch ex As Exception
+            Console.WriteLine(ex.ToString)
             LeerTexto = ""
         End Try
     End Function
@@ -153,7 +155,7 @@ Public Class MenuOptions
         Do While PId > 0
 
             sSQL = "Select Texto, MenuOptionsPId As PId "
-            sSQL = sSQL & "FROM [montes].[dbo].MenuOptions "
+            sSQL = sSQL & "FROM MenuOptions "
             sSQL = sSQL & "WHERE (((MenuOptions.MenuOptionsId) = " & PId & ")) "
 
             Try
@@ -184,7 +186,7 @@ Public Class MenuOptions
         Dim sSQL As String
 
         sSQL = "Select IsNodoHoja "
-        sSQL = sSQL & "FROM [montes].[dbo].MenuOptions "
+        sSQL = sSQL & "FROM MenuOptions "
         sSQL = sSQL & "WHERE (((MenuOptions.MenuOptionsId) = " & MenuOptionsId & ")) "
 
         LeerIsNodoHoja = ""
@@ -227,7 +229,7 @@ Public Class MenuOptions
 
 
         sSQL = "SELECT MenuOptionsId As PId, Texto As Carpeta, Description As Descripcion, PaginaWebName as Pagina, Secuencia  "
-        sSQL = sSQL & "FROM [montes].[dbo].MenuOptions "
+        sSQL = sSQL & "FROM MenuOptions "
         sSQL = sSQL & "WHERE MenuOptionsPId = 0 AND Zona = 'BarMenu' "
         sSQL = sSQL & "ORDER by MenuOptions.Secuencia"
 
@@ -274,7 +276,7 @@ Public Class MenuOptions
 
 
         sSQL = "SELECT MenuOptionsId As PId, Texto As Carpeta, Description As Descripcion, PaginaWebName as Pagina, Secuencia "
-        sSQL = sSQL & "FROM [montes].[dbo].MenuOptions "
+        sSQL = sSQL & "FROM MenuOptions "
         sSQL = sSQL & "WHERE MenuOptionsPId = " & CarpetasPId
         sSQL = sSQL & " ORDER by MenuOptions.Secuencia"
         LoadEditarNodosCarpetas = False
@@ -326,7 +328,7 @@ Public Class MenuOptions
             Try
                 ' Borra registro de la tabla de Carpetas
                 '-------------------------------------
-                strUpdate = "DELETE FROM [montes].[dbo].MenuOptions WHERE MenuOptionsId = " & MenuOptionsId
+                strUpdate = "DELETE FROM MenuOptions WHERE MenuOptionsId = " & MenuOptionsId
                 t = AccesoEA.ABMRegistros(strUpdate)
                 t = AccionesABM.BitacoraInsert(UserId, Replace(strUpdate, "'", " "), 0, 0, "Elimina el submenu: " & Texto, MenuOptionsId, "MenuOptions", "")
                 MenuOptionsDelete = True
@@ -343,7 +345,7 @@ Public Class MenuOptions
 
         'Verifica si tiene submenues
         sSQL = "SELECT Count(*) AS Total "
-        sSQL = sSQL & "FROM [montes].[dbo].MenuOptions "
+        sSQL = sSQL & "FROM MenuOptions "
         sSQL = sSQL & "WHERE (((MenuOptions.MenuOptionsPId)=" & MenuOptionsPId & "))"
         LeerTotalSubMenusRelacionados = 0
 
@@ -359,7 +361,7 @@ Public Class MenuOptions
 
         'Verifica si tiene autorizaciones de acceso
         sSQL = "SELECT Count(*) AS Total "
-        sSQL = sSQL & "FROM [montes].[dbo].FuncionesPorRol "
+        sSQL = sSQL & "FROM FuncionesPorRol "
         sSQL = sSQL & "WHERE (((FuncionesPorRol.FuncionId)=" & MenuOptionsPId & " AND (FuncionesPorRol.EntidadNombreTabla) = 'MenuOptions'))"
         Try
             dtr = AccesoEA.ListarRegistros(sSQL)
@@ -379,7 +381,7 @@ Public Class MenuOptions
         Dim AccionesABM As New AccionesABM
         Dim t As Integer = 0
 
-        strUpdate = "UPDATE [montes].[dbo].MenuOptions SET "
+        strUpdate = "UPDATE MenuOptions SET "
         strUpdate = strUpdate & "MenuOptions.MenuOptionsPId = " & MenuOptionsPId & ", "
         strUpdate = strUpdate & "MenuOptions.Secuencia = " & MenuOptionsSecuencia & ", "
         strUpdate = strUpdate & "MenuOptions.Class = '" & MenuOptionsClass & "', "
@@ -415,7 +417,7 @@ Public Class MenuOptions
         Dim AccionesABM As New AccionesABM
         Dim t As Integer = 0
 
-        strUpdate = "UPDATE [montes].[dbo].MenuOptions SET "
+        strUpdate = "UPDATE MenuOptions SET "
         strUpdate = strUpdate & "MenuOptions.CarpetasPId = " & MenuOptionsPId & ", "
         strUpdate = strUpdate & "MenuOptions.DateLastUpdate = '" & AccionesABM.DateTransform(Now()) & "', "
         strUpdate = strUpdate & "MenuOptions.UserLastUpdate = " & UserId & " "
@@ -445,7 +447,7 @@ Public Class MenuOptions
         Try
             MenuOptionsInsert = AccesoEA.ABMRegistros(strUpdate)
             MenuOptionsId = Lecturas.LeerMaximoId("Select Max(MenuOptionsId) as MaximoId FROM MenuOptions")
-            sSQL = "UPDATE [montes].[dbo].MenuOptions SET "
+            sSQL = "UPDATE MenuOptions SET "
             sSQL = sSQL & "MenuOptions.href = '" & "IndexSGI.aspx?PaginaWebName=Por definir&MenuOptionsId=" & MenuOptionsId & "', "
             sSQL = sSQL & "MenuOptions.DateLastUpdate = '" & AccionesABM.DateTransform(Now()) & "', "
             sSQL = sSQL & "MenuOptions.UserLastUpdate = " & UserId & " "
@@ -465,7 +467,7 @@ Public Class MenuOptions
         Dim sSQL As String
 
         sSQL = "SELECT MenuOptionsId AS Numero, Texto AS Cargo, Description as Objetivo "
-        sSQL = sSQL & "FROM [montes].[dbo].MenuOptions "
+        sSQL = sSQL & "FROM MenuOptions "
         sSQL = sSQL & "WHERE MenuOptions.SystemId = " & SystemId & " AND Zona = 'BarMenu' "
         sSQL = sSQL & "ORDER By Secuencia"
 
@@ -494,7 +496,7 @@ Public Class MenuOptions
         Dim ObjectId As String = node.Value
 
         sSQL = "SELECT MenuOptions_1.MenuOptionsId AS Numero, MenuOptions_1.Texto AS Cargo "
-        sSQL = sSQL & "FROM [montes].[dbo].MenuOptions INNER JOIN MenuOptions AS MenuOptions_1 ON MenuOptions.MenuOptionsId = MenuOptions_1.MenuOptionsPId "
+        sSQL = sSQL & "FROM MenuOptions INNER JOIN MenuOptions AS MenuOptions_1 ON MenuOptions.MenuOptionsId = MenuOptions_1.MenuOptionsPId "
         sSQL = sSQL & "WHERE (((MenuOptions.MenuOptionsId) = " & ObjectId & ")) "
         sSQL = sSQL & "ORDER BY MenuOptions_1.Secuencia"
 
@@ -531,12 +533,12 @@ Public Class MenuOptions
 
         If Id = 0 Then
             sSQL = "SELECT MenuOptionsId As PId, Texto As Carpeta, Description As Descripcion, PaginaWebName as Pagina, Secuencia  "
-            sSQL = sSQL & "FROM [montes].[dbo].MenuOptions "
+            sSQL = sSQL & "FROM MenuOptions "
             sSQL = sSQL & "WHERE MenuOptionsPId = 0 AND Zona = 'BarMenu' "
             sSQL = sSQL & "ORDER by MenuOptions.Secuencia"
         Else
             sSQL = "SELECT MenuOptionsId As PId, Texto As Carpeta, Description As Descripcion, PaginaWebName as Pagina, Secuencia "
-            sSQL = sSQL & "FROM [montes].[dbo].MenuOptions "
+            sSQL = sSQL & "FROM MenuOptions "
             sSQL = sSQL & "WHERE MenuOptionsPId = " & Id & " "
             sSQL = sSQL & "ORDER by MenuOptions.Secuencia"
         End If
@@ -611,7 +613,7 @@ Public Class MenuOptions
         Dim sSQL As String
 
         sSQL = "Select Logo, BarMenu, SideBarMenu, PaginaWebName "
-        sSQL = sSQL & "FROM [montes].[dbo].MenuOptions "
+        sSQL = sSQL & "FROM MenuOptions "
         sSQL = sSQL & "WHERE (((MenuOptions.MenuOptionsId) = " & MenuOptionsId & ")) "
 
         Try
@@ -648,7 +650,7 @@ Public Class MenuOptions
         'ParentId para rescatar los nodos del sub menu.
 
         sSQL = "SELECT MenuOptionsId "
-        sSQL = sSQL & "FROM [montes].[dbo].MenuOptions "
+        sSQL = sSQL & "FROM MenuOptions "
         sSQL = sSQL & "WHERE MenuOptionsPId = " & NodoId & " "
         sSQL = sSQL & "ORDER by Secuencia"
 
@@ -687,7 +689,7 @@ Public Class MenuOptions
 
 
         sSQL = "SELECT MenuOptionsId, Class, href, title, texto, IsNodoHoja "
-        sSQL = sSQL & "FROM [montes].[dbo].MenuOptions "
+        sSQL = sSQL & "FROM MenuOptions "
         sSQL = sSQL & "WHERE MenuOptionsPId = " & MenuOptionsPId & " "
         sSQL = sSQL & "ORDER by Secuencia"
 
@@ -721,7 +723,7 @@ Public Class MenuOptions
 
         'Se leen las opciones del menú que estan asociados a vínculos a las aplicaciones
         sSQL = "SELECT MenuOptionsId, Class, href, title, texto, IsNodoHoja "
-        sSQL = sSQL & "FROM [montes].[dbo].MenuOptions "
+        sSQL = sSQL & "FROM MenuOptions "
         sSQL = sSQL & "WHERE MenuOptionsPId = " & MenuOptionsId
         sSQL = sSQL & " ORDER by Secuencia"
 
@@ -756,7 +758,7 @@ Public Class MenuOptions
             MenuOptionsId = MenuOptionsPId 'Con esto aseguro leer el primer registro que me mandan
 
             sSQL = "Select MenuOptionsId As Id, MenuOptionsPId As PId "
-            sSQL = sSQL & "FROM [montes].[dbo].MenuOptions "
+            sSQL = sSQL & "FROM MenuOptions "
             sSQL = sSQL & "WHERE (((MenuOptions.MenuOptionsId) = " & MenuOptionsId & ")) "
 
             Try
@@ -781,7 +783,7 @@ Public Class MenuOptions
 
 
         sSQL = "SELECT MenuOptions.href As URLInicio "
-        sSQL = sSQL & "FROM [montes].[dbo].Portales INNER JOIN [montes].[dbo].FuncionesPorPortal ON [montes].[dbo].Portales.PortalesId = [montes].[dbo].FuncionesPorPortal.PortalesId INNER JOIN [montes].[dbo].MenuOptions ON [montes].[dbo].FuncionesPorPortal.MenuOptionsId = [montes].[dbo].MenuOptions.MenuOptionsId "
+        sSQL = sSQL & "FROM Portales INNER JOIN FuncionesPorPortal ON Portales.PortalesId = FuncionesPorPortal.PortalesId INNER JOIN MenuOptions ON FuncionesPorPortal.MenuOptionsId = MenuOptions.MenuOptionsId "
         sSQL = sSQL & "WHERE(((Portales.PortalesId) = " & PortalesId & ") And ((FuncionesPorPortal.Secuencia) = 1))"
 
 
@@ -811,7 +813,7 @@ Public Class MenuOptions
         MenuOptionsUpdateSecuencia = "0"
 
 
-        strUpdate = "UPDATE [montes].[dbo].MenuOptions SET "
+        strUpdate = "UPDATE MenuOptions SET "
         strUpdate = strUpdate & "MenuOptions.Secuencia = " & Secuencia & ", "
         strUpdate = strUpdate & "MenuOptions.DateLastUpdate = '" & AccionesABM.DateTransform(Now()) & "', "
         strUpdate = strUpdate & "MenuOptions.UserLastUpdate = " & UserId & " "

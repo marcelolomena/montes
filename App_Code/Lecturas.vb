@@ -462,7 +462,7 @@ Public Class Lecturas
         Dim sSQL As String
 
         sSQL = "SELECT MaterialVuelo.MaterialVueloCantidad as Cantidad, MaterialVuelo.MaterialVueloName as Material "
-        sSQL = sSQL & "FROM (MaterialVuelo) "
+        sSQL = sSQL & "FROM MaterialVuelo "
         sSQL = sSQL & "ORDER BY MaterialVuelo.MaterialVueloArea, MaterialVuelo.MaterialVueloSecuencia"
 
         i = 0
@@ -486,7 +486,7 @@ Public Class Lecturas
         Dim sSQL As String
 
         sSQL = "SELECT Materias.MateriaName as Materia "
-        sSQL = sSQL & "FROM (Materias) "
+        sSQL = sSQL & "FROM Materias "
         sSQL = sSQL & "WHERE Materias.MateriaGrupo = '" & Grupo & "' ORDER BY MateriaSecuencia"
 
         i = 0
@@ -510,7 +510,7 @@ Public Class Lecturas
         Dim sSQL As String
 
         sSQL = "SELECT Materias.MateriaTipo as Tipo "
-        sSQL = sSQL & "FROM (Materias) "
+        sSQL = sSQL & "FROM Materias "
         sSQL = sSQL & "WHERE Materias.MateriaGrupo = '" & Grupo & "'"
 
         LeerMateriasTipo = "Porcentaje"
@@ -532,7 +532,7 @@ Public Class Lecturas
         Dim sSQL As String
 
         sSQL = "SELECT Materias.MateriaMesActual as MesActual "
-        sSQL = sSQL & "FROM (Materias) "
+        sSQL = sSQL & "FROM Materias "
         sSQL = sSQL & "WHERE Materias.MateriaName = '" & Materia & "'"
 
         MesActual = 0
@@ -554,7 +554,7 @@ Public Class Lecturas
         Dim sSQL As String
 
         sSQL = "SELECT Materias.MateriaMetaAnual as MetaAnual "
-        sSQL = sSQL & "FROM (Materias) "
+        sSQL = sSQL & "FROM Materias "
         sSQL = sSQL & "WHERE Materias.MateriaName = '" & Materia & "'"
 
         MetaAnual = 0
@@ -576,7 +576,7 @@ Public Class Lecturas
         Dim sSQL As String
 
         sSQL = "SELECT Materias.MateriaPorc1 as Porc1, Materias.MateriaPorc2 as Porc2, Materias.MateriaPorc3 as Porc3, Materias.MateriaPorc4 as Porc4, Materias.MateriaPorc5 as Porc5, Materias.MateriaPorc6 as Porc6, Materias.MateriaPorc7 as Porc7, Materias.MateriaPorc8 as Porc8, Materias.MateriaPorc9 as Porc9, Materias.MateriaPorc10 as Porc10, Materias.MateriaPorc11 as Porc11, Materias.MateriaPorc12 as Porc12, Materias.MateriaPorcAnual as PorcAnual  "
-        sSQL = sSQL & "FROM (Materias) "
+        sSQL = sSQL & "FROM Materias "
         sSQL = sSQL & "WHERE Materias.MateriaName = '" & Materia & "'"
 
         Try
@@ -611,7 +611,7 @@ Public Class Lecturas
         Dim sSQL As String
 
         sSQL = "SELECT Materias.MateriaValor1 as Valor1, Materias.MateriaValor2 as Valor2, Materias.MateriaValor3 as Valor3, Materias.MateriaValor4 as Valor4, Materias.MateriaValor5 as Valor5, Materias.MateriaValor6 as Valor6, Materias.MateriaValor7 as Valor7, Materias.MateriaValor8 as Valor8, Materias.MateriaValor9 as Valor9, Materias.MateriaValor10 as Valor10, Materias.MateriaValor11 as Valor11, Materias.MateriaValor12 as Valor12, Materias.MateriaValorAnual as ValorAnual  "
-        sSQL = sSQL & "FROM (Materias) "
+        sSQL = sSQL & "FROM Materias "
         sSQL = sSQL & "WHERE Materias.MateriaName = '" & Materia & "'"
 
         Try
@@ -646,7 +646,7 @@ Public Class Lecturas
         Dim sSQL As String
 
         sSQL = "SELECT Materias.MateriaValorAcum1 as Acum1, Materias.MateriaValorAcum2 as Acum2, Materias.MateriaValorAcum3 as Acum3, Materias.MateriaValorAcum4 as Acum4, Materias.MateriaValorAcum5 as Acum5, Materias.MateriaValorAcum6 as Acum6, Materias.MateriaValorAcum7 as Acum7, Materias.MateriaValorAcum8 as Acum8, Materias.MateriaValorAcum9 as Acum9, Materias.MateriaValorAcum10 as Acum10, Materias.MateriaValorAcum11 as Acum11, Materias.MateriaValorAcum12 as Acum12, Materias.MateriaValorAcumAnual as ValorAcumAnual  "
-        sSQL = sSQL & "FROM (Materias) "
+        sSQL = sSQL & "FROM Materias "
         sSQL = sSQL & "WHERE Materias.MateriaName = '" & Materia & "'"
 
         Try
@@ -735,7 +735,7 @@ Public Class Lecturas
         Dim sSQL As String
 
         sSQL = "SELECT MaterialVuelo.MaterialVueloId "
-        sSQL = sSQL & "FROM (MaterialVuelo) "
+        sSQL = sSQL & "FROM MaterialVuelo "
         sSQL = sSQL & "ORDER BY MaterialVuelo.MaterialVueloArea, MaterialVuelo.MaterialVueloSecuencia"
 
         Try
@@ -757,7 +757,7 @@ Public Class Lecturas
         Dim sSQL As String
 
         sSQL = "SELECT MaterialVuelo.MaterialVueloName "
-        sSQL = sSQL & "FROM (MaterialVuelo) "
+        sSQL = sSQL & "FROM MaterialVuelo "
         sSQL = sSQL & "WHERE MaterialVuelo.MaterialVueloId = " & MaterialVueloId
 
         LeerNombreMaterialVuelo = " "
@@ -779,8 +779,8 @@ Public Class Lecturas
         Dim sSQL As String
 
         sSQL = "Select FormularioWeb.FormularioWebLabel, FormularioWeb.FormularioWebControl "
-        sSQL = sSQL & "FROM(FormularioWeb) "
-        sSQL = sSQL & "WHERE(((FormularioWeb.FormularioWebNumber) = " & FormularioWebId & " AND FormularioWeb.FormularioWebSection = 'FormKeys')) "
+        sSQL = sSQL & "FROM FormularioWeb "
+        sSQL = sSQL & "WHERE FormularioWeb.FormularioWebNumber = " & FormularioWebId & " AND FormularioWeb.FormularioWebSection = 'FormKeys' "
         sSQL = sSQL & "ORDER BY FormularioWeb.FormularioWebSecuencia"
         Try
             dtr = AccesoEA.ListarRegistros(sSQL)
@@ -803,7 +803,7 @@ Public Class Lecturas
         Dim sSQL As String
 
         sSQL = "Select 'Dim ' + FormularioWeb.FormularioWebControl + ' As ' + FormularioWeb.FormularioWebControlBase as Definicion, ' Etiqueta : ' + FormularioWebLabel + ' - Control : ' + FormularioWebControl + ' - Variable : ' + FormularioWebDataTextField as Glosa  "
-        sSQL = sSQL & "FROM(FormularioWeb) "
+        sSQL = sSQL & "FROM FormularioWeb "
         sSQL = sSQL & "WHERE(((FormularioWeb.FormularioWebNumber) = " & FormularioWebNumber & " AND ( FormularioWeb.FormularioWebSection = 'FormKeys' OR FormularioWeb.FormularioWebSection = 'Form' ))) "
         sSQL = sSQL & "ORDER BY FormularioWeb.FormularioWebPId, FormularioWeb.FormularioWebSecuencia"
         Try
@@ -827,7 +827,7 @@ Public Class Lecturas
         Dim sSQL As String
 
         sSQL = "Select 'Dim chk' + FormularioWeb.FormularioWebControl + ' As CheckBox' as Definicion, ' Etiqueta : ' + FormularioWebLabel + ' - Control : ' + FormularioWebControl + ' - Variable : ' + FormularioWebDataTextField as Glosa  "
-        sSQL = sSQL & "FROM(FormularioWeb) "
+        sSQL = sSQL & "FROM FormularioWeb "
         sSQL = sSQL & "WHERE(((FormularioWeb.FormularioWebNumber) = " & FormularioWebNumber & " AND ( FormularioWeb.FormularioWebSection = 'FormKeys' OR FormularioWeb.FormularioWebSection = 'Form' ))) "
         sSQL = sSQL & "ORDER BY FormularioWeb.FormularioWebPId, FormularioWeb.FormularioWebSecuencia"
         Try
@@ -851,7 +851,7 @@ Public Class Lecturas
         Dim sSQL As String
 
         sSQL = "Select 'chk' + FormularioWeb.FormularioWebControl + '.Checked' As CampoCheck, FormularioWeb.FormularioWebControl + '.Text' as CampoControl, FormularioWebDataTextField as Variable "
-        sSQL = sSQL & "FROM(FormularioWeb) "
+        sSQL = sSQL & "FROM FormularioWeb "
         sSQL = sSQL & "WHERE(((FormularioWeb.FormularioWebNumber) = " & FormularioWebNumber & " AND ( FormularioWeb.FormularioWebSection = 'FormKeys' OR FormularioWeb.FormularioWebSection = 'Form' ))) "
         sSQL = sSQL & "ORDER BY FormularioWeb.FormularioWebPId, FormularioWeb.FormularioWebSecuencia"
         Try
@@ -876,7 +876,7 @@ Public Class Lecturas
         Dim sSQL As String
 
         sSQL = "Select 'Dim ' + FormularioWeb.FormularioWebDataTextField + ' As ' + FormularioWeb.FormularioWebTipoDatos as Definicion, ' Etiqueta : ' + FormularioWebLabel + ' - Control : ' + FormularioWebControl + ' - Variable : ' + FormularioWebDataTextField as Glosa "
-        sSQL = sSQL & "FROM(FormularioWeb) "
+        sSQL = sSQL & "FROM FormularioWeb "
         sSQL = sSQL & "WHERE(((FormularioWeb.FormularioWebNumber) = " & FormularioWebNumber & " AND ( FormularioWeb.FormularioWebSection = 'FormKeys' OR FormularioWeb.FormularioWebSection = 'Form' ))) "
         sSQL = sSQL & "ORDER BY FormularioWeb.FormularioWebPId, FormularioWeb.FormularioWebSecuencia"
         Try
@@ -899,7 +899,7 @@ Public Class Lecturas
         Dim sSQL As String
 
         sSQL = "Select ', ByRef ' + FormularioWeb.FormularioWebDataTextField + ' As ' + FormularioWeb.FormularioWebTipoDatos as Definicion "
-        sSQL = sSQL & "FROM(FormularioWeb) "
+        sSQL = sSQL & "FROM FormularioWeb "
         sSQL = sSQL & "WHERE(((FormularioWeb.FormularioWebNumber) = " & FormularioWebNumber & " AND ( FormularioWeb.FormularioWebSection = 'FormKeys'))) "
         sSQL = sSQL & "ORDER BY FormularioWeb.FormularioWebPId, FormularioWeb.FormularioWebSecuencia"
         DeclaracionAtributosPorEntidad = ""
@@ -915,7 +915,7 @@ Public Class Lecturas
         End Try
 
         sSQL = "Select ', ByRef ' + FormularioWeb.FormularioWebDataTextField + ' As ' + FormularioWeb.FormularioWebTipoDatos as Definicion "
-        sSQL = sSQL & "FROM(FormularioWeb) "
+        sSQL = sSQL & "FROM FormularioWeb "
         sSQL = sSQL & "WHERE(((FormularioWeb.FormularioWebNumber) = " & FormularioWebNumber & " AND ( FormularioWeb.FormularioWebSection = 'Form' ))) "
         sSQL = sSQL & "ORDER BY FormularioWeb.FormularioWebPId, FormularioWeb.FormularioWebSecuencia"
 
@@ -937,7 +937,7 @@ Public Class Lecturas
         Dim sSQL As String
 
         sSQL = "Select FormularioWeb.FormularioWebDataTextField + ', ' as Definicion "
-        sSQL = sSQL & "FROM(FormularioWeb) "
+        sSQL = sSQL & "FROM FormularioWeb "
         sSQL = sSQL & "WHERE(((FormularioWeb.FormularioWebNumber) = " & FormularioWebNumber & " AND ( FormularioWeb.FormularioWebSection = 'FormKeys' ))) "
         sSQL = sSQL & "ORDER BY FormularioWeb.FormularioWebPId, FormularioWeb.FormularioWebSecuencia"
         ListaAtributosPorEntidad = ""
@@ -952,7 +952,7 @@ Public Class Lecturas
         End Try
 
         sSQL = "Select FormularioWeb.FormularioWebDataTextField + ', ' as Definicion "
-        sSQL = sSQL & "FROM(FormularioWeb) "
+        sSQL = sSQL & "FROM FormularioWeb "
         sSQL = sSQL & "WHERE(((FormularioWeb.FormularioWebNumber) = " & FormularioWebNumber & " AND ( FormularioWeb.FormularioWebSection = 'Form' ))) "
         sSQL = sSQL & "ORDER BY FormularioWeb.FormularioWebPId, FormularioWeb.FormularioWebSecuencia"
 
@@ -977,7 +977,7 @@ Public Class Lecturas
         Dim sSQL As String
 
         sSQL = "Select FormularioWeb.FormularioWebDataTextField as Definicion, FormularioWebTipoDatos as TipoDatos  "
-        sSQL = sSQL & "FROM(FormularioWeb) "
+        sSQL = sSQL & "FROM FormularioWeb "
         sSQL = sSQL & "WHERE(((FormularioWeb.FormularioWebNumber) = " & FormularioWebNumber & " AND ( FormularioWeb.FormularioWebSection = 'FormKeys' ))) "
         sSQL = sSQL & "ORDER BY FormularioWeb.FormularioWebPId, FormularioWeb.FormularioWebSecuencia"
         i = 0
@@ -1000,7 +1000,7 @@ Public Class Lecturas
             End While
             dtr.Close()
             sSQL = "Select FormularioWeb.FormularioWebDataTextField as Definicion, FormularioWebTipoDatos as TipoDatos "
-            sSQL = sSQL & "FROM(FormularioWeb) "
+            sSQL = sSQL & "FROM FormularioWeb "
             sSQL = sSQL & "WHERE(((FormularioWeb.FormularioWebNumber) = " & FormularioWebNumber & " AND ( FormularioWeb.FormularioWebSection = 'Form' ))) "
             sSQL = sSQL & "ORDER BY FormularioWeb.FormularioWebPId, FormularioWeb.FormularioWebSecuencia"
             Try
@@ -1036,7 +1036,7 @@ Public Class Lecturas
         Dim sSQL As String
 
         sSQL = "Select FormularioWeb.FormularioWebControl, FormularioWebDataTextField "
-        sSQL = sSQL & "FROM(FormularioWeb) "
+        sSQL = sSQL & "FROM FormularioWeb "
         sSQL = sSQL & "WHERE(((FormularioWeb.FormularioWebNumber) = " & FormularioWebNumber & " AND FormularioWeb.FormularioWebSection = 'Form' )) "
         sSQL = sSQL & "ORDER BY FormularioWeb.FormularioWebPId, FormularioWeb.FormularioWebSecuencia"
         Try
@@ -1060,7 +1060,7 @@ Public Class Lecturas
         Dim sSQL As String
 
         sSQL = "Select FormularioWeb.FormularioWebControl, FormularioWebDataTextField "
-        sSQL = sSQL & "FROM(FormularioWeb) "
+        sSQL = sSQL & "FROM FormularioWeb "
         sSQL = sSQL & "WHERE(((FormularioWeb.FormularioWebNumber) = " & FormularioWebNumber & " AND FormularioWeb.FormularioWebSection = 'FormKeys' )) "
         sSQL = sSQL & "ORDER BY FormularioWeb.FormularioWebPId, FormularioWeb.FormularioWebSecuencia"
         Try
@@ -1084,7 +1084,7 @@ Public Class Lecturas
         Dim StringUpdate As String = ""
 
         sSQL = "Select FormularioWeb.FormularioWebControl + '.Text' as Definicion, FormularioWebTipoDatos as TipoDatos "
-        sSQL = sSQL & "FROM(FormularioWeb) "
+        sSQL = sSQL & "FROM FormularioWeb "
         sSQL = sSQL & "WHERE(((FormularioWeb.FormularioWebNumber) = " & FormularioWebNumber & " AND ( FormularioWeb.FormularioWebSection = 'FormKeys' ))) "
         sSQL = sSQL & "ORDER BY FormularioWeb.FormularioWebPId, FormularioWeb.FormularioWebSecuencia"
         FormarStringUpdate = ""
@@ -1111,7 +1111,7 @@ Public Class Lecturas
         End Try
 
         sSQL = "Select FormularioWeb.FormularioWebControl + '.Text' as Definicion, FormularioWebTipoDatos as TipoDatos "
-        sSQL = sSQL & "FROM(FormularioWeb) "
+        sSQL = sSQL & "FROM FormularioWeb "
         sSQL = sSQL & "WHERE(((FormularioWeb.FormularioWebNumber) = " & FormularioWebNumber & " AND ( FormularioWeb.FormularioWebSection = 'Form' ))) "
         sSQL = sSQL & "ORDER BY FormularioWeb.FormularioWebPId, FormularioWeb.FormularioWebSecuencia"
 
@@ -1146,7 +1146,7 @@ Public Class Lecturas
         Dim StringUpdate As String = ""
 
         sSQL = "Select FormularioWeb.FormularioWebDataTextField as Definicion, FormularioWebTipoDatos as TipoDatos "
-        sSQL = sSQL & "FROM(FormularioWeb) "
+        sSQL = sSQL & "FROM FormularioWeb "
         sSQL = sSQL & "WHERE(((FormularioWeb.FormularioWebNumber) = " & FormularioWebNumber & " AND ( FormularioWeb.FormularioWebSection = 'FormKeys' OR FormularioWeb.FormularioWebSection = 'Form' ))) "
         sSQL = sSQL & "ORDER BY FormularioWeb.FormularioWebPId, FormularioWeb.FormularioWebSecuencia"
 
@@ -1180,7 +1180,7 @@ Public Class Lecturas
         Dim StringLeer As String = ""
 
         sSQL = "Select FormularioWeb.FormularioWebDataTextField as Definicion "
-        sSQL = sSQL & "FROM(FormularioWeb) "
+        sSQL = sSQL & "FROM FormularioWeb "
         sSQL = sSQL & "WHERE(((FormularioWeb.FormularioWebNumber) = " & FormularioWebNumber & " AND ( FormularioWeb.FormularioWebSection = 'FormKeys' ))) "
         sSQL = sSQL & "ORDER BY FormularioWeb.FormularioWebPId, FormularioWeb.FormularioWebSecuencia"
         FormarStringLeer = ""
@@ -1196,7 +1196,7 @@ Public Class Lecturas
         End Try
 
         sSQL = "Select FormularioWeb.FormularioWebDataTextField as Definicion "
-        sSQL = sSQL & "FROM(FormularioWeb) "
+        sSQL = sSQL & "FROM FormularioWeb "
         sSQL = sSQL & "WHERE(((FormularioWeb.FormularioWebNumber) = " & FormularioWebNumber & " AND (FormularioWeb.FormularioWebSection = 'Form'))) "
         sSQL = sSQL & "ORDER BY FormularioWeb.FormularioWebPId, FormularioWeb.FormularioWebSecuencia"
         Try
@@ -1223,8 +1223,8 @@ Public Class Lecturas
         Dim sSQL As String
 
         sSQL = "Select FormularioWeb.FormularioWebId, FormularioWeb.FormularioWebLabel, FormularioWeb.FormularioWebControl "
-        sSQL = sSQL & "FROM (FormularioWeb) "
-        sSQL = sSQL & "WHERE (((FormularioWeb.FormularioWebNumber) = " & FormularioWebId & " AND FormularioWeb.FormularioWebSection = 'FormHeader')) "
+        sSQL = sSQL & "FROM FormularioWeb "
+        sSQL = sSQL & "WHERE FormularioWeb.FormularioWebNumber = " & FormularioWebId & " AND FormularioWeb.FormularioWebSection = 'FormHeader' "
         sSQL = sSQL & "ORDER BY FormularioWeb.FormularioWebSecuencia"
         Try
             dtr = AccesoEA.ListarRegistros(sSQL)
@@ -1248,8 +1248,8 @@ Public Class Lecturas
         Dim sSQL As String
 
         sSQL = "Select FormularioWeb.FormularioWebId, FormularioWeb.FormularioWebLabel, FormularioWeb.FormularioWebControl "
-        sSQL = sSQL & "FROM (FormularioWeb) "
-        sSQL = sSQL & "WHERE (((FormularioWeb.FormularioWebPId) = " & FormularioWebPId & " )) "
+        sSQL = sSQL & "FROM FormularioWeb "
+        sSQL = sSQL & "WHERE FormularioWeb.FormularioWebPId = " & FormularioWebPId & " "
         sSQL = sSQL & "ORDER BY FormularioWeb.FormularioWebSecuencia"
         Try
             dtr = AccesoEA.ListarRegistros(sSQL)
@@ -1282,8 +1282,8 @@ Public Class Lecturas
         sSQL = sSQL & "FormularioWeb.FormularioWebCssClassLabel, FormularioWeb.FormularioWebCssClassControl, FormularioWeb.FormularioWebLabelAlign, "
         sSQL = sSQL & "FormularioWeb.FormularioWebControlWidth, FormularioWeb.FormularioWebControlTextMode, FormularioWeb.FormularioWebToolTip, FormularioWeb.FormularioWebIsRequiredField, FormularioWeb.FormularioWebIsNotEnabled, FormularioWeb.FormularioWebDomainField, "
         sSQL = sSQL & "FormularioWeb.FormularioWebDataTextField, FormularioWeb.FormularioWebDataFile, FormularioWeb.FormularioWebSelectCommand, FormularioWeb.FormularioWebSection, FormularioWeb.FormularioWebGroupValidation, FormularioWeb.FormularioWebServiceCall "
-        sSQL = sSQL & "FROM (FormularioWeb) "
-        sSQL = sSQL & "WHERE (((FormularioWeb.FormularioWebId) = " & FormularioWebId & "))"
+        sSQL = sSQL & "FROM FormularioWeb "
+        sSQL = sSQL & "WHERE FormularioWeb.FormularioWebId = " & FormularioWebId & " "
 
         Try
             dtr = AccesoEA.ListarRegistros(sSQL)
@@ -1318,7 +1318,7 @@ Public Class Lecturas
         Dim sSQL As String
 
         sSQL = "Select FormularioWeb.FormularioWebLabel, FormularioWeb.FormularioWebControl "
-        sSQL = sSQL & "FROM(FormularioWeb) "
+        sSQL = sSQL & "FROM FormularioWeb "
         sSQL = sSQL & "WHERE(((FormularioWeb.FormularioWebNumber) = " & FormularioWebId & " AND FormularioWeb.FormularioWebSection = 'Form')) "
         sSQL = sSQL & "ORDER BY FormularioWeb.FormularioWebSecuencia"
         Try
@@ -1352,8 +1352,8 @@ Public Class Lecturas
         sSQL = sSQL & "FormularioWeb.FormularioWebCssClassLabel, FormularioWeb.FormularioWebCssClassControl, FormularioWeb.FormularioWebLabelAlign, "
         sSQL = sSQL & "FormularioWeb.FormularioWebControlWidth, FormularioWeb.FormularioWebControlTextMode, FormularioWeb.FormularioWebToolTip, FormularioWeb.FormularioWebIsRequiredField, FormularioWeb.FormularioWebIsNotEnabled, FormularioWeb.FormularioWebDomainField, "
         sSQL = sSQL & "FormularioWeb.FormularioWebDataTextField, FormularioWeb.FormularioWebDataFile, FormularioWeb.FormularioWebSelectCommand, FormularioWeb.FormularioWebSection, FormularioWeb.FormularioWebGroupValidation, FormularioWeb.FormularioWebServiceCall "
-        sSQL = sSQL & "FROM (FormularioWeb) "
-        sSQL = sSQL & "WHERE (((FormularioWeb.FormularioWebNumber) = " & FormularioWebId & " AND (FormularioWeb.FormularioWebSecuencia) = " & i & " AND (FormularioWeb.FormularioWebSection) = '" & Section & "')) "
+        sSQL = sSQL & "FROM FormularioWeb "
+        sSQL = sSQL & "WHERE FormularioWeb.FormularioWebNumber = " & FormularioWebId & " AND FormularioWeb.FormularioWebSecuencia = " & i & " AND FormularioWeb.FormularioWebSection = '" & Section & "' "
         LeerControlFormularioWeb = False
         Try
             dtr = AccesoEA.ListarRegistros(sSQL)
@@ -1398,7 +1398,7 @@ Public Class Lecturas
         sSQL = sSQL & "FormularioWeb.FormularioWebCssClassLabel, FormularioWeb.FormularioWebCssClassControl, FormularioWeb.FormularioWebLabelAlign, "
         sSQL = sSQL & "FormularioWeb.FormularioWebControlWidth, FormularioWeb.FormularioWebControlTextMode, FormularioWeb.FormularioWebToolTip, FormularioWeb.FormularioWebIsRequiredField, FormularioWeb.FormularioWebIsNotEnabled, FormularioWeb.FormularioWebDomainField, "
         sSQL = sSQL & "FormularioWeb.FormularioWebDataTextField, FormularioWeb.FormularioWebDataFile, FormularioWeb.FormularioWebSelectCommand, FormularioWeb.FormularioWebSection, FormularioWeb.FormularioWebGroupValidation "
-        sSQL = sSQL & "FROM (FormularioWeb) "
+        sSQL = sSQL & "FROM FormularioWeb "
         sSQL = sSQL & "WHERE (((FormularioWeb.FormularioWebNumber) = " & FormularioWebId & " AND (FormularioWeb.FormularioWebSecuencia) = " & i & " AND (FormularioWeb.FormularioWebSection) = '" & Section & "')) "
 
         Try
@@ -1438,7 +1438,7 @@ Public Class Lecturas
 
         sSQL = "Select FormularioWeb.FormularioWebEvent, "
         sSQL = sSQL & "FormularioWeb.FormularioWebPageCall, FormularioWeb.FormularioWebFormCall, FormularioWeb.FormularioWebServiceCall "
-        sSQL = sSQL & "FROM (FormularioWeb) "
+        sSQL = sSQL & "FROM FormularioWeb "
         sSQL = sSQL & "WHERE (((FormularioWeb.FormularioWebNumber) = " & FormularioWebId & " AND (FormularioWeb.FormularioWebSecuencia) = " & i & " AND (FormularioWeb.FormularioWebSection) = '" & Section & "')) "
 
         Try
@@ -1465,7 +1465,7 @@ Public Class Lecturas
         Dim sSQL As String
 
         sSQL = "Select FormularioWeb.FormularioWebServiceCall "
-        sSQL = sSQL & "FROM (FormularioWeb) "
+        sSQL = sSQL & "FROM FormularioWeb "
         sSQL = sSQL & "WHERE (((FormularioWeb.FormularioWebNumber) = " & FormularioWebId & " AND (FormularioWeb.FormularioWebSecuencia) = " & i & " AND (FormularioWeb.FormularioWebSection) = '" & Section & "')) "
 
         LeerNombreMetodoAutocomplete = ""
@@ -1492,7 +1492,7 @@ Public Class Lecturas
         Dim sSQL As String
 
         sSQL = "Select FormularioWeb.FormularioWebId, FormularioWebPageCall, FormularioWebFormCall "
-        sSQL = sSQL & "FROM (FormularioWeb) "
+        sSQL = sSQL & "FROM FormularioWeb "
         sSQL = sSQL & "WHERE (((FormularioWeb.FormularioWebNumber) = " & FormularioWebNumber & " AND (FormularioWeb.FormularioWebSecuencia) = " & i & " AND (FormularioWeb.FormularioWebSection) = '" & Section & "')) "
 
         Try
@@ -1526,7 +1526,7 @@ Public Class Lecturas
         sSQL = "Select FormularioWeb.FormularioWebTipoControl, "
         sSQL = sSQL & "FormularioWeb.FormularioWebLabelAlign, "
         sSQL = sSQL & "FormularioWeb.FormularioWebControlWidth, FormularioWebToolTip, FormularioWeb.FormularioWebURL "
-        sSQL = sSQL & "FROM (FormularioWeb) "
+        sSQL = sSQL & "FROM FormularioWeb "
         sSQL = sSQL & "WHERE (((FormularioWeb.FormularioWebNumber) = " & FormularioWebId & " AND (FormularioWeb.FormularioWebSecuencia) = " & i & " AND (FormularioWeb.FormularioWebSection) = '" & Section & "')) "
 
         Try
@@ -1559,7 +1559,7 @@ Public Class Lecturas
         sSQL = "Select FormularioWeb.FormularioWebTipoControl, "
         sSQL = sSQL & "FormularioWeb.FormularioWebLabelAlign, "
         sSQL = sSQL & "FormularioWeb.FormularioWebControlWidth, FormularioWebToolTip, FormularioWeb.FormularioWebURL "
-        sSQL = sSQL & "FROM (FormularioWeb) "
+        sSQL = sSQL & "FROM FormularioWeb "
         sSQL = sSQL & "WHERE (((FormularioWeb.FormularioWebPId) = " & FormularioWebPId & " AND (FormularioWeb.FormularioWebSecuencia) = " & i & " AND (FormularioWeb.FormularioWebSection) = '" & Section & "')) "
 
         Try
@@ -1588,8 +1588,8 @@ Public Class Lecturas
         Dim sSQL As String
 
         sSQL = "Select FormularioWeb.FormularioWebDataFile, FormularioWeb.FormularioWebSelectCommand "
-        sSQL = sSQL & "FROM (FormularioWeb) "
-        sSQL = sSQL & "WHERE (((FormularioWeb.FormularioWebNumber) = " & FormularioWebId & " AND (FormularioWeb.FormularioWebTipoControl) = '" & TipoControl & "')) "
+        sSQL = sSQL & "FROM FormularioWeb "
+        sSQL = sSQL & "WHERE FormularioWeb.FormularioWebNumber = " & FormularioWebId & " AND FormularioWeb.FormularioWebTipoControl = '" & TipoControl & "' "
 
         Try
             dtr = AccesoEA.ListarRegistros(sSQL)
@@ -1667,7 +1667,7 @@ Public Class Lecturas
         'WebControl     ------->    PageCall
 
         sSQL = "Select FormularioWeb.FormularioWebFormCall, FormularioWeb.FormularioWebPageCall "
-        sSQL = sSQL & "FROM (FormularioWeb) "
+        sSQL = sSQL & "FROM FormularioWeb "
         sSQL = sSQL & "WHERE (((FormularioWeb.FormularioWebNumber) = " & FormularioWebId & " AND (FormularioWeb.FormularioWebEvent) = '" & TipoControl & "')) "
 
         Try
@@ -1726,11 +1726,13 @@ Public Class Lecturas
             End While
             If Len(PaginaWebUserControl) > 0 Then
                 PageUserControl = True
+                Console.WriteLine("--------------- " & PaginaWebUserControl)
             Else
                 PageUserControl = False
             End If
             dtr.Close()
-        Catch
+        Catch ex As Exception
+            Console.WriteLine(ex.ToString)
             PageUserControl = False
         End Try
     End Function
@@ -1745,7 +1747,7 @@ Public Class Lecturas
 
         sSQL = "Select ClienteEMail, ClienteRut, ClienteName, ClienteApPaterno, ClienteApMaterno, ClienteCalle, ClienteNumero, ClienteDepartamento, ClienteComuna, ClienteCiudad, "
         sSQL = sSQL & "ClienteTelefonoParticular, ClienteCelular, ClienteTelefonoComercial1, ClienteTelefonoComercial2, ClienteFNacimiento "
-        sSQL = sSQL & "FROM (Cliente) "
+        sSQL = sSQL & "FROM Cliente "
         sSQL = sSQL & "WHERE (((Cliente.ClienteId) = " & ClienteId & ")) "
 
         Try
@@ -1782,7 +1784,7 @@ Public Class Lecturas
         Dim sSQL As String
 
         sSQL = "Select Cliente.ClienteId, Cliente.ClienteName,  Cliente.ClienteApPaterno, Cliente.ClienteApMaterno "
-        sSQL = sSQL & "FROM (Cliente) "
+        sSQL = sSQL & "FROM Cliente "
         sSQL = sSQL & "WHERE (((Cliente.ClienteEMail) = '" & ClienteEMail & "' AND (Cliente.ClienteRut) = '" & ClienteRut & "')) "
 
         Try
@@ -1832,7 +1834,7 @@ Public Class Lecturas
         Dim sSQL As String
 
         sSQL = "Select ComunaName, ComunaDescription, ComunaCodigoCorreos, ComunaProvincia, ComunaRegion "
-        sSQL = sSQL & "FROM (Comuna) "
+        sSQL = sSQL & "FROM Comuna "
         sSQL = sSQL & "WHERE (((Comuna.ComunaId) = " & ComunaId & ")) "
 
         Try
@@ -1883,7 +1885,7 @@ Public Class Lecturas
         Dim sSQL As String
 
         sSQL = "Select " & ObjectTable & "." & ObjectId & " As MasterId "
-        sSQL = sSQL & "FROM (" & ObjectTable & ") "
+        sSQL = sSQL & "FROM " & ObjectTable & " "
         sSQL = sSQL & "WHERE ((" & ObjectTable & "." & ObjectName & ") = '" & MasterName & "')"
 
         Try
@@ -1924,8 +1926,8 @@ Public Class Lecturas
         Dim sSQL As String
 
         sSQL = "Select FormularioWeb.FormularioWebLabel, FormularioWeb.FormularioWebControl "
-        sSQL = sSQL & "FROM(FormularioWeb) "
-        sSQL = sSQL & "WHERE(((FormularioWeb.FormularioWebNumber) = " & FormularioWebId & " AND FormularioWeb.FormularioWebTipoControl = 'Button')) "
+        sSQL = sSQL & "FROM FormularioWeb "
+        sSQL = sSQL & "WHERE FormularioWeb.FormularioWebNumber = " & FormularioWebId & " AND FormularioWeb.FormularioWebTipoControl = 'Button' "
         sSQL = sSQL & "ORDER BY FormularioWeb.FormularioWebSecuencia"
         Try
             dtr = AccesoEA.ListarRegistros(sSQL)
@@ -1935,10 +1937,13 @@ Public Class Lecturas
                 ArrControl(i) = dtr("FormularioWebControl").ToString
                 i = i + 1
             End While
+
             LeerButtonFormularioWeb = True
+            Console.WriteLine("------------------- LeerButtonFormularioWeb VERDADERO")
             dtr.Close()
         Catch
             LeerButtonFormularioWeb = False
+            Console.WriteLine("------------------- LeerButtonFormularioWeb FALSO")
         End Try
     End Function
     Public Function LeerTabsFormularioWeb(ByRef ArrLabel() As String, ByRef ArrControl() As String, _
@@ -1949,7 +1954,7 @@ Public Class Lecturas
 
         sSQL = "Select FormularioWeb.FormularioWebLabel, FormularioWeb.FormularioWebControl "
         sSQL = sSQL & "FROM FormularioWeb "
-        sSQL = sSQL & "WHERE FormularioWeb.FormularioWebNumber = " & FormularioWebId & " AND FormularioWeb.FormularioWebTipoControl = 'Tabs' AND FormularioWeb.FormularioWebIsVisibleToInit = True "
+        sSQL = sSQL & "WHERE FormularioWeb.FormularioWebNumber = " & FormularioWebId & " AND FormularioWeb.FormularioWebTipoControl = 'Tabs' AND FormularioWeb.FormularioWebIsVisibleToInit = 1 "
         sSQL = sSQL & "ORDER BY FormularioWeb.FormularioWebSecuencia"
         Try
             dtr = AccesoEA.ListarRegistros(sSQL)
@@ -1972,8 +1977,8 @@ Public Class Lecturas
         Dim sSQL As String
 
         sSQL = "Select FormularioWeb.FormularioWebLabel, FormularioWeb.FormularioWebControl "
-        sSQL = sSQL & "FROM(FormularioWeb) "
-        sSQL = sSQL & "WHERE(((FormularioWeb.FormularioWebNumber) = " & FormularioWebId & " AND FormularioWeb.FormularioWebSection = 'Grilla')) "
+        sSQL = sSQL & "FROM FormularioWeb "
+        sSQL = sSQL & "WHERE FormularioWeb.FormularioWebNumber = " & FormularioWebId & " AND FormularioWeb.FormularioWebSection = 'Grilla' "
         sSQL = sSQL & "ORDER BY FormularioWeb.FormularioWebSecuencia"
         Try
             dtr = AccesoEA.ListarRegistros(sSQL)
@@ -1996,7 +2001,7 @@ Public Class Lecturas
         Dim sSQL As String
 
         sSQL = "Select FormularioWeb.FormularioWebLabel, FormularioWeb.FormularioWebControl "
-        sSQL = sSQL & "FROM(FormularioWeb) "
+        sSQL = sSQL & "FROM FormularioWeb "
         sSQL = sSQL & "WHERE(((FormularioWeb.FormularioWebPId) = " & FormularioWebPId & " AND FormularioWeb.FormularioWebSection = 'Grilla')) "
         sSQL = sSQL & "ORDER BY FormularioWeb.FormularioWebSecuencia"
         Try
@@ -2053,7 +2058,7 @@ Public Class Lecturas
         Dim txtTextBox As TextBox
         Dim txtDropDownList As DropDownList
         Dim txtCheckBox As CheckBox
-        Dim sqlSource As AccessDataSource
+        Dim sqlSource As SqlDataSource
         Dim txtCalendar As CalendarExtender
         Dim ImgImages As Image
         Dim AutoComp As AutoCompleteExtender
@@ -2218,10 +2223,15 @@ Public Class Lecturas
                     txtDropDownList.Height = "20"
                     Cell.Controls.Add(txtDropDownList)
 
-                    sqlSource = New AccessDataSource
-                    sqlSource.ID = "ds" & arrControl(k)
-                    sqlSource.DataFile = DataFile
+
+
+                    
+                    sqlSource  = New SqlDataSource()                    
+                    sqlSource.ConnectionString = "Server=localhost;UID=sa;PWD=Password_01;Database=montes"
                     sqlSource.SelectCommand = SelectCommand
+                    Console.WriteLine(SelectCommand)
+                    sqlSource.ID = "ds" & arrControl(k)
+                    'sqlSource.DataFile = DataFile
                     Cell.Controls.Add(sqlSource)
                 Case "DropDownSearch"
                     txtCheckBox = New CheckBox
@@ -2241,10 +2251,14 @@ Public Class Lecturas
                     txtDropDownList.Height = "20"
                     Cell.Controls.Add(txtDropDownList)
 
-                    sqlSource = New AccessDataSource
-                    sqlSource.ID = "ds" & arrControl(k)
-                    sqlSource.DataFile = DataFile
+                    
+                    sqlSource  = New SqlDataSource()                    
+                    sqlSource.ConnectionString = "Server=localhost;UID=sa;PWD=Password_01;Database=montes"
                     sqlSource.SelectCommand = SelectCommand
+                    
+                    sqlSource.ID = "ds" & arrControl(k)
+                    'sqlSource.DataFile = DataFile
+                    'sqlSource.SelectCommand = SelectCommand
                     Cell.Controls.Add(sqlSource)
                 Case "AutocompleteSearch"
                     txtCheckBox = New CheckBox
@@ -2492,7 +2506,8 @@ Public Class Lecturas
             End While
             LeerMenuItemContext = True
             dtr.Close()
-        Catch
+        Catch ex As Exception
+            Console.WriteLine(ex.ToString)
             LeerMenuItemContext = False
         End Try
     End Function
@@ -2504,7 +2519,7 @@ Public Class Lecturas
         Dim t As Boolean
 
         sSQL = "Select IsSubMenu "
-        sSQL = sSQL & "FROM (MenuOptions) "
+        sSQL = sSQL & "FROM MenuOptions "
         sSQL = sSQL & "WHERE (((MenuOptions.MenuOptionsId) = " & MenuOptionsId & ")) "
 
         Try
@@ -2531,7 +2546,7 @@ Public Class Lecturas
         Dim sSQL As String
 
         sSQL = "Select EstCargoName, EstCargoDescription, EstCargoSecuencia, EstCargoPlanta "
-        sSQL = sSQL & "FROM (EstereotiposCargos) "
+        sSQL = sSQL & "FROM EstereotiposCargos "
         sSQL = sSQL & "WHERE (((EstereotiposCargos.EstCargoId) = " & EstCargoId & ")) "
 
         Try
@@ -2577,7 +2592,7 @@ Public Class Lecturas
         Dim sSQL As String
 
         sSQL = "SELECT distinct EstereotiposCargos.[EstCargoPlanta] AS Planta "
-        sSQL = sSQL & "FROM(EstereotiposCargos) "
+        sSQL = sSQL & "FROM EstereotiposCargos "
         sSQL = sSQL & "WHERE (((EstereotiposCargos.EstCargoPlanta) LIKE ('%" & Filtro & "%')))"
 
         i = 0
@@ -2602,7 +2617,7 @@ Public Class Lecturas
         Dim sSQL As String
 
         sSQL = "Select CargosName, CargosDescription, EstCargoName "
-        sSQL = sSQL & "FROM (Cargos) "
+        sSQL = sSQL & "FROM Cargos "
         sSQL = sSQL & "WHERE (((Cargos.CargosId) = " & CargosId & ")) "
 
         Try
@@ -2625,7 +2640,7 @@ Public Class Lecturas
         Dim sSQL As String
 
         sSQL = "Select Cargos.CargosId "
-        sSQL = sSQL & "FROM (Cargos) "
+        sSQL = sSQL & "FROM Cargos "
         sSQL = sSQL & "WHERE ((Cargos.CargosName) = '" & CargosName & "')"
 
         Try
@@ -2647,7 +2662,7 @@ Public Class Lecturas
         Dim sSQL As String
 
         sSQL = "Select RequisitosCargos.ReqCargoId "
-        sSQL = sSQL & "FROM (RequisitosCargos) "
+        sSQL = sSQL & "FROM RequisitosCargos "
         sSQL = sSQL & "WHERE ((RequisitosCargos.CargosName) = '" & CargosName & "' AND (RequisitosCargos.ReqCargoSecuencia)=" & ReqCargoSecuencia & ")"
 
         Try
@@ -2661,7 +2676,7 @@ Public Class Lecturas
         Catch
             LeerRequisitoCargoByNameAndSecuencia = False
             ReqCargoId = 0
-        End Try
+        End Try 
     End Function
     Public Function LeerObjectByNameAndSecuencia(ByVal CampoId As String, _
                                                 ByVal CampoMaestro As String, _
@@ -2675,7 +2690,7 @@ Public Class Lecturas
         Dim sSQL As String
 
         sSQL = "Select " & NombreTabla & "." & CampoId & " As DetailId "
-        sSQL = sSQL & "FROM (" & NombreTabla & ") "
+        sSQL = sSQL & "FROM " & NombreTabla & " "
         sSQL = sSQL & "WHERE ((" & NombreTabla & "." & CampoMaestro & ") = '" & MasterName & "' AND (" & NombreTabla & "." & CampoSecuencia & ")=" & DetailSecuencia & ")"
         LeerObjectByNameAndSecuencia = False
         DetailId = 0
@@ -2701,7 +2716,7 @@ Public Class Lecturas
         Dim sSQL As String
 
         sSQL = "Select Max(RequisitosCargos.ReqCargoSecuencia) as Maximo "
-        sSQL = sSQL & "FROM (RequisitosCargos) "
+        sSQL = sSQL & "FROM RequisitosCargos "
         sSQL = sSQL & "WHERE ((RequisitosCargos.CargosName) = '" & CargosName & "')"
 
         CalcularNextSecuenciaReqCargo = 1
@@ -2726,8 +2741,8 @@ Public Class Lecturas
         Dim sSQL As String
 
         sSQL = "Select Max(" & NombreTabla & "." & CampoSecuencia & ") as Maximo "
-        sSQL = sSQL & "FROM (" & NombreTabla & ") "
-        sSQL = sSQL & "WHERE ((" & NombreTabla & "." & CampoMaestro & ") = '" & MasterName & "')"
+        sSQL = sSQL & "FROM " & NombreTabla 
+        sSQL = sSQL & " WHERE ((" & NombreTabla & "." & CampoMaestro & ") = '" & MasterName & "')"
 
         CalcularNextSecuenciaObject = 1
 
@@ -2742,8 +2757,12 @@ Public Class Lecturas
                 End If
             End While
             dtr.Close()
-        Catch
+Catch ex As Exception
             CalcularNextSecuenciaObject = 1
+            Console.WriteLine("** Exception in CalcularNextSecuenciaObject **")
+            Console.WriteLine(ex.ToString)
+            Console.WriteLine("Tabla = " & NombreTabla)
+            Console.WriteLine("** Exception in CalcularNextSecuenciaObject **")                         
         End Try
     End Function
 
@@ -2753,7 +2772,7 @@ Public Class Lecturas
         Dim sSQL As String
 
         sSQL = "Select Max(FormularioWeb.FormularioWebNumber) as Maximo "
-        sSQL = sSQL & "FROM (FormularioWeb)"
+        sSQL = sSQL & "FROM FormularioWeb"
 
         CalcularNextFormularioWebNumber = 1
 
@@ -2776,7 +2795,7 @@ Public Class Lecturas
         Dim sSQL As String
 
         sSQL = "Select CargosName, ReqCargoDescription, ReqCargoSecuencia, ReqCargoNombre, ReqCargoNivelExigencia "
-        sSQL = sSQL & "FROM (RequisitosCargos) "
+        sSQL = sSQL & "FROM RequisitosCargos "
         sSQL = sSQL & "WHERE (((RequisitosCargos.ReqCargoId) = " & ReqCargoId & ")) "
 
         Try
@@ -2801,7 +2820,7 @@ Public Class Lecturas
         Dim sSQL As String
 
         sSQL = "SELECT distinct RequisitosCargos.[ReqCargoNombre] AS Requisito "
-        sSQL = sSQL & "FROM(RequisitosCargos) "
+        sSQL = sSQL & "FROM RequisitosCargos "
         sSQL = sSQL & "WHERE (((RequisitosCargos.ReqCargoNombre) LIKE ('%" & Filtro & "%')))"
 
         i = 0
@@ -2825,7 +2844,7 @@ Public Class Lecturas
         Dim sSQL As String
 
         sSQL = "SELECT distinct RequisitosCargos.[ReqCargoNivelExigencia] AS NivelExigencia "
-        sSQL = sSQL & "FROM(RequisitosCargos) "
+        sSQL = sSQL & "FROM RequisitosCargos "
         sSQL = sSQL & "WHERE (((RequisitosCargos.ReqCargoNivelExigencia) LIKE ('%" & Filtro & "%')))"
 
         i = 0
@@ -2849,7 +2868,7 @@ Public Class Lecturas
         Dim sSQL As String
 
         sSQL = "SELECT distinct FuncionesCargos.[FunCargoGrupo] AS Grupo "
-        sSQL = sSQL & "FROM(FuncionesCargos) "
+        sSQL = sSQL & "FROM FuncionesCargos "
         sSQL = sSQL & "WHERE (((FuncionesCargos.FunCargoGrupo) LIKE ('%" & Filtro & "%')))"
 
         i = 0
@@ -2873,7 +2892,7 @@ Public Class Lecturas
         Dim sSQL As String
 
         sSQL = "SELECT distinct PaginaWeb.[PaginaWebGroupValidation] AS Grupo "
-        sSQL = sSQL & "FROM(PaginaWeb) "
+        sSQL = sSQL & "FROM PaginaWeb "
         sSQL = sSQL & "WHERE (((PaginaWeb.PaginaWebGroupValidation) LIKE ('%" & Filtro & "%')))"
 
         i = 0
@@ -2897,7 +2916,7 @@ Public Class Lecturas
         Dim sSQL As String
 
         sSQL = "SELECT distinct PaginaWeb.[PaginaWebStereotype] AS Grupo "
-        sSQL = sSQL & "FROM(PaginaWeb) "
+        sSQL = sSQL & "FROM PaginaWeb "
         sSQL = sSQL & "WHERE (((PaginaWeb.PaginaWebStereotype) LIKE ('%" & Filtro & "%')))"
 
         i = 0
@@ -2921,7 +2940,7 @@ Public Class Lecturas
         Dim sSQL As String
 
         sSQL = "SELECT distinct PaginaWeb.[PaginaWebUserControl] AS Grupo "
-        sSQL = sSQL & "FROM(PaginaWeb) "
+        sSQL = sSQL & "FROM PaginaWeb "
         sSQL = sSQL & "WHERE (((PaginaWeb.PaginaWebUserControl) LIKE ('%" & Filtro & "%')))"
 
         i = 0
@@ -2945,7 +2964,7 @@ Public Class Lecturas
         Dim sSQL As String
 
         sSQL = "Select FuncionesCargos.FunCargoId "
-        sSQL = sSQL & "FROM (FuncionesCargos) "
+        sSQL = sSQL & "FROM FuncionesCargos "
         sSQL = sSQL & "WHERE ((FuncionesCargos.CargosName) = '" & CargosName & "' AND (FuncionesCargos.FunCargoSecuencia)=" & FunCargoSecuencia & ")"
 
         Try
@@ -3058,7 +3077,7 @@ Public Class Lecturas
         Dim txtTextBox As TextBox
         Dim txtDropDownList As DropDownList
         Dim txtCheckBox As CheckBox
-        Dim sqlSource As AccessDataSource
+        Dim sqlSource As SqlDataSource
         Dim txtCalendar As CalendarExtender
         Dim ImgImages As Image
         Dim AutoComp As AutoCompleteExtender
@@ -3374,10 +3393,13 @@ Public Class Lecturas
                                 txtDropDownList.DataTextField = DataTextField
                                 MiCellSubTab.Controls.Add(txtDropDownList)
 
-                                sqlSource = New AccessDataSource
-                                sqlSource.ID = "ds" & arrNodesControl(m)
-                                sqlSource.DataFile = DataFile
+                                sqlSource  = New SqlDataSource()                    
+                                sqlSource.ConnectionString = "Server=localhost;UID=sa;PWD=Password_01;Database=montes"
                                 sqlSource.SelectCommand = SelectCommand
+
+                                sqlSource.ID = "ds" & arrNodesControl(m)
+                                'sqlSource.DataFile = DataFile
+                                'sqlSource.SelectCommand = SelectCommand
                                 MiCellSubTab.Controls.Add(sqlSource)
                             Case "DropDownSearch"
                                 txtCheckBox = New CheckBox
@@ -3396,10 +3418,14 @@ Public Class Lecturas
                                 txtDropDownList.DataTextField = DataTextField
                                 MiCellSubTab.Controls.Add(txtDropDownList)
 
-                                sqlSource = New AccessDataSource
-                                sqlSource.ID = "ds" & arrNodesControl(m)
-                                sqlSource.DataFile = DataFile
+
+                                sqlSource  = New SqlDataSource()                    
+                                sqlSource.ConnectionString = "Server=localhost;UID=sa;PWD=Password_01;Database=montes"
                                 sqlSource.SelectCommand = SelectCommand
+
+                                sqlSource.ID = "ds" & arrNodesControl(m)
+                                'sqlSource.DataFile = DataFile
+                                'sqlSource.SelectCommand = SelectCommand
                                 MiCellSubTab.Controls.Add(sqlSource)
 
                         End Select
@@ -3715,10 +3741,13 @@ Public Class Lecturas
                         txtDropDownList.DataTextField = DataTextField
                         Cell.Controls.Add(txtDropDownList)
 
-                        sqlSource = New AccessDataSource
-                        sqlSource.ID = "ds" & arrControl(k)
-                        sqlSource.DataFile = DataFile
+                        sqlSource  = New SqlDataSource()                    
+                        sqlSource.ConnectionString = "Server=localhost;UID=sa;PWD=Password_01;Database=montes"
                         sqlSource.SelectCommand = SelectCommand
+
+                        sqlSource.ID = "ds" & arrControl(k)
+                        'sqlSource.DataFile = DataFile
+                        'sqlSource.SelectCommand = SelectCommand
                         Cell.Controls.Add(sqlSource)
                     Case "DropDownSearch"
                         txtCheckBox = New CheckBox
@@ -3737,10 +3766,14 @@ Public Class Lecturas
                         txtDropDownList.DataTextField = DataTextField
                         Cell.Controls.Add(txtDropDownList)
 
-                        sqlSource = New AccessDataSource
-                        sqlSource.ID = "ds" & arrControl(k)
-                        sqlSource.DataFile = DataFile
+
+                        sqlSource  = New SqlDataSource()                   
+                        sqlSource.ConnectionString = "Server=localhost;UID=sa;PWD=Password_01;Database=montes"
                         sqlSource.SelectCommand = SelectCommand
+
+                        sqlSource.ID = "ds" & arrControl(k)
+                        'sqlSource.DataFile = DataFile
+                        'sqlSource.SelectCommand = SelectCommand
                         Cell.Controls.Add(sqlSource)
 
                 End Select
@@ -3977,7 +4010,7 @@ Public Class Lecturas
         Dim txtTextBox As TextBox
         Dim txtDropDownList As DropDownList
         Dim txtCheckBox As CheckBox
-        Dim sqlSource As AccessDataSource
+        Dim sqlSource As SqlDataSource
         Dim txtCalendar As CalendarExtender
         Dim ImgImages As Image
         Dim AutoComp As AutoCompleteExtender
@@ -4081,10 +4114,14 @@ Public Class Lecturas
                     txtDropDownList.DataTextField = DataTextField
                     MiCellSubTab.Controls.Add(txtDropDownList)
 
-                    sqlSource = New AccessDataSource
-                    sqlSource.ID = "ds" & arrNodesControl(m)
-                    sqlSource.DataFile = DataFile
+
+                    sqlSource  = New SqlDataSource()                    
+                    sqlSource.ConnectionString = "Server=localhost;UID=sa;PWD=Password_01;Database=montes"
                     sqlSource.SelectCommand = SelectCommand
+
+                    sqlSource.ID = "ds" & arrNodesControl(m)
+                    'sqlSource.DataFile = DataFile
+                    'sqlSource.SelectCommand = SelectCommand
                     MiCellSubTab.Controls.Add(sqlSource)
                 Case "DropDownSearch"
                     txtCheckBox = New CheckBox
@@ -4103,10 +4140,13 @@ Public Class Lecturas
                     txtDropDownList.DataTextField = DataTextField
                     MiCellSubTab.Controls.Add(txtDropDownList)
 
-                    sqlSource = New AccessDataSource
-                    sqlSource.ID = "ds" & arrNodesControl(m)
-                    sqlSource.DataFile = DataFile
+                    sqlSource  = New SqlDataSource()                   
+                    sqlSource.ConnectionString = "Server=localhost;UID=sa;PWD=Password_01;Database=montes"
                     sqlSource.SelectCommand = SelectCommand
+
+                    sqlSource.ID = "ds" & arrNodesControl(m)
+                    'sqlSource.DataFile = DataFile
+                    'sqlSource.SelectCommand = SelectCommand
                     MiCellSubTab.Controls.Add(sqlSource)
 
             End Select
@@ -4249,7 +4289,7 @@ Public Class Lecturas
         Dim txtTextBox As TextBox
         Dim txtDropDownList As DropDownList
         Dim txtCheckBox As CheckBox
-        Dim sqlSource As AccessDataSource
+        Dim sqlSource As SqlDataSource
         Dim txtCalendar As CalendarExtender
         Dim ImgImages As Image
         Dim AutoComp As AutoCompleteExtender
@@ -4566,10 +4606,13 @@ Public Class Lecturas
                                     txtDropDownList.Height = "20"
                                     MiCellSubTab.Controls.Add(txtDropDownList)
 
-                                    sqlSource = New AccessDataSource
-                                    sqlSource.ID = "ds" & arrNodesControl(m)
-                                    sqlSource.DataFile = DataFile
+                                    sqlSource  = New SqlDataSource()                  
+                                    sqlSource.ConnectionString = "Server=localhost;UID=sa;PWD=Password_01;Database=montes"
                                     sqlSource.SelectCommand = SelectCommand
+
+                                    sqlSource.ID = "ds" & arrNodesControl(m)
+                                    'sqlSource.DataFile = DataFile
+                                    'sqlSource.SelectCommand = SelectCommand
                                     MiCellSubTab.Controls.Add(sqlSource)
                                 Case "DropDownSearch"
                                     txtCheckBox = New CheckBox
@@ -4590,10 +4633,13 @@ Public Class Lecturas
                                     txtDropDownList.Height = "20"
                                     MiCellSubTab.Controls.Add(txtDropDownList)
 
-                                    sqlSource = New AccessDataSource
+                                    sqlSource  = New SqlDataSource()                 
+                                    sqlSource.ConnectionString = "Server=localhost;UID=sa;PWD=Password_01;Database=montes"
+                                    sqlSource.SelectCommand = SelectCommand                                    
                                     sqlSource.ID = "ds" & arrNodesControl(m)
-                                    sqlSource.DataFile = DataFile
-                                    sqlSource.SelectCommand = SelectCommand
+
+                                    'sqlSource.DataFile = DataFile
+                                    'sqlSource.SelectCommand = SelectCommand
                                     MiCellSubTab.Controls.Add(sqlSource)
                                 Case "AutocompleteSearch"
                                     txtCheckBox = New CheckBox
@@ -4859,10 +4905,14 @@ Public Class Lecturas
                                     txtDropDownList.DataTextField = DataTextField
                                     MiCellSubTab.Controls.Add(txtDropDownList)
 
-                                    sqlSource = New AccessDataSource
-                                    sqlSource.ID = "ds" & arrNodesControl(m)
-                                    sqlSource.DataFile = DataFile
+
+                                    sqlSource  = New SqlDataSource()                 
+                                    sqlSource.ConnectionString = "Server=localhost;UID=sa;PWD=Password_01;Database=montes"
                                     sqlSource.SelectCommand = SelectCommand
+
+                                    sqlSource.ID = "ds" & arrNodesControl(m)
+                                    'sqlSource.DataFile = DataFile
+                                    'sqlSource.SelectCommand = SelectCommand
                                     MiCellSubTab.Controls.Add(sqlSource)
 
                                     MiCellSubTab.Controls.Add(New LiteralControl(" <input id=""btnHelp" & arrNodesControl(m) & """ class=""boxceleste"" type=""button"" value=""..."" onclick=""return btnHelp" & arrNodesControl(m) & "_onclick()"" style=""width: 30px"" /> "))
@@ -5062,7 +5112,7 @@ Public Class Lecturas
         Dim txtTextBox As TextBox
         Dim txtDropDownList As DropDownList
         Dim txtCheckBox As CheckBox
-        Dim sqlSource As AccessDataSource
+        Dim sqlSource As SqlDataSource
         Dim txtCalendar As CalendarExtender
         Dim ImgImages As Image
         Dim AutoComp As AutoCompleteExtender
@@ -5477,10 +5527,13 @@ Public Class Lecturas
                                     txtDropDownList.Height = "20"
                                     MiCellSubTab.Controls.Add(txtDropDownList)
 
-                                    sqlSource = New AccessDataSource
-                                    sqlSource.ID = "ds" & arrNodesControl(m)
-                                    sqlSource.DataFile = DataFile
+                                    sqlSource  = New SqlDataSource()                   
+                                    sqlSource.ConnectionString = "Server=localhost;UID=sa;PWD=Password_01;Database=montes"
                                     sqlSource.SelectCommand = SelectCommand
+
+                                    sqlSource.ID = "ds" & arrNodesControl(m)
+                                    'sqlSource.DataFile = DataFile
+                                    'sqlSource.SelectCommand = SelectCommand
                                     MiCellSubTab.Controls.Add(sqlSource)
                                 Case "DropDownSearch"
                                     txtCheckBox = New CheckBox
@@ -5501,10 +5554,13 @@ Public Class Lecturas
                                     txtDropDownList.Height = "20"
                                     MiCellSubTab.Controls.Add(txtDropDownList)
 
-                                    sqlSource = New AccessDataSource
-                                    sqlSource.ID = "ds" & arrNodesControl(m)
-                                    sqlSource.DataFile = DataFile
+                                    sqlSource  = New SqlDataSource()                    
+                                    sqlSource.ConnectionString = "Server=localhost;UID=sa;PWD=Password_01;Database=montes"
                                     sqlSource.SelectCommand = SelectCommand
+
+                                    sqlSource.ID = "ds" & arrNodesControl(m)
+                                    'sqlSource.DataFile = DataFile
+                                    'sqlSource.SelectCommand = SelectCommand
                                     MiCellSubTab.Controls.Add(sqlSource)
                                 Case "AutocompleteSearch"
                                     txtCheckBox = New CheckBox
@@ -5681,10 +5737,13 @@ Public Class Lecturas
                                     txtDropDownList.DataTextField = DataTextField
                                     MiCellSubTab.Controls.Add(txtDropDownList)
 
-                                    sqlSource = New AccessDataSource
+
+                                    sqlSource  = New SqlDataSource()                   
+                                    sqlSource.ConnectionString = "Server=localhost;UID=sa;PWD=Password_01;Database=montes"
+                                    sqlSource.SelectCommand = SelectCommand                                    
                                     sqlSource.ID = "ds" & arrNodesControl(m)
-                                    sqlSource.DataFile = DataFile
-                                    sqlSource.SelectCommand = SelectCommand
+                                    'sqlSource.DataFile = DataFile
+                                    'sqlSource.SelectCommand = SelectCommand
                                     MiCellSubTab.Controls.Add(sqlSource)
 
                                     MiCellSubTab.Controls.Add(New LiteralControl(" <input id=""btnHelp" & arrNodesControl(m) & """ class=""boxceleste"" type=""button"" value=""..."" onclick=""return btnHelp" & arrNodesControl(m) & "_onclick()"" style=""width: 30px"" /> "))
@@ -6079,10 +6138,13 @@ Public Class Lecturas
                             txtDropDownList.Height = "20"
                             Cell.Controls.Add(txtDropDownList)
 
-                            sqlSource = New AccessDataSource
-                            sqlSource.ID = "ds" & arrControl(k)
-                            sqlSource.DataFile = DataFile
+                            sqlSource  = New SqlDataSource()                    
+                            sqlSource.ConnectionString = "Server=localhost;UID=sa;PWD=Password_01;Database=montes"
                             sqlSource.SelectCommand = SelectCommand
+
+                            sqlSource.ID = "ds" & arrControl(k)
+                            'sqlSource.DataFile = DataFile
+                            'sqlSource.SelectCommand = SelectCommand
                             Cell.Controls.Add(sqlSource)
                         Case "DropDownSearch"
                             txtCheckBox = New CheckBox
@@ -6102,10 +6164,13 @@ Public Class Lecturas
                             txtDropDownList.Height = "20"
                             Cell.Controls.Add(txtDropDownList)
 
-                            sqlSource = New AccessDataSource
-                            sqlSource.ID = "ds" & arrControl(k)
-                            sqlSource.DataFile = DataFile
+                            sqlSource  = New SqlDataSource()                   
+                            sqlSource.ConnectionString = "Server=localhost;UID=sa;PWD=Password_01;Database=montes"
                             sqlSource.SelectCommand = SelectCommand
+
+                            sqlSource.ID = "ds" & arrControl(k)
+                            'sqlSource.DataFile = DataFile
+                            'sqlSource.SelectCommand = SelectCommand
                             Cell.Controls.Add(sqlSource)
                         Case "UploadArchivo" 'S�lo 1 campo de este tipo por p�gina web
                             txtUploadFile = New FileUpload
@@ -6279,10 +6344,14 @@ Public Class Lecturas
                             txtDropDownList.DataTextField = DataTextField
                             Cell.Controls.Add(txtDropDownList)
 
-                            sqlSource = New AccessDataSource
-                            sqlSource.ID = "ds" & arrNodesControl(m)
-                            sqlSource.DataFile = DataFile
+
+                            sqlSource  = New SqlDataSource()                    
+                            sqlSource.ConnectionString = "Server=localhost;UID=sa;PWD=Password_01;Database=montes"
                             sqlSource.SelectCommand = SelectCommand
+
+                            sqlSource.ID = "ds" & arrNodesControl(m)
+                            'sqlSource.DataFile = DataFile
+                            'sqlSource.SelectCommand = SelectCommand
                             Cell.Controls.Add(sqlSource)
 
                             Cell.Controls.Add(New LiteralControl(" <input id=""btnHelp" & arrNodesControl(m) & """ class=""boxceleste"" type=""button"" value=""..."" onclick=""return btnHelp" & arrNodesControl(m) & "_onclick()"" style=""width: 30px"" /> "))
@@ -6640,7 +6709,7 @@ Public Class Lecturas
         Dim sSQL As String
 
         sSQL = "Select PaginaWeb.PaginaWebId "
-        sSQL = sSQL & "FROM (PaginaWeb) "
+        sSQL = sSQL & "FROM PaginaWeb "
         sSQL = sSQL & "WHERE ((PaginaWeb.PaginaWebName) = '" & PaginaWebName & "')"
 
         Try
@@ -6662,7 +6731,7 @@ Public Class Lecturas
         Dim sSQL As String
 
         sSQL = "Select PaginaWeb.FormularioWebNumber "
-        sSQL = sSQL & "FROM (PaginaWeb) "
+        sSQL = sSQL & "FROM PaginaWeb "
         sSQL = sSQL & "WHERE ((PaginaWeb.PaginaWebName) = '" & PaginaWebName & "')"
 
         LeerFormularioWebNumber = 0
@@ -6688,7 +6757,7 @@ Public Class Lecturas
         Dim sSQL As String
 
         sSQL = "Select PaginaWebName, PaginaWebTitle, PaginaWebDescription, FormularioWebNumber, PaginaWebGroupValidation, PaginaWebStereotype, PaginaWebUserControl "
-        sSQL = sSQL & "FROM (PaginaWeb) "
+        sSQL = sSQL & "FROM PaginaWeb "
         sSQL = sSQL & "WHERE (((PaginaWeb.PaginaWebId) = " & PaginaWebId & ")) "
 
         Try
@@ -6832,7 +6901,7 @@ Public Class Lecturas
         Dim txtTextBox As TextBox
         Dim txtDropDownList As DropDownList
         Dim txtCheckBox As CheckBox
-        Dim sqlSource As AccessDataSource
+        Dim sqlSource As SqlDataSource
         Dim txtCalendar As CalendarExtender
         Dim ImgImages As Image
         Dim AutoComp As AutoCompleteExtender
@@ -7237,10 +7306,13 @@ Public Class Lecturas
                                 txtDropDownList.DataTextField = DataTextField
                                 MiCellSubTab.Controls.Add(txtDropDownList)
 
-                                sqlSource = New AccessDataSource
-                                sqlSource.ID = "ds" & arrNodesControl(m)
-                                sqlSource.DataFile = DataFile
+                                sqlSource  = New SqlDataSource()                    
+                                sqlSource.ConnectionString = "Server=localhost;UID=sa;PWD=Password_01;Database=montes"
                                 sqlSource.SelectCommand = SelectCommand
+
+                                sqlSource.ID = "ds" & arrNodesControl(m)
+                                'sqlSource.DataFile = DataFile
+                                'sqlSource.SelectCommand = SelectCommand
                                 MiCellSubTab.Controls.Add(sqlSource)
                             Case "DropDownSearch"
                                 txtCheckBox = New CheckBox
@@ -7259,10 +7331,14 @@ Public Class Lecturas
                                 txtDropDownList.DataTextField = DataTextField
                                 MiCellSubTab.Controls.Add(txtDropDownList)
 
-                                sqlSource = New AccessDataSource
-                                sqlSource.ID = "ds" & arrNodesControl(m)
-                                sqlSource.DataFile = DataFile
+
+                                sqlSource  = New SqlDataSource()                    
+                                sqlSource.ConnectionString = "Server=localhost;UID=sa;PWD=Password_01;Database=montes"
                                 sqlSource.SelectCommand = SelectCommand
+
+                                sqlSource.ID = "ds" & arrNodesControl(m)
+                                'sqlSource.DataFile = DataFile
+                                'sqlSource.SelectCommand = SelectCommand
                                 MiCellSubTab.Controls.Add(sqlSource)
 
                         End Select
@@ -7598,10 +7674,14 @@ Public Class Lecturas
                         txtDropDownList.DataTextField = DataTextField
                         Cell.Controls.Add(txtDropDownList)
 
-                        sqlSource = New AccessDataSource
+
+                        sqlSource  = New SqlDataSource()                   
+                        sqlSource.ConnectionString = "Server=localhost;UID=sa;PWD=Password_01;Database=montes"
+                        sqlSource.SelectCommand = SelectCommand   
+
                         sqlSource.ID = "ds" & arrControl(k)
-                        sqlSource.DataFile = DataFile
-                        sqlSource.SelectCommand = SelectCommand
+                        'sqlSource.DataFile = DataFile
+                        'sqlSource.SelectCommand = SelectCommand
                         Cell.Controls.Add(sqlSource)
                     Case "DropDownSearch"
                         txtCheckBox = New CheckBox
@@ -7620,10 +7700,13 @@ Public Class Lecturas
                         txtDropDownList.DataTextField = DataTextField
                         Cell.Controls.Add(txtDropDownList)
 
-                        sqlSource = New AccessDataSource
-                        sqlSource.ID = "ds" & arrControl(k)
-                        sqlSource.DataFile = DataFile
+                        sqlSource  = New SqlDataSource()                    
+                        sqlSource.ConnectionString = "Server=localhost;UID=sa;PWD=Password_01;Database=montes"
                         sqlSource.SelectCommand = SelectCommand
+
+                        sqlSource.ID = "ds" & arrControl(k)
+                        'sqlSource.DataFile = DataFile
+                        'sqlSource.SelectCommand = SelectCommand
                         Cell.Controls.Add(sqlSource)
 
                 End Select
@@ -7912,7 +7995,7 @@ Public Class Lecturas
         Dim sSQL As String
 
         sSQL = "SELECT distinct MenuOptions.[Class] AS GrupoOpciones "
-        sSQL = sSQL & "FROM(MenuOptions) "
+        sSQL = sSQL & "FROM MenuOptions "
         sSQL = sSQL & "WHERE (((MenuOptions.Class) LIKE ('%" & Filtro & "%')))"
 
         i = 0
@@ -7936,7 +8019,7 @@ Public Class Lecturas
         Dim sSQL As String
 
         sSQL = "SELECT distinct MenuOptions.[Texto] AS Texto "
-        sSQL = sSQL & "FROM(MenuOptions) "
+        sSQL = sSQL & "FROM MenuOptions "
         sSQL = sSQL & "WHERE (((MenuOptions.Texto) LIKE ('%" & Filtro & "%')))"
 
         i = 0
@@ -7960,7 +8043,7 @@ Public Class Lecturas
         Dim sSQL As String
 
         sSQL = "SELECT distinct MenuOptions.[Logo] AS GrupoOpciones "
-        sSQL = sSQL & "FROM(MenuOptions) "
+        sSQL = sSQL & "FROM MenuOptions "
         sSQL = sSQL & "WHERE (((MenuOptions.Logo) LIKE ('%" & Filtro & "%')))"
 
         i = 0
@@ -7984,7 +8067,7 @@ Public Class Lecturas
         Dim sSQL As String
 
         sSQL = "SELECT distinct MenuOptions.[BarMenu] AS GrupoOpciones "
-        sSQL = sSQL & "FROM(MenuOptions) "
+        sSQL = sSQL & "FROM MenuOptions "
         sSQL = sSQL & "WHERE (((MenuOptions.BarMenu) LIKE ('%" & Filtro & "%')))"
 
         i = 0
@@ -8008,7 +8091,7 @@ Public Class Lecturas
         Dim sSQL As String
 
         sSQL = "SELECT distinct MenuOptions.[SideBarMenu] AS GrupoOpciones "
-        sSQL = sSQL & "FROM(MenuOptions) "
+        sSQL = sSQL & "FROM MenuOptions "
         sSQL = sSQL & "WHERE (((MenuOptions.SideBarMenu) LIKE ('%" & Filtro & "%')))"
 
         i = 0
@@ -8057,7 +8140,7 @@ Public Class Lecturas
         Dim FormularioWebPId As Long = 0
         Dim Pagina As String = ""
         Dim NombrePagina As String = ""
-        Dim sqlSource As AccessDataSource
+        Dim sqlSource As SqlDataSource
         Dim Tareas As New Tareas
         Dim CarpetaJudicial As New CarpetaJudicial
         Dim IndicadorEsManual As Boolean = False
@@ -8376,13 +8459,16 @@ Public Class Lecturas
                 Celda.ColumnSpan = "2"
                 Celda.Style(HtmlTextWriterStyle.TextAlign) = "right"
 
-                sqlSource = New AccessDataSource
+
+                sqlSource  = New SqlDataSource()                   
+                sqlSource.ConnectionString = "Server=localhost;UID=sa;PWD=Password_01;Database=montes"
+                sqlSource.SelectCommand = SelectCommand                
                 sqlSource.ID = "ds" & arrLabel(k)
 
                 t = Lecturas.LeerTabSQLStatementFormularioWeb("SQLSelect", DataFile, SelectCommand, FormularioWebPId)
 
                 'sqlSource.ConnectionString = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=|DataDirectory|\BDCAS.mdb"
-                sqlSource.DataFile = DataFile
+                'sqlSource.DataFile = DataFile
                 ' Cambio introducido el 08 de abril de 2011
                 ' Se verifica que el el campo DomainField no contiene la glosa RelationBetweenTables
                 If DomainField = "RelationBetweenTables" Then
@@ -8402,7 +8488,7 @@ Public Class Lecturas
                                     'sSQL = sSQL & "ORDER BY MenuOptions.Texto"
 
                                     sSQL = "SELECT Usuarios.[UsuariosId] as Id, Usuarios.[UsuariosCodigo] As Codigo, Usuarios.[UsuariosName] As Nombre "
-                                    sSQL = sSQL & "FROM(Usuarios)"
+                                    sSQL = sSQL & "FROM Usuarios"
                                     'Case 1
                                     'sSQL = "SELECT DocumentosSGI.DocumentosSGIId As Id, MenuOptions.Texto as Requisito, DocumentosSGI.DocumentosSGITipo as Tipo, DocumentosSGI.DocumentosSGINombre As T�tulo, 'SGI\' + DocumentosSGI.DocumentosSGIPath as Url  "
                                     'sSQL = sSQL & "FROM ((((Acciones INNER JOIN RequisitosPorAccion ON Acciones.AccionesId = RequisitosPorAccion.AccionesId) INNER JOIN APIDocumentosSGI ON RequisitosPorAccion.MenuOptionsId = APIDocumentosSGI.MenuOptionsID) INNER JOIN DocumentosSGI ON APIDocumentosSGI.DocumentosSGICodigo = DocumentosSGI.DocumentosSGICodigo) INNER JOIN TipoDoc ON DocumentosSGI.DocumentosSGITipo = TipoDoc.TipoDocName) INNER JOIN MenuOptions ON RequisitosPorAccion.MenuOptionsId = MenuOptions.MenuOptionsId "
@@ -8410,7 +8496,7 @@ Public Class Lecturas
                                     'sSQL = sSQL & "ORDER BY TipoDoc.TipoDocSecuencia, DocumentosSGI.DocumentosSGINombre"
                                 Case 0
                                     sSQL = "SELECT DocumentosSGI.DocumentosSGIId AS Id, DocumentosSGI.DocumentosSGICodigo AS C�digo, DocumentosSGI.DocumentosSGINombre AS T�tulo, DocumentosSGI.DocumentosSGIArea AS Emisor, Mid(DocumentosSGI.DocumentosSGIFEmision,1.1) AS Emisi�n, DocumentosSGI.DocumentosSGIFRevision AS Rev, DocumentosSGI.DocumentosSGIOrigen AS C_Externo, 'SGI\'+DocumentosSGI.DocumentosSGIPath AS Url, DocumentosSGI.DocumentosSGITipo As Tipo "
-                                    sSQL = sSQL & "FROM(DocumentosSGI) "
+                                    sSQL = sSQL & "FROM DocumentosSGI "
                                     sSQL = sSQL & "WHERE (((DocumentosSGI.DocumentosSGITipo)='Procedimiento')) OR (((DocumentosSGI.DocumentosSGITipo)='Formulario')) "
                                     sSQL = sSQL & "ORDER BY DocumentosSGI.DocumentosSGIId"
                             End Select
@@ -9051,7 +9137,7 @@ Public Class Lecturas
         Dim txtTextBox As TextBox
         Dim txtDropDownList As DropDownList
         Dim txtCheckBox As CheckBox
-        Dim sqlSource As AccessDataSource
+        Dim sqlSource As SqlDataSource
         Dim txtCalendar As CalendarExtender
         Dim ImgImages As Image
         Dim AutoComp As AutoCompleteExtender
@@ -9410,10 +9496,13 @@ Public Class Lecturas
                                     txtDropDownList.DataTextField = DataTextField
                                     MiCellSubTab.Controls.Add(txtDropDownList)
 
-                                    sqlSource = New AccessDataSource
-                                    sqlSource.ID = "ds" & arrNodesControl(m)
-                                    sqlSource.DataFile = DataFile
+                                    sqlSource  = New SqlDataSource()                    
+                                    sqlSource.ConnectionString = "Server=localhost;UID=sa;PWD=Password_01;Database=montes"
                                     sqlSource.SelectCommand = SelectCommand
+
+                                    sqlSource.ID = "ds" & arrNodesControl(m)
+                                    'sqlSource.DataFile = DataFile
+                                    'sqlSource.SelectCommand = SelectCommand
                                     MiCellSubTab.Controls.Add(sqlSource)
                                 Case "DropDownSearch"
                                     txtCheckBox = New CheckBox
@@ -9432,10 +9521,13 @@ Public Class Lecturas
                                     txtDropDownList.DataTextField = DataTextField
                                     MiCellSubTab.Controls.Add(txtDropDownList)
 
-                                    sqlSource = New AccessDataSource
+                                    sqlSource  = New SqlDataSource()                    
+                                    sqlSource.ConnectionString = "Server=localhost;UID=sa;PWD=Password_01;Database=montes"
+                                    sqlSource.SelectCommand = SelectCommand 
+
                                     sqlSource.ID = "ds" & arrNodesControl(m)
-                                    sqlSource.DataFile = DataFile
-                                    sqlSource.SelectCommand = SelectCommand
+                                    'sqlSource.DataFile = DataFile
+                                    'sqlSource.SelectCommand = SelectCommand
                                     MiCellSubTab.Controls.Add(sqlSource)
                                 Case "UploadArchivo" 'S�lo 1 campo de este tipo por p�gina web
                                     txtUploadFile = New FileUpload
@@ -9550,10 +9642,14 @@ Public Class Lecturas
                                     txtDropDownList.DataTextField = DataTextField
                                     MiCellSubTab.Controls.Add(txtDropDownList)
 
-                                    sqlSource = New AccessDataSource
-                                    sqlSource.ID = "ds" & arrNodesControl(m)
-                                    sqlSource.DataFile = DataFile
+
+                                    sqlSource  = New SqlDataSource()                    
+                                    sqlSource.ConnectionString = "Server=localhost;UID=sa;PWD=Password_01;Database=montes"
                                     sqlSource.SelectCommand = SelectCommand
+
+                                    sqlSource.ID = "ds" & arrNodesControl(m)
+                                    'sqlSource.DataFile = DataFile
+                                    'sqlSource.SelectCommand = SelectCommand
                                     MiCellSubTab.Controls.Add(sqlSource)
 
                                     MiCellSubTab.Controls.Add(New LiteralControl(" <input id=""btnHelp" & arrNodesControl(m) & """ class=""boxceleste"" type=""button"" value=""..."" onclick=""return btnHelp" & arrNodesControl(m) & "_onclick()"" style=""width: 30px"" /> "))
@@ -9919,10 +10015,12 @@ Public Class Lecturas
                             txtDropDownList.DataTextField = DataTextField
                             Cell.Controls.Add(txtDropDownList)
 
-                            sqlSource = New AccessDataSource
+                            sqlSource  = New SqlDataSource()                    
+                            sqlSource.ConnectionString = "Server=localhost;UID=sa;PWD=Password_01;Database=montes"
+                            sqlSource.SelectCommand = SelectCommand                            
                             sqlSource.ID = "ds" & arrControl(k)
-                            sqlSource.DataFile = DataFile
-                            sqlSource.SelectCommand = SelectCommand
+                            'sqlSource.DataFile = DataFile
+                            'sqlSource.SelectCommand = SelectCommand
                             Cell.Controls.Add(sqlSource)
                         Case "DropDownSearch"
                             txtCheckBox = New CheckBox
@@ -9941,10 +10039,13 @@ Public Class Lecturas
                             txtDropDownList.DataTextField = DataTextField
                             Cell.Controls.Add(txtDropDownList)
 
-                            sqlSource = New AccessDataSource
-                            sqlSource.ID = "ds" & arrControl(k)
-                            sqlSource.DataFile = DataFile
+                            sqlSource  = New SqlDataSource()                    
+                            sqlSource.ConnectionString = "Server=localhost;UID=sa;PWD=Password_01;Database=montes"
                             sqlSource.SelectCommand = SelectCommand
+
+                            sqlSource.ID = "ds" & arrControl(k)
+                            'sqlSource.DataFile = DataFile
+                            'sqlSource.SelectCommand = SelectCommand
                             Cell.Controls.Add(sqlSource)
                         Case "UploadArchivo" 'S�lo 1 campo de este tipo por p�gina web
                             txtUploadFile = New FileUpload
@@ -10055,10 +10156,12 @@ Public Class Lecturas
                             txtDropDownList.DataTextField = DataTextField
                             Cell.Controls.Add(txtDropDownList)
 
-                            sqlSource = New AccessDataSource
+                            sqlSource  = New SqlDataSource()                   
+                            sqlSource.ConnectionString = "Server=localhost;UID=sa;PWD=Password_01;Database=montes"
+                            sqlSource.SelectCommand = SelectCommand                            
                             sqlSource.ID = "ds" & arrNodesControl(m)
-                            sqlSource.DataFile = DataFile
-                            sqlSource.SelectCommand = SelectCommand
+                            'sqlSource.DataFile = DataFile
+                            'sqlSource.SelectCommand = SelectCommand
                             Cell.Controls.Add(sqlSource)
 
                             Cell.Controls.Add(New LiteralControl(" <input id=""btnHelp" & arrNodesControl(m) & """ class=""boxceleste"" type=""button"" value=""..."" onclick=""return btnHelp" & arrNodesControl(m) & "_onclick()"" style=""width: 30px"" /> "))
@@ -10330,7 +10433,7 @@ Public Class Lecturas
         'Dim dtrPackages As SqlDataReader
         Dim sSQL As String
 
-        sSQL = "SELECT MenuOptions.Texto AS AmbitosName, MenuOptions.MenuOptionsId As AmbitosId FROM(MenuOptions) WHERE (((MenuOptions.PortalesName)='SGI') AND ((MenuOptions.Zona)='BarMenu')) ORDER BY MenuOptions.Secuencia"
+        sSQL = "SELECT MenuOptions.Texto AS AmbitosName, MenuOptions.MenuOptionsId As AmbitosId FROM MenuOptions WHERE (((MenuOptions.PortalesName)='SGI') AND ((MenuOptions.Zona)='BarMenu')) ORDER BY MenuOptions.Secuencia"
         LoadRaizPorAmbitos = False
 
         Try
@@ -10469,7 +10572,7 @@ Public Class Lecturas
 
         LoadMinutasByYear = False
 
-        sSQL = "SELECT DocumentosSGI.[DocumentosSGIId] As Id, DocumentosSGI.DocumentosSGICodigo As Codigo, DocumentosSGI.DocumentosSGINombre as Nombre, 'SGI\' + DocumentosSGI.DocumentosSGIPath As Url, Mid(DocumentosSGI.DocumentosSGIFEmision,1,10) As Fecha "
+        sSQL = "SELECT DocumentosSGI.[DocumentosSGIId] As Id, DocumentosSGI.DocumentosSGICodigo As Codigo, DocumentosSGI.DocumentosSGINombre as Nombre, 'SGI\' + DocumentosSGI.DocumentosSGIPath As Url, convert(varchar, DocumentosSGI.DocumentosSGIFEmision, 23) As Fecha "
         sSQL = sSQL & "FROM DocumentosSGI "
         sSQL = sSQL & "WHERE (((Mid(DocumentosSGI.DocumentosSGIFEmision,7,4))='" & HojasId & "') AND ((DocumentosSGI.DocumentosSGITipo) = 'Minuta'))"
 
@@ -10528,7 +10631,7 @@ Public Class Lecturas
         'Dim carModelAdapter As New dsCarModelsTableAdapters.CarModelsTableAdapter()
 
         sSQL = "SELECT DISTINCT APIDocumentosSGI.GruposName AS GruposName, APIDocumentosSGI.GruposSecuencia "
-        sSQL = sSQL & "FROM(APIDocumentosSGI) "
+        sSQL = sSQL & "FROM APIDocumentosSGI "
         sSQL = sSQL & "WHERE(((APIDocumentosSGI.APIDocumentosSGICodigo) = '" & HojasName & "')) "
         sSQL = sSQL & "GROUP BY APIDocumentosSGI.GruposName, APIDocumentosSGI.GruposSecuencia, APIDocumentosSGI.GruposSecuencia "
         sSQL = sSQL & "ORDER BY APIDocumentosSGI.GruposSecuencia"
@@ -10567,7 +10670,7 @@ Public Class Lecturas
         Dim sSQL As String
 
         sSQL = "Select Grupos.GruposSecuencia "
-        sSQL = sSQL & "FROM (Grupos) "
+        sSQL = sSQL & "FROM Grupos "
         sSQL = sSQL & "WHERE ((Grupos.GruposName) = '" & GruposName & "')"
         LeerGruposSecuenciaByGroupName = 0
         Try
@@ -10637,7 +10740,7 @@ Public Class Lecturas
         Dim FormularioWebPId As Long = 0
         Dim Pagina As String = ""
         Dim NombrePagina As String = ""
-        Dim sqlSource As AccessDataSource
+        Dim sqlSource As SqlDataSource
 
 
         Dim TC As TabContainer
@@ -10842,13 +10945,17 @@ Public Class Lecturas
                 Celda.ColumnSpan = "2"
                 Celda.Style(HtmlTextWriterStyle.TextAlign) = "right"
 
-                sqlSource = New AccessDataSource
+
+                sqlSource  = New SqlDataSource()                    
+                sqlSource.ConnectionString = "Server=localhost;UID=sa;PWD=Password_01;Database=montes"
+                sqlSource.SelectCommand = SelectCommand
+
                 sqlSource.ID = "ds" & arrLabel(k)
 
                 t = Lecturas.LeerTabSQLStatementFormularioWeb("SQLSelect", DataFile, SelectCommand, FormularioWebPId)
 
                 'sqlSource.ConnectionString = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=|DataDirectory|\BDCAS.mdb"
-                sqlSource.DataFile = DataFile
+                'sqlSource.DataFile = DataFile
                 sSQL = SelectCommand & " " & FilterField & " = '" & MasterName & "'"
 
                 If Len(sSQLWhere) > 0 Then
@@ -11443,7 +11550,7 @@ Public Class Lecturas
         Dim hidTextBox As HiddenField
         Dim txtDropDownList As DropDownList
         Dim txtCheckBox As CheckBox
-        Dim sqlSource As AccessDataSource
+        Dim sqlSource As SqlDataSource
         Dim txtCalendar As CalendarExtender
         Dim ImgImages As Image
         Dim AutoComp As AutoCompleteExtender
@@ -11773,10 +11880,14 @@ Public Class Lecturas
                                     txtDropDownList.Height = "20"
                                     MiCellSubTab.Controls.Add(txtDropDownList)
 
-                                    sqlSource = New AccessDataSource
-                                    sqlSource.ID = "ds" & arrNodesControl(m)
-                                    sqlSource.DataFile = DataFile
+
+                                    sqlSource  = New SqlDataSource()                    
+                                    sqlSource.ConnectionString = "Server=localhost;UID=sa;PWD=Password_01;Database=montes"
                                     sqlSource.SelectCommand = SelectCommand
+
+                                    sqlSource.ID = "ds" & arrNodesControl(m)
+                                    'sqlSource.DataFile = DataFile
+                                    'sqlSource.SelectCommand = SelectCommand
                                     MiCellSubTab.Controls.Add(sqlSource)
                                 Case "DropDownSearch"
                                     txtCheckBox = New CheckBox
@@ -11797,10 +11908,13 @@ Public Class Lecturas
                                     txtDropDownList.Height = "20"
                                     MiCellSubTab.Controls.Add(txtDropDownList)
 
-                                    sqlSource = New AccessDataSource
+
+                                    sqlSource  = New SqlDataSource()                    
+                                    sqlSource.ConnectionString = "Server=localhost;UID=sa;PWD=Password_01;Database=montes"
+                                    sqlSource.SelectCommand = SelectCommand                                    
                                     sqlSource.ID = "ds" & arrNodesControl(m)
-                                    sqlSource.DataFile = DataFile
-                                    sqlSource.SelectCommand = SelectCommand
+                                    'sqlSource.DataFile = DataFile
+                                    'sqlSource.SelectCommand = SelectCommand
                                     MiCellSubTab.Controls.Add(sqlSource)
                                 Case "AutocompleteSearch"
                                     txtCheckBox = New CheckBox
@@ -11985,10 +12099,14 @@ Public Class Lecturas
                                     txtDropDownList.DataTextField = DataTextField
                                     MiCellSubTab.Controls.Add(txtDropDownList)
 
-                                    sqlSource = New AccessDataSource
-                                    sqlSource.ID = "ds" & arrNodesControl(m)
-                                    sqlSource.DataFile = DataFile
+
+                                    sqlSource  = New SqlDataSource()                    
+                                    sqlSource.ConnectionString = "Server=localhost;UID=sa;PWD=Password_01;Database=montes"
                                     sqlSource.SelectCommand = SelectCommand
+                                    Console.WriteLine(SelectCommand)
+                                    sqlSource.ID = "ds" & arrNodesControl(m)
+                                    'sqlSource.DataFile = DataFile
+                                    'sqlSource.SelectCommand = SelectCommand
                                     MiCellSubTab.Controls.Add(sqlSource)
 
                                     MiCellSubTab.Controls.Add(New LiteralControl(" <input id=""btnHelp" & arrNodesControl(m) & """ class=""boxceleste"" type=""button"" value=""..."" onclick=""return btnHelp" & arrNodesControl(m) & "_onclick()"" style=""width: 30px"" /> "))

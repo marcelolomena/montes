@@ -13,7 +13,7 @@ Public Class CarpetaJudicialLog
         Dim dtr As IDataReader
         Dim sSQL As String
         sSQL = "Select CarpetaJudicialCodigo, CarpetaJudicialLogSecuencia, CarpetaJudicialLogFecha, UsuariosCodigo, AccionesCodigo, CarpetaJudicialDocsId, CarpetaJudicialLogDescription, CurrentStateId, NextStatedId "
-        sSQL = sSQL & "FROM (CarpetaJudicialLog) "
+        sSQL = sSQL & "FROM CarpetaJudicialLog "
         sSQL = sSQL & "WHERE (CarpetaJudicialLog.CarpetaJudicialLogId = " & CarpetaJudicialLogId & ") "
         Try
             dtr = AccesoEA.ListarRegistros(sSQL)
@@ -108,7 +108,7 @@ Public Class CarpetaJudicialLog
         Dim AccionesABM As New AccionesABM
         Dim t As Integer
         strUpdate = "Delete "
-        strUpdate = strUpdate & "FROM (CarpetaJudicialLog) "
+        strUpdate = strUpdate & "FROM CarpetaJudicialLog "
         strUpdate = strUpdate & "WHERE (CarpetaJudicialLog.CarpetaJudicialLogId = " & CarpetaJudicialLogId & ") "
         Try
             CarpetaJudicialLogDelete = AccesoEA.ABMRegistros(strUpdate)

@@ -14,7 +14,7 @@ Public Class Acciones
         Dim dtr As IDataReader
         Dim sSQL As String
         sSQL = "Select AccionesCodigo, AccionesName, AccionesDescription, AccionesSecuencia, TipoProcesoSecuencia, EtapasSecuencia, EtapasName, EtapasId, RolName, PaginaWebName, AccionesDuration, AccionesEnviaCorreo, AccionesAdvertirFechaFatal, AccionesIsFlujoAlternativo "
-        sSQL = sSQL & "FROM (Acciones) "
+        sSQL = sSQL & "FROM Acciones "
         sSQL = sSQL & "WHERE (Acciones.AccionesId = " & AccionesId & ") "
         Try
             dtr = AccesoEA.ListarRegistros(sSQL)
@@ -49,7 +49,7 @@ Public Class Acciones
         Dim dtr As IDataReader
         Dim sSQL As String
         sSQL = "Select AccionesCodigo, AccionesName, AccionesDescription "
-        sSQL = sSQL & "FROM (Acciones) "
+        sSQL = sSQL & "FROM Acciones "
         sSQL = sSQL & "WHERE (Acciones.AccionesId = " & AccionesId & ") "
         LeerAccionesNameAndDescription = False
         Try
@@ -119,7 +119,7 @@ Public Class Acciones
         Dim dtr As IDataReader
         Dim sSQL As String
         sSQL = "Select AccionesDescription "
-        sSQL = sSQL & "FROM (Acciones) "
+        sSQL = sSQL & "FROM Acciones "
         sSQL = sSQL & "WHERE (Acciones.AccionesCodigo = '" & AccionesCodigo & "') "
         LeerToolTipAccion = ""
         Try
@@ -138,7 +138,7 @@ Public Class Acciones
         Dim dtr As IDataReader
         Dim sSQL As String
         sSQL = "Select PaginaWebName "
-        sSQL = sSQL & "FROM (Acciones) "
+        sSQL = sSQL & "FROM Acciones "
         sSQL = sSQL & "WHERE (Acciones.AccionesCodigo = '" & AccionesCodigo & "') "
         LeerPaginaWeb = ""
         Try
@@ -175,7 +175,7 @@ Public Class Acciones
         Dim dtr As IDataReader
         Dim sSQL As String
         sSQL = "Select AccionesId "
-        sSQL = sSQL & "FROM (Acciones) "
+        sSQL = sSQL & "FROM Acciones "
         sSQL = sSQL & "WHERE (Acciones.AccionesCodigo = '" & AccionesCodigo & "') "
         Try
             dtr = AccesoEA.ListarRegistros(sSQL)
@@ -230,7 +230,7 @@ Public Class Acciones
         Dim dtr As IDataReader
         Dim sSQL As String
         sSQL = "Select AccionesCodigo "
-        sSQL = sSQL & "FROM (Acciones) "
+        sSQL = sSQL & "FROM Acciones "
         sSQL = sSQL & "WHERE (Acciones.AccionesId = " & AccionesId & ") "
         LeerAccionesCodigoById = ""
         Try
@@ -296,7 +296,7 @@ Public Class Acciones
         Dim dtr As IDataReader
         Dim sSQL As String
         sSQL = "Select AccionesName "
-        sSQL = sSQL & "FROM (Acciones) "
+        sSQL = sSQL & "FROM Acciones "
         sSQL = sSQL & "WHERE (Acciones.AccionesCodigo = '" & AccionesCodigo & "') "
         LeerAccionesDescriptionByName = ""
         Try
@@ -433,7 +433,7 @@ Public Class Acciones
         Dim dtr As IDataReader
         Dim sSQL As String
         sSQL = "Select AccionesHH, AccionesUSD "
-        sSQL = sSQL & "FROM (Acciones) "
+        sSQL = sSQL & "FROM Acciones "
         sSQL = sSQL & "WHERE (Acciones.Id = " & AccionesId & ") "
         Try
             dtr = AccesoEA.ListarRegistros(sSQL)
@@ -991,7 +991,7 @@ Public Class Acciones
         Dim dtr As IDataReader
         Dim sSQL As String
         sSQL = "Select AccionesDuration As Dias "
-        sSQL = sSQL & "FROM (Acciones) "
+        sSQL = sSQL & "FROM Acciones "
         sSQL = sSQL & "WHERE (Acciones.AccionesCodigo = '" & AccionesCodigo & "') "
         LeerDurationPorAccion = 0
         Try
@@ -1013,7 +1013,7 @@ Public Class Acciones
         Dim dtr As IDataReader
         Dim sSQL As String
         sSQL = "Select RolName As Rol "
-        sSQL = sSQL & "FROM (Acciones) "
+        sSQL = sSQL & "FROM Acciones "
         sSQL = sSQL & "WHERE (Acciones.AccionesCodigo = '" & AccionesCodigo & "') "
         LeerRolPorAccion = ""
         Try

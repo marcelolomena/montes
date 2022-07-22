@@ -13,7 +13,7 @@ Public Class AttrEntidad
         Dim dtr As IDataReader
         Dim sSQL As String
         sSQL = "Select EntidadNombreTabla, AttrEntidadSecuencia, AttrEntidadColumnName, AttrEntidadColumnDescription, AttrEntidadColumnOrdinal, AttrEntidadColumnDataType, AttrEntidadColumnSize, AttrEntidadIsRequerido, AttrEntidadDomainField, AttrEntidadIsForeignKey, AttrEntidadForeignTable, AttrEntidadForeignSQL, AttrEntidadColumnLabel, AttrEntidadColumnControlName, AttrEntidadColumnControlBase, AttrEntidadColumnTextMode, AttrEntidadColumnToolTip, AttrEntidadIsFilterField, AttrEntidadIsColumnField, AttrEntidadColumnNumber, AttrEntidadColumnHeader, AttrEntidadIsInVistaValidar, AttrEntidadIsEnabledInVistaMantener, AttrEntidadIsAutocomplete, AttrEntidadAutocompleteMethod, AttrEntidadColumnGroupNumber, AttrEntidadColumnGroupOrdinal, AttrEntidadColumnGroupName "
-        sSQL = sSQL & "FROM (AttrEntidad) "
+        sSQL = sSQL & "FROM AttrEntidad "
         sSQL = sSQL & "WHERE (AttrEntidad.AttrEntidadId = " & AttrEntidadId & ") "
         Try
             dtr = AccesoEA.ListarRegistros(sSQL)

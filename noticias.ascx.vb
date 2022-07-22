@@ -73,9 +73,8 @@ Partial Class noticias
         End If
 
 
-
         CodigoHTML = CodigoHTML & "<table width=""240"" border=""0"" cellpadding=""0"" cellspacing=""0"" class=""nueva_alerta"">"
-        CodigoHTML = CodigoHTML & "<tr><th scope=""col"">Notas</th></tr>"
+        CodigoHTML = CodigoHTML & "<tr><th scope=""col"">Notassssssss</th></tr>"
         CodigoHTML = CodigoHTML & "<tr><td scope=""col"" style=""background:#FFFFFF;"">&nbsp;</td></tr>"
         CodigoHTML = CodigoHTML & "<tr><td><textarea name=""txtNota"" id=""txtNota"" onfocus=""if(!this._haschanged){this.value=''};this._haschanged=true;"" >Ingrese una nueva nota</textarea></td></tr>"
         CodigoHTML = CodigoHTML & "<tr><td align=""right"" style=""background:#FFFFFF;"">&nbsp;</td></tr>"

@@ -13,7 +13,7 @@ Public Class Tareas
         Dim dtr As IDataReader
         Dim sSQL As String
         sSQL = "Select TareasCodigo, TareasName, TareasDescription, PGGCodigo, AccionesCodigo, ActividadesSecuencia, TareasMes, TareasAno, TareasSecuencia, UsuariosCodigo, TareasHH, TareasUSD, DiaMinimoInicio, DiaMaximoTermino, TareasDiaProgramado, TareasTipo, TareasDiaRealTermino, TareasHHConsumidas, TareasUSDConsumidos, EstadoTareasCodigo "
-        sSQL = sSQL & "FROM (Tareas) "
+        sSQL = sSQL & "FROM Tareas "
         sSQL = sSQL & "WHERE (Tareas.TareasId = " & TareasId & ") "
         Try
             dtr = AccesoEA.ListarRegistros(sSQL)
@@ -94,7 +94,7 @@ Public Class Tareas
         Dim dtr As IDataReader
         Dim sSQL As String
         sSQL = "Select TareasId "
-        sSQL = sSQL & "FROM (Tareas) "
+        sSQL = sSQL & "FROM Tareas "
         sSQL = sSQL & "WHERE (Tareas.TareasCodigo = '" & TareasCodigo & "') "
         Try
             dtr = AccesoEA.ListarRegistros(sSQL)
@@ -131,7 +131,7 @@ Public Class Tareas
         Dim dtr As IDataReader
         Dim sSQL As String
         sSQL = "Select TareasName "
-        sSQL = sSQL & "FROM (Tareas) "
+        sSQL = sSQL & "FROM Tareas "
         sSQL = sSQL & "WHERE (Tareas.TareasCodigo = '" & TareasCodigo & "') "
         LeerTareasDescriptionByName = ""
         Try
@@ -149,7 +149,7 @@ Public Class Tareas
         Dim dtr As IDataReader
         Dim sSQL As String
         sSQL = "Select UsuariosCodigo "
-        sSQL = sSQL & "FROM (Tareas) "
+        sSQL = sSQL & "FROM Tareas "
         sSQL = sSQL & "WHERE (Tareas.TareasCodigo = '" & TareasCodigo & "') "
         LeerTareasUsuariosCodigoByName = ""
         Try
@@ -167,7 +167,7 @@ Public Class Tareas
         Dim dtr As IDataReader
         Dim sSQL As String
         sSQL = "Select UsuariosCodigo "
-        sSQL = sSQL & "FROM (Tareas) "
+        sSQL = sSQL & "FROM Tareas "
         sSQL = sSQL & "WHERE (Tareas.TareasId = " & TareasId & ") "
         LeerTareasUsuariosCodigoByTareasId = ""
         Try
@@ -189,7 +189,7 @@ Public Class Tareas
         Dim Usuarios As New Usuarios
 
         sSQL = "Select UsuariosCodigo, TareasMes, TareasAno "
-        sSQL = sSQL & "FROM (Tareas) "
+        sSQL = sSQL & "FROM Tareas "
         sSQL = sSQL & "WHERE (Tareas.TareasCodigo = '" & TareasCodigo & "') "
         LeerTareasMesAnoUsuarioByName = ""
         Try
@@ -210,7 +210,7 @@ Public Class Tareas
         Dim Usuarios As New Usuarios
 
         sSQL = "Select TareasMes, TareasAno "
-        sSQL = sSQL & "FROM (Tareas) "
+        sSQL = sSQL & "FROM Tareas "
         sSQL = sSQL & "WHERE (Tareas.TareasCodigo = '" & TareasCodigo & "') "
         LeerTareasMesAnoByName = ""
         Try
@@ -231,7 +231,7 @@ Public Class Tareas
         Dim Usuarios As New Usuarios
 
         sSQL = "Select TareasEjecutor "
-        sSQL = sSQL & "FROM (Tareas) "
+        sSQL = sSQL & "FROM Tareas "
         sSQL = sSQL & "WHERE (Tareas.TareasCodigo = '" & TareasCodigo & "') "
         LeerEjecutorDeTareas = ""
         Try
@@ -1006,7 +1006,7 @@ Public Class Tareas
         Dim dtr As IDataReader
         Dim sSQL As String
         sSQL = "Select PGGCodigo, AccionesCodigo "
-        sSQL = sSQL & "FROM (Tareas) "
+        sSQL = sSQL & "FROM Tareas "
         sSQL = sSQL & "WHERE (Tareas.TareasId = " & TareasId & ") "
         Try
             dtr = AccesoEA.ListarRegistros(sSQL)
@@ -1025,7 +1025,7 @@ Public Class Tareas
         Dim dtr As IDataReader
         Dim sSQL As String
         sSQL = "Select PGGCodigo "
-        sSQL = sSQL & "FROM (Tareas) "
+        sSQL = sSQL & "FROM Tareas "
         sSQL = sSQL & "WHERE (Tareas.TareasCodigo = '" & TareasCodigo & "') "
         LeerTareasPGGCodigo = ""
         Try
@@ -1068,7 +1068,7 @@ Public Class Tareas
         Dim dtr As IDataReader
         Dim sSQL As String
         sSQL = "Select EstadoTareasCodigo "
-        sSQL = sSQL & "FROM (Tareas) "
+        sSQL = sSQL & "FROM Tareas "
         sSQL = sSQL & "WHERE (Tareas.TareasId = " & TareasId & ") "
         LeerEstadoTareasCodigo = ""
         Try
@@ -1086,7 +1086,7 @@ Public Class Tareas
         Dim dtr As IDataReader
         Dim sSQL As String
         sSQL = "Select Tareas.TareasAno AS Ano, Tareas.TareasMes AS Mes, Tareas.TareasDiaProgramado AS Dia "
-        sSQL = sSQL & "FROM (Tareas) "
+        sSQL = sSQL & "FROM Tareas "
         sSQL = sSQL & "WHERE (Tareas.TareasId = " & TareasId & ") "
         LeerFechaTarea = ""
         Try
@@ -1104,7 +1104,7 @@ Public Class Tareas
         Dim dtr As IDataReader
         Dim sSQL As String
         sSQL = "Select Tareas.TareasAno AS Ano, Tareas.TareasMes AS Mes, Tareas.TareasDiaProgramado AS Dia, Tareas.EstadoTareasCodigo as Estado "
-        sSQL = sSQL & "FROM (Tareas) "
+        sSQL = sSQL & "FROM Tareas "
         sSQL = sSQL & "WHERE (Tareas.TareasId = " & TareasId & ") "
         LeerFechaEstadoTarea = False
         Try
@@ -1198,7 +1198,7 @@ Public Class Tareas
         Dim dtr As IDataReader
         Dim sSQL As String
         sSQL = "Select TareasCodigo "
-        sSQL = sSQL & "FROM (Tareas) "
+        sSQL = sSQL & "FROM Tareas "
         sSQL = sSQL & "WHERE (Tareas.TareasId = " & TareasId & ") "
         LeerTareasCodigoById = False
         Try
@@ -2027,7 +2027,7 @@ Public Class Tareas
         Dim dtr As IDataReader
         Dim sSQL As String
         sSQL = "Select PGGCodigo "
-        sSQL = sSQL & "FROM (Tareas) "
+        sSQL = sSQL & "FROM Tareas "
         sSQL = sSQL & "WHERE (Tareas.TareasId = " & TareasId & ") "
         LeerTareasPGGCodigoById = ""
         Try

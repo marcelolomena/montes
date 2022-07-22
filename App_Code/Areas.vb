@@ -13,7 +13,7 @@ Public Class Areas
         Dim dtr As IDataReader
         Dim sSQL As String
         sSQL = "Select AreasName, AreasDescription, UsuariosCodigo, AreasCargo, GerenciasCodigo "
-        sSQL = sSQL & "FROM (Areas) "
+        sSQL = sSQL & "FROM Areas "
         sSQL = sSQL & "WHERE (Areas.AreasId = " & AreasId & ") "
         Try
             dtr = AccesoEA.ListarRegistros(sSQL)
@@ -35,7 +35,7 @@ Public Class Areas
         Dim dtr As IDataReader
         Dim sSQL As String
         sSQL = "Select AreasId "
-        sSQL = sSQL & "FROM (Areas) "
+        sSQL = sSQL & "FROM Areas "
         sSQL = sSQL & "WHERE (Areas.AreasName = '" & AreasName & "') "
         Try
             dtr = AccesoEA.ListarRegistros(sSQL)
@@ -54,7 +54,7 @@ Public Class Areas
         Dim sSQL As String
         LeerAreasDescriptionByName = " "
         sSQL = "Select AreasDescription "
-        sSQL = sSQL & "FROM (Areas) "
+        sSQL = sSQL & "FROM Areas "
         sSQL = sSQL & "WHERE (Areas.AreasName = '" & AreasName & "') "
         Try
             dtr = AccesoEA.ListarRegistros(sSQL)

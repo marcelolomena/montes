@@ -213,7 +213,7 @@ Public Class AccionesABM
     End Function
     Public Function BitacoraInsert(ByVal UserId As Long, ByVal sSQL As String, ByVal RolId As Long, ByVal FuncionId As Long, ByVal Mensaje As String, ByVal RegId As Long, ByVal TableName As String, ByVal Observacion As String) As Integer
 
-        Dim AccesoEA As New AccesoEA
+        Dim AccesoEA As New AccesoEA 
         Dim strUpdate As String
 
         strUpdate = "INSERT INTO Bitacora ( LogTime, PersonaId, sSQL, RolId, Id, Mensaje, RegId, TableName, Observacion ) "
@@ -373,13 +373,20 @@ Public Class AccionesABM
         strUpdate = strUpdate & "VALUES ('" & MasterName & "'," & DetailSecuencia & ", '" & DateTransform(Now()) & "', " & UserId & ")"
 
         Try
+            Console.WriteLine("** SQL--------------------- **")
+            Console.WriteLine(strUpdate)
+            Console.WriteLine("** SQL--------------------- **")
             ObjectPartialInsert = AccesoEA.ABMRegistros(strUpdate)
             t = Lecturas.LeerObjectByNameAndSecuencia(CampoId, CampoMaestro, CampoSecuencia, NombreTabla, MasterName, DetailSecuencia, DetailId)
             s = AccionesABM.BitacoraInsert(UserId, Replace(strUpdate, "'", " "), 0, 0, "Inserta Detalle de : " & MasterName, DetailId, NombreTabla, "")
-        Catch
+        Catch ex As Exception
             ObjectPartialInsert = 0
             DetailId = 0
             s = AccionesABM.BitacoraInsert(UserId, Replace(strUpdate, "'", " "), 0, 0, "Intento fallido de insertar detalle de : " & MasterName, DetailId, NombreTabla, "")
+            Console.WriteLine("** Exception in ObjectPartialInsert **")
+            Console.WriteLine(ex.ToString)
+            Console.WriteLine("Tabla = " & NombreTabla)
+            Console.WriteLine("** Exception in ObjectPartialInsert **")               
         End Try
     End Function
 
@@ -441,11 +448,11 @@ Public Class AccionesABM
         Try
             FunCargoPartialInsert = AccesoEA.ABMRegistros(strUpdate)
             t = Lecturas.LeerFuncionCargoByNameAndSecuencia(CargosName, FunCargoSecuencia, FunCargoId)
-            s = AccionesABM.BitacoraInsert(UserId, Replace(strUpdate, "'", " "), 0, 0, "Inserta Función del Cargo: " & CargosName, FunCargoId, "FuncionesCargos", "")
+            s = AccionesABM.BitacoraInsert(UserId, Replace(strUpdate, "'", " "), 0, 0, "Inserta Funciï¿½n del Cargo: " & CargosName, FunCargoId, "FuncionesCargos", "")
         Catch
             FunCargoPartialInsert = 0
             FunCargoId = 0
-            s = AccionesABM.BitacoraInsert(UserId, Replace(strUpdate, "'", " "), 0, 0, "Intento fallido de insertar Función del cargo: " & CargosName, FunCargoId, "FuncionesCargos", "")
+            s = AccionesABM.BitacoraInsert(UserId, Replace(strUpdate, "'", " "), 0, 0, "Intento fallido de insertar Funciï¿½n del cargo: " & CargosName, FunCargoId, "FuncionesCargos", "")
         End Try
     End Function
     Public Function FunCargoUpdate(ByVal FunCargoId As Long, ByRef CargosName As String, ByRef FunCargoSecuencia As Long, ByRef FunCargoCodigo As String, ByRef FunCargoNombre As String, ByRef FunCargoDescription As String, ByRef FunCargoGrupo As String, ByVal UserId As Long) As Integer
@@ -467,7 +474,7 @@ Public Class AccionesABM
         strUpdate = strUpdate & "WHERE FuncionesCargos.FunCargoId = " & FunCargoId
         Try
             FunCargoUpdate = AccesoEA.ABMRegistros(strUpdate)
-            t = AccionesABM.BitacoraInsert(UserId, Replace(strUpdate, "'", " "), 0, 0, "Actualiza Función del cargo: " & CargosName, FunCargoId, "FuncionesCargos", "")
+            t = AccionesABM.BitacoraInsert(UserId, Replace(strUpdate, "'", " "), 0, 0, "Actualiza Funciï¿½n del cargo: " & CargosName, FunCargoId, "FuncionesCargos", "")
         Catch
             FunCargoUpdate = 0
             t = AccionesABM.BitacoraInsert(UserId, Replace(strUpdate, "'", " "), 0, 0, "Intento fallido de actualizar el cargo: " & CargosName, FunCargoId, "FuncionesCargos", "")
@@ -484,10 +491,10 @@ Public Class AccionesABM
 
         Try
             FunCargoDelete = AccesoEA.ABMRegistros(strUpdate)
-            t = AccionesABM.BitacoraInsert(UserId, Replace(strUpdate, "'", " "), 0, 0, "Elimina una función del cargo: " & CargosName, FunCargoId, "FuncionesCargos", "")
+            t = AccionesABM.BitacoraInsert(UserId, Replace(strUpdate, "'", " "), 0, 0, "Elimina una funciï¿½n del cargo: " & CargosName, FunCargoId, "FuncionesCargos", "")
         Catch
             FunCargoDelete = 0
-            t = AccionesABM.BitacoraInsert(UserId, Replace(strUpdate, "'", " "), 0, 0, "Intento fallido de eliminar una función del cargo: " & CargosName, FunCargoId, "FuncionesCargos", "")
+            t = AccionesABM.BitacoraInsert(UserId, Replace(strUpdate, "'", " "), 0, 0, "Intento fallido de eliminar una funciï¿½n del cargo: " & CargosName, FunCargoId, "FuncionesCargos", "")
         End Try
     End Function
     Public Function PortalesPartialInsert(ByVal PortalesName As String, ByVal UserId As Long, ByRef PortalesId As Long) As Integer
@@ -579,7 +586,7 @@ Public Class AccionesABM
 
         Try
             FormularioWebInsert = AccesoEA.ABMRegistros(strUpdate)
-            FormularioWebId = Lecturas.LeerMaximoId("Select Max(FormularioWebID) as MaximoId FROM (FormularioWeb)")
+            FormularioWebId = Lecturas.LeerMaximoId("Select Max(FormularioWebID) as MaximoId FROM FormularioWeb")
             s = AccionesABM.BitacoraInsert(UserId, Replace(strUpdate, "'", " "), 0, 0, "Inserta Formulario Web: " & FormularioWebLabel, FormularioWebId, "FormularioWeb", "")
         Catch
             FormularioWebInsert = 0
@@ -610,10 +617,10 @@ Public Class AccionesABM
         strUpdate = strUpdate & "WHERE PaginaWeb.PaginaWebId = " & PaginaWebId
         Try
             PaginaWebUpdate = AccesoEA.ABMRegistros(strUpdate)
-            t = AccionesABM.BitacoraInsert(UserId, Replace(strUpdate, "'", " "), 0, 0, "Actualiza Página: " & PaginaWebName, PaginaWebId, "PaginaWeb", "")
+            t = AccionesABM.BitacoraInsert(UserId, Replace(strUpdate, "'", " "), 0, 0, "Actualiza Pï¿½gina: " & PaginaWebName, PaginaWebId, "PaginaWeb", "")
         Catch
             PaginaWebUpdate = 0
-            t = AccionesABM.BitacoraInsert(UserId, Replace(strUpdate, "'", " "), 0, 0, "Intento fallido de actualizar la página: " & PaginaWebName, PaginaWebId, "PaginaWeb", "")
+            t = AccionesABM.BitacoraInsert(UserId, Replace(strUpdate, "'", " "), 0, 0, "Intento fallido de actualizar la pï¿½gina: " & PaginaWebName, PaginaWebId, "PaginaWeb", "")
         End Try
     End Function
     Public Function MenuOptionsDelete(ByVal MenuOptionsId As Long, ByVal Texto As String, ByVal UserId As Long) As Integer
@@ -627,10 +634,10 @@ Public Class AccionesABM
 
         Try
             MenuOptionsDelete = AccesoEA.ABMRegistros(strUpdate)
-            t = AccionesABM.BitacoraInsert(UserId, Replace(strUpdate, "'", " "), 0, 0, "Elimina la opción de menú: " & Texto, MenuOptionsId, "MenuOptions", "")
+            t = AccionesABM.BitacoraInsert(UserId, Replace(strUpdate, "'", " "), 0, 0, "Elimina la opciï¿½n de menï¿½: " & Texto, MenuOptionsId, "MenuOptions", "")
         Catch
             MenuOptionsDelete = 0
-            t = AccionesABM.BitacoraInsert(UserId, Replace(strUpdate, "'", " "), 0, 0, "Intento fallido de eliminar la opción de menú: " & Texto, MenuOptionsId, "MenuOptions", "")
+            t = AccionesABM.BitacoraInsert(UserId, Replace(strUpdate, "'", " "), 0, 0, "Intento fallido de eliminar la opciï¿½n de menï¿½: " & Texto, MenuOptionsId, "MenuOptions", "")
         End Try
     End Function
     Public Function MenuOptionsUpdate(ByVal MenuOptionsId As Long, ByVal Secuencia As Long, _
@@ -660,10 +667,10 @@ Public Class AccionesABM
         strUpdate = strUpdate & "WHERE MenuOptions.MenuOptionsId = " & MenuOptionsId
         Try
             MenuOptionsUpdate = AccesoEA.ABMRegistros(strUpdate)
-            t = AccionesABM.BitacoraInsert(UserId, Replace(strUpdate, "'", " "), 0, 0, "Actualiza Opción de Menú: " & PaginaWebName, MenuOptionsId, "MenuOptions", "")
+            t = AccionesABM.BitacoraInsert(UserId, Replace(strUpdate, "'", " "), 0, 0, "Actualiza Opciï¿½n de Menï¿½: " & PaginaWebName, MenuOptionsId, "MenuOptions", "")
         Catch
             MenuOptionsUpdate = 0
-            t = AccionesABM.BitacoraInsert(UserId, Replace(strUpdate, "'", " "), 0, 0, "Intento fallido de actualizar la opción de menú: " & PaginaWebName, MenuOptionsId, "MenuOptions", "")
+            t = AccionesABM.BitacoraInsert(UserId, Replace(strUpdate, "'", " "), 0, 0, "Intento fallido de actualizar la opciï¿½n de menï¿½: " & PaginaWebName, MenuOptionsId, "MenuOptions", "")
         End Try
     End Function
     Public Function MenuOptionsPartialInsert(ByVal MenuOptionsPID As Long, ByVal Secuencia As Long, _
@@ -684,11 +691,11 @@ Public Class AccionesABM
             MenuOptionsPartialInsert = AccesoEA.ABMRegistros(strUpdate)
             MenuOptionsId = Lecturas.LeerMaximoId("Select Max(MenuOptionsID) as MaximoId FROM (MenuOptions)")
             't = Lecturas.LeerPaginaWebByName(PaginaWebName, PaginaWebId)
-            s = AccionesABM.BitacoraInsert(UserId, Replace(strUpdate, "'", " "), 0, 0, "Inserta Opción de Menu en la Zona: " & Zona, MenuOptionsId, "MenuOptions", "")
+            s = AccionesABM.BitacoraInsert(UserId, Replace(strUpdate, "'", " "), 0, 0, "Inserta Opciï¿½n de Menu en la Zona: " & Zona, MenuOptionsId, "MenuOptions", "")
         Catch
             MenuOptionsPartialInsert = 0
             MenuOptionsId = 0
-            s = AccionesABM.BitacoraInsert(UserId, Replace(strUpdate, "'", " "), 0, 0, "Intento fallido de insertar opción de menú en la zona: " & Zona, MenuOptionsId, "MenuOptions", "")
+            s = AccionesABM.BitacoraInsert(UserId, Replace(strUpdate, "'", " "), 0, 0, "Intento fallido de insertar opciï¿½n de menï¿½ en la zona: " & Zona, MenuOptionsId, "MenuOptions", "")
         End Try
     End Function
     Public Function MasterPartialInsert(ByVal ObjectId As String, _
@@ -818,13 +825,13 @@ Public Class AccionesABM
 
         Try
             s = AccesoEA.ABMRegistros(strUpdate)
-            s = AccionesABM.BitacoraInsert(UserId, Replace(strUpdate, "'", " "), 0, 0, "Actualiza Priorización de Stakeholders ", RelationTableId, RelationTable, "")
+            s = AccionesABM.BitacoraInsert(UserId, Replace(strUpdate, "'", " "), 0, 0, "Actualiza Priorizaciï¿½n de Stakeholders ", RelationTableId, RelationTable, "")
             ' Se Obtiene el valor del Campo ProgramasId a partir de RelationTableId
             ProgramasMapaId = ProgramasMapa.LeerProgramasMapaIdByPriorizacionPorStakeholdersId(RelationTableId)
             ' Se lee el registro de la Tabla ProgramasMapa
             t = ProgramasMapa.LeerProgramasMapa(ProgramasMapaId, ProgramasCodigo, ProgramasMapaSecuencia, StakeholdersCodigo, ProgramasMapaMesEvaluacion, ProgramasMapaImportancia, ProgramasMapaTipoGestion, ProgramasMapaPuntajePoder, ProgramasMapaPuntajeRelevancia, ProgramasMapaRol, ProgramasMapaFuncion, ProgramasMapaRelacion)
             ' Calcula Puntaje de Poder
-            ProgramasMapaPuntajePoder = ProgramasMapa.Puntaje(ProgramasMapaId, "Caracterización")
+            ProgramasMapaPuntajePoder = ProgramasMapa.Puntaje(ProgramasMapaId, "Caracterizaciï¿½n")
             ' Calcula Puntaje de Relevancia
             ProgramasMapaPuntajeRelevancia = ProgramasMapa.Puntaje(ProgramasMapaId, "Relevancia")
             ' Calcula Importancia
@@ -832,15 +839,15 @@ Public Class AccionesABM
             ProgramasMapaImportancia = (ProgramasMapaPuntajePoder / 5) * (ProgramasMapaPuntajeRelevancia)
             ' Actualiza el registro de la Tabla ProgramasMapa
             If ProgramasMapaImportancia >= 18 Then
-                ProgramasMapaTipoGestion = "Gestión Especial"
+                ProgramasMapaTipoGestion = "Gestiï¿½n Especial"
             Else
-                ProgramasMapaTipoGestion = "Gestión General"
+                ProgramasMapaTipoGestion = "Gestiï¿½n General"
             End If
             t = ProgramasMapa.ProgramasMapaUpdate(ProgramasMapaId, ProgramasCodigo, ProgramasMapaSecuencia, StakeholdersCodigo, ProgramasMapaMesEvaluacion, ProgramasMapaImportancia, ProgramasMapaTipoGestion, ProgramasMapaPuntajePoder, ProgramasMapaPuntajeRelevancia, ProgramasMapaRol, ProgramasMapaFuncion, ProgramasMapaRelacion, UserId)
             PriorizacionPorStakeholdersUpdate = CStr(ProgramasMapaImportancia)
         Catch
             PriorizacionPorStakeholdersUpdate = 0
-            s = AccionesABM.BitacoraInsert(UserId, Replace(strUpdate, "'", " "), 0, 0, "Intento Fallido de Actualizar Priorización de Stakeholders ", RelationTableId, RelationTable, "")
+            s = AccionesABM.BitacoraInsert(UserId, Replace(strUpdate, "'", " "), 0, 0, "Intento Fallido de Actualizar Priorizaciï¿½n de Stakeholders ", RelationTableId, RelationTable, "")
         End Try
     End Function
     Public Function PriorizacionPorStakeholdersInsert(ByVal RelationTable As String, _
@@ -946,25 +953,25 @@ Public Class AccionesABM
 
         'If RelationTable = "AccionesPorStakeholdersPorPrograma" Then
         'Aqui voy
-        'En este caso estamos frente a una tabla Pivot que es a la vez una relación entre el programa y
-        'el stakeholder involucrado en la acción, a su vez la tabla child trae el id de la acción a realizar
+        'En este caso estamos frente a una tabla Pivot que es a la vez una relaciï¿½n entre el programa y
+        'el stakeholder involucrado en la acciï¿½n, a su vez la tabla child trae el id de la acciï¿½n a realizar
 
         If PivotTable = "PGG" Then
-            ' Aquí voy a poner el código necesario para crear las tareas asociadas a las actividades de la acción
-            ' La acción en cuestión es identificada por si identity que es el campo ChildId
-            If RelationTableId = 0 Then  ' La relación no existe y por ello se crea
+            ' Aquï¿½ voy a poner el cï¿½digo necesario para crear las tareas asociadas a las actividades de la acciï¿½n
+            ' La acciï¿½n en cuestiï¿½n es identificada por si identity que es el campo ChildId
+            If RelationTableId = 0 Then  ' La relaciï¿½n no existe y por ello se crea
                 RelationsBetweenTablesUpdate = AccionesABM.RelationsBetweenTablesInsert(RelationTable, PivotTable, ChildTable, PivotId, ChildId, UserId)
-                ' A continuación se crean las tareas, asociadas al PGG
+                ' A continuaciï¿½n se crean las tareas, asociadas al PGG
                 ' PivotTable debe ser ProgramasMapa, ChildTable debe ser Acciones
                 ' PivotId es el Identity de ProgramasMapa y ChildId es el Identity de Acciones
-                ' Con estos valores voy a leer las actividades asociadas a la acción y voy a crear 
+                ' Con estos valores voy a leer las actividades asociadas a la acciï¿½n y voy a crear 
                 ' todas las tareas que correspondan a cada actividad segun los meses en que se deben 
-                ' ejecutar y el número de veces que debe ejecutarse dentro del mismo mes, 
+                ' ejecutar y el nï¿½mero de veces que debe ejecutarse dentro del mismo mes, 
                 ' asignandoselas a la o las personas que poseen el cargo indicado.
                 RelationsBetweenTablesUpdate = AccionesABM.CrearTareas(PivotId, ChildId, UserId)
-            Else                        ' La realación existe y por ello se elimina
+            Else                        ' La realaciï¿½n existe y por ello se elimina
                 'RelationsBetweenTablesUpdate = AccionesABM.RelationsBetweenTablesDelete(RelationTable, RelationTableId, UserId)
-                'Por ahora no eliminaremos la relación
+                'Por ahora no eliminaremos la relaciï¿½n
                 t = PGG.AccionesPorPGGDelete(PivotId, ChildId, UserId, Mensaje, 0)
                 If t = False Then
                     RelationsBetweenTablesUpdate = 0
@@ -973,7 +980,7 @@ Public Class AccionesABM
                 End If
             End If
         Else
-            If RelationTableId = 0 Then  ' La relación no existe y por ello se crea
+            If RelationTableId = 0 Then  ' La relaciï¿½n no existe y por ello se crea
                 RelationsBetweenTablesUpdate = AccionesABM.RelationsBetweenTablesInsert(RelationTable, PivotTable, ChildTable, PivotId, ChildId, UserId)
                 If RelationTable = "StakeholdersPorProgramas" Then
                     'Dado que se asocio un nuevo stakeholder al programa, se debe crear un registro en la tabla ProgramasMapa
@@ -983,17 +990,17 @@ Public Class AccionesABM
                     t = Programas.LeerProgramasCodigoById(PivotId, ProgramasCodigo)
                     StakeholdersCodigo = Stakeholders.LeerStakeholdersCodigoById(ChildId)
                     s = ProgramasMapa.ProgramasMapaInsert(ProgramasMapaId, ProgramasCodigo, ProgramasMapaSecuencia, StakeholdersCodigo, ProgramasMapaMesEvaluacion, ProgramasMapaImportancia, ProgramasMapaTipoGestion, ProgramasMapaPuntajePoder, ProgramasMapaPuntajeRelevancia, ProgramasMapaRol, ProgramasMapaFuncion, ProgramasMapaRelacion, UserId)
-                    'Ahora me falta crear los registros de los atributos de evaluación de Poder y Relevancia 
+                    'Ahora me falta crear los registros de los atributos de evaluaciï¿½n de Poder y Relevancia 
                     s = ProgramasMapa.PriorizacionPorStakeholdersInsert(ProgramasMapaId, UserId)
                 End If
-            Else                        ' La relación existe y por ello se elimina
+            Else                        ' La relaciï¿½n existe y por ello se elimina
                 RelationsBetweenTablesUpdate = AccionesABM.RelationsBetweenTablesDelete(RelationTable, RelationTableId, UserId)
                 If RelationTable = "StakeholdersPorProgramas" Then
                     'Dado que se elimina un stakeholder del programa, se debe eliminar el registro correspondiente desde la tabla ProgramasMapa
                     'Luego se deben eliminar tantos registros como se requiera desde la tabla PriorizacionPorStakeholders.
                     'Luego se deben eliminar tantos registros como se requiera desde la tabla AccionesPorStakeholdersPorPrograma.
                     '------------------------
-                    'Se debe obtener el valor del ProgramasMapaId a partir del código del programa y del codigo del stakeholder
+                    'Se debe obtener el valor del ProgramasMapaId a partir del cï¿½digo del programa y del codigo del stakeholder
                     t = Programas.LeerProgramasCodigoById(PivotId, ProgramasCodigo)
                     StakeholdersCodigo = Stakeholders.LeerStakeholdersCodigoById(ChildId)
                     ProgramasMapaId = ProgramasMapa.LeerProgramasMapaId(ProgramasCodigo, StakeholdersCodigo)
@@ -1003,8 +1010,8 @@ Public Class AccionesABM
                     s = ProgramasMapa.PriorizacionPorStakeholdersDelete(ProgramasMapaId, ProgramasCodigo, UserId)
                     s = ProgramasMapa.AccionesPorStakeholdersPorProgramaDelete(ProgramasMapaId, ProgramasCodigo, UserId)
                     'Pero hay que examinar si el stakeholder ya tiene definidas ciertas tareas
-                    'Por ahora lo que haremos es también eliminarlas y así cumplir con eliminar el stakeholder
-                    'y no dejar rastro de él en el programa.
+                    'Por ahora lo que haremos es tambiï¿½n eliminarlas y asï¿½ cumplir con eliminar el stakeholder
+                    'y no dejar rastro de ï¿½l en el programa.
 
                 End If
 
@@ -1051,8 +1058,8 @@ Public Class AccionesABM
 
         Dim ProgramasCodigo As String = ""
         Dim StakeholdersCodigo As String = ""
-        Dim PGGCodigo As String ' Etiqueta : Código del PGG - Control : txtPGGCodigo - Variable : PGGCodigo
-        Dim AccionesCodigo As String ' Etiqueta : Código - Control : txtAccionesCodigo - Variable : AccionesCodigo
+        Dim PGGCodigo As String ' Etiqueta : Cï¿½digo del PGG - Control : txtPGGCodigo - Variable : PGGCodigo
+        Dim AccionesCodigo As String ' Etiqueta : Cï¿½digo - Control : txtAccionesCodigo - Variable : AccionesCodigo
 
         CrearTareas = 0
 
@@ -1063,9 +1070,9 @@ Public Class AccionesABM
         AccionesCodigo = Acciones.LeerAccionesCodigoById(ChildId)
         Dim ActividadesPorAccion As Long = 0
 
-        If ActividadesPorAccion = 0 Then    'Solo se crean tareas asociadas a lo que indica la Acción
-            CrearTareas = AccionesABM.CrearTareasPorAcción(PGGCodigo, AccionesCodigo, ChildId, PivotId, UserId)
-        Else                                'Se crean tareas asociadas a las actividades detalladas de una macro acción
+        If ActividadesPorAccion = 0 Then    'Solo se crean tareas asociadas a lo que indica la Accion
+            CrearTareas = AccionesABM.CrearTareasPorAccion(PGGCodigo, AccionesCodigo, ChildId, PivotId, UserId)
+        Else                                'Se crean tareas asociadas a las actividades detalladas de una macro acciï¿½n
             sSQL = "SELECT ActividadesId "
             sSQL = sSQL & "FROM Actividades Where AccionesCodigo = '" & AccionesCodigo & "'"
             CrearTareas = 0
@@ -1081,7 +1088,7 @@ Public Class AccionesABM
         End If
 
     End Function
-    Public Function CrearTareasPorAcción(ByVal PGGCodigo As String, ByVal AccionesCodigo As String, ByVal AccionesId As Long, ByVal PGGId As Long, ByVal UserId As Long) As Long
+    Public Function CrearTareasPorAccion(ByVal PGGCodigo As String, ByVal AccionesCodigo As String, ByVal AccionesId As Long, ByVal PGGId As Long, ByVal UserId As Long) As Long
         Dim t As Boolean
         Dim k As Integer = 0
         Dim i As Integer = 0
@@ -1102,18 +1109,18 @@ Public Class AccionesABM
 
 
         '-------------------------------------------------------------------------------------------
-        ' Declaración de Campos de la Tabla Programas: Programas de Relacionamiento con Stakeholders
+        ' Declaraciï¿½n de Campos de la Tabla Programas: Programas de Relacionamiento con Stakeholders
         '-------------------------------------------------------------------------------------------
-        Dim ProgramasCodigo As String = "" ' Etiqueta : Código - Control : txtProgramasCodigo - Variable : ProgramasCodigo
+        Dim ProgramasCodigo As String = "" ' Etiqueta : Cï¿½digo - Control : txtProgramasCodigo - Variable : ProgramasCodigo
         Dim ProgramasName As String = "" ' Etiqueta : Nombre - Control : txtProgramasName - Variable : ProgramasName
-        Dim ProgramasAno As String = "" ' Etiqueta : Año - Control : txtProgramasAno - Variable : ProgramasAno
+        Dim ProgramasAno As String = "" ' Etiqueta : Aï¿½o - Control : txtProgramasAno - Variable : ProgramasAno
         Dim GerenciasCodigo As String = "" ' Etiqueta : Gerencia - Control : txtGerenciasCodigo - Variable : GerenciasCodigo
-        Dim ProgramasDescription As String = "" ' Etiqueta : Descripción - Control : txtProgramasDescription - Variable : ProgramasDescription
-        Dim ProgramasAreaResponsableName As String = "" ' Etiqueta : Área Responsable - Control : txtProgramasAreaResponsableName - Variable : ProgramasAreaResponsableName
-        Dim ProgramasAreaEjecutoraName As String = "" ' Etiqueta : Área Ejecutora - Control : txtProgramasAreaEjecutoraName - Variable : ProgramasAreaEjecutoraName
-        Dim ZonaGeograficaName As String = "" ' Etiqueta : Zona Geográfica - Control : txtZonaGeograficaName - Variable : ZonaGeograficaName
-        Dim ProgramasPeriodoInicio As String = "" ' Etiqueta : Mes y Año de Inicio - Control : txtProgramasPeriodoInicio - Variable : ProgramasPeriodoInicio
-        Dim ProgramasPeriodoTermino As String = "" ' Etiqueta : Mes y Año de Término - Control : txtProgramasPeriodoTermino - Variable : ProgramasPeriodoTermino
+        Dim ProgramasDescription As String = "" ' Etiqueta : Descripciï¿½n - Control : txtProgramasDescription - Variable : ProgramasDescription
+        Dim ProgramasAreaResponsableName As String = "" ' Etiqueta : ï¿½rea Responsable - Control : txtProgramasAreaResponsableName - Variable : ProgramasAreaResponsableName
+        Dim ProgramasAreaEjecutoraName As String = "" ' Etiqueta : ï¿½rea Ejecutora - Control : txtProgramasAreaEjecutoraName - Variable : ProgramasAreaEjecutoraName
+        Dim ZonaGeograficaName As String = "" ' Etiqueta : Zona Geogrï¿½fica - Control : txtZonaGeograficaName - Variable : ZonaGeograficaName
+        Dim ProgramasPeriodoInicio As String = "" ' Etiqueta : Mes y Aï¿½o de Inicio - Control : txtProgramasPeriodoInicio - Variable : ProgramasPeriodoInicio
+        Dim ProgramasPeriodoTermino As String = "" ' Etiqueta : Mes y Aï¿½o de Tï¿½rmino - Control : txtProgramasPeriodoTermino - Variable : ProgramasPeriodoTermino
         Dim ProgramasElaboradoPor As String = "" ' Etiqueta : Elaborado Por - Control : txtProgramasElaboradoPor - Variable : ProgramasElaboradoPor
         Dim ProgramasRevisadoPor As String = "" ' Etiqueta : Revisado Por - Control : txtProgramasRevisadoPor - Variable : ProgramasRevisadoPor
         Dim ProgramasAprobadoPor As String = "" ' Etiqueta : Aprobado Por - Control : txtProgramasAprobadoPor - Variable : ProgramasAprobadoPor
@@ -1127,11 +1134,11 @@ Public Class AccionesABM
 
 
         '----------------------------------------
-        ' Declaración de Campos de la Tabla PGG: Programa Global de Gestión
+        ' Declaraciï¿½n de Campos de la Tabla PGG: Programa Global de Gestiï¿½n
         '----------------------------------------
-        'Dim PGGCodigo As String ' Etiqueta : Código del PGG - Control : txtPGGCodigo - Variable : PGGCodigo
+        'Dim PGGCodigo As String ' Etiqueta : Cï¿½digo del PGG - Control : txtPGGCodigo - Variable : PGGCodigo
         Dim PGGName As String = "" ' Etiqueta : Nombre - Control : txtPGGName - Variable : PGGName
-        Dim PGGAno As String = "" ' Etiqueta : Año - Control : txtPGGAno - Variable : PGGAno
+        Dim PGGAno As String = "" ' Etiqueta : Aï¿½o - Control : txtPGGAno - Variable : PGGAno
         Dim ProyectosCodigo As String = "" ' Etiqueta : Proyecto - Control : txtProyectosCodigo - Variable : ProyectosCodigo
         Dim GerenciasCodigoPGG As String = "" ' Etiqueta : Gerencia del Proyecto - Control : txtGerenciasCodigo - Variable : GerenciasCodigo
         Dim PGGElaboradoPor As String = "" ' Etiqueta : Elaborado por - Control : txtPGGElaboradoPor - Variable : PGGElaboradoPor
@@ -1143,16 +1150,16 @@ Public Class AccionesABM
         Dim PGGResponsableMA As String = "" '
         Dim PGGResponsableQ As String = "" '
         '-------------------------------------------
-        ' Declaración de Campos de la Tabla Acciones
+        ' Declaraciï¿½n de Campos de la Tabla Acciones
         '-------------------------------------------
-        'Dim AccionesCodigo As String ' Etiqueta : Código - Control : txtAccionesCodigo - Variable : AccionesCodigo
-        Dim AccionesName As String = "" ' Etiqueta : Acción - Control : txtAccionesName - Variable : AccionesName
-        Dim AccionesDescription As String = "" ' Etiqueta : Descripción - Control : txtAccionesDescription - Variable : AccionesDescription
+        'Dim AccionesCodigo As String ' Etiqueta : Cï¿½digo - Control : txtAccionesCodigo - Variable : AccionesCodigo
+        Dim AccionesName As String = "" ' Etiqueta : Acciï¿½n - Control : txtAccionesName - Variable : AccionesName
+        Dim AccionesDescription As String = "" ' Etiqueta : Descripciï¿½n - Control : txtAccionesDescription - Variable : AccionesDescription
         Dim MetasCodigo As String = "" ' Etiqueta : Meta - Control : txtMetasCodigo - Variable : MetasCodigo
         Dim IndicadoresCodigo As String = "" ' Etiqueta : Indicador (KPI) - Control : txtIndicadoresCodigo - Variable : IndicadoresCodigo
         Dim AccionesMetaIndicador As Double ' Etiqueta : Valor esperado para el indicador - Control : txtAccionesMetaIndicador - Variable : AccionesMetaIndicador
         Dim AccionesObjetivoIndicador As String = "" ' Etiqueta : Objetivo del Indicador - Control : txtAccionesObjetivoIndicador - Variable : AccionesObjetivoIndicador
-        Dim AmbitosCodigo As String = "" ' Etiqueta : Ámbito al que aplica la acción - Control : txtAmbitosCodigo - Variable : AmbitosCodigo
+        Dim AmbitosCodigo As String = "" ' Etiqueta : ï¿½mbito al que aplica la acciï¿½n - Control : txtAmbitosCodigo - Variable : AmbitosCodigo
         'Dim GerenciasCodigo As String = "" ' Etiqueta : Gerencia Responsable - Control : txtGerenciasCodigo - Variable : GerenciasCodigo
         Dim AccionesHH As Double ' Etiqueta : Esfuerzo Estimado (HH) - Control : txtAccionesHH - Variable : AccionesHH
         Dim AccionesUSD As Double ' Etiqueta : Presupuesto Estimado (USD) - Control : txtAccionesUSD - Variable : AccionesUSD
@@ -1169,35 +1176,35 @@ Public Class AccionesABM
         Dim AccionesIsNoviembre As Long ' Etiqueta : Acciones en Noviembre - Control : txtAccionesIsNoviembre - Variable : AccionesIsNoviembre
         Dim AccionesIsDiciembre As Long ' Etiqueta : Acciones en Diciembre - Control : txtAccionesIsDiciembre - Variable : AccionesIsDiciembre
         '----------------------------------------
-        ' Declaración de Campos de la Tabla Tareas
+        ' Declaraciï¿½n de Campos de la Tabla Tareas
         '----------------------------------------
         Dim TareasId As Long
-        Dim TareasCodigo As String = "" ' Etiqueta : Código Tarea - Control : txtTareasCodigo - Variable : TareasCodigo
+        Dim TareasCodigo As String = "" ' Etiqueta : Cï¿½digo Tarea - Control : txtTareasCodigo - Variable : TareasCodigo
         Dim TareasName As String = "" ' Etiqueta : Objetivo - Control : txtTareasName - Variable : TareasName
-        Dim TareasDescription As String = "" ' Etiqueta : Descripción - Control : txtTareasDescription - Variable : TareasDescription
-        'Dim PGGCodigo As String ' Etiqueta : Código del PGG - Control : txtPGGCodigo - Variable : PGGCodigo
-        'Dim AccionesCodigo As String ' Etiqueta : Acción del PGG - Control : txtAccionesCodigo - Variable : AccionesCodigo
+        Dim TareasDescription As String = "" ' Etiqueta : Descripciï¿½n - Control : txtTareasDescription - Variable : TareasDescription
+        'Dim PGGCodigo As String ' Etiqueta : Cï¿½digo del PGG - Control : txtPGGCodigo - Variable : PGGCodigo
+        'Dim AccionesCodigo As String ' Etiqueta : Acciï¿½n del PGG - Control : txtAccionesCodigo - Variable : AccionesCodigo
         Dim ActividadesSecuencia As Long = 0 ' Etiqueta : Secuencia de Actividad - Control : txtActividadesSecuencia - Variable : ActividadesSecuencia
         Dim TareasMes As Long = 0 ' Etiqueta : Mes - Control : txtTareasMes - Variable : TareasMes
-        Dim TareasAno As String = "" ' Etiqueta : Año - Control : txtTareasAno - Variable : TareasAno
+        Dim TareasAno As String = "" ' Etiqueta : Aï¿½o - Control : txtTareasAno - Variable : TareasAno
         Dim TareasSecuencia As Long = 0 ' Etiqueta : # de actividad - Control : txtTareasSecuencia - Variable : TareasSecuencia
         Dim UsuariosCodigo As String = "" ' Etiqueta : Responsable - Control : txtUsuariosCodigo - Variable : UsuariosCodigo
         Dim TareasHH As Double = 0 ' Etiqueta : HH Estimadas - Control : txtTareasHH - Variable : TareasHH
         Dim TareasUSD As Double = 0 ' Etiqueta : Costo Estimado (USD) - Control : txtTareasUSD - Variable : TareasUSD
-        Dim DiaMinimoInicio As Long = 0 ' Etiqueta : Mínimo día de inicio - Control : txtDiaMinimoInicio - Variable : DiaMinimoInicio
-        Dim DiaMaximoTermino As Long = 0 ' Etiqueta : Max. Día de Término - Control : txtDiaMaximoTermino - Variable : DiaMaximoTermino
-        Dim TareasDiaProgramado As Long = 0 ' Etiqueta : Día sugerido - Control : txtTareasDiaProgramado - Variable : TareasDiaProgramado
+        Dim DiaMinimoInicio As Long = 0 ' Etiqueta : Mï¿½nimo dï¿½a de inicio - Control : txtDiaMinimoInicio - Variable : DiaMinimoInicio
+        Dim DiaMaximoTermino As Long = 0 ' Etiqueta : Max. Dï¿½a de Tï¿½rmino - Control : txtDiaMaximoTermino - Variable : DiaMaximoTermino
+        Dim TareasDiaProgramado As Long = 0 ' Etiqueta : Dï¿½a sugerido - Control : txtTareasDiaProgramado - Variable : TareasDiaProgramado
         Dim TareasTipo As String = "Tarea Programada" ' Etiqueta : Tipo de Tarea - Control : txtTareasTipo - Variable : TareasTipo
-        Dim TareasDiaRealTermino As Long = 0 ' Etiqueta : Día Real de Término - Control : txtTareasDiaRealTermino - Variable : TareasDiaRealTermino
+        Dim TareasDiaRealTermino As Long = 0 ' Etiqueta : Dï¿½a Real de Tï¿½rmino - Control : txtTareasDiaRealTermino - Variable : TareasDiaRealTermino
         Dim TareasHHConsumidas As Double = 0 ' Etiqueta : HH Consumidas - Control : txtTareasHHConsumidas - Variable : TareasHHConsumidas
         Dim TareasUSDConsumidos As Double = 0 ' Etiqueta : Costo Real (USD) - Control : txtTareasUSDConsumidos - Variable : TareasUSDConsumidos
         Dim EstadoTareasCodigo As String = "Asignada" ' Etiqueta : Estado de Tarea - Control : txtEstadoTareasCodigo - Variable : EstadoTareasCodigo
         Dim TareasEjecutor As String = ""
         '----------------------------------------
 
-        CrearTareasPorAcción = 0
+        CrearTareasPorAccion = 0
 
-        ' Leer PGG y la Acción asociada
+        ' Leer PGG y la Acciï¿½n asociada
         t = Programas.LeerProgramasByName(ProgramasId, ProgramasCodigo)
         t = Programas.LeerProgramas(ProgramasId, ProgramasCodigo, ProgramasName, ProgramasAno, GerenciasCodigo, ProgramasDescription, ProgramasAreaResponsableName, ProgramasAreaEjecutoraName, ZonaGeograficaName, ProgramasPeriodoInicio, ProgramasPeriodoTermino, ProgramasElaboradoPor, ProgramasRevisadoPor, ProgramasAprobadoPor, ProgramasCoordinadoPor, ProgramasPresupuestoTotal, ProgramasPresupuestoAnual, ProgramasIndicadorLogro, ProgramasRespaldoCumplimiento)
         't = PGG.LeerPGG(PGGId, PGGCodigo, PGGName, PGGAno, ProyectosCodigo, GerenciasCodigoPGG, PGGElaboradoPor, PGGRevisadoPor, PGGAprobadoPor, PGGCoordinadoPor, PGGResponsableSSO, PGGResponsableC, PGGResponsableMA, PGGResponsableQ)
@@ -1222,19 +1229,19 @@ Public Class AccionesABM
             TotalTareas = TotalTareas + ActividadesPorMes(k)
         Next
         'Inicializo variable para crear una tarea
-        TareasCodigo = "" ' Se reasigna más adelante
+        TareasCodigo = "" ' Se reasigna mï¿½s adelante
         TareasName = AccionesName
         TareasDescription = AccionesDescription
-        ActividadesSecuencia = 0  'Para indicar que proviene de una acción y no de una actividad
-        TareasMes = 0 ' Se reasigna más adelante
+        ActividadesSecuencia = 0  'Para indicar que proviene de una acciï¿½n y no de una actividad
+        TareasMes = 0 ' Se reasigna mï¿½s adelante
         TareasAno = PGGAno
-        TareasSecuencia = 1 ' Se reasigna más adelante
+        TareasSecuencia = 1 ' Se reasigna mï¿½s adelante
         UsuariosCodigo = Gerencias.LeerUsuarioResponsable(GerenciasCodigo)
-        TareasHH = (AccionesHH / 100) / TotalTareas ' Se asume una distribución uniforme de las HH por cada tarea
+        TareasHH = (AccionesHH / 100) / TotalTareas ' Se asume una distribuciï¿½n uniforme de las HH por cada tarea
         TareasUSD = (AccionesUSD / 100) / TotalTareas ' idem anterior
-        DiaMinimoInicio = 1 ' Se reasigna más adelante
-        DiaMaximoTermino = 28 ' Se reasigna más adelante
-        TareasDiaProgramado = 14 ' Se reasigna más adelante
+        DiaMinimoInicio = 1 ' Se reasigna mï¿½s adelante
+        DiaMaximoTermino = 28 ' Se reasigna mï¿½s adelante
+        TareasDiaProgramado = 14 ' Se reasigna mï¿½s adelante
         TareasTipo = "Tarea Programada"
         TareasDiaRealTermino = 0
         TareasHHConsumidas = 0
@@ -1253,10 +1260,10 @@ Public Class AccionesABM
                     DiaMaximoTermino = DistanciaEntreDias * i
                     TareasCodigo = PGGCodigo & "-" & AccionesCodigo & "-" & ActividadesSecuencia & "-" & UsuariosCodigo & "-" & TareasAno & "-" & TareasMes & "-" & TareasSecuencia
                     t = AccionesABM.MasterPartialInsert("TareasId", "TareasCodigo", "Tareas", TareasCodigo, UserId, TareasId)
-                    TareasCodigo = TareasCodigo & "-" & TareasId 'SE agrega el Id de la Tarea para asegurar que el código sea único
+                    TareasCodigo = TareasCodigo & "-" & TareasId 'SE agrega el Id de la Tarea para asegurar que el cï¿½digo sea ï¿½nico
                     t = Tareas.TareasUpdate(TareasId, TareasCodigo, TareasName, TareasDescription, PGGCodigo, AccionesCodigo, CLng(ActividadesSecuencia), CLng(TareasMes), TareasAno, CLng(TareasSecuencia), UsuariosCodigo, CDbl(TareasHH * 100), CDbl(TareasUSD * 100), CLng(DiaMinimoInicio), CLng(DiaMaximoTermino), CLng(TareasDiaProgramado), TareasTipo, CLng(TareasDiaRealTermino), CDbl(TareasHHConsumidas * 100), CDbl(TareasUSDConsumidos * 100), EstadoTareasCodigo, UserId)
                     t = Tareas.TareasEjecutorUpdate(TareasId, TareasCodigo, UsuariosCodigo, AccionesCodigo, UserId)
-                    CrearTareasPorAcción = CrearTareasPorAcción + 1
+                    CrearTareasPorAccion = CrearTareasPorAccion + 1
                 Next
             End If
         Next
@@ -1282,11 +1289,11 @@ Public Class AccionesABM
         Dim TablaUsuariosPorCargo(99) As String
 
         '----------------------------------------
-        ' Declaración de Campos de la Tabla PGG: Programa Global de Gestión
+        ' Declaraciï¿½n de Campos de la Tabla PGG: Programa Global de Gestiï¿½n
         '----------------------------------------
-        'Dim PGGCodigo As String ' Etiqueta : Código del PGG - Control : txtPGGCodigo - Variable : PGGCodigo
+        'Dim PGGCodigo As String ' Etiqueta : Cï¿½digo del PGG - Control : txtPGGCodigo - Variable : PGGCodigo
         Dim PGGName As String = "" ' Etiqueta : Nombre - Control : txtPGGName - Variable : PGGName
-        Dim PGGAno As String = "" ' Etiqueta : Año - Control : txtPGGAno - Variable : PGGAno
+        Dim PGGAno As String = "" ' Etiqueta : Aï¿½o - Control : txtPGGAno - Variable : PGGAno
         Dim ProyectosCodigo As String = "" ' Etiqueta : Proyecto - Control : txtProyectosCodigo - Variable : ProyectosCodigo
         Dim GerenciasCodigoPGG As String = "" ' Etiqueta : Gerencia del Proyecto - Control : txtGerenciasCodigo - Variable : GerenciasCodigo
         Dim PGGElaboradoPor As String = "" ' Etiqueta : Elaborado por - Control : txtPGGElaboradoPor - Variable : PGGElaboradoPor
@@ -1298,13 +1305,13 @@ Public Class AccionesABM
         Dim PGGResponsableMA As String = "" '
         Dim PGGResponsableQ As String = "" '
         '----------------------------------------
-        ' Declaración de Campos de la Tabla Actividades
+        ' Declaraciï¿½n de Campos de la Tabla Actividades
         '----------------------------------------
-        Dim AccionesCodigo As String = "" ' Etiqueta : Código Acción - Control : txtAccionesCodigo - Variable : AccionesCodigo
+        Dim AccionesCodigo As String = "" ' Etiqueta : Cï¿½digo Acciï¿½n - Control : txtAccionesCodigo - Variable : AccionesCodigo
         Dim ActividadesSecuenciaACT As Long ' Etiqueta : Secuencia - Control : txtActividadesSecuencia - Variable : ActividadesSecuencia
         Dim ActividadObjetivo As String = "" ' Etiqueta : Objetivo - Control : txtActividadObjetivo - Variable : ActividadObjetivo
-        Dim ActividadEspecifica As String = "" ' Etiqueta : Actividad Específica - Control : txtActividadEspecifica - Variable : ActividadEspecifica
-        Dim ActividadPublicoObjetivo As String = "" ' Etiqueta : Público Objetivo - Control : txtActividadPublicoObjetivo - Variable : ActividadPublicoObjetivo
+        Dim ActividadEspecifica As String = "" ' Etiqueta : Actividad Especï¿½fica - Control : txtActividadEspecifica - Variable : ActividadEspecifica
+        Dim ActividadPublicoObjetivo As String = "" ' Etiqueta : Pï¿½blico Objetivo - Control : txtActividadPublicoObjetivo - Variable : ActividadPublicoObjetivo
         Dim ActividadOtrasObservaciones As String = "" ' Etiqueta : Otras Observaciones - Control : txtActividadOtrasObservaciones - Variable : ActividadOtrasObservaciones
         Dim CargosCodigo As String = "" ' Etiqueta : Cargo Responsable - Control : txtCargosCodigo - Variable : CargosCodigo
         Dim ActividadesHH As Double ' Etiqueta : HH Estimadas - Control : txtActividadesHH - Variable : ActividadesHH
@@ -1322,26 +1329,26 @@ Public Class AccionesABM
         Dim ActividadesEnNoviembre As Long ' Etiqueta : # Actividades En Noviembre - Control : txtActividadesEnNoviembre - Variable : ActividadesEnNoviembre
         Dim ActividadesEnDiciembre As Long ' Etiqueta : # Actividades En Diciembre - Control : txtActividadesEnDiciembre - Variable : ActividadesEnDiciembre
         '----------------------------------------
-        ' Declaración de Campos de la Tabla Tareas
+        ' Declaraciï¿½n de Campos de la Tabla Tareas
         '----------------------------------------
         Dim TareasId As Long
-        Dim TareasCodigo As String = "" ' Etiqueta : Código Tarea - Control : txtTareasCodigo - Variable : TareasCodigo
+        Dim TareasCodigo As String = "" ' Etiqueta : Cï¿½digo Tarea - Control : txtTareasCodigo - Variable : TareasCodigo
         Dim TareasName As String = "" ' Etiqueta : Objetivo - Control : txtTareasName - Variable : TareasName
-        Dim TareasDescription As String = "" ' Etiqueta : Descripción - Control : txtTareasDescription - Variable : TareasDescription
-        'Dim PGGCodigo As String ' Etiqueta : Código del PGG - Control : txtPGGCodigo - Variable : PGGCodigo
-        'Dim AccionesCodigo As String ' Etiqueta : Acción del PGG - Control : txtAccionesCodigo - Variable : AccionesCodigo
+        Dim TareasDescription As String = "" ' Etiqueta : Descripciï¿½n - Control : txtTareasDescription - Variable : TareasDescription
+        'Dim PGGCodigo As String ' Etiqueta : Cï¿½digo del PGG - Control : txtPGGCodigo - Variable : PGGCodigo
+        'Dim AccionesCodigo As String ' Etiqueta : Acciï¿½n del PGG - Control : txtAccionesCodigo - Variable : AccionesCodigo
         Dim ActividadesSecuencia As Long = 0 ' Etiqueta : Secuencia de Actividad - Control : txtActividadesSecuencia - Variable : ActividadesSecuencia
         Dim TareasMes As Long = 0 ' Etiqueta : Mes - Control : txtTareasMes - Variable : TareasMes
-        Dim TareasAno As String = "" ' Etiqueta : Año - Control : txtTareasAno - Variable : TareasAno
+        Dim TareasAno As String = "" ' Etiqueta : Aï¿½o - Control : txtTareasAno - Variable : TareasAno
         Dim TareasSecuencia As Long = 0 ' Etiqueta : # de actividad - Control : txtTareasSecuencia - Variable : TareasSecuencia
         Dim UsuariosCodigo As String = "" ' Etiqueta : Responsable - Control : txtUsuariosCodigo - Variable : UsuariosCodigo
         Dim TareasHH As Double = 0 ' Etiqueta : HH Estimadas - Control : txtTareasHH - Variable : TareasHH
         Dim TareasUSD As Double = 0 ' Etiqueta : Costo Estimado (USD) - Control : txtTareasUSD - Variable : TareasUSD
-        Dim DiaMinimoInicio As Long = 0 ' Etiqueta : Mínimo día de inicio - Control : txtDiaMinimoInicio - Variable : DiaMinimoInicio
-        Dim DiaMaximoTermino As Long = 0 ' Etiqueta : Max. Día de Término - Control : txtDiaMaximoTermino - Variable : DiaMaximoTermino
-        Dim TareasDiaProgramado As Long = 0 ' Etiqueta : Día sugerido - Control : txtTareasDiaProgramado - Variable : TareasDiaProgramado
+        Dim DiaMinimoInicio As Long = 0 ' Etiqueta : Mï¿½nimo dï¿½a de inicio - Control : txtDiaMinimoInicio - Variable : DiaMinimoInicio
+        Dim DiaMaximoTermino As Long = 0 ' Etiqueta : Max. Dï¿½a de Tï¿½rmino - Control : txtDiaMaximoTermino - Variable : DiaMaximoTermino
+        Dim TareasDiaProgramado As Long = 0 ' Etiqueta : Dï¿½a sugerido - Control : txtTareasDiaProgramado - Variable : TareasDiaProgramado
         Dim TareasTipo As String = "Tarea Programada" ' Etiqueta : Tipo de Tarea - Control : txtTareasTipo - Variable : TareasTipo
-        Dim TareasDiaRealTermino As Long = 0 ' Etiqueta : Día Real de Término - Control : txtTareasDiaRealTermino - Variable : TareasDiaRealTermino
+        Dim TareasDiaRealTermino As Long = 0 ' Etiqueta : Dï¿½a Real de Tï¿½rmino - Control : txtTareasDiaRealTermino - Variable : TareasDiaRealTermino
         Dim TareasHHConsumidas As Double = 0 ' Etiqueta : HH Consumidas - Control : txtTareasHHConsumidas - Variable : TareasHHConsumidas
         Dim TareasUSDConsumidos As Double = 0 ' Etiqueta : Costo Real (USD) - Control : txtTareasUSDConsumidos - Variable : TareasUSDConsumidos
         Dim EstadoTareasCodigo As String = "Asignada" ' Etiqueta : Estado de Tarea - Control : txtEstadoTareasCodigo - Variable : EstadoTareasCodigo
@@ -1350,7 +1357,7 @@ Public Class AccionesABM
 
         CrearTareasPorActividad = 0
 
-        ' Leer PGG y la Acción asociada
+        ' Leer PGG y la Acciï¿½n asociada
 
         t = PGG.LeerPGG(PGGId, PGGCodigo, PGGName, PGGAno, ProyectosCodigo, GerenciasCodigoPGG, PGGElaboradoPor, PGGRevisadoPor, PGGAprobadoPor, PGGCoordinadoPor, PGGResponsableSSO, PGGResponsableC, PGGResponsableMA, PGGResponsableQ)
         t = Actividades.LeerActividades(ActividadesId, AccionesCodigo, ActividadesSecuenciaACT, ActividadObjetivo, ActividadEspecifica, ActividadPublicoObjetivo, ActividadOtrasObservaciones, CargosCodigo, ActividadesHH, ActividadesUSD, ActividadesEnEnero, ActividadesEnFebrero, ActividadesEnMarzo, ActividadesEnAbril, ActividadesEnMayo, ActividadesEnJunio, ActividadesEnJulio, ActividadesEnAgosto, ActividadesEnSeptiembre, ActividadesEnOctubre, ActividadesEnNoviembre, ActividadesEnDiciembre)
@@ -1372,30 +1379,30 @@ Public Class AccionesABM
         For k = 0 To 11
             TotalTareas = TotalTareas + ActividadesPorMes(k)
         Next
-        ' Vemos si hay más de un usuario para el cargo asignado a la tarea
-        ' Si es así este es un factor multiplicador para el número de tareas a generar
+        ' Vemos si hay mï¿½s de un usuario para el cargo asignado a la tarea
+        ' Si es asï¿½ este es un factor multiplicador para el nï¿½mero de tareas a generar
         ' Aqui se incorporo un cambio y se ve que usuarios hay por actividad ya que al crear la
         ' actividad ahora se puede seleccionar que usuarios que ocupan el cargo la ejecutan ya que
-        ' en algunos casos no son todos.  Para efectos prácticos se creara otro metodo dependiendo de
+        ' en algunos casos no son todos.  Para efectos prï¿½cticos se creara otro metodo dependiendo de
         ' la tabla de actividades y de la tabla de usuarios por actividad
         UsuariosPorCargo = Actividades.LeerUsuariosCodigoPorActividad(ActividadesId, TablaUsuariosPorCargo)
         TotalTareas = TotalTareas * UsuariosPorCargo
-        ' Se verifica que el número de tareas sea mayor a 0, para crear tareas
+        ' Se verifica que el nï¿½mero de tareas sea mayor a 0, para crear tareas
         If (TotalTareas > 0 And UsuariosPorCargo > 0) Then
             'Inicializo variable para crear una tarea
-            TareasCodigo = "" ' Se reasigna más adelante
+            TareasCodigo = "" ' Se reasigna mï¿½s adelante
             TareasName = ActividadObjetivo
-            TareasDescription = "Actividad Especifica: " & ActividadEspecifica & " Público Objetivo: " & ActividadPublicoObjetivo & " Otras Observaciones: " & ActividadOtrasObservaciones
+            TareasDescription = "Actividad Especifica: " & ActividadEspecifica & " Pï¿½blico Objetivo: " & ActividadPublicoObjetivo & " Otras Observaciones: " & ActividadOtrasObservaciones
             ActividadesSecuencia = ActividadesSecuenciaACT
-            TareasMes = 0 ' Se reasigna más adelante
+            TareasMes = 0 ' Se reasigna mï¿½s adelante
             TareasAno = PGGAno
-            TareasSecuencia = 1 ' Se reasigna más adelante
-            UsuariosCodigo = "" ' Se reasigna porque es un factor multiplicador de tareas en caso de que para un cargo exista más de un usuario
-            TareasHH = (ActividadesHH / 100) / TotalTareas ' Se asume una distribución uniforme de las HH por cada tarea
+            TareasSecuencia = 1 ' Se reasigna mï¿½s adelante
+            UsuariosCodigo = "" ' Se reasigna porque es un factor multiplicador de tareas en caso de que para un cargo exista mï¿½s de un usuario
+            TareasHH = (ActividadesHH / 100) / TotalTareas ' Se asume una distribuciï¿½n uniforme de las HH por cada tarea
             TareasUSD = (ActividadesUSD / 100) / TotalTareas ' idem anterior
-            DiaMinimoInicio = 1 ' Se reasigna más adelante
-            DiaMaximoTermino = 28 ' Se reasigna más adelante
-            TareasDiaProgramado = 14 ' Se reasigna más adelante
+            DiaMinimoInicio = 1 ' Se reasigna mï¿½s adelante
+            DiaMaximoTermino = 28 ' Se reasigna mï¿½s adelante
+            TareasDiaProgramado = 14 ' Se reasigna mï¿½s adelante
             TareasTipo = "Tarea Programada"
             TareasDiaRealTermino = 0
             TareasHHConsumidas = 0
@@ -1415,7 +1422,7 @@ Public Class AccionesABM
                         For j = 0 To UsuariosPorCargo - 1
                             TareasCodigo = PGGCodigo & "-" & AccionesCodigo & "-" & ActividadesSecuencia & "-" & TablaUsuariosPorCargo(j) & "-" & TareasAno & "-" & TareasMes & "-" & TareasSecuencia
                             t = AccionesABM.MasterPartialInsert("TareasId", "TareasCodigo", "Tareas", TareasCodigo, UserId, TareasId)
-                            TareasCodigo = TareasCodigo & "-" & TareasId 'SE agrega el Id de la Tarea para asegurar que el código sea único
+                            TareasCodigo = TareasCodigo & "-" & TareasId 'SE agrega el Id de la Tarea para asegurar que el cï¿½digo sea ï¿½nico
                             t = Tareas.TareasUpdate(TareasId, TareasCodigo, TareasName, TareasDescription, PGGCodigo, AccionesCodigo, CLng(ActividadesSecuencia), CLng(TareasMes), TareasAno, CLng(TareasSecuencia), TablaUsuariosPorCargo(j), CDbl(TareasHH * 100), CDbl(TareasUSD * 100), CLng(DiaMinimoInicio), CLng(DiaMaximoTermino), CLng(TareasDiaProgramado), TareasTipo, CLng(TareasDiaRealTermino), CDbl(TareasHHConsumidas * 100), CDbl(TareasUSDConsumidos * 100), EstadoTareasCodigo, UserId)
                             t = Tareas.TareasEjecutorUpdate(TareasId, TareasCodigo, TablaUsuariosPorCargo(j), AccionesCodigo, UserId)
                             CrearTareasPorActividad = CrearTareasPorActividad + 1
@@ -1447,25 +1454,25 @@ Public Class AccionesABM
         Dim Cuerpo As String = ""
 
         '----------------------------------------
-        ' Declaración de Campos de la Tabla Tareas
+        ' Declaraciï¿½n de Campos de la Tabla Tareas
         '----------------------------------------
-        Dim TareasCodigo As String = "" ' Etiqueta : Código Tarea - Control : txtTareasCodigo - Variable : TareasCodigo
+        Dim TareasCodigo As String = "" ' Etiqueta : Cï¿½digo Tarea - Control : txtTareasCodigo - Variable : TareasCodigo
         Dim TareasName As String = "" ' Etiqueta : Objetivo - Control : txtTareasName - Variable : TareasName
-        Dim TareasDescription As String = "" ' Etiqueta : Descripción - Control : txtTareasDescription - Variable : TareasDescription
-        Dim PGGCodigo As String = "" ' Etiqueta : Código del PGG - Control : txtPGGCodigo - Variable : PGGCodigo
-        Dim AccionesCodigo As String = "" ' Etiqueta : Acción del PGG - Control : txtAccionesCodigo - Variable : AccionesCodigo
+        Dim TareasDescription As String = "" ' Etiqueta : Descripciï¿½n - Control : txtTareasDescription - Variable : TareasDescription
+        Dim PGGCodigo As String = "" ' Etiqueta : Cï¿½digo del PGG - Control : txtPGGCodigo - Variable : PGGCodigo
+        Dim AccionesCodigo As String = "" ' Etiqueta : Acciï¿½n del PGG - Control : txtAccionesCodigo - Variable : AccionesCodigo
         Dim ActividadesSecuencia As Long = 0 ' Etiqueta : Secuencia de Actividad - Control : txtActividadesSecuencia - Variable : ActividadesSecuencia
         Dim TareasMes As Long = 0 ' Etiqueta : Mes - Control : txtTareasMes - Variable : TareasMes
-        Dim TareasAno As String = "" ' Etiqueta : Año - Control : txtTareasAno - Variable : TareasAno
+        Dim TareasAno As String = "" ' Etiqueta : Aï¿½o - Control : txtTareasAno - Variable : TareasAno
         Dim TareasSecuencia As Long = 0 ' Etiqueta : # de actividad - Control : txtTareasSecuencia - Variable : TareasSecuencia
         Dim UsuariosCodigo As String = "" ' Etiqueta : Responsable - Control : txtUsuariosCodigo - Variable : UsuariosCodigo
         Dim TareasHH As Double = 0 ' Etiqueta : HH Estimadas - Control : txtTareasHH - Variable : TareasHH
         Dim TareasUSD As Double = 0 ' Etiqueta : Costo Estimado (USD) - Control : txtTareasUSD - Variable : TareasUSD
-        Dim DiaMinimoInicio As Long = 0 ' Etiqueta : Mínimo día de inicio - Control : txtDiaMinimoInicio - Variable : DiaMinimoInicio
-        Dim DiaMaximoTermino As Long = 0 ' Etiqueta : Max. Día de Término - Control : txtDiaMaximoTermino - Variable : DiaMaximoTermino
-        Dim TareasDiaProgramado As Long = 0 ' Etiqueta : Día sugerido - Control : txtTareasDiaProgramado - Variable : TareasDiaProgramado
+        Dim DiaMinimoInicio As Long = 0 ' Etiqueta : Mï¿½nimo dï¿½a de inicio - Control : txtDiaMinimoInicio - Variable : DiaMinimoInicio
+        Dim DiaMaximoTermino As Long = 0 ' Etiqueta : Max. Dï¿½a de Tï¿½rmino - Control : txtDiaMaximoTermino - Variable : DiaMaximoTermino
+        Dim TareasDiaProgramado As Long = 0 ' Etiqueta : Dï¿½a sugerido - Control : txtTareasDiaProgramado - Variable : TareasDiaProgramado
         Dim TareasTipo As String = "Tarea Programada" ' Etiqueta : Tipo de Tarea - Control : txtTareasTipo - Variable : TareasTipo
-        Dim TareasDiaRealTermino As Long = 0 ' Etiqueta : Día Real de Término - Control : txtTareasDiaRealTermino - Variable : TareasDiaRealTermino
+        Dim TareasDiaRealTermino As Long = 0 ' Etiqueta : Dï¿½a Real de Tï¿½rmino - Control : txtTareasDiaRealTermino - Variable : TareasDiaRealTermino
         Dim TareasHHConsumidas As Double = 0 ' Etiqueta : HH Consumidas - Control : txtTareasHHConsumidas - Variable : TareasHHConsumidas
         Dim TareasUSDConsumidos As Double = 0 ' Etiqueta : Costo Real (USD) - Control : txtTareasUSDConsumidos - Variable : TareasUSDConsumidos
         Dim EstadoTareasCodigo As String = "Asignada" ' Etiqueta : Estado de Tarea - Control : txtEstadoTareasCodigo - Variable : EstadoTareasCodigo
@@ -1492,12 +1499,12 @@ Public Class AccionesABM
         End If
 
         If TareasMes = NumeroMesEnCurso Then
-            definition.Subject = "Aviso de Tarea Próxima a su Vencimiento dentro del mes en curso" ' Tarea Próxima a vencer
+            definition.Subject = "Aviso de Tarea Prï¿½xima a su Vencimiento dentro del mes en curso" ' Tarea Prï¿½xima a vencer
             Cuerpo = "Recordamos a usted ejecutar la tarea solicitada"
         End If
         If TareasMes > NumeroMesEnCurso Then
-            definition.Subject = "Aviso de Asignación de Tarea" ' Aviso de Asignación de Tarea
-            Cuerpo = "Solicitamos nos confirme su aceptación a la tarea solicitada"
+            definition.Subject = "Aviso de Asignaciï¿½n de Tarea" ' Aviso de Asignaciï¿½n de Tarea
+            Cuerpo = "Solicitamos nos confirme su aceptaciï¿½n a la tarea solicitada"
         End If
 
         definition.From = "sgi@zrismart.cl"
@@ -1553,30 +1560,30 @@ Public Class AccionesABM
         Dim Hasta As String = ""
 
         '----------------------------------------
-        ' Declaración de Campos de la Tabla Tareas
+        ' Declaraciï¿½n de Campos de la Tabla Tareas
         '----------------------------------------
-        Dim TareasCodigo As String = "" ' Etiqueta : Código Tarea - Control : txtTareasCodigo - Variable : TareasCodigo
+        Dim TareasCodigo As String = "" ' Etiqueta : Cï¿½digo Tarea - Control : txtTareasCodigo - Variable : TareasCodigo
         Dim TareasName As String = "" ' Etiqueta : Objetivo - Control : txtTareasName - Variable : TareasName
-        Dim TareasDescription As String = "" ' Etiqueta : Descripción - Control : txtTareasDescription - Variable : TareasDescription
-        Dim PGGCodigo As String = "" ' Etiqueta : Código del PGG - Control : txtPGGCodigo - Variable : PGGCodigo
-        Dim AccionesCodigo As String = "" ' Etiqueta : Acción del PGG - Control : txtAccionesCodigo - Variable : AccionesCodigo
+        Dim TareasDescription As String = "" ' Etiqueta : Descripciï¿½n - Control : txtTareasDescription - Variable : TareasDescription
+        Dim PGGCodigo As String = "" ' Etiqueta : Cï¿½digo del PGG - Control : txtPGGCodigo - Variable : PGGCodigo
+        Dim AccionesCodigo As String = "" ' Etiqueta : Acciï¿½n del PGG - Control : txtAccionesCodigo - Variable : AccionesCodigo
         Dim ActividadesSecuencia As Long = 0 ' Etiqueta : Secuencia de Actividad - Control : txtActividadesSecuencia - Variable : ActividadesSecuencia
         Dim TareasMes As Long = 0 ' Etiqueta : Mes - Control : txtTareasMes - Variable : TareasMes
-        Dim TareasAno As String = "" ' Etiqueta : Año - Control : txtTareasAno - Variable : TareasAno
+        Dim TareasAno As String = "" ' Etiqueta : Aï¿½o - Control : txtTareasAno - Variable : TareasAno
         Dim TareasSecuencia As Long = 0 ' Etiqueta : # de actividad - Control : txtTareasSecuencia - Variable : TareasSecuencia
         Dim UsuariosCodigo As String = "" ' Etiqueta : Responsable - Control : txtUsuariosCodigo - Variable : UsuariosCodigo
         Dim TareasHH As Double = 0 ' Etiqueta : HH Estimadas - Control : txtTareasHH - Variable : TareasHH
         Dim TareasUSD As Double = 0 ' Etiqueta : Costo Estimado (USD) - Control : txtTareasUSD - Variable : TareasUSD
-        Dim DiaMinimoInicio As Long = 0 ' Etiqueta : Mínimo día de inicio - Control : txtDiaMinimoInicio - Variable : DiaMinimoInicio
-        Dim DiaMaximoTermino As Long = 0 ' Etiqueta : Max. Día de Término - Control : txtDiaMaximoTermino - Variable : DiaMaximoTermino
-        Dim TareasDiaProgramado As Long = 0 ' Etiqueta : Día sugerido - Control : txtTareasDiaProgramado - Variable : TareasDiaProgramado
+        Dim DiaMinimoInicio As Long = 0 ' Etiqueta : Mï¿½nimo dï¿½a de inicio - Control : txtDiaMinimoInicio - Variable : DiaMinimoInicio
+        Dim DiaMaximoTermino As Long = 0 ' Etiqueta : Max. Dï¿½a de Tï¿½rmino - Control : txtDiaMaximoTermino - Variable : DiaMaximoTermino
+        Dim TareasDiaProgramado As Long = 0 ' Etiqueta : Dï¿½a sugerido - Control : txtTareasDiaProgramado - Variable : TareasDiaProgramado
         Dim TareasTipo As String = "Tarea Programada" ' Etiqueta : Tipo de Tarea - Control : txtTareasTipo - Variable : TareasTipo
-        Dim TareasDiaRealTermino As Long = 0 ' Etiqueta : Día Real de Término - Control : txtTareasDiaRealTermino - Variable : TareasDiaRealTermino
+        Dim TareasDiaRealTermino As Long = 0 ' Etiqueta : Dï¿½a Real de Tï¿½rmino - Control : txtTareasDiaRealTermino - Variable : TareasDiaRealTermino
         Dim TareasHHConsumidas As Double = 0 ' Etiqueta : HH Consumidas - Control : txtTareasHHConsumidas - Variable : TareasHHConsumidas
         Dim TareasUSDConsumidos As Double = 0 ' Etiqueta : Costo Real (USD) - Control : txtTareasUSDConsumidos - Variable : TareasUSDConsumidos
         Dim EstadoTareasCodigo As String = "Asignada" ' Etiqueta : Estado de Tarea - Control : txtEstadoTareasCodigo - Variable : EstadoTareasCodigo
         '----------------------------------------
-        ' Declaración de Campos de la Aplicación
+        ' Declaraciï¿½n de Campos de la Aplicaciï¿½n
         '----------------------------------------
         'Dim TareasCodigo As String ' Etiqueta : Tarea # - Control : txtTareasCodigo - Variable : TareasCodigo
         Dim TareasNotasSecuencia As Long ' Etiqueta : Secuencia - Control : txtTareasNotasSecuencia - Variable : TareasNotasSecuencia

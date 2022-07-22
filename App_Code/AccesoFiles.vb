@@ -2156,7 +2156,7 @@ Public Class AccesoFiles
             ' Inserción de las columnas de la grilla
 
             sSQL = "Select EntidadNombreTabla, AttrEntidadSecuencia, AttrEntidadColumnName, AttrEntidadColumnDescription, AttrEntidadColumnOrdinal, AttrEntidadColumnDataType, AttrEntidadColumnSize, AttrEntidadIsRequerido, AttrEntidadDomainField, AttrEntidadIsForeignKey, AttrEntidadForeignTable, AttrEntidadForeignSQL, AttrEntidadColumnLabel, AttrEntidadColumnControlName, AttrEntidadColumnControlBase, AttrEntidadColumnTextMode, AttrEntidadColumnToolTip, AttrEntidadIsFilterField, AttrEntidadIsColumnField, AttrEntidadColumnNumber, AttrEntidadColumnHeader, AttrEntidadIsInVistaValidar, AttrEntidadIsEnabledInVistaMantener, AttrEntidadIsAutocomplete, AttrEntidadAutocompleteMethod, AttrEntidadColumnGroupNumber, AttrEntidadColumnGroupOrdinal, AttrEntidadColumnGroupName "
-            sSQL = sSQL & "FROM (AttrEntidad) "
+            sSQL = sSQL & "FROM AttrEntidad "
             sSQL = sSQL & "WHERE (AttrEntidad.EntidadNombreTabla = '" & NombreTabla & "' AND AttrEntidad.AttrEntidadIsColumnField = True) ORDER By AttrEntidadColumnNumber "
 
             dtr = AccesoEA.ListarRegistros(sSQL)
@@ -2445,7 +2445,7 @@ Public Class AccesoFiles
             Dim LeafSecuencia = 0
             Dim sSQL As String = ""
             sSQL = "Select EntidadNombreTabla, AttrEntidadSecuencia, AttrEntidadColumnName, AttrEntidadColumnDescription, AttrEntidadColumnOrdinal, AttrEntidadColumnDataType, AttrEntidadColumnSize, AttrEntidadIsRequerido, AttrEntidadDomainField, AttrEntidadIsForeignKey, AttrEntidadForeignTable, AttrEntidadForeignSQL, AttrEntidadColumnLabel, AttrEntidadColumnControlName, AttrEntidadColumnControlBase, AttrEntidadColumnTipoControl, AttrEntidadColumnControlWidth, AttrEntidadColumnTextMode, AttrEntidadColumnToolTip, AttrEntidadIsFilterField, AttrEntidadIsColumnField, AttrEntidadColumnNumber, AttrEntidadColumnHeader, AttrEntidadIsInVistaValidar, AttrEntidadIsEnabledInVistaMantener, AttrEntidadIsAutocomplete, AttrEntidadAutocompleteMethod, AttrEntidadColumnGroupNumber, AttrEntidadColumnGroupOrdinal, AttrEntidadColumnGroupName "
-            sSQL = sSQL & "FROM (AttrEntidad) "
+            sSQL = sSQL & "FROM AttrEntidad "
             sSQL = sSQL & "Where AttrEntidad.AttrEntidadIsFormKeys = true and AttrEntidad.EntidadNombreTabla = '" & NombreTabla & "' order by AttrEntidad.AttrEntidadColumnGroupOrdinal"
 
             dtrLeaf = AccesoEA.ListarRegistros(sSQL)
@@ -2535,7 +2535,7 @@ Public Class AccesoFiles
                     LeafSecuencia = 0
                     sSQL = ""
                     sSQL = "Select EntidadNombreTabla, AttrEntidadSecuencia, AttrEntidadColumnName, AttrEntidadColumnDescription, AttrEntidadColumnOrdinal, AttrEntidadColumnDataType, AttrEntidadColumnSize, AttrEntidadIsRequerido, AttrEntidadDomainField, AttrEntidadIsForeignKey, AttrEntidadForeignTable, AttrEntidadForeignSQL, AttrEntidadColumnLabel, AttrEntidadColumnControlName, AttrEntidadColumnControlBase, AttrEntidadColumnTipoControl, AttrEntidadColumnControlWidth, AttrEntidadColumnTextMode, AttrEntidadColumnToolTip, AttrEntidadIsFilterField, AttrEntidadIsColumnField, AttrEntidadColumnNumber, AttrEntidadColumnHeader, AttrEntidadIsInVistaValidar, AttrEntidadIsEnabledInVistaMantener, AttrEntidadIsAutocomplete, AttrEntidadAutocompleteMethod, AttrEntidadColumnGroupNumber, AttrEntidadColumnGroupOrdinal, AttrEntidadColumnGroupName "
-                    sSQL = sSQL & "FROM (AttrEntidad) "
+                    sSQL = sSQL & "FROM AttrEntidad "
                     sSQL = sSQL & "Where AttrEntidad.AttrEntidadColumnGroupName = '" & GroupName & "' and AttrEntidad.EntidadNombreTabla = '" & NombreTabla & "' order by AttrEntidad.AttrEntidadColumnGroupOrdinal"
 
                     dtrLeaf = AccesoEA.ListarRegistros(sSQL)
@@ -2838,7 +2838,7 @@ Public Class AccesoFiles
                 LeafSecuencia = 0
 
                 sSQL = "Select EntidadNombreTabla, AttrEntidadSecuencia, AttrEntidadColumnName, AttrEntidadColumnDescription, AttrEntidadColumnOrdinal, AttrEntidadColumnDataType, AttrEntidadColumnSize, AttrEntidadIsRequerido, AttrEntidadDomainField, AttrEntidadIsForeignKey, AttrEntidadForeignTable, AttrEntidadForeignSQL, AttrEntidadColumnLabel, AttrEntidadColumnControlName, AttrEntidadColumnControlBase, AttrEntidadColumnTextMode, AttrEntidadColumnToolTip, AttrEntidadIsFilterField, AttrEntidadIsColumnField, AttrEntidadColumnNumber, AttrEntidadColumnHeader, AttrEntidadIsInVistaValidar, AttrEntidadIsEnabledInVistaMantener, AttrEntidadIsAutocomplete, AttrEntidadAutocompleteMethod, AttrEntidadColumnGroupNumber, AttrEntidadColumnGroupOrdinal, AttrEntidadColumnGroupName "
-                sSQL = sSQL & "FROM (AttrEntidad) "
+                sSQL = sSQL & "FROM AttrEntidad "
                 sSQL = sSQL & "WHERE (AttrEntidad.EntidadNombreTabla = '" & TablaHija & "' AND AttrEntidad.AttrEntidadIsColumnField = True) ORDER By AttrEntidadColumnNumber "
 
                 dtr = AccesoEA.ListarRegistros(sSQL)
@@ -3075,7 +3075,7 @@ Public Class AccesoFiles
             Dim LeafSecuencia = 0
             Dim sSQL As String = ""
             sSQL = "Select EntidadNombreTabla, AttrEntidadSecuencia, AttrEntidadColumnName, AttrEntidadColumnDescription, AttrEntidadColumnOrdinal, AttrEntidadColumnDataType, AttrEntidadColumnSize, AttrEntidadIsRequerido, AttrEntidadDomainField, AttrEntidadIsForeignKey, AttrEntidadForeignTable, AttrEntidadForeignSQL, AttrEntidadColumnLabel, AttrEntidadColumnControlName, AttrEntidadColumnControlBase, AttrEntidadColumnTipoControl, AttrEntidadColumnControlWidth, AttrEntidadColumnTextMode, AttrEntidadColumnToolTip, AttrEntidadIsFilterField, AttrEntidadIsColumnField, AttrEntidadColumnNumber, AttrEntidadColumnHeader, AttrEntidadIsInVistaValidar, AttrEntidadIsEnabledInVistaMantener, AttrEntidadIsAutocomplete, AttrEntidadAutocompleteMethod, AttrEntidadColumnGroupNumber, AttrEntidadColumnGroupOrdinal, AttrEntidadColumnGroupName "
-            sSQL = sSQL & "FROM (AttrEntidad) "
+            sSQL = sSQL & "FROM AttrEntidad "
             sSQL = sSQL & "Where AttrEntidad.AttrEntidadIsFormKeys = true and AttrEntidad.EntidadNombreTabla = '" & NombreTabla & "' order by AttrEntidad.AttrEntidadColumnGroupOrdinal"
 
             dtrLeaf = AccesoEA.ListarRegistros(sSQL)
@@ -3346,7 +3346,7 @@ Public Class AccesoFiles
             Dim LeafSecuencia = 0
             Dim sSQL As String = ""
             sSQL = "Select EntidadNombreTabla, AttrEntidadSecuencia, AttrEntidadColumnName, AttrEntidadColumnDescription, AttrEntidadColumnOrdinal, AttrEntidadColumnDataType, AttrEntidadColumnSize, AttrEntidadIsRequerido, AttrEntidadDomainField, AttrEntidadIsForeignKey, AttrEntidadForeignTable, AttrEntidadForeignSQL, AttrEntidadColumnLabel, AttrEntidadColumnControlName, AttrEntidadColumnControlBase, AttrEntidadColumnTipoControl, AttrEntidadColumnControlWidth, AttrEntidadColumnTextMode, AttrEntidadColumnToolTip, AttrEntidadIsFilterField, AttrEntidadIsColumnField, AttrEntidadColumnNumber, AttrEntidadColumnHeader, AttrEntidadIsInVistaValidar, AttrEntidadIsEnabledInVistaMantener, AttrEntidadIsAutocomplete, AttrEntidadAutocompleteMethod, AttrEntidadColumnGroupNumber, AttrEntidadColumnGroupOrdinal, AttrEntidadColumnGroupName "
-            sSQL = sSQL & "FROM (AttrEntidad) "
+            sSQL = sSQL & "FROM AttrEntidad "
             sSQL = sSQL & "Where AttrEntidad.AttrEntidadIsFilterField = true and AttrEntidad.EntidadNombreTabla = '" & NombreTabla & "' order by AttrEntidad.AttrEntidadSecuencia"
 
             dtrLeaf = AccesoEA.ListarRegistros(sSQL)

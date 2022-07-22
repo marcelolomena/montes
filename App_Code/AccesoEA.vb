@@ -25,23 +25,23 @@ Public Class AccesoEA
             'Return Nothing
             Console.WriteLine(ex.ToString)
             Console.WriteLine()
-            Return Nothing
+            'Return Nothing
         End Try
     End Function
     Public Function ABMRegistros(ByVal sSQL As String) As Integer
 
         'cn = New OleDbConnection("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=|DataDirectory|\BDCAS.mdb")
         cn = New SqlConnection("Server=localhost;UID=sa;PWD=Password_01;Database=montes")
-        'Console.WriteLine("picochico!!!!!!!!")
-        cn.Open()
-
-        cmd = New SqlCommand(sSQL, cn)
-        'cmd = New OleDbCommand(sSQL, cn)
-
         Try
+            cn.Open()
+            Console.WriteLine(sSQL)
+            cmd = New SqlCommand(sSQL, cn)
+            'cmd = New OleDbCommand(sSQL, cn)
+        
+
             ABMRegistros = cmd.ExecuteNonQuery
         Catch ex As Exception
-            MsgBox("Could not connect")
+            Console.WriteLine(ex.ToString)
             ABMRegistros = 0
         End Try
 

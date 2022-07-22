@@ -128,7 +128,7 @@ Public Class CarpetaJudicialAvales
         TareasLogActividad = "Elimina Aval: " & CarpetaJudicialAvales.LeerCarpetaJudicialAvalesNombre(CarpetaJudicialAvalesId)
 
         strUpdate = "Delete "
-        strUpdate = strUpdate & "FROM (CarpetaJudicialAvales) "
+        strUpdate = strUpdate & "FROM CarpetaJudicialAvales "
         strUpdate = strUpdate & "WHERE (CarpetaJudicialAvales.CarpetaJudicialAvalesId = " & CarpetaJudicialAvalesId & ") "
 
         Try

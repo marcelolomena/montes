@@ -16,7 +16,7 @@ Public Class Usuarios
         Dim dtr As IDataReader
         Dim sSQL As String
         sSQL = "Select UsuariosCodigo, UsuariosClave, UsuariosName, RolName, UsuariosProfesion, UsuariosUniversidad, UsuariosCelular, UsuariosTelefonoFijo, UsuariosDireccion1, UsuariosDireccion2, UsuariosCorreo2 "
-        sSQL = sSQL & "FROM [montes].[dbo].Usuarios "
+        sSQL = sSQL & "FROM Usuarios "
         sSQL = sSQL & "WHERE (Usuarios.UsuariosId = " & UsuariosId & ") "
         Try
             dtr = AccesoEA.ListarRegistros(sSQL)
@@ -44,7 +44,7 @@ Public Class Usuarios
         Dim dtr As IDataReader
         Dim sSQL As String
         sSQL = "Select UsuariosId "
-        sSQL = sSQL & "FROM [montes].[dbo].Usuarios "
+        sSQL = sSQL & "FROM Usuarios "
         sSQL = sSQL & "WHERE (Usuarios.UsuariosCodigo = '" & UsuariosCodigo & "') "
         Try
             dtr = AccesoEA.ListarRegistros(sSQL)
@@ -62,7 +62,7 @@ Public Class Usuarios
         Dim dtr As IDataReader
         Dim sSQL As String
         sSQL = "Select UsuariosCodigo "
-        sSQL = sSQL & "FROM [montes].[dbo].Usuarios "
+        sSQL = sSQL & "FROM Usuarios "
         sSQL = sSQL & "WHERE (Usuarios.Usuariosid = " & UsuariosId & ") "
         Try
             dtr = AccesoEA.ListarRegistros(sSQL)
@@ -82,7 +82,7 @@ Public Class Usuarios
         Dim strUpdate As String
         Dim AccionesABM As New AccionesABM
         Dim t As Integer = 0
-        strUpdate = "UPDATE [montes].[dbo].Usuarios SET "
+        strUpdate = "UPDATE Usuarios SET "
         strUpdate = strUpdate & "Usuarios.UsuariosCodigo = '" & UsuariosCodigo & "', "
         strUpdate = strUpdate & "Usuarios.UsuariosClave = '" & UsuariosClave & "', "
         strUpdate = strUpdate & "Usuarios.UsuariosName = '" & UsuariosName & "', "
@@ -136,7 +136,7 @@ Public Class Usuarios
         Dim sSQL As String
 
         sSQL = "Select Usuarios.UsuariosId, Usuarios.UsuariosName,  Usuarios.RolName, Roles.RolId "
-        sSQL = sSQL & "FROM [montes].[dbo].Usuarios, [montes].[dbo].Roles "
+        sSQL = sSQL & "FROM Usuarios, Roles "
         sSQL = sSQL & "WHERE Usuarios.UsuariosCodigo = '" & UsuariosCodigo & "' AND Usuarios.UsuariosClave = '" & UsuariosClave & "' AND Roles.RolName = Usuarios.RolName AND Usuarios.UsuariosEstado = 'Activo'"
 
         ValidarUsuario = False
@@ -162,7 +162,7 @@ Public Class Usuarios
         Dim dtr As IDataReader
         Dim sSQL As String
         sSQL = "Select UsuariosName "
-        sSQL = sSQL & "FROM [montes].[dbo].Usuarios "
+        sSQL = sSQL & "FROM Usuarios "
         sSQL = sSQL & "WHERE (Usuarios.UsuariosCodigo = '" & UsuariosCodigo & "') "
         LeerUsuariosDescriptionByName = ""
         Try
@@ -182,7 +182,7 @@ Public Class Usuarios
         Dim AccionesABM As New AccionesABM
 
         Dim t As Integer = 0
-        strUpdate = "UPDATE [montes].[dbo].Usuarios SET "
+        strUpdate = "UPDATE Usuarios SET "
         strUpdate = strUpdate & "Usuarios.UsuariosEstado = 'Inactivo', "
         strUpdate = strUpdate & "Usuarios.DateLastUpdate = '" & AccionesABM.DateTransform(Now()) & "', "
         strUpdate = strUpdate & "Usuarios.UserLastUpdate = " & UserId & " "
@@ -201,7 +201,7 @@ Public Class Usuarios
         Dim sSQL As String
         Dim Estado As String
         sSQL = "Select UsuariosEstado "
-        sSQL = sSQL & "FROM [montes].[dbo].Usuarios "
+        sSQL = sSQL & "FROM Usuarios "
         sSQL = sSQL & "WHERE (Usuarios.UsuariosId = " & UsuariosId & ") "
         LeerEstadoUsuarios = False
         Try
@@ -224,7 +224,7 @@ Public Class Usuarios
         Dim dtr As IDataReader
         Dim sSQL As String
         sSQL = "Select RolName "
-        sSQL = sSQL & "FROM [montes].[dbo].Usuarios "
+        sSQL = sSQL & "FROM Usuarios "
         sSQL = sSQL & "WHERE (Usuarios.UsuariosCodigo = '" & UsuariosCodigo & "') "
         LeerRolNameByName = ""
         Try
@@ -247,7 +247,7 @@ Public Class Usuarios
         Dim LinkPerfilUsuario As String = ""
 
         strUpdate = "SELECT Roles.RolName, Usuarios.UsuariosId as Id, Usuarios.UsuariosName, Usuarios.UsuariosProfesion, Usuarios.UsuariosUniversidad, Usuarios.UsuariosCelular, Usuarios.UsuariosTelefonoFijo, Usuarios.UsuariosDireccion1, Usuarios.UsuariosDireccion2, Usuarios.UsuariosCodigo, Usuarios.UsuariosCorreo2 "
-        strUpdate = strUpdate & "FROM [montes].[dbo].Usuarios INNER JOIN Roles ON Usuarios.RolName = Roles.RolName "
+        strUpdate = strUpdate & "FROM Usuarios INNER JOIN Roles ON Usuarios.RolName = Roles.RolName "
         strUpdate = strUpdate & "WHERE (((Roles.RolName)='" & RolName & "') AND ((Usuarios.UsuariosEstado)='Activo'))"
 
         ListarUsuariosPorRol = ""
@@ -290,7 +290,7 @@ Public Class Usuarios
         Dim sSQL As String
 
         sSQL = "Select UsuariosStringBusqueda "
-        sSQL = sSQL & "FROM [montes].[dbo].Usuarios "
+        sSQL = sSQL & "FROM Usuarios "
         sSQL = sSQL & "WHERE Usuarios.UsuariosId = " & UsuariosId
         LeerStringBusqueda = ""
         Try
@@ -310,7 +310,7 @@ Public Class Usuarios
         Dim AccionesABM As New AccionesABM
 
         Dim t As Integer = 0
-        strUpdate = "UPDATE [montes].[dbo].Usuarios SET "
+        strUpdate = "UPDATE Usuarios SET "
         strUpdate = strUpdate & "Usuarios.UsuariosStringBusqueda = '" & StringBusqueda & "', "
         strUpdate = strUpdate & "Usuarios.DateLastUpdate = '" & AccionesABM.DateTransform(Now()) & "', "
         strUpdate = strUpdate & "Usuarios.UserLastUpdate = " & UserId & " "

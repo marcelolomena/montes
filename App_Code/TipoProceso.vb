@@ -260,7 +260,7 @@ Public Class TipoProceso
 
         strUpdate = "Select TipoProcesoId, TipoProcesoName, TipoProcesoDescription, TipoProcesoSecuencia, AccionesCodigo "
         strUpdate = strUpdate & "FROM TipoProceso "
-        strUpdate = strUpdate & "WHERE IsActivo = ""SI"" ORDER BY TipoProcesoSecuencia "
+        strUpdate = strUpdate & "WHERE IsActivo = 'SI' ORDER BY TipoProcesoSecuencia "
         'strUpdate = strUpdate & "ORDER BY TipoProcesoSecuencia"
 
         ListarTiposDeProcesos = ""

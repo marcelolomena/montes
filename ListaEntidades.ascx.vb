@@ -79,7 +79,7 @@
         Dim IsAuthorizedUser As Boolean = FuncionesPorRol.LeerFuncionesPorRol(Session("RolId"), CLng(Request.QueryString("MenuOptionsId")), "MenuOptions", FuncionesPorRolId)
         Dim RolName As String = Rol.LeerRolNameByRolId(Session("RolId"))
 
-        Dim sqlSource As AccessDataSource
+        Dim sqlSource As SqlDataSource
         'Dim txtTextoLibre As LiteralControl
         Dim Grilla As GridView
         Dim sSQL As String = ""
@@ -425,46 +425,55 @@
         Cell.ColumnSpan = "2"
         Cell.Style(HtmlTextWriterStyle.TextAlign) = "right"
 
-        sqlSource = New AccessDataSource
-        sqlSource.ID = "ds1"
+        Try
+            sqlSource = New SqlDataSource()                    
+            sqlSource.ConnectionString = "Server=localhost;UID=sa;PWD=Password_01;Database=montes"
+            
+            sqlSource.ID = "ds1"
 
-        t = Lecturas.LeerSQLStatementFormularioWeb("SQLSelect", DataFile, SelectCommand, NumeroPagina)
+            t = Lecturas.LeerSQLStatementFormularioWeb("SQLSelect", DataFile, SelectCommand, NumeroPagina)
 
-        'sqlSource.ConnectionString = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=|DataDirectory|\BDCAS.mdb"
-        sqlSource.DataFile = DataFile
-        sSQL = SelectCommand & " "
+            'sqlSource.ConnectionString = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=|DataDirectory|\BDCAS.mdb"
+            'sqlSource.DataFile = DataFile
+            sSQL = SelectCommand & " "
 
-        sSQL = sSQL & sSQLWhere
-        If Len(Request.QueryString("sSQLOrderBy")) > 0 Then
-            sSQL = sSQL & " " & Request.QueryString("sSQLOrderBy")
-        End If
-        If PaginaWebName = "Lista de DocumentosSGI" Then
-            If Request.QueryString("Tipo") = "Compliance" Then
-                sSQL = "Select DocumentosSGI.DocumentosSGIId As Id, DocumentosSGI.DocumentosSGICodigo As Código, DocumentosSGI.DocumentosSGINombre As Título, DocumentosSGI.DocumentosSGIArea As Emisor, Mid(DocumentosSGI.DocumentosSGIFEmision,1,10) As Emisión, DocumentosSGI.DocumentosSGIFRevision As Rev, DocumentosSGI.DocumentosSGIOrigen As C_Externo,  'SGI\' + DocumentosSGI.DocumentosSGIPath as Url  FROM DocumentosSGI Where DocumentosSGI.DocumentosSGITipo = 'Compliance' Order by DocumentosSGI.DocumentosSGIId Desc"
-            Else
-                sSQL = "Select DocumentosSGI.DocumentosSGIId As Id, DocumentosSGI.DocumentosSGICodigo As Código, DocumentosSGI.DocumentosSGINombre As Título, DocumentosSGI.DocumentosSGIArea As Emisor, Mid(DocumentosSGI.DocumentosSGIFEmision,1,10) As Emisión, DocumentosSGI.DocumentosSGIFRevision As Rev, DocumentosSGI.DocumentosSGIOrigen As C_Externo,  'SGI\' + DocumentosSGI.DocumentosSGIPath as Url  FROM DocumentosSGI Where DocumentosSGI.DocumentosSGITipo <> 'Compliance' Order by DocumentosSGI.DocumentosSGIId Desc"
+            sSQL = sSQL & sSQLWhere
+            If Len(Request.QueryString("sSQLOrderBy")) > 0 Then
+                sSQL = sSQL & " " & Request.QueryString("sSQLOrderBy")
             End If
-        End If
-        If PaginaWebName = "Lista de Carpetas" Then
-            sSQL = "Select Carpetas.CarpetasId As Id, Carpetas.CarpetasSecuencia as Sec, Carpetas.CarpetasName As Nombre, Carpetas.CarpetasDescription As Descripcion FROM Carpetas "
-            sSQL = sSQL & "Where Carpetas.CarpetasName = '" & Request.QueryString("Carpeta") & "' "
-            sSQL = sSQL & "Order by Carpetas.CarpetasSecuencia"
-        End If
+            If PaginaWebName = "Lista de DocumentosSGI" Then
+                If Request.QueryString("Tipo") = "Compliance" Then
+                    sSQL = "Select DocumentosSGI.DocumentosSGIId As Id, DocumentosSGI.DocumentosSGICodigo As Código, DocumentosSGI.DocumentosSGINombre As Título, DocumentosSGI.DocumentosSGIArea As Emisor, convert(varchar, DocumentosSGI.DocumentosSGIFEmision, 23) As Emisión, DocumentosSGI.DocumentosSGIFRevision As Rev, DocumentosSGI.DocumentosSGIOrigen As C_Externo,  'SGI\' + DocumentosSGI.DocumentosSGIPath as Url  FROM DocumentosSGI Where DocumentosSGI.DocumentosSGITipo = 'Compliance' Order by DocumentosSGI.DocumentosSGIId Desc"
+                Else
+                    sSQL = "Select DocumentosSGI.DocumentosSGIId As Id, DocumentosSGI.DocumentosSGICodigo As Código, DocumentosSGI.DocumentosSGINombre As Título, DocumentosSGI.DocumentosSGIArea As Emisor, convert(varchar, DocumentosSGI.DocumentosSGIFEmision, 23) As Emisión, DocumentosSGI.DocumentosSGIFRevision As Rev, DocumentosSGI.DocumentosSGIOrigen As C_Externo,  'SGI\' + DocumentosSGI.DocumentosSGIPath as Url  FROM DocumentosSGI Where DocumentosSGI.DocumentosSGITipo <> 'Compliance' Order by DocumentosSGI.DocumentosSGIId Desc"
+                End If
+            End If
+            If PaginaWebName = "Lista de Carpetas" Then
+                sSQL = "Select Carpetas.CarpetasId As Id, Carpetas.CarpetasSecuencia as Sec, Carpetas.CarpetasName As Nombre, Carpetas.CarpetasDescription As Descripcion FROM Carpetas "
+                sSQL = sSQL & "Where Carpetas.CarpetasName = '" & Request.QueryString("Carpeta") & "' "
+                sSQL = sSQL & "Order by Carpetas.CarpetasSecuencia"
+            End If
 
-        sqlSource.SelectCommand = sSQL
+            sqlSource.SelectCommand = sSQL
 
-        ' El 22-03-2011 se agrega el caso especial del HAVING para el manejo de selección de datos 
-        ' agrupados por alguna condición, como por ejemplo el caso de las Guias no facturadas o facturadas en 
-        ' un determinado mes.
+            ' El 22-03-2011 se agrega el caso especial del HAVING para el manejo de selección de datos 
+            ' agrupados por alguna condición, como por ejemplo el caso de las Guias no facturadas o facturadas en 
+            ' un determinado mes.
 
-        ' Para lo cual primero se desplegará una ventana de parámetros y luego se invocará el reporte.
+            ' Para lo cual primero se desplegará una ventana de parámetros y luego se invocará el reporte.
 
-        If Len(Request.QueryString("sSQLHaving")) > 0 Then
-            sSQL = sSQL & " " & Request.QueryString("sSQLHaving")
-        End If
-        sqlSource.SelectCommand = sSQL
+            If Len(Request.QueryString("sSQLHaving")) > 0 Then
+                sSQL = sSQL & " " & Request.QueryString("sSQLHaving")
+            End If
+            sqlSource.SelectCommand = sSQL
 
-        Cell.Controls.Add(sqlSource)
+            Cell.Controls.Add(sqlSource)
+        Catch ex As Exception
+            Console.WriteLine(ex.ToString)
+            Console.WriteLine()
+            'Return Nothing
+        End Try
+        
         Row.Cells.Add(Cell)
 
         MyTable.Rows.Add(Row)

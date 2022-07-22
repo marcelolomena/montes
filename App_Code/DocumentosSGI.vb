@@ -13,7 +13,7 @@ Public Class DocumentosSGI
         Dim dtr As IDataReader
         Dim sSQL As String
         sSQL = "Select DocumentosSGICodigo, DocumentosSGINombre, DocumentosSGIDescription, DocumentosSGIPath, DocumentosSGIOrigen, DocumentosSGITipo, DocumentosSGIFEmision, DocumentosSGIFRevision, DocumentosSGIArea, DocumentosSGIResponsable, DocumentosSGIEmpresa, DocumentosSGIContrato, DocumentosSGIPalabrasClaves "
-        sSQL = sSQL & "FROM (DocumentosSGI) "
+        sSQL = sSQL & "FROM DocumentosSGI "
         sSQL = sSQL & "WHERE (DocumentosSGI.DocumentosSGIId = " & DocumentosSGIId & ") "
         Try
             dtr = AccesoEA.ListarRegistros(sSQL)
@@ -47,7 +47,7 @@ Public Class DocumentosSGI
         Dim dtr As IDataReader
         Dim sSQL As String
         sSQL = "Select DocumentosSGIId "
-        sSQL = sSQL & "FROM (DocumentosSGI) "
+        sSQL = sSQL & "FROM DocumentosSGI "
         sSQL = sSQL & "WHERE (DocumentosSGI.DocumentosSGICodigo = '" & DocumentosSGICodigo & "') "
         DocumentosSGIId = 0
         Try
@@ -117,7 +117,7 @@ Public Class DocumentosSGI
         Dim dtr As IDataReader
         Dim sSQL As String
         sSQL = "Select DocumentosSGINombre "
-        sSQL = sSQL & "FROM (DocumentosSGI) "
+        sSQL = sSQL & "FROM DocumentosSGI "
         sSQL = sSQL & "WHERE (DocumentosSGI.DocumentosSGICodigo = '" & DocumentosSGICodigo & "') "
         TituloDocumentosSGIByCodigo = ""
         Try
@@ -136,7 +136,7 @@ Public Class DocumentosSGI
         Dim sSQL As String
 
         sSQL = "SELECT distinct DocumentosSGI.[DocumentosSGINombre] AS Titulo "
-        sSQL = sSQL & "FROM (DocumentosSGI) "
+        sSQL = sSQL & "FROM DocumentosSGI "
         sSQL = sSQL & "WHERE (((DocumentosSGI.DocumentosSGINombre) LIKE ('%" & Filtro & "%')))"
 
         i = 0
@@ -160,7 +160,7 @@ Public Class DocumentosSGI
         Dim sSQL As String
 
         sSQL = "SELECT distinct DocumentosSGI.[DocumentosSGINombre] AS Titulo "
-        sSQL = sSQL & "FROM (DocumentosSGI) "
+        sSQL = sSQL & "FROM DocumentosSGI "
         sSQL = sSQL & "WHERE (((DocumentosSGI.DocumentosSGIPalabrasClaves) LIKE ('%" & Filtro & "%')))"
         i = 0
         Try
@@ -181,7 +181,7 @@ Public Class DocumentosSGI
         Dim dtr As IDataReader
         Dim sSQL As String
         sSQL = "Select DocumentosSGINombre "
-        sSQL = sSQL & "FROM (DocumentosSGI) "
+        sSQL = sSQL & "FROM DocumentosSGI "
         sSQL = sSQL & "WHERE (DocumentosSGI.DocumentosSGICodigo = '" & DocumentosSGICodigo & "') "
         LeerDocumentosSGIDescriptionByName = ""
         Try
@@ -270,8 +270,8 @@ Public Class DocumentosSGI
         Dim NotasTransversales As New NotasTransversales
 
 
-        strUpdate = "SELECT distinct DocumentosSGI.[DocumentosSGINombre] AS Titulo, 'SGI\' + DocumentosSGI.DocumentosSGIPath As Url, Mid(DocumentosSGIFEmision,1,10) as Fecha "
-        strUpdate = strUpdate & "FROM (DocumentosSGI) "
+        strUpdate = "SELECT distinct DocumentosSGI.[DocumentosSGINombre] AS Titulo, 'SGI\' + DocumentosSGI.DocumentosSGIPath As Url, convert(varchar, DocumentosSGIFEmision, 23) as Fecha "
+        strUpdate = strUpdate & "FROM DocumentosSGI "
         strUpdate = strUpdate & "WHERE (((DocumentosSGI.DocumentosSGIPalabrasClaves) LIKE ('%" & PalabraClave & "%')) OR ((DocumentosSGI.DocumentosSGINombre) LIKE ('%" & PalabraClave & "%')) OR ((DocumentosSGI.DocumentosSGIEmpresa) LIKE ('%" & PalabraClave & "%')))"
         MostrarDocumentosPorPalabraClave = ""
         CodigoHTML = "<table border=""0"" cellpadding=""0"" cellspacing=""0"" class=""alertas"">"

@@ -103,6 +103,7 @@ Partial Class IndexSGI
                     'PlaceHolder1.Controls.Add(New LiteralControl("<h1>Página en Construcción</h1>"))
                 End If
             Catch ex As Exception
+                Console.WriteLine(ex.ToString)
                 PlaceHolder1.Controls.Add(New LiteralControl("<h1>Página en Construcción</h1>"))
             End Try
         End If
